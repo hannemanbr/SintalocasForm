@@ -1,0 +1,15 @@
+﻿<Properties StartupConfiguration="{95008B03-C3B7-4E84-A945-D70FAC0F5AA0}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="SINTALOCAS.Modelo/Dependentes.cs">
+    <Files>
+      <File FileName="SINTALOCAS.Modelo/Afiliado.cs" Line="18" Column="43" />
+      <File FileName="SINTALOCAS.Modelo/Dependentes.cs" Line="8" Column="48" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.SINTALOCAS.Web.Api PreferredExecutionTarget="MonoDevelop.Default" />
+  <MultiItemStartupConfigurations />
+</Properties>
