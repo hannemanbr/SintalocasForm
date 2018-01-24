@@ -1,0 +1,8 @@
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Dominio/bin/Release/netstandard2.0/SINTALOCAS.Dominio.deps.json
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Dominio/bin/Release/netstandard2.0/SINTALOCAS.Dominio.dll
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Dominio/bin/Release/netstandard2.0/SINTALOCAS.Dominio.pdb
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Dominio/obj/Release/netstandard2.0/SINTALOCAS.Dominio.csproj.CoreCompileInputs.cache
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Dominio/obj/Release/netstandard2.0/SINTALOCAS.Dominio.AssemblyInfoInputs.cache
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Dominio/obj/Release/netstandard2.0/SINTALOCAS.Dominio.AssemblyInfo.cs
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Dominio/obj/Release/netstandard2.0/SINTALOCAS.Dominio.dll
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Dominio/obj/Release/netstandard2.0/SINTALOCAS.Dominio.pdb

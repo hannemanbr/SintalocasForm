@@ -183,11 +183,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS/SINTALOCAS.Dominio/SINTALOCAS.Dominio.csproj",
+      "projectUniqueName": "/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Dominio/SINTALOCAS.Dominio.csproj",
       "projectName": "SINTALOCAS.Dominio",
-      "projectPath": "/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS/SINTALOCAS.Dominio/SINTALOCAS.Dominio.csproj",
+      "projectPath": "/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Dominio/SINTALOCAS.Dominio.csproj",
       "packagesPath": "/Users/thomasalvessabrantes/.nuget/packages/",
-      "outputPath": "/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS/SINTALOCAS.Dominio/obj",
+      "outputPath": "/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Dominio/obj",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"

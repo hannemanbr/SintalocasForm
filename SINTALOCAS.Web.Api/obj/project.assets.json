@@ -28530,11 +28530,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS/SINTALOCAS.Web.Api/SINTALOCAS.Web.Api.csproj",
+      "projectUniqueName": "/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Web.Api/SINTALOCAS.Web.Api.csproj",
       "projectName": "SINTALOCAS.Web.Api",
-      "projectPath": "/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS/SINTALOCAS.Web.Api/SINTALOCAS.Web.Api.csproj",
+      "projectPath": "/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Web.Api/SINTALOCAS.Web.Api.csproj",
       "packagesPath": "/Users/thomasalvessabrantes/.nuget/packages/",
-      "outputPath": "/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS/SINTALOCAS.Web.Api/obj",
+      "outputPath": "/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Web.Api/obj",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
