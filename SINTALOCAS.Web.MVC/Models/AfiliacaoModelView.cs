@@ -21,5 +21,8 @@ namespace SINTALOCAS.Web.MVC.Models
         //public string UF { get; set; }
         public List<UnidadeFederativa> UnidadeFederativa { get; set; }
         public string CEP { get; set; }
+
+
     }
+
 }

@@ -10,27 +10,42 @@ namespace SINTALOCAS.DAL.DATA
     {
         ContextoDB _contexto = new ContextoDB();
 
-        public void Inserir(Afiliado afiliado){
+        public void Inserir(Afiliado afiliado)
+        {
 
-            var query = " INSERT INTO Afiliado";
-            query += "(";
-            query += "";
-            query += "";
-            query += "";
-            query += "";
-            query += "";
-            query += "";
-            query += "";
-            query += "";
-            query += "";
-            query += "";
-            query += "";
-            query += "";
-            query += "";
-            query += ")";
+            try
+            {
+                var query = "" +
+                    " INSERT INTO Afiliado(" +                
+                    "Nome, " +                
+                    "Email, " +                
+                    "DataNascimento, " +                
+                    "CPF, " +                
+                    "CTPS_Num, " +                
+                    "CTPS_Serie, " +                
+                    "CONSIR, " +                
+                    "NomePai, " +                
+                    "NomeMae " +                
+                    ") VALUES (";
 
-            _contexto.Transacao(query);
-            
+                query += "'" + afiliado.Nome + "'";
+                query += ",'" + afiliado.Email + "'";
+                query += ",'" + afiliado.DataNascimento + "'";
+                query += ",'" + afiliado.CPF + "'";
+                query += ",'" + afiliado.CTPS.Numero + "'";
+                query += ",'" + afiliado.CTPS.Serie + "'";
+                query += ",'" + afiliado.Consir + "'";
+                query += ",'" + afiliado.NomePai + "'";
+                query += ",'" + afiliado.NomeMae + "'";
+                query += ")";
+
+                _contexto.Transacao(query);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
         }
     }
 }

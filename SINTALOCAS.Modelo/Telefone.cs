@@ -8,5 +8,6 @@ namespace SINTALOCAS.Modelo
         public TelefoneEnum TipoTelefone { get; set; }
         public string DDD { get; set; }
         public string Numero { get; set; }
+        //public int Tipo { get; set; }
     }
 }
