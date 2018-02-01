@@ -15,6 +15,9 @@ namespace SINTALOCAS.DAL.DATA
 
             try
             {
+
+                var dataNascTx = afiliado.DataNascimento.Year + "-" + afiliado.DataNascimento.Month + "-" + afiliado.DataNascimento.Day;
+
                 var query = "" +
                     " INSERT INTO Afiliado(" +                
                     "Nome, " +                
@@ -30,7 +33,7 @@ namespace SINTALOCAS.DAL.DATA
 
                 query += "'" + afiliado.Nome + "'";
                 query += ",'" + afiliado.Email + "'";
-                query += ",'" + afiliado.DataNascimento + "'";
+                query += ",'" + dataNascTx + "'";
                 query += ",'" + afiliado.CPF + "'";
                 query += ",'" + afiliado.CTPS.Numero + "'";
                 query += ",'" + afiliado.CTPS.Serie + "'";

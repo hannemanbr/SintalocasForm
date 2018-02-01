@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using SINTALOCAS.Dominio.Servico;
 using SINTALOCAS.Modelo;
 using SINTALOCAS.Modelo.Enumerator;
+using SINTALOCAS.Dominio.Util;
 
 namespace SINTALOCAS.Web.MVC.Servico
 {
@@ -58,7 +60,8 @@ namespace SINTALOCAS.Web.MVC.Servico
                 afiliado.Telefones = telefones;
 
                 //Datas
-                afiliado.DataNascimento = lista["DTNASC"];
+                DateTime dataNascimento = DataUtil.ConverterString(lista["DTNASC"]);
+                afiliado.DataNascimento = dataNascimento;
 
                 var _afiliacaoServ = new AfiliacaoServico();
 

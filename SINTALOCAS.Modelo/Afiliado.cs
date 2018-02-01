@@ -11,7 +11,7 @@ namespace SINTALOCAS.Modelo
         public string Matricula { get; set; }
         public string CPF { get; set; }
         public string RG { get; set; }
-        public string DataNascimento { get; set; }
+        public DateTime DataNascimento { get; set; }
         public string NomePai { get; set; }
         public string NomeMae { get; set; }
         public string Cargo { get; set; }
