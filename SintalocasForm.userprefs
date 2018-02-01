@@ -1,23 +1,10 @@
 ﻿<Properties StartupConfiguration="{DFAEFCA5-435B-4271-943A-882ACEA11971}|">
   <MonoDevelop.Ide.ItemProperties.SINTALOCAS.Web.MVC PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="SINTALOCAS.Web.MVC/Servico/AfiliacaoViewsServico.cs">
-    <Files>
-      <File FileName="SINTALOCAS.Web.MVC/Servico/AfiliacaoViewsServico.cs" Line="64" Column="1" />
-      <File FileName="SINTALOCAS.Web.MVC/Controllers/AfiliacaoController.cs" Line="37" Column="38" />
-      <File FileName="SINTALOCAS.DAL/DATA/AfiliacaoDAL.cs" Line="36" Column="43" />
-      <File FileName="SINTALOCAS.DAL/Context/ContextoDB.cs" Line="60" Column="1" />
-      <File FileName="SINTALOCAS.Dominio/Servico/AfiliacaoServico.cs" Line="16" Column="32" />
-      <File FileName="SINTALOCAS.Dominio/Util/DataUtil.cs" Line="17" Column="1" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Web.MVC/Servico/AfiliacaoServico.cs" relfile="SINTALOCAS.Web.MVC/Servico/AfiliacaoServico.cs" line="16" column="1" />
-      <Breakpoint file="/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.DAL/DATA/AfiliacaoDAL.cs" relfile="SINTALOCAS.DAL/DATA/AfiliacaoDAL.cs" line="21" column="1" />
-      <Breakpoint file="/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Web.MVC/Servico/AfiliacaoViewsServico.cs" relfile="SINTALOCAS.Web.MVC/Servico/AfiliacaoViewsServico.cs" line="73" column="26" />
-      <Breakpoint file="/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.DAL/DATA/AfiliacaoDAL.cs" relfile="SINTALOCAS.DAL/DATA/AfiliacaoDAL.cs" line="45" column="1" />
-      <Breakpoint file="/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Web.MVC/Servico/AfiliacaoViewsServico.cs" relfile="SINTALOCAS.Web.MVC/Servico/AfiliacaoViewsServico.cs" line="63" column="90" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

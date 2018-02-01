@@ -9,9 +9,6 @@
     <RootNamespace>SINTALOCAS.Web.MVC</RootNamespace>
     <AssemblyName>SINTALOCAS.Web.MVC</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <FileUpgradeFlags>40</FileUpgradeFlags>
-    <UpgradeBackupLocation>F:\Github\SintalocasForm\Backup\SINTALOCAS.Web.MVC\</UpgradeBackupLocation>
-    <OldToolsVersion>4.0</OldToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -115,5 +112,4 @@
       </Properties>
     </MonoDevelop>
   </ProjectExtensions>
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v15.0\WebApplications\Microsoft.WebApplication.targets" />
 </Project>
