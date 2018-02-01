@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { MeuPrimeiroComponent_VSCode } from './app.component';
+import { AppComponent } from './app.component';
+import { ClientesModule } from './clientes/clientes.module';
 
 @NgModule({
-    imports: [BrowserModule],
-    declarations: [MeuPrimeiroComponent_VSCode],
-    bootstrap: [MeuPrimeiroComponent_VSCode]
+    imports: [BrowserModule, ClientesModule],
+    declarations: [AppComponent],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }  

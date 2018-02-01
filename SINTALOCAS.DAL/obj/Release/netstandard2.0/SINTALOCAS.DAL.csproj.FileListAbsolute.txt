@@ -1,9 +1,0 @@
-/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.DAL/bin/Release/netstandard2.0/SINTALOCAS.DAL.deps.json
-/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.DAL/bin/Release/netstandard2.0/SINTALOCAS.DAL.dll
-/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.DAL/bin/Release/netstandard2.0/SINTALOCAS.DAL.pdb
-/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.DAL/obj/Release/netstandard2.0/SINTALOCAS.DAL.csprojResolveAssemblyReference.cache
-/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.DAL/obj/Release/netstandard2.0/SINTALOCAS.DAL.csproj.CoreCompileInputs.cache
-/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.DAL/obj/Release/netstandard2.0/SINTALOCAS.DAL.AssemblyInfoInputs.cache
-/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.DAL/obj/Release/netstandard2.0/SINTALOCAS.DAL.AssemblyInfo.cs
-/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.DAL/obj/Release/netstandard2.0/SINTALOCAS.DAL.dll
-/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.DAL/obj/Release/netstandard2.0/SINTALOCAS.DAL.pdb

@@ -1,0 +1,12 @@
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Dominio/bin/Debug/SINTALOCAS.Dominio.dll
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Dominio/bin/Debug/SINTALOCAS.Dominio.pdb
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Dominio/obj/Debug/SINTALOCAS.Dominio.csproj.CoreCompileInputs.cache
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Dominio/obj/Debug/SINTALOCAS.Dominio.dll
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Dominio/obj/Debug/SINTALOCAS.Dominio.pdb
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Dominio/obj/Debug/SINTALOCAS.Dominio.csprojResolveAssemblyReference.cache
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Dominio/bin/Debug/SINTALOCAS.DAL.dll
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Dominio/bin/Debug/SINTALOCAS.Modelo.dll
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Dominio/bin/Debug/SINTALOCAS.Modelo.pdb
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Dominio/bin/Debug/SINTALOCAS.DAL.pdb
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Dominio/bin/Debug/SINTALOCAS.DAL.dll.config
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Dominio/bin/Debug/MySql.Data.dll

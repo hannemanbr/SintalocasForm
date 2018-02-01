@@ -1,0 +1,1 @@
+{"version":3,"file":"clientes-lista.component.js","sourceRoot":"","sources":["clientes-lista.component.ts"],"names":[],"mappings":";;;;;;;;AAAA,sCAAwC;AAMxC;IAAA;IACA,CAAC;IADY,sBAAsB;QALlC,gBAAS,CAAC;YACP,QAAQ,EAAE,MAAM,CAAC,EAAE;YACnB,QAAQ,EAAG,gBAAgB;YAC3B,WAAW,EAAE,+BAA+B;SAC/C,CAAC;OACW,sBAAsB,CAClC;IAAD,6BAAC;CAAA,AADD,IACC;AADY,wDAAsB"}

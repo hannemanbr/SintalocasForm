@@ -1,0 +1,6 @@
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Modelo/obj/Debug/SINTALOCAS.Modelo.csprojResolveAssemblyReference.cache
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Modelo/obj/Debug/SINTALOCAS.Modelo.csproj.CoreCompileInputs.cache
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Modelo/bin/Debug/SINTALOCAS.Modelo.dll
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Modelo/bin/Debug/SINTALOCAS.Modelo.pdb
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Modelo/obj/Debug/SINTALOCAS.Modelo.dll
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Modelo/obj/Debug/SINTALOCAS.Modelo.pdb

@@ -1,0 +1,15 @@
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.DAL/bin/Debug/SINTALOCAS.DAL.dll
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.DAL/bin/Debug/SINTALOCAS.DAL.pdb
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.DAL/obj/Debug/SINTALOCAS.DAL.csproj.CoreCompileInputs.cache
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.DAL/obj/Debug/SINTALOCAS.DAL.dll
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.DAL/obj/Debug/SINTALOCAS.DAL.pdb
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.DAL/obj/Debug/SINTALOCAS.DAL.csprojResolveAssemblyReference.cache
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.DAL/bin/Debug/SINTALOCAS.DAL.dll.config
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.DAL/bin/Debug/EntityFramework.dll
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.DAL/bin/Debug/EntityFramework.SqlServer.dll
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.DAL/bin/Debug/SINTALOCAS.Modelo.dll
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.DAL/bin/Debug/SINTALOCAS.Modelo.pdb
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.DAL/bin/Debug/EntityFramework.xml
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.DAL/bin/Debug/EntityFramework.SqlServer.xml
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.DAL/bin/Debug/MySql.Data.dll
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.DAL/bin/Debug/MySql.Data.Entity.EF6.dll

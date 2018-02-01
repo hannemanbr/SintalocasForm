@@ -7,16 +7,16 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var MeuPrimeiroComponent_VSCode = /** @class */ (function () {
-    function MeuPrimeiroComponent_VSCode() {
+var AppComponent = /** @class */ (function () {
+    function AppComponent() {
     }
-    MeuPrimeiroComponent_VSCode = __decorate([
+    AppComponent = __decorate([
         core_1.Component({
-            selector: 'minha-app',
-            template: '<h3>Minha primeira aplicação Angular 2.0 no VS Code </h3><br>Macoratti .net<div class="alert alert-success" role="alert"><strong>Minha primeira aplicação Angular 2.0  no VS Code - </strong>Macoratti .net.</div>'
+            selector: 'my-app',
+            template: '<h3>Afiliação</h3><br>SintaLocas<div class="alert alert-success" role="alert"><strong>Minha primeira aplicação Angular 2.0  no VS Code - </strong>Macoratti .net.</div>'
         })
-    ], MeuPrimeiroComponent_VSCode);
-    return MeuPrimeiroComponent_VSCode;
+    ], AppComponent);
+    return AppComponent;
 }());
-exports.MeuPrimeiroComponent_VSCode = MeuPrimeiroComponent_VSCode;
+exports.AppComponent = AppComponent;
 //# sourceMappingURL=app.component.js.map

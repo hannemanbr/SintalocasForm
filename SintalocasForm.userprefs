@@ -1,0 +1,23 @@
+﻿<Properties StartupConfiguration="{DFAEFCA5-435B-4271-943A-882ACEA11971}|">
+  <MonoDevelop.Ide.ItemProperties.SINTALOCAS.Web.MVC PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="SINTALOCAS.Web.MVC/Controllers/HomeController.cs">
+    <Files>
+      <File FileName="SINTALOCAS.Web.MVC/Controllers/HomeController.cs" Line="21" Column="51" />
+      <File FileName="SINTALOCAS.Dominio/Servico/UFServico.cs" Line="14" Column="31" />
+      <File FileName="SINTALOCAS.DAL/DATA/UFDAL.cs" Line="13" Column="40" />
+      <File FileName="SINTALOCAS.Web.MVC/Models/AfiliacaoModelView.cs" Line="22" Column="9" />
+      <File FileName="SINTALOCAS.Web.MVC/Models/DependenteModelView.cs" Line="9" Column="44" />
+      <File FileName="SintalocasForm Status" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.DAL/DATA/UFDAL.cs" relfile="SINTALOCAS.DAL/DATA/UFDAL.cs" line="15" column="1" />
+      <Breakpoint file="/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.DAL/DATA/UFDAL.cs" relfile="SINTALOCAS.DAL/DATA/UFDAL.cs" line="40" column="1" />
+      <Breakpoint file="/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.DAL/DATA/UFDAL.cs" relfile="SINTALOCAS.DAL/DATA/UFDAL.cs" line="37" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+</Properties>
