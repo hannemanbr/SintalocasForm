@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Postmon4Net</name>
+    </assembly>
+    <members>
+        <member name="T:Postmon4Net.EncontrarEndereco">
+            <summary>
+            Consulta de CEP via API Postmon.
+            </summary>
+        </member>
+        <member name="M:Postmon4Net.EncontrarEndereco.PorCEP(System.String,System.Boolean)">
+            <summary>
+            Retornar os dados de um endereço a patir do número do CEP.
+            </summary>
+            <param name="CEP">Número do CEP.</param>
+            <param name="excecaoSeNaoEncontrar">Lança uma exceção caso não encontre o CEP se assinado como TRUE.</param>
+            <returns>Os dados do endereço de acordo com o JSON resultado da API Postmon.</returns>
+        </member>
+    </members>
+</doc>

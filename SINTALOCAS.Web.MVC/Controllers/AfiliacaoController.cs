@@ -74,5 +74,10 @@ namespace SINTALOCAS.Web.MVC.Controllers
                 return View ();
             }
         }
+
+        [HttpGet]
+        public HttpGetAttribute BuscaEndereco(){
+            return null;
+        }
     }
 }

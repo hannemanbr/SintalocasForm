@@ -28,12 +28,19 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Postmon4Net">
+      <HintPath>..\packages\Postmon4Net.1.0.0\lib\net40\Postmon4Net.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Servico\UFServico.cs" />
     <Compile Include="Servico\AfiliacaoServico.cs" />
     <Compile Include="Util\DataUtil.cs" />
+    <Compile Include="Servico\PostmonApi.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Interface\" />
@@ -49,6 +56,9 @@
       <Project>{24F26D96-C5C0-4976-B823-1DB6865FDF3C}</Project>
       <Name>SINTALOCAS.DAL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
