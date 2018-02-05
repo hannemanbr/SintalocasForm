@@ -10,3 +10,7 @@
 /Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Dominio/bin/Debug/SINTALOCAS.DAL.pdb
 /Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Dominio/bin/Debug/SINTALOCAS.DAL.dll.config
 /Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Dominio/bin/Debug/MySql.Data.dll
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Dominio/bin/Debug/Npgsql.dll
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Dominio/bin/Debug/System.Threading.Tasks.Extensions.dll
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Dominio/bin/Debug/Npgsql.xml
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Dominio/bin/Debug/System.Threading.Tasks.Extensions.xml

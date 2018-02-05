@@ -24,3 +24,7 @@ using System.Runtime.CompilerServices;
 
 //[assembly: AssemblyDelaySign(false)]
 //[assembly: AssemblyKeyFile("")]
+
+// Ajuste devido ao .Net Framework 4.0
+// msdn.microsoft.com/.../system.security.allowpartiallytrustedcallersattribute.aspx
+[assembly: System.Security.AllowPartiallyTrustedCallers]

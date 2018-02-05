@@ -8,7 +8,7 @@ namespace SINTALOCAS.DAL.DATA
 {
     public class UFDAL
     {
-        ContextoDB _contexto = new ContextoDB();
+        ContextoMySqlDB _contexto = new ContextoMySqlDB();
 
         public List<UnidadeFederativa> Consultar()
         {

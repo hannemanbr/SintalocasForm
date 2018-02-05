@@ -8,7 +8,8 @@ namespace SINTALOCAS.DAL.DATA
 {
     public class AfiliacaoDAL
     {
-        ContextoDB _contexto = new ContextoDB();
+        ContextoMySqlDB _contexto = new ContextoMySqlDB();
+        //ContextoPGDB _contexto = new ContextoPGDB();
 
         public void Inserir(Afiliado afiliado)
         {
@@ -20,6 +21,7 @@ namespace SINTALOCAS.DAL.DATA
 
                 var query = "" +
                     " INSERT INTO Afiliado(" +                
+                    //"ID, " +                
                     "Nome, " +                
                     "Email, " +                
                     "DataNascimento, " +                
@@ -31,6 +33,7 @@ namespace SINTALOCAS.DAL.DATA
                     "NomeMae " +                
                     ") VALUES (";
 
+                //query += "'1',";
                 query += "'" + afiliado.Nome + "'";
                 query += ",'" + afiliado.Email + "'";
                 query += ",'" + dataNascTx + "'";

@@ -19,9 +19,16 @@
 /Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Web.MVC/obj/Debug/SINTALOCAS.Web.MVC.pdb
 /Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Web.MVC/bin/SINTALOCAS.Modelo.dll
 /Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Web.MVC/bin/SINTALOCAS.Modelo.pdb
-/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Web.MVC/bin/MySql.Data.dll
 /Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Web.MVC/bin/SINTALOCAS.DAL.dll
 /Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Web.MVC/bin/SINTALOCAS.DAL.pdb
 /Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Web.MVC/bin/SINTALOCAS.DAL.dll.config
 /Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Web.MVC/bin/SINTALOCAS.Dominio.dll
 /Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Web.MVC/bin/SINTALOCAS.Dominio.pdb
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Web.MVC/bin/MySql.Data.dll
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Web.MVC/bin/AWSSDK.Core.dll
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Web.MVC/bin/AWSSDK.Core.pdb
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Web.MVC/bin/AWSSDK.Core.xml
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Web.MVC/bin/Npgsql.dll
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Web.MVC/bin/System.Threading.Tasks.Extensions.dll
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Web.MVC/bin/Npgsql.xml
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Web.MVC/bin/System.Threading.Tasks.Extensions.xml
