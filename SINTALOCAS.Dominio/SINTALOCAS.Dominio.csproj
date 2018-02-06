@@ -40,7 +40,8 @@
     <Compile Include="Servico\UFServico.cs" />
     <Compile Include="Servico\AfiliacaoServico.cs" />
     <Compile Include="Util\DataUtil.cs" />
-    <Compile Include="Servico\PostmonApi.cs" />
+    <Compile Include="Util\EnderecoUtil.cs" />
+    <Compile Include="Util\ValidacaoForm.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Interface\" />

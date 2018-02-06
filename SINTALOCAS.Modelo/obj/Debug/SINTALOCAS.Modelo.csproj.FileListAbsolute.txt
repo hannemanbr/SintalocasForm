@@ -4,3 +4,5 @@
 /Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Modelo/bin/Debug/SINTALOCAS.Modelo.pdb
 /Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Modelo/obj/Debug/SINTALOCAS.Modelo.dll
 /Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Modelo/obj/Debug/SINTALOCAS.Modelo.pdb
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Modelo/bin/Debug/Correios.Net.dll
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Modelo/bin/Debug/Correios.Net.pdb

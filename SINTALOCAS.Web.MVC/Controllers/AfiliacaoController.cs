@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
+using SINTALOCAS.Dominio.Util;
 using SINTALOCAS.Web.MVC.Servico;
 
 namespace SINTALOCAS.Web.MVC.Controllers
@@ -27,6 +26,11 @@ namespace SINTALOCAS.Web.MVC.Controllers
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
+            // VALIDANDO PREENCHIMENTO
+            Dictionary<string, bool> listaValidacao = ValidarForm(collection);
+            ViewBag.MensagemRetorno = ValidacaoForm.GeraMensagemErroRetorno(listaValidacao);
+
+            //GERANDO INFORMAÇAO PARA ENVIAR PARA BD
             var lista = new Dictionary<string, string>();
 
             foreach(string formDados in collection)
@@ -38,11 +42,6 @@ namespace SINTALOCAS.Web.MVC.Controllers
 
             return View();
 
-            //try {
-            //    //return RedirectToAction ("Index");
-            //} catch {
-            //    return View ();
-            //}
         }
         
         public ActionResult Edit(int id)
@@ -75,9 +74,31 @@ namespace SINTALOCAS.Web.MVC.Controllers
             }
         }
 
-        [HttpGet]
-        public HttpGetAttribute BuscaEndereco(){
-            return null;
+
+        public JsonResult BuscaEndereco(string cep){
+            
+            var endereco = EnderecoUtil.ConsultarEndereco(cep);
+
+            return Json(endereco, JsonRequestBehavior.AllowGet);
+
+        }
+
+        private Dictionary<string, bool> ValidarForm(FormCollection collection){
+
+            var listaCampoOpcional = ValidacaoForm.FormAfiliacaoCampoOpcional();
+            var result = new Dictionary<string, bool>();
+
+            foreach (string formDados in collection)
+            {
+                if (!listaCampoOpcional.Contains(formDados.ToUpper()))
+                {
+                    var valorCampo = collection[formDados].Trim();
+                    if (valorCampo == "") result.Add(formDados.ToUpper(), false);
+                }
+
+            }
+
+            return result;
         }
     }
 }

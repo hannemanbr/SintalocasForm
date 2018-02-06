@@ -3,6 +3,28 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<script>
+    function PreencheEndereco() {
+ 
+    $.ajax({
+        url: '/Passos/PreencheEndereco',
+        dataType: "json",
+        contentType: "application/json; charset=utf-8",
+        type: "POST",
+        success: function (data) {
+ 
+            $(data.resultado).each(function () {
+ 
+            });
+        },
+        error: function (error) {
+ 
+        }
+    });
+}
+</script>
+
+
 <h2>FICHA DE FILIAÇÃO</h2>
 
 <body>
@@ -10,73 +32,73 @@
         <table>
             <tr>
                 <td>ASSOCIADO:</td>
-                <td><input type="text" id="Nome" name="Nome" /></td>
+                <td><input type="text" id="Nome" name="Nome" placeholder="nome completo" /></td>
             </tr>
              <tr>
                 <td>E-MAIL:</td>
-                <td><input type="text" id="Email" name="Email" /></td>
+                <td><input type="text" id="Email" name="Email" placeholder="e-mail" /></td>
             </tr>
             <tr>
                 <td>DATA DE NASCIMENTO:</td>
-                <td><input type="text" id="DtNasc" name="DtNasc" /></td>
+                <td><input type="text" id="DtNasc" name="DtNasc" placeholder="dd/mm/aaaa" /></td>
             </tr>
             <tr>
                 <td>RG:</td>
-                <td><input type="text" id="Rg" name="Rg" /></td>
+                <td><input type="text" id="Rg" name="Rg" placeholder="Somente número" /></td>
             </tr>
             <tr>
                 <td>CPF:</td>
-                <td><input type="text" id="Cpf" name="Cpf" /></td>
+                <td><input type="text" id="Cpf" name="Cpf" placeholder="Somente número" /></td>
             </tr>
             <tr>
                 <td>PIS:</td>
-                <td><input type="text" id="Pis" name="Pis" /></td>
+                <td><input type="text" id="Pis" name="Pis" placeholder="" /></td>
             </tr>
             <tr>
                 <td>CTPS:</td>
-                <td><input type="text" id="CtpsNum" name="CtpsNum" /></td>
+                <td><input type="text" id="CtpsNum" name="CtpsNum" placeholder="" /></td>
             </tr>
             <tr>
                 <td>Serie:</td>
-                <td><input type="text" id="CtpsSerie" name="CtpsSerie" /></td>
+                <td><input type="text" id="CtpsSerie" name="CtpsSerie" placeholder="" /></td>
             </tr>
             <tr>
                 <td>Cargo:</td>
-                <td><input type="text" id="Cargo" name="Cargo" /></td>
+                <td><input type="text" id="Cargo" name="Cargo" placeholder="" /></td>
             </tr>
             <tr>
                 <td>Empresa:</td>
-                <td><input type="text" id="Empresa" name="Empresa" /></td>
+                <td><input type="text" id="Empresa" name="Empresa" placeholder="" /></td>
             </tr>
             <tr>
                 <td>CNPJ:</td>
-                <td><input type="text" id="Cnpj" name="Cnpj" /></td>
+                <td><input type="text" id="Cnpj" name="Cnpj" placeholder="" /></td>
             </tr>
             <tr>
                 <td>CONSIR:</td>
-                <td><input type="text" id="Consir" name="Consir" /></td>
+                <td><input type="text" id="Consir" name="Consir" placeholder="" /></td>
             </tr>
             <tr>
                 <td>Celular:</td>
                 <td>
-                    DDD <input type="text" id="TelCelDDD" name="TelCelDDD" />
-                    No. <input type="text" id="TelCelNum" name="TelCelNum" />
+                    DDD <input type="text" id="TelCelDDD" name="TelCelDDD" style="width:30px" placeholder="99" />
+                    No. <input type="text" id="TelCelNum" name="TelCelNum"  placeholder="99999-9999" />
                 </td>
             </tr>
             <tr>
-                <td>Telefone Residencial:</td>
+                <td>Telefone Residencial (Opcional):</td>
                 <td>
-                    DDD <input type="text" id="TelResDDD" name="TelResDDD" />
-                    No. <input type="text" id="TelResNum" name="TelResNum" />
+                    DDD <input type="text" id="TelResDDD" name="TelResDDD" style="width:30px" placeholder="99" />
+                    No. <input type="text" id="TelResNum" name="TelResNum"  placeholder="opcional" />
                 </td>
             </tr>
             <tr>
                 <td>Rua:</td>
-                <td><input type="text" id="Rua" name="Rua" /></td>
+                <td><input type="text" id="Rua" name="Rua" placeholder="ex: Rua / Avenida / Estrada / Travessa, etc." /></td>
             </tr>
             <tr>
                 <td>Número:</td>
-                <td><input type="text" id="Numero" name="Numero" /></td>
+                <td><input type="text" id="Numero" name="Numero" placeholder="Somente números" /></td>
             </tr>
             <tr>
                 <td>Complemento:</td>
@@ -92,15 +114,15 @@
             </tr>
             <tr>
                 <td>UF:</td>
-                <td><input type="text" id="UF" name="UF" /></td>
+                <td><input type="text" id="UF" name="UF" placeholder="XX" /></td>
             </tr>
             <tr>
                 <td>CEP:</td>
-                <td><input type="text" id="CEP" name="CEP" /></td>
+                <td><input type="text" id="CEP" name="CEP" placeholder="Somente números" /></td>
             </tr>
             <tr>
                 <td>Nome Pai:</td>
-                <td><input type="text" id="NomePai" name="NomePai" /></td>
+                <td><input type="text" id="NomePai" name="NomePai" placeholder="Opcional" /></td>
             </tr>
             <tr>
                 <td>Nome Mãe:</td>
@@ -108,7 +130,11 @@
             </tr>
              <tr>
                 <td></td>
-                <td><input type="submit"  /></td>
+                <td>
+                    <input type="submit"  />
+                    <br/><br/>
+                    <span style="color:#FF0000">@Html.Raw(ViewBag.MensagemRetorno)</span>
+                </td>
             </tr>
         </table>
     </form>
