@@ -10,31 +10,36 @@ namespace SINTALOCAS.Web.MVC.Controllers
     {
         public ActionResult Index()
         {
-            return RedirectToAction ("Create");
+            return RedirectToAction("Create");
         }
 
         public ActionResult Details(int id)
         {
-            return View ();
+            return View();
         }
 
         public ActionResult Create()
         {
-            return View ();
-        } 
+            return View();
+        }
 
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
             // VALIDANDO PREENCHIMENTO
             Dictionary<string, bool> listaValidacao = ValidarForm(collection);
-            ViewBag.MensagemRetorno = ValidacaoForm.GeraMensagemErroRetorno(listaValidacao);
 
-            //GERANDO INFORMAÇAO PARA ENVIAR PARA BD
+            if (listaValidacao.Where(x => x.Value == false).Any())
+            {
+                ViewBag.MensagemRetorno = ValidacaoForm.GeraMensagemErroRetorno(listaValidacao);
+                return View();
+            }
+
+            //GERANDO INFORMAÇAO PARA ENVIAR PARA o BD
             var lista = new Dictionary<string, string>();
 
-            foreach(string formDados in collection)
-            {   
+            foreach (string formDados in collection)
+            {
                 lista.Add(formDados.ToUpper(), collection[formDados]);
             }
 
@@ -43,47 +48,54 @@ namespace SINTALOCAS.Web.MVC.Controllers
             return View();
 
         }
-        
+
         public ActionResult Edit(int id)
         {
-            return View ();
+            return View();
         }
 
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
-            try {
-                return RedirectToAction ("Index");
-            } catch {
-                return View ();
+            try
+            {
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
             }
         }
 
         public ActionResult Delete(int id)
         {
-            return View ();
+            return View();
         }
 
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
-            try {
-                return RedirectToAction ("Index");
-            } catch {
-                return View ();
+            try
+            {
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
             }
         }
 
 
-        public JsonResult BuscaEndereco(string cep){
-            
-            var endereco = EnderecoUtil.ConsultarEndereco(cep);
+        public JsonResult BuscaEndereco(string cep)
+        {
 
+            var endereco = EnderecoUtil.ConsultarEndereco(cep);
             return Json(endereco, JsonRequestBehavior.AllowGet);
 
         }
 
-        private Dictionary<string, bool> ValidarForm(FormCollection collection){
+        private Dictionary<string, bool> ValidarForm(FormCollection collection)
+        {
 
             var listaCampoOpcional = ValidacaoForm.FormAfiliacaoCampoOpcional();
             var result = new Dictionary<string, bool>();
