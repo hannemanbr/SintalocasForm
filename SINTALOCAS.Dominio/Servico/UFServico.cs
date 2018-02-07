@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using SINTALOCAS.DAL.DATA;
 using SINTALOCAS.Modelo;
@@ -11,7 +12,33 @@ namespace SINTALOCAS.Dominio.Servico
 
         public List<UnidadeFederativa> Consultar()
         {
-            return _ufData.Consultar();
+            return _ufData.Consultar().OrderBy(x=>x.UF).ToList();
+        }
+
+        public List<UnidadeFederativa> UF_DDDs()
+        {
+            return _ufData.ListarDDDs();
+        }
+
+        public List<string> DDDs()
+        {
+            try
+            {
+                var listaResult = new List<string>();
+                var listaUFs = _ufData.ListarDDDs();
+
+                foreach (var item in listaUFs.OrderBy(x=>x.DDD))
+                {
+                    listaResult.Add(item.DDD.ToString());
+                }
+
+                return listaResult;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
         }
     }
 }

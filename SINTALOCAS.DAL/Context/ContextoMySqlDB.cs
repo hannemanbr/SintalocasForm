@@ -14,6 +14,7 @@ namespace SINTALOCAS.DAL.Context
             try
             {
                 var conexaoString = ConfigurationManager.ConnectionStrings["MySQLDB"].ConnectionString;
+                //var conexaoString = ConfigurationManager.ConnectionStrings["MySQLDBEXT"].ConnectionString;
                 conexao = new MySqlConnection(conexaoString);
             }
             catch (Exception ex)

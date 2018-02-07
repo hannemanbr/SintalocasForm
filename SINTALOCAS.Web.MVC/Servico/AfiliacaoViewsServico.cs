@@ -6,12 +6,42 @@ using SINTALOCAS.Modelo;
 using SINTALOCAS.Modelo.Enumerator;
 using SINTALOCAS.Dominio.Util;
 using System.Web.Mvc;
+using SINTALOCAS.Web.MVC.Models;
 
 namespace SINTALOCAS.Web.MVC.Servico
 {
     public static class AfiliacaoViewsServico
     {
-        
+
+        public static AfiliacaoModelView GeraAfiliacaoModelView(Dictionary<string, string> lista){
+
+            // criando objeto de afiliado
+            var afiliado = new AfiliacaoModelView();
+
+            afiliado.Cargo = lista["CARGO"];
+            afiliado.Consir = lista["CONSIR"];
+            afiliado.CPF = lista["CPF"];
+            afiliado.CNPJ = lista["CNPJ"];
+            afiliado.Empresa = lista["EMPRESA"];
+            afiliado.RG = lista["RG"];
+            afiliado.Email = lista["EMAIL"];
+            afiliado.Nome = lista["NOME"];
+            afiliado.NomeMae = lista["NOMEMAE"];
+            afiliado.NomePai = lista["NOMEPAI"];
+            afiliado.PIS = lista["PIS"];
+            afiliado.CTPS_Serie = lista["CTPSSERIE"];
+            afiliado.CTPS_Numero = lista["CTPSNUM"];
+            afiliado.DDDTel = lista["TELRESDDD"];
+            afiliado.NumTel = lista["TELRESNUM"];
+            afiliado.DDDCel = lista["TELCELDDD"];
+
+            //Datas
+            DateTime dataNascimento = DataUtil.ConverterString(lista["DTNASC"]);
+            afiliado.DataNascimento = dataNascimento;
+
+            return afiliado;
+        }
+
         public static int Insere(Dictionary<string, string> lista)
         {
             try

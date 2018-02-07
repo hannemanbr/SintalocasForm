@@ -9,7 +9,6 @@ namespace SINTALOCAS.DAL.DATA
     public class AfiliacaoDAL
     {
         ContextoMySqlDB _contexto = new ContextoMySqlDB();
-        //ContextoPGDB _contexto = new ContextoPGDB();
 
         public void Inserir(Afiliado afiliado)
         {

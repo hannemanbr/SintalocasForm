@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<select id="UD" name="UF">
+                    @foreach (var item in ViewBag.DDDLista) 
+                    {
+                        <option value="@item.UF">@item.UF</option>
+                    }
+                    </select>
+
+@foreach (var item in ViewBag.DDDLista) 
+{
+    @item.UF <br/>
+}

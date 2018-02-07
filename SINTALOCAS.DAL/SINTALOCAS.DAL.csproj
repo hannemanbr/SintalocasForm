@@ -69,6 +69,7 @@
     <Compile Include="DATA\AfiliacaoDAL.cs" />
     <Compile Include="Context\ContextoODBCDB.cs" />
     <Compile Include="Context\ContextoPGDB.cs" />
+    <Compile Include="DATA\LogDAL.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

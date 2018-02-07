@@ -40,5 +40,37 @@ namespace SINTALOCAS.DAL.DATA
             return lista;
         }
 
+        public List<UnidadeFederativa> ListarDDDs()
+        {
+            var lista = new List<UnidadeFederativa>();
+            var query = "Select * From Cfg_DDD ";
+            var dataTable = _contexto.Consultar(query);
+
+            try
+            {
+
+                foreach (DataRow linha in dataTable.Rows)
+                {
+                    var obj = new UnidadeFederativa
+                    {
+                        DDD = Convert.ToInt32(linha["DDD"]),
+                        UF = linha["UF"].ToString(),
+                        Descricao = linha["Estado"].ToString(),
+                        Regiao = linha["Regiao"].ToString(),
+                    };
+
+                    lista.Add(obj);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return lista;
+
+        }
+
     }
 }

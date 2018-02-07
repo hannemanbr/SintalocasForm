@@ -87,6 +87,7 @@
     <Compile Include="Models\DependenteModelView.cs" />
     <Compile Include="Controllers\AfiliacaoController.cs" />
     <Compile Include="Servico\AfiliacaoViewsServico.cs" />
+    <Compile Include="Controllers\TesteMVCController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Web.config" />
@@ -107,6 +108,10 @@
     <Content Include="Image\Logo.jpg" />
     <Content Include="Image\banner_site.jpg" />
     <Content Include="Image\logo_fundo.png" />
+    <Content Include="Style\estilo.css" />
+    <Content Include="Views\TesteMVC\Index.cshtml" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SINTALOCAS.Modelo\SINTALOCAS.Modelo.csproj">

@@ -79,6 +79,14 @@ namespace SINTALOCAS.Dominio.Util
                 }
             }
 
+            if (listaCampos.Keys.Contains("TelCelDDD") && listaCampos.Keys.Contains("TelCelNum"))
+            {
+                if (!ValidaCodigos.ValidarDDD(listaCampos["TelCelDDD"].ToString()))
+                {
+                    result += "<li>Celular: DDD inválido</li>"; //
+                }
+            }
+
             return result;
         }
 
