@@ -7,7 +7,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>SINTALOCAS.Dominio</RootNamespace>
     <AssemblyName>SINTALOCAS.Dominio</AssemblyName>
-    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -41,7 +41,8 @@
     <Compile Include="Servico\AfiliacaoServico.cs" />
     <Compile Include="Util\DataUtil.cs" />
     <Compile Include="Util\EnderecoUtil.cs" />
-    <Compile Include="Util\ValidacaoForm.cs" />
+    <Compile Include="Util\Validacao.cs" />
+    <Compile Include="Util\ValidaCodigos.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Interface\" />

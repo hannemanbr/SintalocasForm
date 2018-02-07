@@ -1,8 +1,9 @@
 ﻿<Properties StartupConfiguration="{DFAEFCA5-435B-4271-943A-882ACEA11971}|">
   <MonoDevelop.Ide.ItemProperties.SINTALOCAS.Web.MVC PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="SINTALOCAS.Web.MVC/Controllers/AfiliacaoController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="SINTALOCAS.Dominio/Util/Validacao.cs">
     <Files>
-      <File FileName="SINTALOCAS.Web.MVC/Controllers/AfiliacaoController.cs" Line="93" Column="65" />
+      <File FileName="SINTALOCAS.Web.MVC/Controllers/AfiliacaoController.cs" Line="31" Column="64" />
+      <File FileName="SINTALOCAS.Dominio/Util/Validacao.cs" Line="80" Column="14" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

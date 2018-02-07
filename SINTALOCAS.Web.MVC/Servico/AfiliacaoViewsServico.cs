@@ -5,6 +5,7 @@ using SINTALOCAS.Dominio.Servico;
 using SINTALOCAS.Modelo;
 using SINTALOCAS.Modelo.Enumerator;
 using SINTALOCAS.Dominio.Util;
+using System.Web.Mvc;
 
 namespace SINTALOCAS.Web.MVC.Servico
 {
@@ -74,5 +75,38 @@ namespace SINTALOCAS.Web.MVC.Servico
             }
 
         }
+
+        public static Dictionary<string, string> GeraListaCampos(FormCollection collection){
+
+            var lista = new Dictionary<string, string>();
+
+            foreach (string formDados in collection)
+            {
+                lista.Add(formDados.ToUpper(), collection[formDados]);
+            }
+
+            return lista;
+
+        }
+
+        public static Dictionary<string, bool> ValidaCampoObrigatorio(FormCollection collection)
+        {
+
+            var listaCampoOpcional = Validacao.FormAfiliacaoCampoOpcional();
+            var result = new Dictionary<string, bool>();
+
+            foreach (string formDados in collection)
+            {
+                if (!listaCampoOpcional.Contains(formDados.ToUpper()))
+                {
+                    var valorCampo = collection[formDados].Trim();
+                    if (valorCampo == "") result.Add(formDados.ToUpper(), false);
+                }
+
+            }
+
+            return result;
+        }
+
     }
 }

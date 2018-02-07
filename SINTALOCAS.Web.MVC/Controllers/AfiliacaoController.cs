@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using SINTALOCAS.Dominio.Util;
@@ -13,11 +14,6 @@ namespace SINTALOCAS.Web.MVC.Controllers
             return RedirectToAction("Create");
         }
 
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
         public ActionResult Create()
         {
             return View();
@@ -26,65 +22,27 @@ namespace SINTALOCAS.Web.MVC.Controllers
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
-            // VALIDANDO PREENCHIMENTO
-            Dictionary<string, bool> listaValidacao = ValidarForm(collection);
-
-            if (listaValidacao.Where(x => x.Value == false).Any())
-            {
-                ViewBag.MensagemRetorno = ValidacaoForm.GeraMensagemErroRetorno(listaValidacao);
-                return View();
-            }
-
-            //GERANDO INFORMAÇAO PARA ENVIAR PARA o BD
-            var lista = new Dictionary<string, string>();
-
-            foreach (string formDados in collection)
-            {
-                lista.Add(formDados.ToUpper(), collection[formDados]);
-            }
-
-            AfiliacaoViewsServico.Insere(lista);
-
-            return View();
-
-        }
-
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
             try
             {
-                return RedirectToAction("Index");
+                //Convertendo informaçoes dos campos em uma lista
+                var lista = AfiliacaoViewsServico.GeraListaCampos(collection);
+
+                //validar cpf, cpn, pis, etc.
+                var result = Validacao.FormAfiliacaoValidarPreenchimento(lista);
+
+                if (result == "") AfiliacaoViewsServico.Insere(lista);
+
+                ViewBag.MensagemRetorno = result;
+                return View();
+
             }
-            catch
+            catch (Exception ex)
             {
+                ViewBag.MensagemRetorno = "Ocorreu um problema durante a operação, tente novamente -  " + ex.Message;
                 return View();
             }
-        }
 
-        public ActionResult Delete(int id)
-        {
-            return View();
         }
-
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
 
         public JsonResult BuscaEndereco(string cep)
         {
@@ -94,23 +52,47 @@ namespace SINTALOCAS.Web.MVC.Controllers
 
         }
 
-        private Dictionary<string, bool> ValidarForm(FormCollection collection)
-        {
+        //public ActionResult Details(int id)
+        //{
+        //    return View();
+        //}
 
-            var listaCampoOpcional = ValidacaoForm.FormAfiliacaoCampoOpcional();
-            var result = new Dictionary<string, bool>();
+        //public ActionResult Edit(int id)
+        //{
+        //    return View();
+        //}
 
-            foreach (string formDados in collection)
-            {
-                if (!listaCampoOpcional.Contains(formDados.ToUpper()))
-                {
-                    var valorCampo = collection[formDados].Trim();
-                    if (valorCampo == "") result.Add(formDados.ToUpper(), false);
-                }
+        //[HttpPost]
+        //public ActionResult Edit(int id, FormCollection collection)
+        //{
+        //    try
+        //    {
+        //        return RedirectToAction("Index");
+        //    }
+        //    catch
+        //    {
+        //        return View();
+        //    }
+        //}
 
-            }
+        //public ActionResult Delete(int id)
+        //{
+        //    return View();
+        //}
 
-            return result;
-        }
+        //[HttpPost]
+        //public ActionResult Delete(int id, FormCollection collection)
+        //{
+        //    try
+        //    {
+        //        return RedirectToAction("Index");
+        //    }
+        //    catch
+        //    {
+        //        return View();
+        //    }
+        //}
+
+
     }
 }

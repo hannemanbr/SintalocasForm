@@ -12,7 +12,7 @@
     <UpgradeBackupLocation>F:\Github\SintalocasForm\Backup\SINTALOCAS.Web.MVC\</UpgradeBackupLocation>
     <OldToolsVersion>4.0</OldToolsVersion>
     <AssemblyOriginatorKeyFile>bin\MySql.Data.dll</AssemblyOriginatorKeyFile>
-    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -74,6 +74,8 @@
     <Folder Include="Models\" />
     <Folder Include="Scripts\" />
     <Folder Include="Servico\" />
+    <Folder Include="Download\" />
+    <Folder Include="Download\docs\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\HomeController.cs" />
@@ -119,6 +121,7 @@
   <ItemGroup>
     <None Include="Scripts\jquery-3.3.1.slim.min.map" />
     <None Include="Scripts\jquery-3.3.1.min.map" />
+    <None Include="Download\docs\Ficha_Filiacao_AcordoJAN2018.pdf" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
