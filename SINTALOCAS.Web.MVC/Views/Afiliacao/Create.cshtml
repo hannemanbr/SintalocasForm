@@ -5,7 +5,7 @@
 <h2>FICHA DE FILIAÇÃO</h2>
 <body>
     <form method="post" action="Create">     
-        <table >
+       <table >
             <tr>
                 <td class="TDcampoLabel">ASSOCIADO:</td>
                 <td class="TDcampoTexto">
@@ -13,7 +13,10 @@
             </tr>
              <tr>
                 <td>E-MAIL:</td>
-                <td><input type="text" id="Email" name="Email" placeholder="e-mail" value="@ViewBag.Afiliado.Email" /></td>
+                <td>
+                    <input type="text" id="Email" name="Email" placeholder="e-mail" value="@ViewBag.Afiliado.Email" />
+                    <div style="color:#FF0000" id="rEmail"></div>
+                </td>
             </tr>
             <tr>
                 <td>DATA DE NASCIMENTO:</td>
@@ -25,19 +28,30 @@
             </tr>
             <tr>
                 <td>CPF:</td>
-                <td><input type="text" id="Cpf" name="Cpf" placeholder="Somente número" value="@ViewBag.Afiliado.CPF" /></td>
+                <td>
+                    <input type="text" id="Cpf" name="Cpf" placeholder="Somente número" value="@ViewBag.Afiliado.CPF" />
+                    <div style="color:#FF0000" id="rCpf"></div>
+                </td>
             </tr>
             <tr>
                 <td>PIS:</td>
-                <td><input type="text" id="Pis" name="Pis" placeholder="" value="@ViewBag.Afiliado.PIS" /></td>
+                <td>
+                    <input type="text" id="Pis" name="Pis" placeholder="" value="@ViewBag.Afiliado.PIS" />
+                    <div style="color:#FF0000" id="rPis"></div>
+                </td>
             </tr>
             <tr>
                 <td>CTPS:</td>
-                <td><input type="text" id="CtpsNum" name="CtpsNum" placeholder="" value="@ViewBag.Afiliado.CTPS_Numero" /></td>
+                <td>
+                    <input type="text" id="CtpsNum" name="CtpsNum" placeholder="" value="@ViewBag.Afiliado.CTPS_Numero" />
+                    <div style="color:#FF0000" id="rCtpsNum"></div>
+                </td>
             </tr>
             <tr>
                 <td>Serie:</td>
-                <td><input type="text" id="CtpsSerie" name="CtpsSerie" placeholder="" value="@ViewBag.Afiliado.CTPS_Serie" /></td>
+                <td>
+                    <input type="text" id="CtpsSerie" name="CtpsSerie" placeholder="" value="@ViewBag.Afiliado.CTPS_Serie" />
+                </td>
             </tr>
             <tr>
                 <td>Cargo:</td>
@@ -49,7 +63,10 @@
             </tr>
             <tr>
                 <td>CNPJ:</td>
-                <td><input type="text" id="Cnpj" name="Cnpj" placeholder="" /></td>
+                <td>
+                    <input type="text" id="Cnpj" name="Cnpj" placeholder="" />
+                    <div style="color:#FF0000" id="rCnpj"></div>
+                </td>
             </tr>
             <tr>
                 <td>CONSIR:</td>
@@ -65,7 +82,7 @@
                     }
                     </select>
                     <!--DDD <input type="text" id="TelCelDDD" name="TelCelDDD" style="width:30px" placeholder="99" />-->
-                    No. <input type="text" id="TelCelNum" name="TelCelNum"  placeholder="99999-9999" />
+                    No. <input type="text" id="TelCelNum" name="TelCelNum" style="width:90px;" pattern="\([0-9]{2}\)[\s][0-9]{4}-[0-9]{4,5}" placeholder="99999-9999" />
                 </td>
             </tr>
             <tr>
@@ -78,7 +95,7 @@
                     }
                     </select>
                     <!-- DDD <input type="text" id="TelResDDD" name="TelResDDD" style="width:30px" placeholder="99" />-->
-                    No. <input type="text" id="TelResNum" name="TelResNum"  placeholder="opcional" />
+                    No. <input type="text" id="TelResNum" name="TelResNum" style="width:90px;"  placeholder="opcional" />
                 </td>
             </tr>
             <tr>
@@ -115,7 +132,10 @@
             </tr>
             <tr>
                 <td>CEP:</td>
-                <td><input type="text" id="CEP" name="CEP" placeholder="Somente números" /></td>
+                <td>
+                    <input type="text" id="CEP" name="CEP" placeholder="Somente números" />
+                    <div style="color:#FF0000" id="rCEP"></div>
+                </td>
             </tr>
             <tr>
                 <td>Nome Pai:</td>
@@ -140,7 +160,6 @@
                 </td>
             </tr>
         </table>
-        
     </form>
 
     <p id="rData"></p>
