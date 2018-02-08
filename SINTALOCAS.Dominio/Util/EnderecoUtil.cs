@@ -33,7 +33,7 @@ namespace SINTALOCAS.Dominio.Util
                     Numero = "",
                     Complemento = "",
                     Cidade = "",
-                    ID = 0
+                    ID = -1
                 };
             }
 

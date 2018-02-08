@@ -91,6 +91,7 @@
     <Compile Include="Controllers\AfiliacaoController.cs" />
     <Compile Include="Servico\AfiliacaoViewsServico.cs" />
     <Compile Include="Controllers\TesteMVCController.cs" />
+    <Compile Include="Models\EnderecoModelView.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Web.config" />

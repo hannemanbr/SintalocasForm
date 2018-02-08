@@ -102,7 +102,7 @@
                 <td>CEP:</td>
                 <td>
                     <input type="text" id="CEP" name="CEP" placeholder="Somente números" />
-                    <div style="color:#FF0000" id="rCEP"></div>
+                    <div style="color:#FF0000" id="rCEP">@ViewBag.MensagemCEPRetorno</div>
                 </td>
             </tr>
             <tr>
@@ -128,13 +128,14 @@
             <tr>
                 <td>UF:</td>
                 <td>
-<!--                <input type="text" id="UF" name="UF" placeholder="XX" />-->
-                    <select id="UD" name="UF">
+                    <input type="text" id="UF" name="UF" placeholder="XX" />
+                    <div style="color:#FF0000" id="rUF"></div>
+                    <!--<select id="UD" name="UF">
                     @foreach (var item in ViewBag.UFLista) 
                     {
                         <option value="@item.UF">@item.UF</option>
                     }
-                    </select>
+                    </select>-->
                 </td>
             </tr>
             <tr>

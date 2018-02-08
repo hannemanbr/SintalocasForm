@@ -126,12 +126,25 @@ namespace SINTALOCAS.Web.MVC.Controllers
                 //CONSULTAR ENDEREÇO COM CEP INFORMADO
                 var endereco = EnderecoUtil.ConsultarEndereco(Cep);
 
+                if (endereco.ID == -1) ViewBag.MensagemCEPRetorno = MensagemUtil.ErroCEPInvalido();
+
                 result = endereco;
             }
 
             string json = JsonConvert.SerializeObject(result, Formatting.Indented);
             return json;
 
+        }
+
+        [HttpGet]
+        public string ValidarUF(string Uf)
+        {
+            var result = "";
+            var listaUFs = _ufServ.Consultar().Select(x=>x.UF).ToList();
+
+            if (!listaUFs.Contains(Uf)) result = MensagemUtil.ErroUFInvalido();
+
+            return result;
         }
 
         //public ActionResult Details(int id)

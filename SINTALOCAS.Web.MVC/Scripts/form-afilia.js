@@ -47,6 +47,16 @@ $('#CEP').blur(function ()
         $("#Bairro").val(data.Bairro);
         $("#Rua").val(data.Rua);
         $("#Cidade").val(data.Cidade);
-       
+        $("#UF").val(data.UF);
+    });
+})
+
+$('#Pis').blur(function ()
+{
+    var url = "/Afiliacao/ValidarUF/";
+    var valor = $(this).val();
+    $.get(url, { Uf: valor}, function (data)
+    {
+        $("#rUF").html(data);
     });
 })

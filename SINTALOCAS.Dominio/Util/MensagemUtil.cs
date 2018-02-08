@@ -8,5 +8,6 @@ namespace SINTALOCAS.Dominio.Util
         public static string ErroPIsInvalido() { return "PIS inválido"; }
         public static string ErroConsirInvalido() { return "Consir inválido"; }
         public static string ErroCEPInvalido() { return "CEP inválido"; }
+        public static string ErroUFInvalido() { return "Estado/UF inválido"; }
     }
 }
