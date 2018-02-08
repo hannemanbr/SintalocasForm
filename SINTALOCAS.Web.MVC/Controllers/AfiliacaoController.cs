@@ -79,6 +79,46 @@ namespace SINTALOCAS.Web.MVC.Controllers
             return DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss");
         }
 
+        [HttpGet]
+        public string ValidarCPF(string Cpf)
+        {
+            var result = "";
+
+            if (!ValidaCodigosUtil.ValidaCpf(Cpf)) result = MensagemUtil.ErroCPFInvalido();
+
+            return result;
+        }
+
+        [HttpGet]
+        public string ValidarPIS(string Pis)
+        {
+            var result = "";
+
+            if (!ValidaCodigosUtil.ValidaPis(Pis)) result = MensagemUtil.ErroPIsInvalido();
+
+            return result;
+        }
+
+        [HttpGet]
+        public string ValidarCNPJ(string Cnpj)
+        {
+            var result = "";
+
+            if (!ValidaCodigosUtil.ValidaCnpj(Cnpj)) result = MensagemUtil.ErroCNPJInvalido();
+
+            return result;
+        }
+
+        [HttpGet]
+        public string ValidarCEP(string Cep)
+        {
+            var result = "";
+
+            if (!ValidaCodigosUtil.ValidaCpf(Cep)) result = MensagemUtil.ErroCEPInvalido();
+
+            return result;
+        }
+
         //public ActionResult Details(int id)
         //{
         //    return View();

@@ -43,6 +43,7 @@
     <Compile Include="Util\EnderecoUtil.cs" />
     <Compile Include="Util\ValidaCodigosUtil.cs" />
     <Compile Include="Util\ValidacaoUtil.cs" />
+    <Compile Include="Util\MensagemUtil.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Interface\" />

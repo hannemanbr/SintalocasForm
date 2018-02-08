@@ -4,7 +4,7 @@ using SINTALOCAS.Dominio.Servico;
 
 namespace SINTALOCAS.Dominio.Util
 {
-    public static class ValidaCodigos
+    public static class ValidaCodigosUtil
     {
         public static bool ValidaCnpj(string cnpj)
         {

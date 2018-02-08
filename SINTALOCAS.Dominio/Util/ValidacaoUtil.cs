@@ -49,7 +49,7 @@ namespace SINTALOCAS.Dominio.Util
             // VALIDAR CRP, CPF PIS
             if (listaCampos.Keys.Contains("CPF"))
             {
-                if (!ValidaCodigos.ValidaCpf(listaCampos["CPF"].ToString()))
+                if (!ValidaCodigosUtil.ValidaCpf(listaCampos["CPF"].ToString()))
                 {
                     result += "<li>CPF inválido</li>";
                 }
@@ -57,7 +57,7 @@ namespace SINTALOCAS.Dominio.Util
 
             if (listaCampos.Keys.Contains("CNPJ"))
             {
-                if (!ValidaCodigos.ValidaCnpj(listaCampos["CNPJ"].ToString()))
+                if (!ValidaCodigosUtil.ValidaCnpj(listaCampos["CNPJ"].ToString()))
                 {
                     result += "<li>CNPJ inválido</li>";
                 }
@@ -65,7 +65,7 @@ namespace SINTALOCAS.Dominio.Util
 
             if (listaCampos.Keys.Contains("PIS"))
             {
-                if (!ValidaCodigos.ValidaPis(listaCampos["PIS"].ToString()))
+                if (!ValidaCodigosUtil.ValidaPis(listaCampos["PIS"].ToString()))
                 {
                     result += "<li>PIS inválido</li>";
                 }
@@ -73,7 +73,7 @@ namespace SINTALOCAS.Dominio.Util
 
             if (listaCampos.Keys.Contains("CEP"))
             {
-                if (!ValidaCodigos.ValidaPis(listaCampos["CEP"].ToString()))
+                if (!ValidaCodigosUtil.ValidaPis(listaCampos["CEP"].ToString()))
                 {
                     result += "<li>CEP inválido</li>";
                 }
@@ -81,7 +81,7 @@ namespace SINTALOCAS.Dominio.Util
 
             if (listaCampos.Keys.Contains("TelCelDDD") && listaCampos.Keys.Contains("TelCelNum"))
             {
-                if (!ValidaCodigos.ValidarDDD(listaCampos["TelCelDDD"].ToString()))
+                if (!ValidaCodigosUtil.ValidarDDD(listaCampos["TelCelDDD"].ToString()))
                 {
                     result += "<li>Celular: DDD inválido</li>"; //
                 }
