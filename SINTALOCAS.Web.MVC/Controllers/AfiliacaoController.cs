@@ -114,7 +114,16 @@ namespace SINTALOCAS.Web.MVC.Controllers
         {
             var result = "";
 
-            if (!ValidaCodigosUtil.ValidaCpf(Cep)) result = MensagemUtil.ErroCEPInvalido();
+            if (!ValidaCodigosUtil.ValidaCep(Cep))
+            {
+                result = MensagemUtil.ErroCEPInvalido();
+            } else
+            {
+                //CONSULTAR ENDEREÇO COM CEP INFORMADO
+                var endereco = EnderecoUtil.ConsultarEndereco(Cep);
+
+                result = endereco.Bairro;
+            }
 
             return result;
         }

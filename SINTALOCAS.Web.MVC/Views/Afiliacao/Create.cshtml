@@ -99,6 +99,13 @@
                 </td>
             </tr>
             <tr>
+                <td>CEP:</td>
+                <td>
+                    <input type="text" id="CEP" name="CEP" placeholder="Somente números" />
+                    <div style="color:#FF0000" id="rCEP"></div>
+                </td>
+            </tr>
+            <tr>
                 <td>Rua:</td>
                 <td><input type="text" id="Rua" name="Rua" placeholder="ex: Rua / Avenida / Estrada / Travessa, etc." /></td>
             </tr>
@@ -131,13 +138,6 @@
                 </td>
             </tr>
             <tr>
-                <td>CEP:</td>
-                <td>
-                    <input type="text" id="CEP" name="CEP" placeholder="Somente números" />
-                    <div style="color:#FF0000" id="rCEP"></div>
-                </td>
-            </tr>
-            <tr>
                 <td>Nome Pai:</td>
                 <td><input type="text" id="NomePai" name="NomePai" placeholder="Opcional" /></td>
             </tr>
@@ -166,55 +166,4 @@
     <input type="submit" id="btnExibir" value="Exibir Data Hora" />
 
 </body>
-<script type="text/javascript">
-        
-        $('#btnExibir').click(function ()
-        {
-            var url = "/Afiliacao/ValidarCPF";
-            var valor = $(this).val();
-            $.post(url, { Cpf: cpf}, function (data)
-            {
-                $("#rData").html(data);
-            });
-        })
-
-        $('#Cpf').blur(function ()
-        {
-            var url = "/Afiliacao/ValidarCPF/";
-            var valor = $(this).val();
-            $.get(url, { Cpf: valor}, function (data)
-            {
-                $("#rCpf").html(data);
-            });
-        })
-
-        $('#CEP').blur(function ()
-        {
-            var url = "/Afiliacao/ValidarCEP/";
-            var valor = $(this).val();
-            $.get(url, { Cep: valor}, function (data)
-            {
-                $("#rCEP").html(data);
-            });
-        })
-
-        $('#Cnpj').blur(function ()
-        {
-            var url = "/Afiliacao/ValidarCNPJ/";
-            var valor = $(this).val();
-            $.get(url, { Cnpj: valor}, function (data)
-            {
-                $("#rCnpj").html(data);
-            });
-        })
-
-        $('#Pis').blur(function ()
-        {
-            var url = "/Afiliacao/ValidarPIS/";
-            var valor = $(this).val();
-            $.get(url, { Pis: valor}, function (data)
-            {
-                $("#rPis").html(data);
-            });
-        })
-    </script>
+<script type="text/javascript" src="~/Scripts/form-afilia.js"></script>
