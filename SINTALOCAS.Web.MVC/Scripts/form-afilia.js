@@ -1,14 +1,4 @@
-﻿$('#btnExibir').click(function ()
-{
-    var url = "/Afiliacao/ValidarCPF";
-    var valor = $(this).val();
-    $.post(url, { Cpf: cpf}, function (data)
-    {
-        $("#rData").html(data);
-    });
-})
-
-$('#Cpf').blur(function ()
+﻿$('#Cpf').blur(function ()
 {
     var url = "/Afiliacao/ValidarCPF/";
     var valor = $(this).val();
@@ -60,3 +50,4 @@ $('#UF').blur(function ()
         $("#rUF").html(data);
     });
 })
+

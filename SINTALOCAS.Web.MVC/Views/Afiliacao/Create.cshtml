@@ -4,7 +4,7 @@
 }
 <h2>FICHA DE FILIAÇÃO</h2>
 <body>
-    <form method="post" action="Create">     
+  <form action="Create" id="formAfilia" onsubmit="return validarFormAfilia();">
        <table >
             <tr>
                 <td class="TDcampoLabel">ASSOCIADO:</td>
@@ -155,16 +155,40 @@
              <tr>
                 <td></td>
                 <td>
-                    <input type="submit"  />
+                    <input type="submit" id="btnGravar" />
                     <br/><br/>
-                    <span style="color:#FF0000">@Html.Raw(ViewBag.MensagemRetorno)</span>
+                    <span id="rForm" style="color:#FF0000">@Html.Raw(ViewBag.MensagemRetorno)</span>
                 </td>
             </tr>
         </table>
-    </form>
-
+</form> 
+<!--
     <p id="rData"></p>
     <input type="submit" id="btnExibir" value="Exibir Data Hora" />
-
+-->
 </body>
+<script type="text/javascript">
+function validarFormAfilia() {
+
+    var formData = $("#formAfilia" );
+
+    $.ajax({
+        type: "POST",
+        data: formData,
+        url: "/Afiliacao/ValidarFormJSON",
+        dataType: 'json',
+        contentType: false,
+        processData: false,               
+        success: function (response) {
+            //alert(response.msg);
+            $("rForm").html(response.msg);
+            return response.success;                         
+        },
+        error: function (response) {
+            alert("Ocorreu um erro durante o processo, tente novamente!");  // 
+        }
+
+    });
+}
+</script>
 <script type="text/javascript" src="~/Scripts/form-afilia.js"></script>

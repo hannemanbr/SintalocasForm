@@ -42,21 +42,35 @@ namespace SINTALOCAS.Web.MVC.Controllers
         {
             try
             {
-                
-                //Convertendo informaçoes dos campos em uma lista
-                var lista = AfiliacaoViewsServico.GeraListaCampos(collection);
+                var validar = ValidarForm(collection);
 
-                //Gerando modelo para preencher form se recarregado
-                var afiliadoModelView = AfiliacaoViewsServico.GeraAfiliacaoModelView(lista);
-                ViewBag.Afiliado = afiliadoModelView;
+                if (!validar)
+                {
+                    //return Json(new { success = false, responseText = "falhou." }, JsonRequestBehavior.AllowGet);
+                     
+                    return this.Json(new
+                    {
+                        EnableSuccess = false,
+                        SuccessTitle = "Success",
+                        SuccessMsg = "Erro"
+                    });
+                }
+                else
+                {
+                    //Convertendo informaçoes dos campos em uma lista
+                    var lista = AfiliacaoViewsServico.GeraListaCampos(collection);
 
-                //validar cpf, cpn, pis, etc.
-                var result = Validacao.FormAfiliacaoValidarPreenchimento(lista);
-                ViewBag.MensagemRetorno = result;
+                    //validar cpf, cpn, pis, etc.
+                    var result = Validacao.FormAfiliacaoValidarPreenchimento(lista);
+                    ViewBag.MensagemRetorno = result;
 
-                if (result == "")
-                { 
-                    AfiliacaoViewsServico.Insere(lista); 
+                    if (result == "")
+                    {
+                        AfiliacaoViewsServico.Insere(lista);
+                    }
+
+                    //return Json(new { success = true, responseText = View() }, JsonRequestBehavior.AllowGet);
+
                 }
 
                 return View();
@@ -65,15 +79,48 @@ namespace SINTALOCAS.Web.MVC.Controllers
             catch (Exception ex)
             {
                 ViewBag.MensagemRetorno = "Ocorreu um problema durante a operação, tente novamente -  " + ex.Message;
-                return View();
+                //return Json(new { success = false, responseText = ex.Message }, JsonRequestBehavior.AllowGet);
+                return this.Json(new
+                {
+                    EnableError = true,
+                    ErrorTitle = "Error",
+                    ErrorMsg = "Something goes wrong, please try again later"
+                });
             }
 
         }
 
-        public JsonResult BuscaEndereco(string cep)
+        public bool ValidarForm(FormCollection Collection)
         {
-            var endereco = EnderecoUtil.ConsultarEndereco(cep);
-            return Json(endereco, JsonRequestBehavior.AllowGet);
+            var result = "";
+
+            //Convertendo informaçoes dos campos em uma lista
+            var lista = AfiliacaoViewsServico.GeraListaCampos(Collection);
+
+            //validar cpf, cpn, pis, etc.
+            result = Validacao.FormAfiliacaoValidarPreenchimento(lista);
+            ViewBag.MensagemRetorno = result;
+
+            if (result.Trim() == "")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        [HttpPost]
+        public JsonResult ValidarFormJSON(FormCollection Collection)
+        {
+            var retorno = ValidarForm(Collection);
+            var mensagem = "";
+
+            if (!retorno) mensagem = MensagemUtil.ErroCamposNaoPreenchidos();
+
+            return Json(new { success = ValidarForm(Collection), msg = mensagem }, JsonRequestBehavior.AllowGet); ;
+
         }
 
         public string DataHoraAtual()
@@ -120,7 +167,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
             if (!ValidaCodigosUtil.ValidaCep(Cep))
             {
                 result = null; // MensagemUtil.ErroCEPInvalido();
-            } 
+            }
             else
             {
                 //CONSULTAR ENDEREÇO COM CEP INFORMADO
@@ -140,12 +187,18 @@ namespace SINTALOCAS.Web.MVC.Controllers
         public string ValidarUF(string Uf)
         {
             var result = "";
-            var listaUFs = _ufServ.Consultar().Select(x=>x.UF).ToList();
+            var listaUFs = _ufServ.Consultar().Select(x => x.UF).ToList();
 
             if (!listaUFs.Contains(Uf.ToUpper())) result = MensagemUtil.ErroUFInvalido();
 
             return result;
         }
+
+        //public JsonResult BuscaEndereco(string cep)
+        //{
+        //    var endereco = EnderecoUtil.ConsultarEndereco(cep);
+        //    return Json(endereco, JsonRequestBehavior.AllowGet);
+        //}
 
         //public ActionResult Details(int id)
         //{

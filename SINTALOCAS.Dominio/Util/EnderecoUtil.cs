@@ -22,6 +22,7 @@ namespace SINTALOCAS.Dominio.Util
                     Numero = "",
                     Complemento = "",
                     Cidade = infoEndereco.cidade,
+                    UF = infoEndereco.estado,
                     ID = 0
                 };
             } else{
@@ -33,6 +34,7 @@ namespace SINTALOCAS.Dominio.Util
                     Numero = "",
                     Complemento = "",
                     Cidade = "",
+                    UF = "",
                     ID = -1
                 };
             }
