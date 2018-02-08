@@ -1,9 +1,10 @@
 ﻿<Properties StartupConfiguration="{DFAEFCA5-435B-4271-943A-882ACEA11971}|">
   <MonoDevelop.Ide.ItemProperties.SINTALOCAS.Web.MVC PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="SINTALOCAS.Dominio/Util/ValidaCodigosUtil.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="SINTALOCAS.Web.MVC/Views/Afiliacao/Create.cshtml">
     <Files>
-      <File FileName="SINTALOCAS.Web.MVC/Views/Afiliacao/Create.cshtml" Line="132" Column="57" />
+      <File FileName="SINTALOCAS.Web.MVC/Views/Afiliacao/Create.cshtml" Line="131" Column="87" />
       <File FileName="SINTALOCAS.Dominio/Util/ValidaCodigosUtil.cs" Line="9" Column="28" />
+      <File FileName="SINTALOCAS.Web.MVC/Scripts/form-afilia.js" Line="54" Column="7" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
@@ -12,7 +13,6 @@
       <Breakpoint file="/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Web.MVC/Servico/AfiliacaoServico.cs" relfile="SINTALOCAS.Web.MVC/Servico/AfiliacaoServico.cs" line="16" column="1" />
       <Breakpoint file="/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.DAL/Context/ContextoDB.cs" relfile="SINTALOCAS.DAL/Context/ContextoDB.cs" line="33" column="1" />
       <Breakpoint file="/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.DAL/Context/ContextoDB.cs" relfile="SINTALOCAS.DAL/Context/ContextoDB.cs" line="18" column="1" />
-      <Breakpoint file="/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Web.MVC/Controllers/AfiliacaoController.cs" relfile="SINTALOCAS.Web.MVC/Controllers/AfiliacaoController.cs" line="142" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

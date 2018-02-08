@@ -142,7 +142,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
             var result = "";
             var listaUFs = _ufServ.Consultar().Select(x=>x.UF).ToList();
 
-            if (!listaUFs.Contains(Uf)) result = MensagemUtil.ErroUFInvalido();
+            if (!listaUFs.Contains(Uf.ToUpper())) result = MensagemUtil.ErroUFInvalido();
 
             return result;
         }

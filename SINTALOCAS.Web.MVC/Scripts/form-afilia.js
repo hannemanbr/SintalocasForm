@@ -51,7 +51,7 @@ $('#CEP').blur(function ()
     });
 })
 
-$('#Pis').blur(function ()
+$('#UF').blur(function ()
 {
     var url = "/Afiliacao/ValidarUF/";
     var valor = $(this).val();
