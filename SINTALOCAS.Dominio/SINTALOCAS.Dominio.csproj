@@ -41,8 +41,8 @@
     <Compile Include="Servico\AfiliacaoServico.cs" />
     <Compile Include="Util\DataUtil.cs" />
     <Compile Include="Util\EnderecoUtil.cs" />
-    <Compile Include="Util\Validacao.cs" />
-    <Compile Include="Util\ValidaCodigos.cs" />
+    <Compile Include="Util\ValidaCodigosUtil.cs" />
+    <Compile Include="Util\ValidacaoUtil.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Interface\" />
