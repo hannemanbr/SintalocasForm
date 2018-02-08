@@ -182,7 +182,7 @@ function validarFormAfilia() {
         success: function (response) {
             //alert(response.msg);
             $("rForm").html(response.msg);
-            return response.success;                         
+            return true;                         
         },
         error: function (response) {
             alert("Ocorreu um erro durante o processo, tente novamente!");  // 
