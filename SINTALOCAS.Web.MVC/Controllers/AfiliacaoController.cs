@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Newtonsoft.Json;
 using System.Web.Mvc;
 using SINTALOCAS.Dominio.Util;
 using SINTALOCAS.Web.MVC.Servico;
 using SINTALOCAS.Dominio.Servico;
 using SINTALOCAS.Web.MVC.Models;
+using SINTALOCAS.Modelo;
 
 namespace SINTALOCAS.Web.MVC.Controllers
 {
@@ -112,20 +114,24 @@ namespace SINTALOCAS.Web.MVC.Controllers
         [HttpGet]
         public string ValidarCEP(string Cep)
         {
-            var result = "";
+
+            var result = new Endereco();
 
             if (!ValidaCodigosUtil.ValidaCep(Cep))
             {
-                result = MensagemUtil.ErroCEPInvalido();
-            } else
+                result = null; // MensagemUtil.ErroCEPInvalido();
+            } 
+            else
             {
                 //CONSULTAR ENDEREÇO COM CEP INFORMADO
                 var endereco = EnderecoUtil.ConsultarEndereco(Cep);
 
-                result = endereco.Bairro;
+                result = endereco;
             }
 
-            return result;
+            string json = JsonConvert.SerializeObject(result, Formatting.Indented);
+            return json;
+
         }
 
         //public ActionResult Details(int id)

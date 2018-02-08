@@ -18,16 +18,6 @@ $('#Cpf').blur(function ()
     });
 })
 
-$('#CEP').blur(function ()
-{
-    var url = "/Afiliacao/ValidarCEP/";
-    var valor = $(this).val();
-    $.get(url, { Cep: valor}, function (data)
-    {
-        $("#rCEP").html(data);
-    });
-})
-
 $('#Cnpj').blur(function ()
 {
     var url = "/Afiliacao/ValidarCNPJ/";
@@ -45,5 +35,18 @@ $('#Pis').blur(function ()
     $.get(url, { Pis: valor}, function (data)
     {
         $("#rPis").html(data);
+    });
+})
+
+$('#CEP').blur(function ()
+{
+    var url = "/Afiliacao/ValidarCEP/";
+    var valor = $(this).val();
+    $.getJSON(url, { Cep: valor}, function (data)
+    {
+        $("#Bairro").val(data.Bairro);
+        $("#Rua").val(data.Rua);
+        $("#Cidade").val(data.Cidade);
+       
     });
 })
