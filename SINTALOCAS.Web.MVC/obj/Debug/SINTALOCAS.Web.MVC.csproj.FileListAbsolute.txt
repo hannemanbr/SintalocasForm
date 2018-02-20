@@ -32,7 +32,5 @@
 /Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Web.MVC/bin/System.Threading.Tasks.Extensions.dll
 /Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Web.MVC/bin/Npgsql.xml
 /Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Web.MVC/bin/System.Threading.Tasks.Extensions.xml
-/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Web.MVC/bin/Postmon4Net.dll
 /Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Web.MVC/bin/Newtonsoft.Json.dll
-/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Web.MVC/bin/Postmon4Net.xml
 /Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Web.MVC/bin/Newtonsoft.Json.xml

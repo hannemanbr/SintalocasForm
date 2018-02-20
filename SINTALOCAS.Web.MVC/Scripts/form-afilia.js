@@ -1,71 +1,4 @@
-﻿// $('#Cpf').blur(function ()
-// {
-//     var url = "/Afiliacao/ValidarCPF/";
-//     var valor = $(this).val();
-//     $.get(url, { Cpf: valor}, function (data)
-//     {
-//         $("#rCpf").html(data);
-//     });
-// })
-
-// $('#Cnpj').blur(function ()
-// {
-//     var url = "/Afiliacao/ValidarCNPJ/";
-//     var valor = $(this).val();
-//     $.get(url, { Cnpj: valor}, function (data)
-//     {
-//         $("#rCnpj").html(data);
-//     });
-// })
-
-// $('#Pis').blur(function ()
-// {
-//     var url = "/Afiliacao/ValidarPIS/";
-//     var valor = $(this).val();
-//     $.get(url, { Pis: valor}, function (data)
-//     {
-//         $("#rPis").html(data);
-//     });
-// })
-
-// $('#CEP').blur(function ()
-// {
-//     var url = "/Afiliacao/ValidarCEP/";
-//     var valor = $(this).val();
-//     $.getJSON(url, { Cep: valor}, function (data)
-//     {
-//         $("#Bairro").val(data.Bairro);
-//         $("#Rua").val(data.Rua);
-//         $("#Cidade").val(data.Cidade);
-//         $("#UF").val(data.UF);
-//     });
-// })
-
-// $('#UF').blur(function ()
-// {
-//     var url = "/Afiliacao/ValidarUF/";
-//     var valor = $(this).val();
-//     $.get(url, { Uf: valor}, function (data)
-//     {
-//         $("#rUF").html(data);
-//     });
-// })
-
-function validarFormAfilia() {
-
-    // var form = $("#formAfilia").serialize();
-    
-    // $.ajax({
-    //     type: 'POST',
-    //     url: "/Afiliacao/ValidarFormJSON",
-    //     data: form,
-    //     dataType: 'json',
-    //     success: function (data) {
-    //         if (data.result == "Error") {
-    //             alert(data.message);
-    //         }
-    //     }
-    // });
+﻿function validarFormAfilia() {
 
     var formData = $("#formAfilia").serialize();
 
@@ -150,17 +83,19 @@ function validarCEP(valor) {
         $("#rCEP").html(msgErro);
         //alert(msgErro);
     }
-
-    $.getJSON(url, { Cep: valor}, function (data)
+    else
     {
-        $("#Bairro").val(data.Bairro);
-        $("#Rua").val(data.Logradouro);
-        $("#Cidade").val(data.Cidade);
-        $("#UF").val(data.UF);
-
-        if (data == null) $("#rCEP").html(msgErro); //alert(msgErro);
-
-    });
+        $.getJSON(url, { Cep: valor}, function (data)
+        {
+            $("#Bairro").val(data.Bairro);
+            $("#Rua").val(data.Logradouro);
+            $("#Cidade").val(data.Cidade);
+            $("#UF").val(data.UF);
+    
+            if (data == null) $("#rCEP").html(msgErro); //alert(msgErro);
+    
+        });
+    }
 
 }
 

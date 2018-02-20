@@ -34,6 +34,10 @@
     <Reference Include="Postmon4Net">
       <HintPath>..\packages\Postmon4Net.1.0.0\lib\net40\Postmon4Net.dll</HintPath>
     </Reference>
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Runtime.Serialization" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -44,6 +48,9 @@
     <Compile Include="Util\ValidaCodigosUtil.cs" />
     <Compile Include="Util\ValidacaoUtil.cs" />
     <Compile Include="Util\MensagemUtil.cs" />
+    <Compile Include="Web References\CorreiosWebService\Reference.cs">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Interface\" />
@@ -62,6 +69,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Web References\CorreiosWebService\AtendeClienteService.wsdl" />
+    <None Include="Web References\CorreiosWebService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="https://apps.correios.com.br/SigepMasterJPA/AtendeClienteService/AtendeCliente?wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\CorreiosWebService</RelPath>
+      <UpdateFromURL>https://apps.correios.com.br/SigepMasterJPA/AtendeClienteService/AtendeCliente?wsdl</UpdateFromURL>
+    </WebReferenceUrl>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

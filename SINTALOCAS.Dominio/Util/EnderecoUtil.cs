@@ -1,6 +1,7 @@
 ﻿using System;
-using Postmon4Net;
+//using Postmon4Net;
 using SINTALOCAS.Modelo;
+using SINTALOCAS.Dominio.CorreiosWebService;
 
 namespace SINTALOCAS.Dominio.Util
 {
@@ -9,7 +10,11 @@ namespace SINTALOCAS.Dominio.Util
         
         public static Endereco ConsultarEndereco(string cep)
         {
-            EnderecoInfo infoEndereco = Postmon4Net.EncontrarEndereco.PorCEP(cep);
+            //EnderecoInfo infoEndereco = Postmon4Net.EncontrarEndereco.PorCEP(cep);
+            AtendeClienteService correiosWs = new AtendeClienteService();
+
+            enderecoERP infoEndereco = correiosWs.consultaCEP(cep);
+
             Endereco endereco;
 
             if (infoEndereco != null)
@@ -18,14 +23,16 @@ namespace SINTALOCAS.Dominio.Util
                 {
                     Bairro = infoEndereco.bairro,
                     CEP = infoEndereco.cep,
-                    Logradouro = infoEndereco.logradouro,
+                    Logradouro = infoEndereco.end,
                     Numero = "",
                     Complemento = "",
                     Cidade = infoEndereco.cidade,
-                    UF = infoEndereco.estado,
+                    UF = infoEndereco.uf,
                     ID = 0
                 };
-            } else{
+            }
+            else
+            {
                 endereco = new Endereco
                 {
                     Bairro = "",
@@ -38,6 +45,33 @@ namespace SINTALOCAS.Dominio.Util
                     ID = -1
                 };
             }
+
+            //if (infoEndereco != null)
+            //{
+            //    endereco = new Endereco
+            //    {
+            //        Bairro = infoEndereco.bairro,
+            //        CEP = infoEndereco.cep,
+            //        Logradouro = infoEndereco.logradouro,
+            //        Numero = "",
+            //        Complemento = "",
+            //        Cidade = infoEndereco.cidade,
+            //        UF = infoEndereco.estado,
+            //        ID = 0
+            //    };
+            //} else{
+            //    endereco = new Endereco
+            //    {
+            //        Bairro = "",
+            //        CEP = "",
+            //        Logradouro = "",
+            //        Numero = "",
+            //        Complemento = "",
+            //        Cidade = "",
+            //        UF = "",
+            //        ID = -1
+            //    };
+            //}
 
             return endereco;
         }

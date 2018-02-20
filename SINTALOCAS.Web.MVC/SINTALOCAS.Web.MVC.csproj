@@ -90,7 +90,6 @@
     <Compile Include="Models\DependenteModelView.cs" />
     <Compile Include="Controllers\AfiliacaoController.cs" />
     <Compile Include="Servico\AfiliacaoViewsServico.cs" />
-    <Compile Include="Controllers\TesteMVCController.cs" />
     <Compile Include="Models\EnderecoModelView.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -113,7 +112,6 @@
     <Content Include="Image\banner_site.jpg" />
     <Content Include="Image\logo_fundo.png" />
     <Content Include="Style\estilo.css" />
-    <Content Include="Views\TesteMVC\Index.cshtml" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\form-afilia.js" />
