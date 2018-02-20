@@ -1,13 +1,11 @@
 ﻿@{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "SINTALOCAS - Cadastro de Afiliados";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
-
 <h2>FICHA DE FILIAÇÃO</h2>
 <body>
-  <form action="Create" id="formAfilia">
+  <form action="Index" id="formAfilia">
        <table >
             <tr>
                 <td class="TDcampoLabel">ASSOCIADO:</td>
@@ -23,7 +21,10 @@
             </tr>
             <tr>
                 <td>DATA DE NASCIMENTO:</td>
-                <td><input type="text" id="DtNasc" name="DtNasc" class="simple-field-data-mask" data-mask="00/00/0000" /></td>
+                <td>
+                    <input type="text" id="DtNasc" name="DtNasc" onblur="validarDtNasc(this)" class="simple-field-data-mask" data-mask="00/00/0000" />
+                    <div style="color:#FF0000" id="rDtNasc"></div>
+                </td>
             </tr>
             <tr>
                 <td>RG:</td>

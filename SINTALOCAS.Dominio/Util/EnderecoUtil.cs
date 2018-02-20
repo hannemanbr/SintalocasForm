@@ -10,33 +10,49 @@ namespace SINTALOCAS.Dominio.Util
         
         public static Endereco ConsultarEndereco(string cep)
         {
-            //EnderecoInfo infoEndereco = Postmon4Net.EncontrarEndereco.PorCEP(cep);
-            AtendeClienteService correiosWs = new AtendeClienteService();
-
-            enderecoERP infoEndereco = correiosWs.consultaCEP(cep);
-
             Endereco endereco;
 
-            if (infoEndereco != null)
+            try
             {
-                endereco = new Endereco
+                //EnderecoInfo infoEndereco = Postmon4Net.EncontrarEndereco.PorCEP(cep);
+                AtendeClienteService correiosWs = new AtendeClienteService();
+                enderecoERP infoEndereco = correiosWs.consultaCEP(cep);
+
+                if (infoEndereco != null)
                 {
-                    Bairro = infoEndereco.bairro,
-                    CEP = infoEndereco.cep,
-                    Logradouro = infoEndereco.end,
-                    Numero = "",
-                    Complemento = "",
-                    Cidade = infoEndereco.cidade,
-                    UF = infoEndereco.uf,
-                    ID = 0
-                };
+                    endereco = new Endereco
+                    {
+                        Bairro = infoEndereco.bairro,
+                        CEP = infoEndereco.cep,
+                        Logradouro = infoEndereco.end,
+                        Numero = "",
+                        Complemento = "",
+                        Cidade = infoEndereco.cidade,
+                        UF = infoEndereco.uf,
+                        ID = 0
+                    };
+                }
+                else
+                {
+                    endereco = new Endereco
+                    {
+                        Bairro = "",
+                        CEP = "",
+                        Logradouro = "",
+                        Numero = "",
+                        Complemento = "",
+                        Cidade = "",
+                        UF = "",
+                        ID = -1
+                    };
+                }
             }
-            else
+            catch (Exception ex)
             {
                 endereco = new Endereco
                 {
                     Bairro = "",
-                    CEP = "",
+                    CEP = ex.Message,
                     Logradouro = "",
                     Numero = "",
                     Complemento = "",
@@ -45,33 +61,6 @@ namespace SINTALOCAS.Dominio.Util
                     ID = -1
                 };
             }
-
-            //if (infoEndereco != null)
-            //{
-            //    endereco = new Endereco
-            //    {
-            //        Bairro = infoEndereco.bairro,
-            //        CEP = infoEndereco.cep,
-            //        Logradouro = infoEndereco.logradouro,
-            //        Numero = "",
-            //        Complemento = "",
-            //        Cidade = infoEndereco.cidade,
-            //        UF = infoEndereco.estado,
-            //        ID = 0
-            //    };
-            //} else{
-            //    endereco = new Endereco
-            //    {
-            //        Bairro = "",
-            //        CEP = "",
-            //        Logradouro = "",
-            //        Numero = "",
-            //        Complemento = "",
-            //        Cidade = "",
-            //        UF = "",
-            //        ID = -1
-            //    };
-            //}
 
             return endereco;
         }

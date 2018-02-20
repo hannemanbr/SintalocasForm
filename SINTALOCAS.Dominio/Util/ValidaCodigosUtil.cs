@@ -138,5 +138,20 @@ namespace SINTALOCAS.Dominio.Util
             return true;
 
         }
+
+        public static bool ValidaDtNasc(string dataNascimento)
+        {
+            var result = false;
+            DateTime temp;
+
+            if (DateTime.TryParse(dataNascimento, out temp)) 
+            {
+                result = true;
+                // validar idade, acima de 16
+                if ((DateTime.Now.Year - temp.Year) < 16) return false;
+            }
+
+            return result;
+        }
     }
 }

@@ -60,6 +60,11 @@ namespace SINTALOCAS.Web.MVC.Controllers
         }
 
         [HttpPost]
+        public ActionResult Index(FormCollection Collection) {
+            return View("Create");
+        }
+
+        [HttpPost]
         public JsonResult ValidarFormJSON(FormCollection Collection)
         {
             var retorno = ValidarForm(Collection);
@@ -153,6 +158,16 @@ namespace SINTALOCAS.Web.MVC.Controllers
             var listaUFs = _ufServ.Consultar().Select(x => x.UF).ToList();
 
             if (!listaUFs.Contains(Uf.ToUpper())) result = MensagemUtil.ErroUFInvalido();
+
+            return result;
+        }
+
+        [HttpGet]
+        public string ValidarDtNasc(string dtnasc)
+        {
+            var result = "";
+
+            if (!ValidaCodigosUtil.ValidaDtNasc(dtnasc)) result = MensagemUtil.ErroDTNASCInvalido();
 
             return result;
         }

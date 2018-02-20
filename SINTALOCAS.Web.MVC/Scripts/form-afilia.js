@@ -91,6 +91,7 @@ function validarCEP(valor) {
             $("#Rua").val(data.Logradouro);
             $("#Cidade").val(data.Cidade);
             $("#UF").val(data.UF);
+            $("#CEP").val(data.CEP);
     
             if (data == null) $("#rCEP").html(msgErro); //alert(msgErro);
     
@@ -130,3 +131,14 @@ function validarEmail(valor)
         $("#rEmail").html(data);
     });
 }
+
+function validarDtNasc(valor) 
+{
+    var url = "/Afiliacao/ValidarDtNasc/";
+    var valor = $(valor).val();
+    $.get(url, { dtnasc: valor}, function (data)
+    {
+        $("#rDtNasc").html(data);
+    });
+}
+
