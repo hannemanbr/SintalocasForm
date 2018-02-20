@@ -1,10 +1,10 @@
 ﻿<Properties StartupConfiguration="{DFAEFCA5-435B-4271-943A-882ACEA11971}|">
   <MonoDevelop.Ide.ItemProperties.SINTALOCAS.Web.MVC PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="SINTALOCAS.Web.MVC/Servico/AfiliacaoViewsServico.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="SINTALOCAS.Web.MVC/Controllers/AfiliacaoController.cs">
     <Files>
-      <File FileName="SINTALOCAS.Web.MVC/Scripts/form-afilia.js" Line="28" Column="8" />
-      <File FileName="SINTALOCAS.Web.MVC/Controllers/AfiliacaoController.cs" Line="98" Column="52" />
-      <File FileName="SINTALOCAS.Web.MVC/Servico/AfiliacaoViewsServico.cs" Line="113" Column="53" />
+      <File FileName="SINTALOCAS.Web.MVC/Controllers/AfiliacaoController.cs" Line="115" Column="68" />
+      <File FileName="SINTALOCAS.Web.MVC/Views/Afiliacao/Create.cshtml" Line="172" Column="1" />
+      <File FileName="SINTALOCAS.Web.MVC/Scripts/form-afilia.js" Line="57" Column="44" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

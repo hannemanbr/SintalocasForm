@@ -155,9 +155,10 @@
              <tr>
                 <td></td>
                 <td>
-                    <input type="submit" id="btnGravar" />
+                    <input type="button" id="btnGravar" value="Enviar" onclick="validarFormAfilia()" />
                     <br/><br/>
-                    <span id="rForm" style="color:#FF0000">@Html.Raw(ViewBag.MensagemRetorno)</span>
+                    <span id="rFormRetorno" style="color:#FF0000">@Html.Raw(ViewBag.MensagemRetorno)</span>
+                    <div style="color:#FF0000" id="rForm"></div>
                 </td>
             </tr>
         </table>
@@ -167,28 +168,4 @@
     <input type="submit" id="btnExibir" value="Exibir Data Hora" />
 -->
 </body>
-<script type="text/javascript">
-function validarFormAfilia() {
-
-    var formData = $("#formAfilia" );
-
-    $.ajax({
-        type: "POST",
-        data: formData,
-        url: "/Afiliacao/ValidarFormJSON",
-        dataType: 'json',
-        contentType: false,
-        processData: false,               
-        success: function (response) {
-            //alert(response.msg);
-            $("rForm").html(response.msg);
-            return true;                         
-        },
-        error: function (response) {
-            alert("Ocorreu um erro durante o processo, tente novamente!");  // 
-        }
-
-    });
-}
-</script>
 <script type="text/javascript" src="~/Scripts/form-afilia.js"></script>

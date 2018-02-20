@@ -51,3 +51,27 @@ $('#UF').blur(function ()
     });
 })
 
+function validarFormAfilia() {
+
+    var formData = $("#formAfilia");
+
+    $.ajax({
+        type: "POST",
+        data: formData,
+        url: "/Afiliacao/ValidarFormJSON",
+        dataType: 'json',
+        contentType: false,
+        processData: false,               
+        success: function (response) {
+
+            if (response.success) $("#formAfilia").submit();
+    
+            $("#rForm").html(response.msg);
+            return response.success;
+    
+        },
+        error: function (response) {
+            alert("Ocorreu um erro durante o processo, tente novamente!");   
+        }
+    });
+}

@@ -111,7 +111,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
             }
         }
 
-        [HttpPost]
+
         public JsonResult ValidarFormJSON(FormCollection Collection)
         {
             var retorno = ValidarForm(Collection);
@@ -119,7 +119,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
 
             if (!retorno) mensagem = MensagemUtil.ErroCamposNaoPreenchidos();
 
-            return Json(new { success = ValidarForm(Collection), msg = mensagem }, JsonRequestBehavior.AllowGet); ;
+            return Json(new { success = retorno, msg = mensagem }, JsonRequestBehavior.AllowGet); ;
 
         }
 
