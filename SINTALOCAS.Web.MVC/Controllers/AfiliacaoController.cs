@@ -170,7 +170,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
         public string ValidarCEP(string Cep)
         {
                 
-            var result = new Endereco();
+                var result = new Endereco();
 
             if (!ValidaCodigosUtil.ValidaCep(Cep))
             {

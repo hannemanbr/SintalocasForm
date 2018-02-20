@@ -2,6 +2,9 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+
+
 <h2>FICHA DE FILIAÇÃO</h2>
 <body>
   <form action="Create" id="formAfilia">
@@ -20,7 +23,7 @@
             </tr>
             <tr>
                 <td>DATA DE NASCIMENTO:</td>
-                <td><input type="text" id="DtNasc" name="DtNasc" placeholder="dd/mm/aaaa" /></td>
+                <td><input type="text" id="DtNasc" name="DtNasc" class="simple-field-data-mask" data-mask="00/00/0000" /></td>
             </tr>
             <tr>
                 <td>RG:</td>

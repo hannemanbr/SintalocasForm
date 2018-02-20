@@ -118,6 +118,7 @@
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\form-afilia.js" />
     <Content Include="Views\Afiliacao\Dependente.cshtml" />
+    <Content Include="Scripts\jquery.mask.js" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SINTALOCAS.Modelo\SINTALOCAS.Modelo.csproj">

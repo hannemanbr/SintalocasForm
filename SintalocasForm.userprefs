@@ -2,9 +2,9 @@
   <MonoDevelop.Ide.ItemProperties.SINTALOCAS.Web.MVC PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="SINTALOCAS.Web.MVC/Views/Shared/_Layout.cshtml">
     <Files>
-      <File FileName="SINTALOCAS.Web.MVC/Views/Afiliacao/Index.cshtml" Line="160" Column="21" />
-      <File FileName="SINTALOCAS.Web.MVC/Controllers/AfiliacaoController.cs" Line="165" Column="1" />
-      <File FileName="SINTALOCAS.Web.MVC/Views/Shared/_Layout.cshtml" Line="26" Column="6" />
+      <File FileName="SINTALOCAS.Web.MVC/Views/Afiliacao/Index.cshtml" Line="177" Column="10" />
+      <File FileName="SINTALOCAS.Web.MVC/Controllers/AfiliacaoController.cs" Line="182" Column="29" />
+      <File FileName="SINTALOCAS.Web.MVC/Views/Shared/_Layout.cshtml" Line="13" Column="106" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
@@ -13,9 +13,8 @@
       <Breakpoint file="/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Web.MVC/Servico/AfiliacaoServico.cs" relfile="SINTALOCAS.Web.MVC/Servico/AfiliacaoServico.cs" line="16" column="1" />
       <Breakpoint file="/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.DAL/Context/ContextoDB.cs" relfile="SINTALOCAS.DAL/Context/ContextoDB.cs" line="33" column="1" />
       <Breakpoint file="/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.DAL/Context/ContextoDB.cs" relfile="SINTALOCAS.DAL/Context/ContextoDB.cs" line="18" column="1" />
-      <Breakpoint file="/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Web.MVC/Controllers/AfiliacaoController.cs" relfile="SINTALOCAS.Web.MVC/Controllers/AfiliacaoController.cs" line="40" column="1" />
-      <Breakpoint file="/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Web.MVC/Controllers/AfiliacaoController.cs" relfile="SINTALOCAS.Web.MVC/Controllers/AfiliacaoController.cs" line="76" column="1" />
-      <Breakpoint file="/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Web.MVC/Controllers/AfiliacaoController.cs" relfile="SINTALOCAS.Web.MVC/Controllers/AfiliacaoController.cs" line="160" column="1" />
+      <Breakpoint file="/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Web.MVC/Controllers/AfiliacaoController.cs" relfile="SINTALOCAS.Web.MVC/Controllers/AfiliacaoController.cs" line="41" column="1" />
+      <Breakpoint file="/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Web.MVC/Controllers/AfiliacaoController.cs" relfile="SINTALOCAS.Web.MVC/Controllers/AfiliacaoController.cs" line="173" column="5" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

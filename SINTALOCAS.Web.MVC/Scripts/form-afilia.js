@@ -134,7 +134,7 @@ function validarCEP(valor) {
     $.getJSON(url, { Cep: valor}, function (data)
     {
         $("#Bairro").val(data.Bairro);
-        $("#Rua").val(data.Rua);
+        $("#Rua").val(data.Logradouro);
         $("#Cidade").val(data.Cidade);
         $("#UF").val(data.UF);
     });
@@ -150,3 +150,15 @@ function validarUF(valor)
         $("#rUF").html(data);
     });
 }
+
+// MASCARA NOS CAMPOS
+$(document).ready(function(){
+    // $("#DtNasc").mask("(99) 9999-9999");
+    $("#TelCelNum").mask("99999-9999");
+    $("#TelResNum").mask("9999-9999");
+    $("#DtNasc").mask("99/99/9999");
+    $("#Rg").mask("9999999999");
+    $("#Cpf").mask("999999999999");
+    $("#Cnpj").mask("999999999999");
+    $("#CEP").mask("99999999");
+});
