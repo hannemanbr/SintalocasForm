@@ -32,72 +32,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
         {
             return View();
         }
-
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
-        {
-            try
-            {
-                var validar = ValidarForm(collection);
-
-                //if (!validar)
-                //{
-                //    //return Json(new { success = false, responseText = "falhou." }, JsonRequestBehavior.AllowGet);
-                     
-                //    return this.Json(new
-                //    {
-                //        EnableSuccess = false,
-                //        SuccessTitle = "Success",
-                //        SuccessMsg = "Erro"
-                //    });
-                //}
-                //else
-                //{
-                //    //Convertendo informaçoes dos campos em uma lista
-                //    var lista = AfiliacaoViewsServico.GeraListaCampos(collection);
-
-                //    //validar cpf, cpn, pis, etc.
-                //    var result = Validacao.FormAfiliacaoValidarPreenchimento(lista);
-                //    ViewBag.MensagemRetorno = result;
-
-                //    if (result == "")
-                //    {
-                //        AfiliacaoViewsServico.Insere(lista);
-                //    }
-
-                //    //return Json(new { success = true, responseText = View() }, JsonRequestBehavior.AllowGet);
-
-                //}
-
-                //Convertendo informaçoes dos campos em uma lista
-                var lista = AfiliacaoViewsServico.GeraListaCampos(collection);
-
-                //validar cpf, cpn, pis, etc.
-                var result = Validacao.FormAfiliacaoValidarPreenchimento(lista);
-                ViewBag.MensagemRetorno = result;
-
-                if (result == "")
-                {
-                    AfiliacaoViewsServico.Insere(lista);
-                }
-
-                return RedirectToAction("Dependente");
-
-            }
-            catch (Exception ex)
-            {
-                ViewBag.MensagemRetorno = "Ocorreu um problema durante a operação, tente novamente -  " + ex.Message;
-                //return Json(new { success = false, responseText = ex.Message }, JsonRequestBehavior.AllowGet);
-                return this.Json(new
-                {
-                    EnableError = true,
-                    ErrorTitle = "Error",
-                    ErrorMsg = "Something goes wrong, please try again later"
-                });
-            }
-
-        }
-       
+               
         public bool ValidarForm(FormCollection Collection)
         {
             var result = "";
@@ -105,12 +40,17 @@ namespace SINTALOCAS.Web.MVC.Controllers
             //Convertendo informaçoes dos campos em uma lista
             var lista = AfiliacaoViewsServico.GeraListaCampos(Collection);
 
-            //validar cpf, cpn, pis, etc.
+            //validar campos opcionais
             result = Validacao.FormAfiliacaoValidarPreenchimento(lista);
+
+            //validação específica cpf, cpn, pis, etc.
+            result = Validacao.ValidarCodigos(lista);
+
             ViewBag.MensagemRetorno = result;
 
             if (result.Trim() == "")
             {
+                InserirDados(lista); //gravando informaçoes
                 return true;
             }
             else
@@ -131,17 +71,32 @@ namespace SINTALOCAS.Web.MVC.Controllers
 
         }
 
-        public string DataHoraAtual()
-        {
-            return DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss");
-        }
-
         [HttpGet]
         public string ValidarCPF(string Cpf)
         {
             var result = "";
 
             if (!ValidaCodigosUtil.ValidaCpf(Cpf)) result = MensagemUtil.ErroCPFInvalido();
+
+            return result;
+        }
+
+        [HttpGet]
+        public string ValidarEMAIL(string emailtx)
+        {
+            var result = "";
+
+            if (!ValidaCodigosUtil.ValidarEmail(emailtx)) result = MensagemUtil.ErroEMAILInvalido();
+
+            return result;
+        }
+
+        [HttpGet]
+        public string ValidarRG(string Rg)
+        {
+            var result = "";
+
+            if (!ValidaCodigosUtil.ValidaRG(Rg)) result = MensagemUtil.ErroRGInvalido();
 
             return result;
         }
@@ -168,11 +123,11 @@ namespace SINTALOCAS.Web.MVC.Controllers
 
         [HttpGet]
         public string ValidarCEP(string Cep)
-        {
-                
-                var result = new Endereco();
+        {    
+            var result = new Endereco();
 
-            if (!ValidaCodigosUtil.ValidaCep(Cep))
+
+            if (!ValidaCodigosUtil.ValidaCep(Cep) || Cep.Trim().Length < 8)
             {
                 result = null; // MensagemUtil.ErroCEPInvalido();
             }
@@ -218,53 +173,18 @@ namespace SINTALOCAS.Web.MVC.Controllers
 
         }
 
-        //public JsonResult BuscaEndereco(string cep)
-        //{
-        //    var endereco = EnderecoUtil.ConsultarEndereco(cep);
-        //    return Json(endereco, JsonRequestBehavior.AllowGet);
-        //}
+        private void InserirDados(Dictionary<string, string> lista) {
 
-        //public ActionResult Details(int id)
-        //{
-        //    return View();
-        //}
+            try
+            {
+                AfiliacaoViewsServico.Insere(lista);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
 
-        //public ActionResult Edit(int id)
-        //{
-        //    return View();
-        //}
-
-        //[HttpPost]
-        //public ActionResult Edit(int id, FormCollection collection)
-        //{
-        //    try
-        //    {
-        //        return RedirectToAction("Index");
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
-
-        //public ActionResult Delete(int id)
-        //{
-        //    return View();
-        //}
-
-        //[HttpPost]
-        //public ActionResult Delete(int id, FormCollection collection)
-        //{
-        //    try
-        //    {
-        //        return RedirectToAction("Index");
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
-
+        }
 
     }
 }

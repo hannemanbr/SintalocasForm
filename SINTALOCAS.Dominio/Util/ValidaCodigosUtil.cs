@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using SINTALOCAS.Dominio.Servico;
 
 namespace SINTALOCAS.Dominio.Util
@@ -113,6 +114,29 @@ namespace SINTALOCAS.Dominio.Util
 
 
             return false;
+        }
+
+        public static bool ValidaRG(string rg)
+        {
+            if (rg.Length < 9)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public static bool ValidarEmail(string emailTx)
+        {
+            
+            Regex email = new Regex(@"^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})$");
+
+            if (!email.IsMatch(emailTx))
+            {
+                return false;
+            }
+
+            return true;
+
         }
     }
 }

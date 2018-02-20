@@ -73,7 +73,7 @@ namespace SINTALOCAS.Dominio.Util
 
             if (listaCampos.Keys.Contains("CEP"))
             {
-                if (!ValidaCodigosUtil.ValidaPis(listaCampos["CEP"].ToString()))
+                if (!ValidaCodigosUtil.ValidaCep(listaCampos["CEP"].ToString()))
                 {
                     result += "<li>CEP inválido</li>";
                 }

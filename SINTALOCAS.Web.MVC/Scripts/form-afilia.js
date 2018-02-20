@@ -127,16 +127,39 @@ function validarPIS(valor) {
 
 }
 
+function validarRG(valor) {
+
+    var url = "/Afiliacao/ValidarRG/";
+    var valor = $(valor).val();
+    $.get(url, { Rg: valor}, function (data)
+    {
+        $("#rRg").html(data);
+    });
+
+}
+
 function validarCEP(valor) {
 
+    $("#rCEP").html("");
     var url = "/Afiliacao/ValidarCEP/";
     var valor = $(valor).val();
+    var msgErro = "CEP inválido";
+
+    if (valor.length < 8) 
+    {
+        $("#rCEP").html(msgErro);
+        //alert(msgErro);
+    }
+
     $.getJSON(url, { Cep: valor}, function (data)
     {
         $("#Bairro").val(data.Bairro);
         $("#Rua").val(data.Logradouro);
         $("#Cidade").val(data.Cidade);
         $("#UF").val(data.UF);
+
+        if (data == null) $("#rCEP").html(msgErro); //alert(msgErro);
+
     });
 
 }
@@ -159,6 +182,16 @@ $(document).ready(function(){
     $("#DtNasc").mask("99/99/9999");
     $("#Rg").mask("9999999999");
     $("#Cpf").mask("999999999999");
-    $("#Cnpj").mask("999999999999");
+    $("#Cnpj").mask("999999999999999");
     $("#CEP").mask("99999999");
 });
+
+function validarEmail(valor) 
+{
+    var url = "/Afiliacao/ValidarEMAIL/";
+    var valor = $(valor).val();
+    $.get(url, { emailtx: valor}, function (data)
+    {
+        $("#rEmail").html(data);
+    });
+}

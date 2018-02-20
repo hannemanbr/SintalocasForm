@@ -17,7 +17,7 @@
              <tr>
                 <td>E-MAIL:</td>
                 <td>
-                    <input type="text" id="Email" name="Email" placeholder="e-mail" value="@ViewBag.Afiliado.Email" />
+                    <input type="text" id="Email" name="Email" onblur="validarEmail(this)" placeholder="e-mail" value="@ViewBag.Afiliado.Email" />
                     <div style="color:#FF0000" id="rEmail"></div>
                 </td>
             </tr>
@@ -27,7 +27,10 @@
             </tr>
             <tr>
                 <td>RG:</td>
-                <td><input type="text" id="Rg" name="Rg" placeholder="Somente número" value="@ViewBag.Afiliado.RG" /></td>
+                <td>
+                    <input type="text" id="Rg" name="Rg" onblur="validarRG(this)" placeholder="Somente número" value="@ViewBag.Afiliado.RG" />
+                    <div style="color:#FF0000" id="rRg"></div>
+                </td>
             </tr>
             <tr>
                 <td>CPF:</td>
