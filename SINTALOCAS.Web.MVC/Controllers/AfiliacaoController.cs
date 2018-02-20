@@ -17,24 +17,15 @@ namespace SINTALOCAS.Web.MVC.Controllers
 
         public ActionResult Index()
         {
-            return RedirectToAction("Create");
+            //return RedirectToAction("Create");
+            CombosForm();
+            return View();
         }
 
         public ActionResult Create()
         {
-            try
-            {
-                ViewBag.UFLista = _ufServ.Consultar();
-                ViewBag.DDDLista = _ufServ.DDDs();
-                ViewBag.Afiliado = new AfiliacaoModelView();
-
-                return View();
-            }
-            catch (Exception ex)
-            {
-                ViewBag.MensagemRetorno = ex.Message;
-                return View(ViewBag.MensagemRetorno);
-            }
+            //CombosForm();
+            return View();
         }
 
         public ActionResult Dependente()
@@ -106,7 +97,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
             }
 
         }
-
+       
         public bool ValidarForm(FormCollection Collection)
         {
             var result = "";
@@ -128,7 +119,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
             }
         }
 
-
+        [HttpPost]
         public JsonResult ValidarFormJSON(FormCollection Collection)
         {
             var retorno = ValidarForm(Collection);
@@ -178,7 +169,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
         [HttpGet]
         public string ValidarCEP(string Cep)
         {
-
+                
             var result = new Endereco();
 
             if (!ValidaCodigosUtil.ValidaCep(Cep))
@@ -209,6 +200,22 @@ namespace SINTALOCAS.Web.MVC.Controllers
             if (!listaUFs.Contains(Uf.ToUpper())) result = MensagemUtil.ErroUFInvalido();
 
             return result;
+        }
+
+        private void CombosForm()
+        {
+
+            try
+            {
+                ViewBag.UFLista = _ufServ.Consultar();
+                ViewBag.DDDLista = _ufServ.DDDs();
+                ViewBag.Afiliado = new AfiliacaoModelView();
+            }
+            catch (Exception ex)
+            {
+                ViewBag.MensagemRetorno = ex.Message;
+            }
+
         }
 
         //public JsonResult BuscaEndereco(string cep)
