@@ -1,0 +1,16 @@
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Dominio/bin/Release/SINTALOCAS.Dominio.dll
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Dominio/bin/Release/Newtonsoft.Json.dll
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Dominio/bin/Release/Postmon4Net.dll
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Dominio/bin/Release/SINTALOCAS.DAL.dll
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Dominio/bin/Release/SINTALOCAS.Modelo.dll
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Dominio/bin/Release/MySql.Data.dll
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Dominio/bin/Release/Npgsql.dll
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Dominio/bin/Release/System.Threading.Tasks.Extensions.dll
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Dominio/bin/Release/SINTALOCAS.DAL.dll.config
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Dominio/bin/Release/Newtonsoft.Json.xml
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Dominio/bin/Release/Postmon4Net.xml
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Dominio/bin/Release/Npgsql.xml
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Dominio/bin/Release/System.Threading.Tasks.Extensions.xml
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Dominio/obj/Release/SINTALOCAS.Dominio.csprojResolveAssemblyReference.cache
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Dominio/obj/Release/SINTALOCAS.Dominio.csproj.CoreCompileInputs.cache
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Dominio/obj/Release/SINTALOCAS.Dominio.dll

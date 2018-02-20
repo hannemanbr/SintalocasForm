@@ -117,6 +117,7 @@
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\form-afilia.js" />
+    <Content Include="Views\Afiliacao\Dependente.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SINTALOCAS.Modelo\SINTALOCAS.Modelo.csproj">

@@ -37,6 +37,11 @@ namespace SINTALOCAS.Web.MVC.Controllers
             }
         }
 
+        public ActionResult Dependente()
+        {
+            return View();
+        }
+
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
@@ -44,36 +49,48 @@ namespace SINTALOCAS.Web.MVC.Controllers
             {
                 var validar = ValidarForm(collection);
 
-                if (!validar)
-                {
-                    //return Json(new { success = false, responseText = "falhou." }, JsonRequestBehavior.AllowGet);
+                //if (!validar)
+                //{
+                //    //return Json(new { success = false, responseText = "falhou." }, JsonRequestBehavior.AllowGet);
                      
-                    return this.Json(new
-                    {
-                        EnableSuccess = false,
-                        SuccessTitle = "Success",
-                        SuccessMsg = "Erro"
-                    });
-                }
-                else
+                //    return this.Json(new
+                //    {
+                //        EnableSuccess = false,
+                //        SuccessTitle = "Success",
+                //        SuccessMsg = "Erro"
+                //    });
+                //}
+                //else
+                //{
+                //    //Convertendo informaçoes dos campos em uma lista
+                //    var lista = AfiliacaoViewsServico.GeraListaCampos(collection);
+
+                //    //validar cpf, cpn, pis, etc.
+                //    var result = Validacao.FormAfiliacaoValidarPreenchimento(lista);
+                //    ViewBag.MensagemRetorno = result;
+
+                //    if (result == "")
+                //    {
+                //        AfiliacaoViewsServico.Insere(lista);
+                //    }
+
+                //    //return Json(new { success = true, responseText = View() }, JsonRequestBehavior.AllowGet);
+
+                //}
+
+                //Convertendo informaçoes dos campos em uma lista
+                var lista = AfiliacaoViewsServico.GeraListaCampos(collection);
+
+                //validar cpf, cpn, pis, etc.
+                var result = Validacao.FormAfiliacaoValidarPreenchimento(lista);
+                ViewBag.MensagemRetorno = result;
+
+                if (result == "")
                 {
-                    //Convertendo informaçoes dos campos em uma lista
-                    var lista = AfiliacaoViewsServico.GeraListaCampos(collection);
-
-                    //validar cpf, cpn, pis, etc.
-                    var result = Validacao.FormAfiliacaoValidarPreenchimento(lista);
-                    ViewBag.MensagemRetorno = result;
-
-                    if (result == "")
-                    {
-                        AfiliacaoViewsServico.Insere(lista);
-                    }
-
-                    //return Json(new { success = true, responseText = View() }, JsonRequestBehavior.AllowGet);
-
+                    AfiliacaoViewsServico.Insere(lista);
                 }
 
-                return View();
+                return RedirectToAction("Dependente");
 
             }
             catch (Exception ex)

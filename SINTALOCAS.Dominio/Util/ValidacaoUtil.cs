@@ -36,7 +36,7 @@ namespace SINTALOCAS.Dominio.Util
 
             }
 
-            if (result.Trim() != "" || listaCampos.Count == 0) result = "<strong>Preencha os campos:</strong> <ul>" + result + "</ul>";
+            if (result.Trim() != "") result = "<strong>Preencha os campos:</strong> <ul>" + result + "</ul>";
 
             return result;
 

@@ -1,0 +1,5 @@
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Modelo/bin/Release/SINTALOCAS.Modelo.dll
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Modelo/bin/Release/Correios.Net.dll
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Modelo/bin/Release/Correios.Net.pdb
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Modelo/obj/Release/SINTALOCAS.Modelo.csproj.CoreCompileInputs.cache
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Modelo/obj/Release/SINTALOCAS.Modelo.dll

@@ -2,9 +2,9 @@
   <MonoDevelop.Ide.ItemProperties.SINTALOCAS.Web.MVC PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="SINTALOCAS.Web.MVC/Controllers/AfiliacaoController.cs">
     <Files>
-      <File FileName="SINTALOCAS.Web.MVC/Controllers/AfiliacaoController.cs" Line="115" Column="68" />
-      <File FileName="SINTALOCAS.Web.MVC/Views/Afiliacao/Create.cshtml" Line="172" Column="1" />
-      <File FileName="SINTALOCAS.Web.MVC/Scripts/form-afilia.js" Line="57" Column="44" />
+      <File FileName="SINTALOCAS.Web.MVC/Controllers/AfiliacaoController.cs" Line="134" Column="1" />
+      <File FileName="SINTALOCAS.Web.MVC/Views/Afiliacao/Create.cshtml" Line="85" Column="96" />
+      <File FileName="SINTALOCAS.Dominio/Util/ValidacaoUtil.cs" Line="39" Column="36" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
@@ -13,6 +13,8 @@
       <Breakpoint file="/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Web.MVC/Servico/AfiliacaoServico.cs" relfile="SINTALOCAS.Web.MVC/Servico/AfiliacaoServico.cs" line="16" column="1" />
       <Breakpoint file="/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.DAL/Context/ContextoDB.cs" relfile="SINTALOCAS.DAL/Context/ContextoDB.cs" line="33" column="1" />
       <Breakpoint file="/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.DAL/Context/ContextoDB.cs" relfile="SINTALOCAS.DAL/Context/ContextoDB.cs" line="18" column="1" />
+      <Breakpoint file="/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Web.MVC/Controllers/AfiliacaoController.cs" relfile="SINTALOCAS.Web.MVC/Controllers/AfiliacaoController.cs" line="50" column="1" />
+      <Breakpoint file="/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Web.MVC/Controllers/AfiliacaoController.cs" relfile="SINTALOCAS.Web.MVC/Controllers/AfiliacaoController.cs" line="134" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

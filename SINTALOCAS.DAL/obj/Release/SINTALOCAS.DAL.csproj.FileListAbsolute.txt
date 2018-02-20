@@ -1,0 +1,16 @@
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.DAL/bin/Release/SINTALOCAS.DAL.dll.config
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.DAL/bin/Release/SINTALOCAS.DAL.dll
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.DAL/bin/Release/EntityFramework.dll
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.DAL/bin/Release/EntityFramework.SqlServer.dll
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.DAL/bin/Release/MySql.Data.dll
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.DAL/bin/Release/MySql.Fabric.Plugin.dll
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.DAL/bin/Release/Npgsql.dll
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.DAL/bin/Release/SINTALOCAS.Modelo.dll
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.DAL/bin/Release/System.Threading.Tasks.Extensions.dll
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.DAL/bin/Release/EntityFramework.xml
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.DAL/bin/Release/EntityFramework.SqlServer.xml
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.DAL/bin/Release/Npgsql.xml
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.DAL/bin/Release/System.Threading.Tasks.Extensions.xml
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.DAL/obj/Release/SINTALOCAS.DAL.csprojResolveAssemblyReference.cache
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.DAL/obj/Release/SINTALOCAS.DAL.csproj.CoreCompileInputs.cache
+/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.DAL/obj/Release/SINTALOCAS.DAL.dll
