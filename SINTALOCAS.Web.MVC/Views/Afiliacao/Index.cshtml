@@ -5,7 +5,7 @@
 
 <h2>FICHA DE FILIAÇÃO</h2>
 <body>
-  <form action="Index" id="formAfilia">
+  <form action="@ViewBag.LinkSubmitAfilia" id="formAfilia">
        <table >
             <tr>
                 <td class="TDcampoLabel">ASSOCIADO:</td>
@@ -15,35 +15,35 @@
              <tr>
                 <td>E-MAIL:</td>
                 <td>
-                    <input type="text" id="Email" name="Email" onblur="validarEmail(this)" placeholder="e-mail" value="@ViewBag.Afiliado.Email" />
+                    <input type="text" id="Email" name="Email" onblur="validarEmail(this, '@ViewBag.RootView')" placeholder="e-mail" value="@ViewBag.Afiliado.Email" />
                     <div style="color:#FF0000" id="rEmail"></div>
                 </td>
             </tr>
             <tr>
                 <td>DATA DE NASCIMENTO:</td>
                 <td>
-                    <input type="text" id="DtNasc" name="DtNasc" onblur="validarDtNasc(this)" class="simple-field-data-mask" data-mask="00/00/0000" />
+                    <input type="text" id="DtNasc" name="DtNasc" onblur="validarDtNasc(this, '@ViewBag.RootView')" class="simple-field-data-mask" data-mask="00/00/0000" />
                     <div style="color:#FF0000" id="rDtNasc"></div>
                 </td>
             </tr>
             <tr>
                 <td>RG:</td>
                 <td>
-                    <input type="text" id="Rg" name="Rg" onblur="validarRG(this)" placeholder="Somente número" value="@ViewBag.Afiliado.RG" />
+                    <input type="text" id="Rg" name="Rg" onblur="validarRG(this, '@ViewBag.RootView')" placeholder="Somente número" value="@ViewBag.Afiliado.RG" />
                     <div style="color:#FF0000" id="rRg"></div>
                 </td>
             </tr>
             <tr>
                 <td>CPF:</td>
                 <td>
-                    <input type="text" id="Cpf" name="Cpf" onblur="validarCPF(this)" placeholder="Somente número" value="@ViewBag.Afiliado.CPF" />
+                    <input type="text" id="Cpf" name="Cpf" onblur="validarCPF(this, '@ViewBag.RootView')" placeholder="Somente número" value="@ViewBag.Afiliado.CPF" />
                     <div style="color:#FF0000" id="rCpf"></div>
                 </td>
             </tr>
             <tr>
                 <td>PIS:</td>
                 <td>
-                    <input type="text" id="Pis" name="Pis" placeholder="" onblur="validarPIS(this)" value="@ViewBag.Afiliado.PIS" />
+                    <input type="text" id="Pis" name="Pis" placeholder="" onblur="validarPIS(this, '@ViewBag.RootView')" value="@ViewBag.Afiliado.PIS" />
                     <div style="color:#FF0000" id="rPis"></div>
                 </td>
             </tr>
@@ -71,7 +71,7 @@
             <tr>
                 <td>CNPJ:</td>
                 <td>
-                    <input type="text" id="Cnpj" name="Cnpj" placeholder="" onblur="validarCNPJ(this)" />
+                    <input type="text" id="Cnpj" name="Cnpj" placeholder="" onblur="validarCNPJ(this, '@ViewBag.RootView')" />
                     <div style="color:#FF0000" id="rCnpj"></div>
                 </td>
             </tr>
@@ -108,7 +108,7 @@
             <tr>
                 <td>CEP:</td>
                 <td>
-                    <input type="text" id="CEP" name="CEP" onblur="validarCEP(this)" placeholder="Somente números" />
+                    <input type="text" id="CEP" name="CEP" onblur="validarCEP(this, '@ViewBag.RootView')" placeholder="Somente números" />
                     <div style="color:#FF0000" id="rCEP">@ViewBag.MensagemCEPRetorno</div>
                 </td>
             </tr>
@@ -135,7 +135,7 @@
             <tr>
                 <td>UF:</td>
                 <td>
-                    <input type="text" id="UF" name="UF" maxlength="2" onblur="validarUF(this)" style="width: 30px" placeholder="XX" />
+                    <input type="text" id="UF" name="UF" maxlength="2" onblur="validarUF(this, '@ViewBag.RootView')" style="width: 30px" placeholder="XX" />
                     <div style="color:#FF0000" id="rUF"></div>
                     <!--<select id="UD" name="UF">
                     @foreach (var item in ViewBag.UFLista) 
@@ -165,7 +165,7 @@
                     <div style="color:#FF0000" id="rForm"></div>
                     <span id="rFormRetorno" style="color:#FF0000">@Html.Raw(ViewBag.MensagemRetorno)</span>
                     <br/>
-                    <input type="button" id="btnGravar" value="Enviar" onclick="validarFormAfilia()" />
+                    <input type="button" id="btnGravar" value="Enviar" onclick="validarFormAfilia(@ViewBag.RootView)" />
                 </td>
             </tr>
         </table>

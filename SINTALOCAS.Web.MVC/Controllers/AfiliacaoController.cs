@@ -13,11 +13,14 @@ namespace SINTALOCAS.Web.MVC.Controllers
 {
     public class AfiliacaoController : Controller
     {
-        UFServico _ufServ = new UFServico();
+        private UFServico _ufServ = new UFServico();
 
         public ActionResult Index()
         {
             //return RedirectToAction("Create");
+            ViewBag.LinkSubmitAfilia = Validacao.AnalisaLink(@Request.RawUrl.ToString() + "/Depentente");
+            ViewBag.RootView = Validacao.AnalisaLink(@Request.RawUrl.ToString());
+
             CombosForm();
             return View();
         }
@@ -30,6 +33,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
 
         public ActionResult Dependente()
         {
+            ViewBag.LinkSubmitAfilia = Validacao.AnalisaLink(@Request.RawUrl.ToString() + "/Finaliza");
             return View();
         }
                
@@ -57,11 +61,6 @@ namespace SINTALOCAS.Web.MVC.Controllers
             {
                 return false;
             }
-        }
-
-        [HttpPost]
-        public ActionResult Index(FormCollection Collection) {
-            return View("Create");
         }
 
         [HttpPost]
@@ -131,9 +130,9 @@ namespace SINTALOCAS.Web.MVC.Controllers
         {    
             var result = new Endereco();
 
-
             if (!ValidaCodigosUtil.ValidaCep(Cep) || Cep.Trim().Length < 8)
             {
+                ViewBag.MensagemCEPRetorno = MensagemUtil.ErroCEPInvalido();
                 result = null; // MensagemUtil.ErroCEPInvalido();
             }
             else

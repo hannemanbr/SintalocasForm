@@ -101,6 +101,10 @@ namespace SINTALOCAS.Dominio.Util
 
         public static bool ValidaCep(string cep)
         {
+
+            int temp;
+            if (!Int32.TryParse(cep, out temp)) return false;
+
             if (cep.Length == 8)
             {
                 cep = cep.Substring(0, 5) + "-" + cep.Substring(5, 3);

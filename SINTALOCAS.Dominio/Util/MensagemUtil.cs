@@ -12,6 +12,6 @@ namespace SINTALOCAS.Dominio.Util
         public static string ErroCEPInvalido() { return "CEP inválido"; }
         public static string ErroUFInvalido() { return "Estado/UF inválido"; }
         public static string ErroCamposNaoPreenchidos() { return "Existem campos obrigatórios incorretos"; }
-        public static string ErroDTNASCInvalido() { return "Data de Nascimento inválida"; }
+        public static string ErroDTNASCInvalido() { return "Data de Nascimento inválida ou com idade menor que 16 anos"; }
     }
 }

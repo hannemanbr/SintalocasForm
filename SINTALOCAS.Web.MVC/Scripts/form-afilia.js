@@ -1,11 +1,11 @@
-﻿function validarFormAfilia() {
+﻿function validarFormAfilia(rootView) {
 
     var formData = $("#formAfilia").serialize();
 
     $.ajax({
         type: "POST",
         data: formData,
-        url: "/Afiliacao/ValidarFormJSON",
+        url: rootView + "/ValidarFormJSON",
         dataType: 'json',
         // contentType: false,
         // processData: false,               
@@ -29,9 +29,9 @@
     });
 }
 
-function validarCPF(valor) 
+function validarCPF(valor, rootView) 
 {
-    var url = "/Afiliacao/ValidarCPF/";
+    var url = rootView + "/ValidarCPF/";
     var valor = $(valor).val();
     $.get(url, { Cpf: valor}, function (data)
     {
@@ -39,9 +39,9 @@ function validarCPF(valor)
     });
 }
 
-function validarCNPJ(valor)
+function validarCNPJ(valor, rootView)
 {
-    var url = "/Afiliacao/ValidarCNPJ/";
+    var url = rootView + "/ValidarCNPJ/";
     var valor = $(valor).val();
     $.get(url, { Cnpj: valor}, function (data)
     {
@@ -49,9 +49,9 @@ function validarCNPJ(valor)
     });
 }
 
-function validarPIS(valor) {
+function validarPIS(valor, rootView) {
 
-    var url = "/Afiliacao/ValidarPIS/";
+    var url = rootView + "/ValidarPIS/";
     var valor = $(valor).val();
     $.get(url, { Pis: valor}, function (data)
     {
@@ -60,9 +60,9 @@ function validarPIS(valor) {
 
 }
 
-function validarRG(valor) {
+function validarRG(valor, rootView) {
 
-    var url = "/Afiliacao/ValidarRG/";
+    var url = rootView + "/ValidarRG/";
     var valor = $(valor).val();
     $.get(url, { Rg: valor}, function (data)
     {
@@ -71,10 +71,10 @@ function validarRG(valor) {
 
 }
 
-function validarCEP(valor) {
+function validarCEP(valor, rootView) {
 
     $("#rCEP").html("");
-    var url = "/Afiliacao/ValidarCEP/";
+    var url = rootView + "/ValidarCEP/";
     var valor = $(valor).val();
     var msgErro = "CEP inválido";
 
@@ -100,9 +100,9 @@ function validarCEP(valor) {
 
 }
 
-function validarUF(valor) 
+function validarUF(valor, rootView) 
 {
-    var url = "/Afiliacao/ValidarUF/";
+    var url = rootView + "/ValidarUF/";
     var valor = $(valor).val();
     $.get(url, { Uf: valor}, function (data)
     {
@@ -122,9 +122,9 @@ $(document).ready(function(){
     $("#CEP").mask("99999999");
 });
 
-function validarEmail(valor) 
+function validarEmail(valor, rootView) 
 {
-    var url = "/Afiliacao/ValidarEMAIL/";
+    var url = rootView + "/ValidarEMAIL/";
     var valor = $(valor).val();
     $.get(url, { emailtx: valor}, function (data)
     {
@@ -132,9 +132,9 @@ function validarEmail(valor)
     });
 }
 
-function validarDtNasc(valor) 
+function validarDtNasc(valor, rootView) 
 {
-    var url = "/Afiliacao/ValidarDtNasc/";
+    var url = rootView + "/ValidarDtNasc/";
     var valor = $(valor).val();
     $.get(url, { dtnasc: valor}, function (data)
     {

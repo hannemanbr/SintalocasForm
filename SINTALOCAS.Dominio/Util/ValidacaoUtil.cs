@@ -19,6 +19,13 @@ namespace SINTALOCAS.Dominio.Util
             return listaCampoOpcional;
         }
 
+        public static string AnalisaLink(string link)
+        {
+            link = link.Trim().Replace("//", "/"); // remove barras duplicadas
+
+            return link;
+        }
+
         public static string FormAfiliacaoValidarPreenchimento(Dictionary<string, string> listaCampos){
 
             var result = "";
