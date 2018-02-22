@@ -54,6 +54,7 @@
     <Compile Include="Enumerator\TelefoneEnum.cs" />
     <Compile Include="UnidadeFederativa.cs" />
     <Compile Include="GrauParentesco.cs" />
+    <Compile Include="MensagemSistema.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

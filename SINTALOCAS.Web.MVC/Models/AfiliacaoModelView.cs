@@ -22,7 +22,7 @@ namespace SINTALOCAS.Web.MVC.Models
         public string Numero { get; set; }
         public string Complemento { get; set; }
         public string Bairro { get; set; }
-        public string Municipio { get; set; }
+        public string Cidade { get; set; }
         public string NomePai { get; set; }
         public string NomeMae { get; set; }
         public string PIS { get; set; }

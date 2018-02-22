@@ -64,13 +64,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="DATA\UFDAL.cs" />
+    <Compile Include="DB\UFDAL.cs" />
     <Compile Include="Context\ContextoMySqlDB.cs" />
-    <Compile Include="DATA\AfiliacaoDAL.cs" />
+    <Compile Include="DB\AfiliacaoDAL.cs" />
     <Compile Include="Context\ContextoODBCDB.cs" />
     <Compile Include="Context\ContextoPGDB.cs" />
-    <Compile Include="DATA\LogDAL.cs" />
+    <Compile Include="DB\LogDAL.cs" />
     <Compile Include="Context\ContextoEF.cs" />
+    <Compile Include="DB\TextosDAL.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -83,7 +84,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DATA\" />
+    <Folder Include="DB\" />
     <Folder Include="Context\" />
     <Folder Include="Entity\" />
   </ItemGroup>

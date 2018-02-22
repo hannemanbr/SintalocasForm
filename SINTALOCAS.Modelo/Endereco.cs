@@ -11,6 +11,6 @@ namespace SINTALOCAS.Modelo
         public string Cidade { get; set; }
         public string UF { get; set; }
         public string CEP { get; set; }
-
+        public string Pais { get; set; }
     }
 }

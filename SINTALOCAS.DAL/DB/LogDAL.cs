@@ -1,7 +1,7 @@
 ﻿using System;
 using SINTALOCAS.DAL.Context;
 
-namespace SINTALOCAS.DAL.DATA
+namespace SINTALOCAS.DAL.DB
 {
     public class LogDAL
     {

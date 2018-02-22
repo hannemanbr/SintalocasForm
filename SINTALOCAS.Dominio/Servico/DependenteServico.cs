@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using SINTALOCAS.DAL.DATA;
+using SINTALOCAS.DAL.DB;
 using SINTALOCAS.Modelo;
 
 namespace SINTALOCAS.Dominio.Servico

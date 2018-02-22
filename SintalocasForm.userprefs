@@ -1,12 +1,19 @@
 ﻿<Properties StartupConfiguration="{DFAEFCA5-435B-4271-943A-882ACEA11971}|">
   <MonoDevelop.Ide.ItemProperties.SINTALOCAS.Web.MVC PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="SINTALOCAS.DAL/DB/AfiliacaoDAL.cs">
+    <Files>
+      <File FileName="SINTALOCAS.Web.MVC/Controllers/DependentesController.cs" Line="21" Column="71" />
+      <File FileName="SINTALOCAS.DAL/DB/AfiliacaoDAL.cs" Line="110" Column="1" />
+      <File FileName="SINTALOCAS.Web.MVC/Controllers/AfiliacaoController.cs" Line="178" Column="22" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Web.MVC/Servico/AfiliacaoServico.cs" relfile="SINTALOCAS.Web.MVC/Servico/AfiliacaoServico.cs" line="16" column="1" />
       <Breakpoint file="/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.DAL/Context/ContextoDB.cs" relfile="SINTALOCAS.DAL/Context/ContextoDB.cs" line="33" column="1" />
       <Breakpoint file="/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.DAL/Context/ContextoDB.cs" relfile="SINTALOCAS.DAL/Context/ContextoDB.cs" line="18" column="1" />
+      <Breakpoint file="/Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.DAL/DB/AfiliacaoDAL.cs" relfile="SINTALOCAS.DAL/DB/AfiliacaoDAL.cs" line="134" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

@@ -4,7 +4,7 @@ using System.Data;
 using SINTALOCAS.DAL.Context;
 using SINTALOCAS.Modelo;
 
-namespace SINTALOCAS.DAL.DATA
+namespace SINTALOCAS.DAL.DB
 {
     public class UFDAL
     {
@@ -13,7 +13,7 @@ namespace SINTALOCAS.DAL.DATA
         public List<UnidadeFederativa> Consultar()
         {
             var lista = new List<UnidadeFederativa>();
-            var query = "Select * From Cfg_UF ";
+            var query = "Select * From Cfg_UF WHERE D_E_L_E_T_ = 0";
             var dataTable = _contexto.Consultar(query);
 
             try
@@ -43,7 +43,7 @@ namespace SINTALOCAS.DAL.DATA
         public List<UnidadeFederativa> ListarDDDs()
         {
             var lista = new List<UnidadeFederativa>();
-            var query = "Select * From Cfg_DDD ";
+            var query = "Select * From Cfg_DDD WHERE D_E_L_E_T_ = 0";
             var dataTable = _contexto.Consultar(query);
 
             try

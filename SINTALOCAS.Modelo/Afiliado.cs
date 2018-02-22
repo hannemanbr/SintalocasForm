@@ -21,5 +21,6 @@ namespace SINTALOCAS.Modelo
         public CTPS CTPS { get; set; }
         public string PIS { get; set; }
         public List<Telefone> Telefones { get; set; }
+        public Endereco Endereco { get; set; }
     }
 }

@@ -1,5 +1,5 @@
 ﻿using System;
-using SINTALOCAS.DAL.DATA;
+using SINTALOCAS.DAL.DB;
 using SINTALOCAS.Modelo;
 using SINTALOCAS.DAL;
 

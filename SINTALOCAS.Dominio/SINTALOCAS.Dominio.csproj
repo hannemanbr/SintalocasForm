@@ -52,6 +52,7 @@
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
     <Compile Include="Servico\DependenteServico.cs" />
+    <Compile Include="Servico\MensagemServico.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Interface\" />

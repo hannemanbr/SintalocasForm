@@ -89,7 +89,7 @@
     <Compile Include="Models\AfiliacaoModelView.cs" />
     <Compile Include="Models\DependenteModelView.cs" />
     <Compile Include="Controllers\AfiliacaoController.cs" />
-    <Compile Include="Servico\AfiliacaoViewsServico.cs" />
+    <Compile Include="Servico\validacaoViewServico.cs" />
     <Compile Include="Models\EnderecoModelView.cs" />
     <Compile Include="Controllers\DependentesController.cs" />
   </ItemGroup>
@@ -103,7 +103,6 @@
     <Content Include="Global.asax" />
     <Content Include="packages.config" />
     <Content Include="Views\Afiliacao\Index.cshtml" />
-    <Content Include="Views\Afiliacao\Create.cshtml" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

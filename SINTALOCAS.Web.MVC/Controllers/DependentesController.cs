@@ -18,7 +18,20 @@ namespace SINTALOCAS.Web.MVC.Controllers
             CombosForm();
             ViewBag.RootView = Validacao.AnalisaLink(@Request.RawUrl.ToString());
             ViewBag.LinkSubmitAfilia = Validacao.AnalisaLink(@Request.RawUrl.ToString() + "/Finaliza");
+            ViewBag.GrauParentesco = _dependenteServ.DictionaryGrausParentesco();
             return View();
+        }
+
+        [HttpPost]
+        public JsonResult ValidarFormJSON(FormCollection Collection)
+        {
+            var retorno = ValidarForm(Collection);
+            var mensagem = "";
+
+            if (!retorno) mensagem = MensagemUtil.ErroCamposNaoPreenchidos();
+
+            return Json(new { success = retorno, msg = mensagem }, JsonRequestBehavior.AllowGet); ;
+
         }
 
         [HttpGet]
@@ -36,7 +49,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
             var result = "";
 
             //Convertendo informaçoes dos campos em uma lista
-            var lista = AfiliacaoViewsServico.GeraListaCampos(Collection);
+            var lista = validacaoViewServico.GeraListaCampos(Collection);
 
             //validar campos opcionais
             result = Validacao.FormAfiliacaoValidarPreenchimento(lista);
@@ -77,7 +90,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
 
             try
             {
-                AfiliacaoViewsServico.InsereDependente(lista);
+                validacaoViewServico.InsereDependente(lista);
             }
             catch (Exception ex)
             {

@@ -25,18 +25,12 @@ namespace SINTALOCAS.Web.MVC.Controllers
             return View();
         }
 
-        public ActionResult Create()
-        {
-            //CombosForm();
-            return View();
-        }
-
         public bool ValidarForm(FormCollection Collection)
         {
             var result = "";
 
             //Convertendo informaçoes dos campos em uma lista
-            var lista = AfiliacaoViewsServico.GeraListaCampos(Collection);
+            var lista = validacaoViewServico.GeraListaCampos(Collection);
 
             //validar campos opcionais
             result = Validacao.FormAfiliacaoValidarPreenchimento(lista);
@@ -185,7 +179,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
 
             try
             {
-                AfiliacaoViewsServico.InsereAfiliado(lista);
+                validacaoViewServico.InsereAfiliado(lista);
             }
             catch (Exception ex)
             {

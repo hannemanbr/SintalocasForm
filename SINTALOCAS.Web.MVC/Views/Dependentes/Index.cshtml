@@ -16,8 +16,7 @@
                 <td class="TDcampoTexto">
                 <input type="text" id="Nome" name="Nome" placeholder="nome completo" /></td>
                 <td>
-                    <input type="text" id="DtNasc" name="DtNasc" onblur="validarDtNasc(this, '@ViewBag.RootView')" class="simple-field-data-mask" data-mask="00/00/0000" />
-                    <div style="color:#FF0000" id="rDtNasc"></div>
+                    <input type="text" id="DtNasc" name="DtNasc" style="width:80px;" placeholder="dd/mm/aaaa" onblur="validarDtNasc(this, '@ViewBag.RootView')" class="simple-field-data-mask" data-mask="00/00/0000" />
                 </td>
                 <td>
                     <select id="GrauParente" name="GrauParente">
@@ -29,6 +28,7 @@
                 </td>
             </tr>
         </table>
+        <div style="color:#FF0000" id="rDtNasc"></div>
         <div style="color:#FF0000" id="rForm"></div>
         <span id="rFormRetorno" style="color:#FF0000">@Html.Raw(ViewBag.MensagemRetorno)</span>
         <br/>

@@ -10,7 +10,7 @@ using SINTALOCAS.Web.MVC.Models;
 
 namespace SINTALOCAS.Web.MVC.Servico
 {
-    public static class AfiliacaoViewsServico
+    public static class validacaoViewServico
     {
 
         public static AfiliacaoModelView GeraAfiliacaoModelView(Dictionary<string, string> lista){
@@ -38,6 +38,27 @@ namespace SINTALOCAS.Web.MVC.Servico
             //Datas
             DateTime dataNascimento = DataUtil.ConverterString(lista["DTNASC"]);
             afiliado.DataNascimento = dataNascimento;
+
+            ////Endereco
+            //Endereco endereco = new Endereco()
+            //{
+            //    Logradouro = lista["RUA"],
+            //    Bairro = lista["BAIRRO"],
+            //    CEP = lista["CEP"],
+            //    Cidade = lista["CIDADE"],
+            //    Complemento = lista["COMPLEMENTO"],
+            //    Numero = lista["NUMERO"],
+            //    UF = lista["UF"]
+            //};
+
+            //Endereco
+            afiliado.Logradoro = lista["RUA"];
+            afiliado.Bairro = lista["BAIRRO"];
+            afiliado.CEP = lista["CEP"];
+            afiliado.Cidade = lista["CIDADE"];
+            afiliado.Complemento = lista["COMPLEMENTO"];
+            afiliado.Numero = lista["NUMERO"];
+            afiliado.UF = lista["UF"];
 
             return afiliado;
         }
@@ -93,6 +114,21 @@ namespace SINTALOCAS.Web.MVC.Servico
                 //Datas
                 DateTime dataNascimento = DataUtil.ConverterString(lista["DTNASC"]);
                 afiliado.DataNascimento = dataNascimento;
+
+                //Endereco
+                Endereco endereco = new Endereco()
+                {
+                    Logradouro = lista["RUA"],
+                    Bairro = lista["BAIRRO"],
+                    CEP = lista["CEP"],
+                    Cidade = lista["CIDADE"],
+                    Complemento = lista["COMPLEMENTO"],
+                    Numero = lista["NUMERO"],
+                    UF = lista["UF"],
+                    Pais = "BRASIL"
+                };
+
+                afiliado.Endereco = endereco;
 
                 var _afiliacaoServ = new AfiliacaoServico();
 

@@ -16,7 +16,8 @@
             //return response.success;
 
             if (response.success) {
-                $("#formAfilia").submit();
+                //$("#formAfilia").submit();
+                window.location.replace("Dependentes");
             } else {
                 alert(response.msg);
             }
