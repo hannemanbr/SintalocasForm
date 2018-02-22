@@ -13,7 +13,7 @@ namespace SINTALOCAS.Dominio.Servico
 
             int result = 0;
 
-            _afiliacaoDAL.Inserir(afiliado);
+            _afiliacaoDAL.InserirAfiliado(afiliado);
 
             return result;
         }

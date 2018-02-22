@@ -91,6 +91,7 @@
     <Compile Include="Controllers\AfiliacaoController.cs" />
     <Compile Include="Servico\AfiliacaoViewsServico.cs" />
     <Compile Include="Models\EnderecoModelView.cs" />
+    <Compile Include="Controllers\DependentesController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Web.config" />
@@ -115,8 +116,8 @@
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\form-afilia.js" />
-    <Content Include="Views\Afiliacao\Dependente.cshtml" />
     <Content Include="Scripts\jquery.mask.js" />
+    <Content Include="Views\Dependentes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SINTALOCAS.Modelo\SINTALOCAS.Modelo.csproj">

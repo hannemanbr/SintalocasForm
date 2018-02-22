@@ -42,7 +42,7 @@ namespace SINTALOCAS.Web.MVC.Servico
             return afiliado;
         }
 
-        public static int Insere(Dictionary<string, string> lista)
+        public static int InsereAfiliado(Dictionary<string, string> lista)
         {
             try
             {
@@ -106,6 +106,36 @@ namespace SINTALOCAS.Web.MVC.Servico
 
         }
 
+        public static int InsereDependente(Dictionary<string, string> lista)
+        {
+            try
+            {
+                int result = 0;
+
+                // criando objeto de afiliado
+                var afiliado = new Dependentes();
+
+                afiliado.Nome = lista["NOME"];
+                afiliado.GrauParentesco = Convert.ToInt32(lista["GRAUPARENTE"]);
+
+                //Datas
+                DateTime dataNascimento = DataUtil.ConverterString(lista["DTNASC"]);
+                afiliado.DataNascimento = dataNascimento;
+
+                var _afiliacaoServ = new DependenteServico();
+
+                _afiliacaoServ.Insere(afiliado);
+
+                return result;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
         public static Dictionary<string, string> GeraListaCampos(FormCollection collection){
 
             var lista = new Dictionary<string, string>();
@@ -137,6 +167,5 @@ namespace SINTALOCAS.Web.MVC.Servico
 
             return result;
         }
-
     }
 }

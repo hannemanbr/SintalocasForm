@@ -49,6 +49,30 @@ namespace SINTALOCAS.Dominio.Util
 
         }
 
+        public static string FormDependenteValidarPreenchimento(Dictionary<string, string> listaCampos)
+        {
+
+            var result = "";
+
+            // VALIDAR PREENCHIMENTO DE CAMPO OBRIGATORIO
+            var camposOpcionais = FormAfiliacaoCampoOpcional();
+
+            foreach (KeyValuePair<string, string> itens in listaCampos)
+            {
+                if (!camposOpcionais.Contains(itens.Key.ToUpper()))
+                {
+                    var valorCampo = itens.Value.Trim();
+                    if (valorCampo == "") result += "<li>" + itens.Key + "</li>";
+                }
+
+            }
+
+            if (result.Trim() != "") result = "<strong>Preencha os campos:</strong> <ul>" + result + "</ul>";
+
+            return result;
+
+        }
+
         public static string ValidarCodigos(Dictionary<string, string> listaCampos)
         {
             var result = "";

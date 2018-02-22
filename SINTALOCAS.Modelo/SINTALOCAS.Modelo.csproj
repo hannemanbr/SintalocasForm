@@ -53,6 +53,7 @@
     <Compile Include="Endereco.cs" />
     <Compile Include="Enumerator\TelefoneEnum.cs" />
     <Compile Include="UnidadeFederativa.cs" />
+    <Compile Include="GrauParentesco.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

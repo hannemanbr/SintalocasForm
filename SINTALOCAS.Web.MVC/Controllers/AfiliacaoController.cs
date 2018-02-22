@@ -18,7 +18,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
         public ActionResult Index()
         {
             //return RedirectToAction("Create");
-            ViewBag.LinkSubmitAfilia = Validacao.AnalisaLink(@Request.RawUrl.ToString() + "/Depentente");
+            //ViewBag.LinkSubmitAfilia = Validacao.AnalisaLink(@Request.RawUrl.ToString() + "/Depentente");
             ViewBag.RootView = Validacao.AnalisaLink(@Request.RawUrl.ToString());
 
             CombosForm();
@@ -31,12 +31,6 @@ namespace SINTALOCAS.Web.MVC.Controllers
             return View();
         }
 
-        public ActionResult Dependente()
-        {
-            ViewBag.LinkSubmitAfilia = Validacao.AnalisaLink(@Request.RawUrl.ToString() + "/Finaliza");
-            return View();
-        }
-               
         public bool ValidarForm(FormCollection Collection)
         {
             var result = "";
@@ -191,7 +185,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
 
             try
             {
-                AfiliacaoViewsServico.Insere(lista);
+                AfiliacaoViewsServico.InsereAfiliado(lista);
             }
             catch (Exception ex)
             {

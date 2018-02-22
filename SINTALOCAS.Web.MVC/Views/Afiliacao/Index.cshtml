@@ -5,7 +5,7 @@
 
 <h2>FICHA DE FILIAÇÃO</h2>
 <body>
-  <form action="@ViewBag.LinkSubmitAfilia" id="formAfilia">
+  <form action="dependentes" id="formAfilia">
        <table >
             <tr>
                 <td class="TDcampoLabel">ASSOCIADO:</td>
@@ -165,7 +165,7 @@
                     <div style="color:#FF0000" id="rForm"></div>
                     <span id="rFormRetorno" style="color:#FF0000">@Html.Raw(ViewBag.MensagemRetorno)</span>
                     <br/>
-                    <input type="button" id="btnGravar" value="Enviar" onclick="validarFormAfilia(@ViewBag.RootView)" />
+                    <input type="button" id="btnGravar" value="Enviar" onclick="validarFormAfilia('@ViewBag.RootView')" />
                 </td>
             </tr>
         </table>

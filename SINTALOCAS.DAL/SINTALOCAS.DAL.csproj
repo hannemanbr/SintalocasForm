@@ -70,6 +70,7 @@
     <Compile Include="Context\ContextoODBCDB.cs" />
     <Compile Include="Context\ContextoPGDB.cs" />
     <Compile Include="DATA\LogDAL.cs" />
+    <Compile Include="Context\ContextoEF.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -84,6 +85,7 @@
   <ItemGroup>
     <Folder Include="DATA\" />
     <Folder Include="Context\" />
+    <Folder Include="Entity\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

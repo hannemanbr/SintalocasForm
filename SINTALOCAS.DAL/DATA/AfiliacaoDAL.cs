@@ -10,7 +10,7 @@ namespace SINTALOCAS.DAL.DATA
     {
         ContextoMySqlDB _contexto = new ContextoMySqlDB();
 
-        public void Inserir(Afiliado afiliado)
+        public void InserirAfiliado(Afiliado afiliado)
         {
 
             try
@@ -51,6 +51,58 @@ namespace SINTALOCAS.DAL.DATA
                 throw ex;
             }
 
+        }
+
+        public void InserirDependente(Dependentes dependentes)
+        {
+
+            try
+            {
+
+                var dataNascTx = dependentes.DataNascimento.Year + "-" + dependentes.DataNascimento.Month + "-" + dependentes.DataNascimento.Day;
+
+                var query = "" +
+                    " INSERT INTO Afiliado(" +
+                    //"ID, " +                
+                    "Descricao" +
+                    ") VALUES (";
+                query += "'" + dependentes.Nome + "'";
+                query += ")";
+
+                _contexto.Transacao(query);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
+        public List<GrauParentesco> ListaGrauPArenesco() 
+        {
+            try
+            {
+                var lista = new List<GrauParentesco>();
+                var query = "SELECT ID, Descricao FROM Cfg_GrauParentesco";
+                var dataTable = _contexto.Consultar(query);
+
+                foreach (DataRow linha in dataTable.Rows)
+                {
+                    var obj = new GrauParentesco
+                    {
+                        ID = Convert.ToInt32(linha["ID"]),
+                        Descricao = linha["Descricao"].ToString(),
+                    };
+
+                    lista.Add(obj);
+                }
+
+                return lista;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

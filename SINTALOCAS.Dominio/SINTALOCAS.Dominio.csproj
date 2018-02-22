@@ -51,6 +51,7 @@
     <Compile Include="Web References\CorreiosWebService\Reference.cs">
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
+    <Compile Include="Servico\DependenteServico.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Interface\" />
