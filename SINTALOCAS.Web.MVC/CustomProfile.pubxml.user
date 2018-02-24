@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAp1FhvXKNzEO/gqVDKoZt3wAAAAACAAAAAAAQZgAAAAEAACAAAAAqsZJAaeJ0YKFgqp7ka+JowvW5pSDKMwRT75SeDWGmUgAAAAAOgAAAAAIAACAAAAAql1CGwLuevGRoemSFDiIfRs5kiEHE4xcN+Hqv5XPm7iAAAABTNRr31Zd1ZPWKwjF/bB+aoJdY5HVmxonrljs9rRO/O0AAAABLfNFiXNS4N4Jh47lYJBO/bWt9po8z91e+6dkaeIIa8XZaIqgdop+TfEj5ckmLubq66Wt1wdbZ32BlkG3zgJdY</EncryptedPassword>
+    <_PublishTargetUrl>ftp://ftp.thomasabrantes.com/wwwroot/sintalocas/</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/AWSSDK.Core.dll">
+      <publishTime>02/22/2018 16:34:25</publishTime>
+    </File>
+    <File Include="bin/AWSSDK.Core.pdb">
+      <publishTime>02/22/2018 16:34:25</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>02/22/2018 16:34:26</publishTime>
+    </File>
+    <File Include="bin/MySql.Data.dll">
+      <publishTime>02/22/2018 16:34:26</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>02/22/2018 16:34:26</publishTime>
+    </File>
+    <File Include="bin/Npgsql.dll">
+      <publishTime>02/22/2018 16:34:26</publishTime>
+    </File>
+    <File Include="bin/SINTALOCAS.DAL.dll">
+      <publishTime>02/24/2018 19:07:32</publishTime>
+    </File>
+    <File Include="bin/SINTALOCAS.DAL.dll.config">
+      <publishTime>02/22/2018 16:34:19</publishTime>
+    </File>
+    <File Include="bin/SINTALOCAS.Dominio.dll">
+      <publishTime>02/24/2018 19:07:33</publishTime>
+    </File>
+    <File Include="bin/SINTALOCAS.Dominio.XmlSerializers.dll">
+      <publishTime>02/24/2018 19:07:33</publishTime>
+    </File>
+    <File Include="bin/SINTALOCAS.Modelo.dll">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="bin/SINTALOCAS.Web.MVC.dll">
+      <publishTime>02/24/2018 19:28:55</publishTime>
+    </File>
+    <File Include="bin/System.Threading.Tasks.Extensions.dll">
+      <publishTime>02/22/2018 16:34:26</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>02/22/2018 16:34:26</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>02/22/2018 16:34:26</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>02/22/2018 16:34:26</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Deployment.dll">
+      <publishTime>02/22/2018 16:34:26</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.dll">
+      <publishTime>02/22/2018 16:34:26</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Razor.dll">
+      <publishTime>02/22/2018 16:34:26</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>02/22/2018 16:34:25</publishTime>
+    </File>
+    <File Include="Image/banner_site.jpg">
+      <publishTime>02/22/2018 16:34:25</publishTime>
+    </File>
+    <File Include="Image/Logo.jpg">
+      <publishTime>02/22/2018 16:34:25</publishTime>
+    </File>
+    <File Include="Image/logo_fundo.png">
+      <publishTime>02/22/2018 16:34:25</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>02/22/2018 16:34:25</publishTime>
+    </File>
+    <File Include="Scripts/form-afilia.js">
+      <publishTime>02/22/2018 16:34:25</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.3.1-vsdoc.js">
+      <publishTime>02/22/2018 16:34:25</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.3.1.js">
+      <publishTime>02/22/2018 16:34:25</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.3.1.min.js">
+      <publishTime>02/22/2018 16:34:25</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.3.1.slim.js">
+      <publishTime>02/22/2018 16:34:25</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.3.1.slim.min.js">
+      <publishTime>02/22/2018 16:34:25</publishTime>
+    </File>
+    <File Include="Scripts/jquery.mask.js">
+      <publishTime>02/22/2018 16:34:25</publishTime>
+    </File>
+    <File Include="Scripts/jquery.unobtrusive-ajax.js">
+      <publishTime>02/22/2018 16:34:25</publishTime>
+    </File>
+    <File Include="Scripts/jquery.unobtrusive-ajax.min.js">
+      <publishTime>02/22/2018 16:34:25</publishTime>
+    </File>
+    <File Include="Style/estilo.css">
+      <publishTime>02/24/2018 18:41:42</publishTime>
+    </File>
+    <File Include="Views/Afiliacao/Index.cshtml">
+      <publishTime>02/24/2018 18:42:12</publishTime>
+    </File>
+    <File Include="Views/Dependentes/Index.cshtml">
+      <publishTime>02/24/2018 18:43:04</publishTime>
+    </File>
+    <File Include="Views/Finalizar/Index.cshtml">
+      <publishTime>02/24/2018 18:38:25</publishTime>
+    </File>
+    <File Include="Views/Home/Index.cshtml">
+      <publishTime>02/22/2018 16:34:25</publishTime>
+    </File>
+    <File Include="Views/Shared/Error.cshtml">
+      <publishTime>02/22/2018 16:34:25</publishTime>
+    </File>
+    <File Include="Views/Shared/_Layout.cshtml">
+      <publishTime>02/24/2018 19:26:33</publishTime>
+    </File>
+    <File Include="Views/Web.config">
+      <publishTime>02/22/2018 16:34:25</publishTime>
+    </File>
+    <File Include="Views/_ViewStart.cshtml">
+      <publishTime>02/22/2018 16:34:25</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>02/22/2018 16:34:25</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

@@ -19,6 +19,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
         {
             //return RedirectToAction("Create");
             //ViewBag.LinkSubmitAfilia = Validacao.AnalisaLink(@Request.RawUrl.ToString() + "/Depentente");
+            
             ViewBag.RootView = Validacao.AnalisaLink(@Request.RawUrl.ToString());
 
             CombosForm();

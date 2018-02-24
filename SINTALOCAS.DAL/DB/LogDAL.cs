@@ -3,14 +3,14 @@ using SINTALOCAS.DAL.Context;
 
 namespace SINTALOCAS.DAL.DB
 {
-    public class LogDAL
+    public static class LogDAL
     {
-        ContextoMySqlDB _contexto = new ContextoMySqlDB();
-
-        public void RegistraLog(string tipo, string ip, string usuario, string link, string acao, string valor)
+        
+        public static void RegistraLog(string tipo, string ip, string usuario, string link, string acao, string valor)
         {
             try
             {
+                ContextoMySqlDB contexto = new ContextoMySqlDB();
 
                 var query = "" +
                     " INSERT INTO Log(" +     
@@ -30,7 +30,7 @@ namespace SINTALOCAS.DAL.DB
                 query += ",'" + link + "'";
                 query += ")";
 
-                _contexto.Transacao(query);
+                contexto.Transacao(query);
             }
             catch (Exception ex)
             {
