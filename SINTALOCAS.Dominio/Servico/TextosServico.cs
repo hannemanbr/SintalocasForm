@@ -4,21 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SINTALOCAS.DAL.DB;
+using SINTALOCAS.Modelo;
 
 namespace SINTALOCAS.Dominio.Servico
 {
     public static class TextosServico
     {
 
-        public static string TextoDeAcordo()
+        public static MensagemSistema TextoDeAcordo()
         {
             var textoDAL = new TextosDAL();
             var lista = textoDAL.Consultar("concordo", "concordar");
 
-            if (lista.Count>0) return lista[0].Texto;
-
-            return "";
-
+            return lista[0];
+            
         }
     }
 }

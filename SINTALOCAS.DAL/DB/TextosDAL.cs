@@ -27,6 +27,7 @@ namespace SINTALOCAS.DAL.DB
                 {
                     var obj = new MensagemSistema
                     {
+                        Titulo = linha["titulo"].ToString(),
                         Texto = linha["Texto"].ToString(),
                         Categoria = linha["Categoria"].ToString(),
                         Alias = linha["Alias"].ToString(),
@@ -35,6 +36,17 @@ namespace SINTALOCAS.DAL.DB
 
                     lista.Add(obj);
                 }
+
+                if (lista.Count == 0) lista.Add(
+                      new MensagemSistema
+                      {
+                          Alias = "",
+                          Categoria = "",
+                          Texto = "",
+                          Titulo = "",
+                          ID = -1,
+
+                      });
 
             }
             catch (Exception ex)

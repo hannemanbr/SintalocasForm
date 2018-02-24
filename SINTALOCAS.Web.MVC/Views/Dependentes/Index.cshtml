@@ -5,8 +5,8 @@
 
 <h2>Cadastro de Dependentes - Sem acréscimo na mensalidade</h2>
 <body>
-  <form action="@ViewBag.LinkSubmitAfilia" id="formAfilia">
-       <table >
+    <form action="@ViewBag.LinkSubmitAfilia" id="formAfilia">
+        <table>
             <tr>
                 <td class="TDcampoLabel">Nome</td>
                 <td>Dt Nasc.</td>
@@ -14,16 +14,17 @@
             </tr>
             <tr>
                 <td class="TDcampoTexto">
-                <input type="text" id="Nome" name="Nome" placeholder="nome completo" /></td>
+                    <input type="text" id="Nome" name="Nome" placeholder="nome completo" />
+                </td>
                 <td>
                     <input type="text" id="DtNasc" name="DtNasc" style="width:80px;" placeholder="dd/mm/aaaa" onblur="validarDtNasc(this, '@ViewBag.RootView')" class="simple-field-data-mask" data-mask="00/00/0000" />
                 </td>
                 <td>
                     <select id="GrauParente" name="GrauParente">
-                        @foreach(KeyValuePair<int, string> item in ViewBag.GrauParentesco)
-                        {
-                            <option value="@item.Key">@item.Value</option>
-                        }
+                        @foreach (KeyValuePair<int, string> item in ViewBag.GrauParentesco)
+                    {
+                        <option value="@item.Key">@item.Value</option>
+                }
                     </select>
                 </td>
             </tr>
@@ -31,7 +32,10 @@
         <div style="color:#FF0000" id="rDtNasc"></div>
         <div style="color:#FF0000" id="rForm"></div>
         <span id="rFormRetorno" style="color:#FF0000">@Html.Raw(ViewBag.MensagemRetorno)</span>
-        <br/>
-        <input type="button" id="btnGravar" value="Enviar" onclick="validarFormAfilia('@ViewBag.RootView')" />
-</form> 
+        <br />
+        <input type="button" id="btnGravar" class="BotaoFinaliza" value="Enviar" onclick="validarFormAfilia('@ViewBag.RootView')" />
+        <br />
+        <br />
+        <input type="button" id="btnGravar" class="BotaoFinaliza" value="Finalizar" onclick="window.location.href='Finalizar'" />
+    </form> 
 </body>

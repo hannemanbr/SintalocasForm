@@ -12,8 +12,9 @@ namespace SINTALOCAS.Web.MVC.Controllers
         // GET: Finalizar
         public ActionResult Index()
         {
-            
-            ViewBag.TextoPrincipal = TextosServico.TextoDeAcordo().Replace(System.Environment.NewLine, "<br/>");
+            var mensagemSistema = TextosServico.TextoDeAcordo();
+            ViewBag.Titulo = mensagemSistema.Titulo;
+            ViewBag.TextoPrincipal = mensagemSistema.Texto.Replace(System.Environment.NewLine, "<br/>");
             return View();
         }
 

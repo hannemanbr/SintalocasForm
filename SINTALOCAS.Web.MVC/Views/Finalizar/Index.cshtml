@@ -4,9 +4,14 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1> @Html.Raw(ViewBag.TextoPrincipal)</h1>
+<h1> @ViewBag.Titulo</h1>
 <br/>
-<h2>
+<p>
     @Html.Raw(ViewBag.TextoPrincipal)
-</h2>
+    <span id="rFormRetorno" style="color:#FF0000">@Html.Raw(ViewBag.MensagemRetorno)</span>
+    <br />
+    <br />
+    <input type="button" id="btnGravar" class="BotaoFinaliza" value="Concordar e enviar pedido de afiliação" />
+    <br />
+</p>
 

@@ -18,3 +18,13 @@ input[type=text] {
     width:150px;
     text-align: left;
   }
+
+  .BotaoFinaliza {
+      background-color: #4cff00;
+      height: 40px;
+      font-family: Arial;
+      font-size: 18px;
+      color: #fff;
+      border-style: none;
+      border-color: #999
+  }
