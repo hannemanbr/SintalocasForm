@@ -1,0 +1,174 @@
+﻿@{
+    ViewBag.Title = "SINTALOCAS - Cadastro de Afiliados";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>FICHA DE FILIAÇÃO</h2>
+<body>
+  <form action="" id="formAfilia">
+       <table >
+            <tr>
+                <td class="TDcampoLabel">ASSOCIADO:</td>
+                <td class="TDcampoTexto">
+                <input type="text" id="Nome" name="Nome" placeholder="nome completo" value="@ViewBag.Afiliado.Nome" /></td>
+            </tr>
+             <tr>
+                <td>E-MAIL:</td>
+                <td>
+                    <input type="text" id="Email" name="Email" onblur="validarEmail(this, '@ViewBag.RootView')" placeholder="e-mail" value="@ViewBag.Afiliado.Email" />
+                    <div style="color:#FF0000" id="rEmail"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>DATA DE NASCIMENTO:</td>
+                <td>
+                    <input type="text" id="DtNasc" name="DtNasc" onblur="validarDtNasc(this, '@ViewBag.RootView')" class="simple-field-data-mask" data-mask="00/00/0000" />
+                    <div style="color:#FF0000" id="rDtNasc"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>RG:</td>
+                <td>
+                    <input type="text" id="Rg" name="Rg" onblur="validarRG(this, '@ViewBag.RootView')" placeholder="Somente número" value="@ViewBag.Afiliado.RG" />
+                    <div style="color:#FF0000" id="rRg"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>CPF:</td>
+                <td>
+                    <input type="text" id="Cpf" name="Cpf" onblur="validarCPF(this, '@ViewBag.RootView')" placeholder="Somente número" value="@ViewBag.Afiliado.CPF" />
+                    <div style="color:#FF0000" id="rCpf"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>PIS:</td>
+                <td>
+                    <input type="text" id="Pis" name="Pis" placeholder="" onblur="validarPIS(this, '@ViewBag.RootView')" value="@ViewBag.Afiliado.PIS" />
+                    <div style="color:#FF0000" id="rPis"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>CTPS:</td>
+                <td>
+                    <input type="text" id="CtpsNum" name="CtpsNum" placeholder="" value="@ViewBag.Afiliado.CTPS_Numero" />
+                    <div style="color:#FF0000" id="rCtpsNum"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>Serie:</td>
+                <td>
+                    <input type="text" id="CtpsSerie" name="CtpsSerie" placeholder="" value="@ViewBag.Afiliado.CTPS_Serie" />
+                </td>
+            </tr>
+            <tr>
+                <td>Cargo:</td>
+                <td><input type="text" id="Cargo" name="Cargo" placeholder="" value="@ViewBag.Afiliado.Nome" /></td>
+            </tr>
+            <tr>
+                <td>Empresa:</td>
+                <td><input type="text" id="Empresa" name="Empresa" placeholder="" /></td>
+            </tr>
+            <tr>
+                <td>CNPJ:</td>
+                <td>
+                    <input type="text" id="Cnpj" name="Cnpj" placeholder="" onblur="validarCNPJ(this, '@ViewBag.RootView')" />
+                    <div style="color:#FF0000" id="rCnpj"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>CONSIR:</td>
+                <td><input type="text" id="Consir" name="Consir" placeholder="" /></td>
+            </tr>
+            <tr>
+                <td>Celular:</td>
+                <td>
+                    DDD <select id="TelCelDDD" name="TelCelDDD">
+                    @foreach (var item in ViewBag.DDDLista) 
+                    {
+                        <option value="@item">@item</option>
+                    }
+                    </select>
+                    <!--DDD <input type="text" id="TelCelDDD" name="TelCelDDD" style="width:30px" placeholder="99" />-->
+                    No. <input type="text" id="TelCelNum" name="TelCelNum" style="width:90px;" placeholder="99999-9999" />
+                </td>
+            </tr>
+            <tr>
+                <td>Telefone Residencial:</td>
+                <td>
+                    DDD <select id="TelResDDD" name="TelResDDD">
+                    @foreach (var item in ViewBag.DDDLista) 
+                    {
+                        <option value="@item">@item</option>
+                    }
+                    </select>
+                    <!-- DDD <input type="text" id="TelResDDD" name="TelResDDD" style="width:30px" placeholder="99" />-->
+                    No. <input type="text" id="TelResNum" name="TelResNum" style="width:90px;"  placeholder="opcional" />
+                </td>
+            </tr>
+            <tr>
+                <td>CEP:</td>
+                <td>
+                    <input type="text" id="CEP" name="CEP" onblur="validarCEP(this, '@ViewBag.RootView')" placeholder="Somente números" />
+                    <div style="color:#FF0000" id="rCEP">@ViewBag.MensagemCEPRetorno</div>
+                </td>
+            </tr>
+            <tr>
+                <td>Rua:</td>
+                <td><input type="text" id="Rua" name="Rua" placeholder="ex: Rua / Avenida / Estrada / Travessa, etc." /></td>
+            </tr>
+            <tr>
+                <td>Número:</td>
+                <td><input type="text" id="Numero" name="Numero" placeholder="Somente números" /></td>
+            </tr>
+            <tr>
+                <td>Complemento:</td>
+                <td><input type="text" id="Complemento" name="Complemento" /></td>
+            </tr>
+            <tr>
+                <td>Bairro:</td>
+                <td><input type="text" id="Bairro" name="Bairro" /></td>
+            </tr>
+            <tr>
+                <td>Cidade:</td>
+                <td><input type="text" id="Cidade" name="Cidade" /></td>
+            </tr>
+            <tr>
+                <td>UF:</td>
+                <td>
+                    <input type="text" id="UF" name="UF" maxlength="2" onblur="validarUF(this, '@ViewBag.RootView')" style="width: 30px" placeholder="XX" />
+                    <div style="color:#FF0000" id="rUF"></div>
+                    <!--<select id="UD" name="UF">
+                    @foreach (var item in ViewBag.UFLista) 
+                    {
+                        <option value="@item.UF">@item.UF</option>
+                    }
+                    </select>-->
+                </td>
+            </tr>
+            <tr>
+                <td>Nome Pai:</td>
+                <td><input type="text" id="NomePai" name="NomePai" placeholder="Opcional" /></td>
+            </tr>
+            <tr>
+                <td>Nome Mãe:</td>
+                <td><input type="text" id="NomeMae" name="NomeMae" /></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <a target="_blank" href="~/Download/docs/Ficha_Filiacao_AcordoJAN2018.pdf">Ler Termos e Condições</a>
+                </td>
+            </tr>
+             <tr>
+                <td></td>
+                <td>
+                    <div style="color:#FF0000" id="rForm"></div>
+                    <span id="rFormRetorno" style="color:#FF0000">@Html.Raw(ViewBag.MensagemRetorno)</span>
+                    <br/>
+                    <input type="button" id="btnGravar" value="Enviar" onclick="validarFormAfilia('@ViewBag.RootView')" />
+                </td>
+            </tr>
+        </table>
+</form> 
+</body>
+

@@ -10,10 +10,14 @@ namespace SINTALOCAS.DAL.DB
     {
         ContextoMySqlDB _contexto = new ContextoMySqlDB();
 
-        public List<MensagemSistema> Consultar()
+        public List<MensagemSistema> Consultar(string alias = "", string categoria = "")
         {
             var lista = new List<MensagemSistema>();
             var query = "Select * From Cfg_Textos WHERE D_E_L_E_T_ = 0 ";
+
+            if (categoria.Trim() != "") query += " AND Categoria='" + categoria.ToUpper().Trim() + "'";
+            if (alias.Trim() != "") query += " AND Alias='" + alias.ToUpper().Trim() + "'";
+
             var dataTable = _contexto.Consultar(query);
 
             try

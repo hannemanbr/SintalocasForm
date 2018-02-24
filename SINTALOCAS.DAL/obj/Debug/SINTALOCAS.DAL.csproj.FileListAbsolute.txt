@@ -17,3 +17,22 @@
 /Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.DAL/bin/Debug/Npgsql.xml
 /Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.DAL/bin/Debug/EntityFramework.xml
 /Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.DAL/bin/Debug/EntityFramework.SqlServer.xml
+D:\Thomas\Github\SintalocasForm\SINTALOCAS.DAL\bin\Debug\SINTALOCAS.DAL.dll.config
+D:\Thomas\Github\SintalocasForm\SINTALOCAS.DAL\bin\Debug\SINTALOCAS.DAL.dll
+D:\Thomas\Github\SintalocasForm\SINTALOCAS.DAL\bin\Debug\SINTALOCAS.DAL.pdb
+D:\Thomas\Github\SintalocasForm\SINTALOCAS.DAL\bin\Debug\EntityFramework.dll
+D:\Thomas\Github\SintalocasForm\SINTALOCAS.DAL\bin\Debug\EntityFramework.SqlServer.dll
+D:\Thomas\Github\SintalocasForm\SINTALOCAS.DAL\bin\Debug\MySql.Data.dll
+D:\Thomas\Github\SintalocasForm\SINTALOCAS.DAL\bin\Debug\MySql.Fabric.Plugin.dll
+D:\Thomas\Github\SintalocasForm\SINTALOCAS.DAL\bin\Debug\Npgsql.dll
+D:\Thomas\Github\SintalocasForm\SINTALOCAS.DAL\bin\Debug\SINTALOCAS.Modelo.dll
+D:\Thomas\Github\SintalocasForm\SINTALOCAS.DAL\bin\Debug\System.Threading.Tasks.Extensions.dll
+D:\Thomas\Github\SintalocasForm\SINTALOCAS.DAL\bin\Debug\SINTALOCAS.Modelo.pdb
+D:\Thomas\Github\SintalocasForm\SINTALOCAS.DAL\bin\Debug\EntityFramework.xml
+D:\Thomas\Github\SintalocasForm\SINTALOCAS.DAL\bin\Debug\EntityFramework.SqlServer.xml
+D:\Thomas\Github\SintalocasForm\SINTALOCAS.DAL\bin\Debug\Npgsql.xml
+D:\Thomas\Github\SintalocasForm\SINTALOCAS.DAL\bin\Debug\System.Threading.Tasks.Extensions.xml
+D:\Thomas\Github\SintalocasForm\SINTALOCAS.DAL\obj\Debug\SINTALOCAS.DAL.csprojResolveAssemblyReference.cache
+D:\Thomas\Github\SintalocasForm\SINTALOCAS.DAL\obj\Debug\SINTALOCAS.DAL.csproj.CoreCompileInputs.cache
+D:\Thomas\Github\SintalocasForm\SINTALOCAS.DAL\obj\Debug\SINTALOCAS.DAL.dll
+D:\Thomas\Github\SintalocasForm\SINTALOCAS.DAL\obj\Debug\SINTALOCAS.DAL.pdb
