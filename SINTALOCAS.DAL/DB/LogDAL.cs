@@ -5,13 +5,12 @@ namespace SINTALOCAS.DAL.DB
 {
     public static class LogDAL
     {
-        
-        public static void RegistraLog(string tipo, string ip, string usuario, string link, string acao, string valor)
+        private static ContextoMySqlDB _contexto = new ContextoMySqlDB();
+
+        public static void RegistraLog(string tipo, string ip, string usuario, string link, string acao, string valor, string geolocation)
         {
             try
             {
-                ContextoMySqlDB contexto = new ContextoMySqlDB();
-
                 var query = "" +
                     " INSERT INTO Log(" +     
                     "Tipo, " +
@@ -19,6 +18,7 @@ namespace SINTALOCAS.DAL.DB
                     "ip, " +
                     "acao, " +
                     "valores, " +
+                    "Geolocation, " +
                     "link" +
                     ") VALUES (";
                 
@@ -27,10 +27,28 @@ namespace SINTALOCAS.DAL.DB
                 query += ",'" + ip + "'";
                 query += ",'" + acao + "'";
                 query += ",'" + valor + "'";
+                query += ",'" + geolocation + "'";
                 query += ",'" + link + "'";
                 query += ")";
 
-                contexto.Transacao(query);
+                _contexto.Transacao(query);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static void Consultar(DateTime data)
+        {
+            try
+            {
+                DateTime temData;
+                var query = "SELECT * FROM Log";
+
+                if (data != null) query += " WHERE DataCadastro >= '" + data + "'";
+                
+                _contexto.Consultar(query);
             }
             catch (Exception ex)
             {

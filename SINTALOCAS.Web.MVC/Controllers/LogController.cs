@@ -14,7 +14,6 @@ namespace SINTALOCAS.Web.MVC.Controllers
         public void Index()
         {
             LogServico.Registrar("UsuarioWeb", Request.UserHostAddress, Request.UserHostName, Request.RawUrl, "Acesso", "");
-            //return View();
         }
     }
 }

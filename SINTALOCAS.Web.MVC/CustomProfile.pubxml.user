@@ -29,22 +29,22 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/22/2018 16:34:26</publishTime>
     </File>
     <File Include="bin/SINTALOCAS.DAL.dll">
-      <publishTime>02/24/2018 19:07:32</publishTime>
+      <publishTime>02/25/2018 18:24:44</publishTime>
     </File>
     <File Include="bin/SINTALOCAS.DAL.dll.config">
       <publishTime>02/22/2018 16:34:19</publishTime>
     </File>
     <File Include="bin/SINTALOCAS.Dominio.dll">
-      <publishTime>02/24/2018 19:07:33</publishTime>
+      <publishTime>02/25/2018 18:24:45</publishTime>
     </File>
     <File Include="bin/SINTALOCAS.Dominio.XmlSerializers.dll">
-      <publishTime>02/24/2018 19:07:33</publishTime>
+      <publishTime>02/25/2018 18:24:46</publishTime>
     </File>
     <File Include="bin/SINTALOCAS.Modelo.dll">
       <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="bin/SINTALOCAS.Web.MVC.dll">
-      <publishTime>02/24/2018 19:28:55</publishTime>
+      <publishTime>02/25/2018 18:24:46</publishTime>
     </File>
     <File Include="bin/System.Threading.Tasks.Extensions.dll">
       <publishTime>02/22/2018 16:34:26</publishTime>
