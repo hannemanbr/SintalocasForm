@@ -7,7 +7,16 @@ namespace SINTALOCAS.DAL.DB
     {
         private static ContextoMySqlDB _contexto = new ContextoMySqlDB();
 
-        public static void RegistraLog(string tipo, string ip, string usuario, string link, string acao, string valor, string geolocation)
+        public static void RegistraLog(
+            string tipo, 
+            string ip, 
+            string usuario, 
+            string link, 
+            string acao, 
+            string valor, 
+            string geolocation,
+            int idacesso
+            )
         {
             try
             {
@@ -19,6 +28,7 @@ namespace SINTALOCAS.DAL.DB
                     "acao, " +
                     "valores, " +
                     "Geolocation, " +
+                    "IdAcesso, " +
                     "link" +
                     ") VALUES (";
                 
@@ -28,6 +38,7 @@ namespace SINTALOCAS.DAL.DB
                 query += ",'" + acao + "'";
                 query += ",'" + valor + "'";
                 query += ",'" + geolocation + "'";
+                query += ",'" + idacesso + "'";
                 query += ",'" + link + "'";
                 query += ")";
 

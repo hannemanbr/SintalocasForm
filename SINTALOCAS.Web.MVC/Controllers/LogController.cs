@@ -13,7 +13,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
         // GET: Log
         public void Index()
         {
-            LogServico.Registrar("UsuarioWeb", Request.UserHostAddress, Request.UserHostName, Request.RawUrl, "Acesso", "");
+            LogServico.Registrar("UsuarioWeb", Request.UserHostAddress, Request.UserHostName, Request.RawUrl, "Acesso", "", 0);
         }
     }
 }

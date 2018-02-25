@@ -10,12 +10,12 @@ namespace SINTALOCAS.Dominio.Servico
 {
     public class LogServico
     {
-        public static void Registrar(string tipo, string ip, string usuario, string link, string acao, string valor)
+        public static void Registrar(string tipo, string ip, string usuario, string link, string acao, string valor, int idacesso)
         {
             try
             {
                 var geolocation = GetLocalizacao(ip);
-                LogDAL.RegistraLog(tipo, ip, usuario, link, acao, valor, geolocation);
+                LogDAL.RegistraLog(tipo, ip, usuario, link, acao, valor, geolocation, idacesso);
             }
             catch (Exception)
             {
@@ -38,14 +38,14 @@ namespace SINTALOCAS.Dominio.Servico
                 for (var indice = 0; indice<= localizacaoXmlNode.Count - 1; indice++)
                 {
                     if (localizacaoXmlNode[indice].ChildNodes.Item(5).InnerText.Trim() != "")
-                        result += "Cidade : " + localizacaoXmlNode[indice].ChildNodes.Item(5).InnerText.Trim();
+                        result += "| Cidade : " + localizacaoXmlNode[indice].ChildNodes.Item(5).InnerText.Trim();
 
                     if (localizacaoXmlNode[indice].ChildNodes.Item(2).InnerText.Trim() != "")
-                        result += " País : " + localizacaoXmlNode[indice].ChildNodes.Item(2).InnerText.Trim();
+                        result += "| País : " + localizacaoXmlNode[indice].ChildNodes.Item(2).InnerText.Trim();
 
                     if (localizacaoXmlNode[indice].ChildNodes.Item(4).InnerText.Trim() != "")
-                        result += " Região : " + localizacaoXmlNode[indice].ChildNodes.Item(4).InnerText.Trim();
-                    
+                        result += "| Região : " + localizacaoXmlNode[indice].ChildNodes.Item(4).InnerText.Trim();
+
                     //lbResultado.Items.Add("End. IP : " & xmlnode(i).ChildNodes.Item(0).InnerText.Trim())
                     //lbResultado.Items.Add("Cód. País : " & xmlnode(i).ChildNodes.Item(1).InnerText.Trim())
                     //lbResultado.Items.Add("País : " & xmlnode(i).ChildNodes.Item(2).InnerText.Trim())
@@ -58,10 +58,13 @@ namespace SINTALOCAS.Dominio.Servico
                     //lbResultado.Items.Add("Longitude : " & xmlnode(i).ChildNodes.Item(9).InnerText.Trim())
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                //throw;
+                result = ex.Message;
             }
+
+            if (result.Length > 400) result = result.Substring(0, 400);
 
             return result;
         }
