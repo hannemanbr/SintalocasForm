@@ -13,25 +13,46 @@ namespace SINTALOCAS.Web.MVC.Controllers
 
         public ActionResult Index()
         {
-            int idAfiliado = 0;
+            int idAfiliado = ConsultaIdAfiliado();
+            if (idAfiliado == 0) return View("Afiliacao");
 
-            if (TempData["idAfiliadoForm"] != null)
-            {
-                if (!Int32.TryParse(TempData["idAfiliadoForm"].ToString(), out idAfiliado)) ViewBag.MensagemRetorno = MensagemUtil.ErroIDForm();
-
-                TempData["idAfiliadoForm"] = idAfiliado; // renovando sessao
-                GeraViewBag(idAfiliado);
-                CombosForm();
-            }
-            else
-            {
-                ViewBag.MensagemRetorno = MensagemUtil.ErroGeneralizado();
-                return View("Afiliacao");
-            }
+            GeraViewBag(idAfiliado);
+            CombosForm();
 
             return View();
         }
 
+        public ActionResult Delete(int id)
+        {
+            var result = _dependenteServ.Remove(id);
+
+            int idAfiliado = ConsultaIdAfiliado();
+            if (idAfiliado == 0) return View("Afiliacao");
+
+            GeraViewBag(idAfiliado);
+            CombosForm();
+
+            return View("Index");
+        }
+
+        private int ConsultaIdAfiliado()
+        {
+            var idAfiliado = 0;
+
+            if (TempData["idAfiliadoForm"] != null)
+            {
+                if (!Int32.TryParse(TempData["idAfiliadoForm"].ToString(), out idAfiliado))
+                    ViewBag.MensagemRetorno = MensagemUtil.ErroIDForm();
+                TempData["idAfiliadoForm"] = idAfiliado; // renovando sessao                
+            }
+            else
+            {
+                ViewBag.MensagemRetorno = MensagemUtil.ErroGeneralizado();                
+            }
+
+            return idAfiliado;
+
+        }
         private void GeraViewBag(int idAfiliado)
         {
             ViewBag.RootView = Validacao.AnalisaLink(@Request.RawUrl.ToString());
@@ -75,17 +96,8 @@ namespace SINTALOCAS.Web.MVC.Controllers
             //validação específica cpf, cpn, pis, etc.
             result = Validacao.ValidarCodigos(lista);
 
-            int idAfiliado = 0;
-
-            if (TempData["idAfiliadoForm"] != null)
-            {
-                if (!Int32.TryParse(TempData["idAfiliadoForm"].ToString(), out idAfiliado)) result = MensagemUtil.ErroIDForm();
-                TempData["idAfiliadoForm"] = idAfiliado; // renovando sessao
-            }
-            else
-            {
-                result = MensagemUtil.ErroGeneralizado();
-            }
+            int idAfiliado = ConsultaIdAfiliado();
+            if (idAfiliado == 0) return false;
 
             result = _dependenteServ.ValidarCadastroDependente(idAfiliado);
 
@@ -121,20 +133,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
 
             try
             {
-                int idAfiliado = 0;
-
-                if (TempData["idAfiliadoForm"] != null)
-                {
-                    if (!Int32.TryParse(TempData["idAfiliadoForm"].ToString(), out idAfiliado))
-                        ViewBag.MensagemRetorno = MensagemUtil.ErroIDForm();
-
-                    TempData["idAfiliadoForm"] = idAfiliado; // renovando sessao                   
-                }
-                else
-                {
-                    ViewBag.MensagemRetorno = MensagemUtil.ErroGeneralizado();
-                }
-
+                int idAfiliado = ConsultaIdAfiliado();
                 validacaoViewServico.InsereDependente(lista, idAfiliado);
 
             }

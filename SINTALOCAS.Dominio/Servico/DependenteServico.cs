@@ -54,6 +54,13 @@ namespace SINTALOCAS.Dominio.Servico
             return result;
         }
 
+        public int Remove(int idDependente)
+        {
+            int result = 0;
+            result = _afiliacaoDAL.RemoveDependente(idDependente);
+            return result;
+        }
+
         public List<Dependentes> ListaDependentes(int idAfiliado)
         {
             return _afiliacaoDAL.ListaDependentes(idAfiliado);

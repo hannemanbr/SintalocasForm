@@ -189,6 +189,23 @@ namespace SINTALOCAS.DAL.DB
             return result;
         }
 
+        public int RemoveDependente(int Id)
+        {
+            var result = 0;
+
+            try
+            {
+                var query = "UPDATE Afiliado_Dependente SET D_E_L_E_T_ = 1 WHERE Id=" + Id;
+                result = _contexto.Transacao(query);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return result;
+        }
+
         public List<GrauParentesco> ListaGrauPArenesco() 
         {
             try

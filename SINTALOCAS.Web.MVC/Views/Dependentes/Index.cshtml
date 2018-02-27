@@ -40,13 +40,19 @@
     @if (ViewBag.ListaDependentes.Count > 0)
     {
         <h3>Dependentes Cadastrados</h3>
-
-        foreach (var item in ViewBag.ListaDependentes)
-        {
-            <ul>
-                @item.Nome (@item.GrauParentescoNome)
-            </ul>
-        }
+        <table>
+            @foreach (var item in ViewBag.ListaDependentes)
+            {
+            <tr>
+                <td>@item.Nome</td>
+                <td>@item.GrauParentescoNome</td>
+                <td>
+                    <a href="~/Dependentes/Delete/@item.ID">Excluir teste</a>
+                    <a asp-action="Delete" style="color:#FF0000" asp-route-id="@item.ID">|X|excluir</a>
+                </td>
+            </tr>
+            }
+        </table>
     }
     else
     {
