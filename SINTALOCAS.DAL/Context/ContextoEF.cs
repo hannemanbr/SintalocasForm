@@ -1,15 +1,19 @@
-﻿using System;
-using MySql.Data.MySqlClient;
+﻿using SINTALOCAS.Modelo;
+using System.Data.Entity;
 
-namespace SINTALOCAS.DAL.Context
-{
-    public class ContextoEF
+namespace SINTALOCAS.DAL.DB
+{    
+    public class ContextoEF : DbContext
     {
-        private MySqlConnection conexao;
-
-        public ContextoEF()
-        {
-            
+        //public ContextoEF(DbContextOptions<ContextoEF> options) : base(options) { }
+        public ContextoEF() : base("MySQLConexao")
+        {            
         }
+
+        public DbSet<LogSistema> LogsSistema { get; set; }
+        public DbSet<Afiliado> Afiliados { get; set; }
+        public DbSet<Dependentes> Dependentes { get; set; }
+        public DbSet<Endereco> Enderecos { get; set; }
+
     }
 }

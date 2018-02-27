@@ -26,7 +26,9 @@ namespace SINTALOCAS.Dominio.Util
         public static string ErroUFInvalido() { return MensagemServico.Consultar("ERRO","UFERRO")[0].Texto; }
         public static string ErroCamposNaoPreenchidos() { return MensagemServico.Consultar("ERRO","CAMPOOBRIG")[0].Texto; }
         public static string ErroDTNASCInvalido() { return MensagemServico.Consultar("ERRO","DTNASCERRO")[0].Texto; }
-
+        public static string ErroGeneralizado() { return MensagemServico.Consultar("ERRO", "ERROGENERICO")[0].Texto; }
+        public static string ErroIDForm() { return MensagemServico.Consultar("ERRO", "IDFORMERRO")[0].Texto; }
+        public static string GrauParentescoAcimaPermitido(string grauNome) { return grauNome + " - " + MensagemServico.Consultar("ERRO", "GRAUPARENTEACIMA")[0].Texto; }
         public static string MensagemConcordar() { return MensagemServico.Consultar("CONCORDAR", "CONCORDO")[0].Texto; }
 
     }

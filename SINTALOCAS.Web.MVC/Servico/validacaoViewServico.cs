@@ -130,9 +130,9 @@ namespace SINTALOCAS.Web.MVC.Servico
 
                 afiliado.Endereco = endereco;
 
-                var _afiliacaoServ = new AfiliacaoServico();
+                //var _afiliacaoServ = new AfiliacaoServico();
 
-                _afiliacaoServ.Insere(afiliado);
+                result = AfiliacaoServico.Insere(afiliado);
 
                 return result;
 
@@ -142,25 +142,28 @@ namespace SINTALOCAS.Web.MVC.Servico
 
         }
 
-        public static int InsereDependente(Dictionary<string, string> lista)
+        public static int InsereDependente(Dictionary<string, string> lista, int idAfiliado)
         {
             try
             {
                 int result = 0;
 
                 // criando objeto de afiliado
-                var afiliado = new Dependentes();
+                var dependente = new Dependentes();
 
-                afiliado.Nome = lista["NOME"];
-                afiliado.GrauParentesco = Convert.ToInt32(lista["GRAUPARENTE"]);
+                dependente.Nome = lista["NOME"];
+                dependente.GrauParentescoID = Convert.ToInt32(lista["GRAUPARENTE"]);
 
                 //Datas
                 DateTime dataNascimento = DataUtil.ConverterString(lista["DTNASC"]);
-                afiliado.DataNascimento = dataNascimento;
 
-                var _afiliacaoServ = new DependenteServico();
+                dependente.DataNascimento = dataNascimento;
+                dependente.AcrescimoMensal = 1;
+                dependente.IdAfiliado = idAfiliado;
 
-                _afiliacaoServ.Insere(afiliado);
+                var dependenteServ = new DependenteServico();
+
+                dependenteServ.Insere(dependente, 1, idAfiliado);
 
                 return result;
 

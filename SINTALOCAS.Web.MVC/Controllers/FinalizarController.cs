@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using SINTALOCAS.Dominio.Servico;
+using SINTALOCAS.Dominio.Util;
 
 namespace SINTALOCAS.Web.MVC.Controllers
 {
@@ -13,6 +14,19 @@ namespace SINTALOCAS.Web.MVC.Controllers
         public ActionResult Index()
         {
             var mensagemSistema = TextosServico.TextoDeAcordo();
+            int idAfiliado = 0;
+
+            if (TempData["idAfiliadoForm"] != null)
+            {
+                if (!Int32.TryParse(TempData["idAfiliadoForm"].ToString(), out idAfiliado)) ViewBag.MensagemRetorno = MensagemUtil.ErroIDForm();
+
+                TempData["idAfiliadoForm"] = idAfiliado; // renovando sessao
+            }
+            else
+            {
+                ViewBag.MensagemRetorno = MensagemUtil.ErroGeneralizado();
+            }
+
             ViewBag.Titulo = mensagemSistema.Titulo;
             ViewBag.TextoPrincipal = mensagemSistema.Texto.Replace(System.Environment.NewLine, "<br/>");
             return View();

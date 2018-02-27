@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using SINTALOCAS.Dominio.Servico;
+﻿using SINTALOCAS.Dominio.Servico;
 using SINTALOCAS.Dominio.Util;
 using SINTALOCAS.Web.MVC.Servico;
+using System;
+using System.Collections.Generic;
+using System.Web.Mvc;
 
 namespace SINTALOCAS.Web.MVC.Controllers
 {
@@ -15,11 +13,31 @@ namespace SINTALOCAS.Web.MVC.Controllers
 
         public ActionResult Index()
         {
-            CombosForm();
+            int idAfiliado = 0;
+
+            if (TempData["idAfiliadoForm"] != null)
+            {
+                if (!Int32.TryParse(TempData["idAfiliadoForm"].ToString(), out idAfiliado)) ViewBag.MensagemRetorno = MensagemUtil.ErroIDForm();
+
+                TempData["idAfiliadoForm"] = idAfiliado; // renovando sessao
+                GeraViewBag(idAfiliado);
+                CombosForm();
+            }
+            else
+            {
+                ViewBag.MensagemRetorno = MensagemUtil.ErroGeneralizado();
+                return View("Afiliacao");
+            }
+
+            return View();
+        }
+
+        private void GeraViewBag(int idAfiliado)
+        {
             ViewBag.RootView = Validacao.AnalisaLink(@Request.RawUrl.ToString());
             ViewBag.LinkSubmitAfilia = Validacao.AnalisaLink(@Request.RawUrl.ToString() + "/Finaliza");
             ViewBag.GrauParentesco = _dependenteServ.DictionaryGrausParentesco();
-            return View();
+            ViewBag.ListaDependentes = _dependenteServ.ListaDependentes(idAfiliado);
         }
 
         [HttpPost]
@@ -57,6 +75,20 @@ namespace SINTALOCAS.Web.MVC.Controllers
             //validação específica cpf, cpn, pis, etc.
             result = Validacao.ValidarCodigos(lista);
 
+            int idAfiliado = 0;
+
+            if (TempData["idAfiliadoForm"] != null)
+            {
+                if (!Int32.TryParse(TempData["idAfiliadoForm"].ToString(), out idAfiliado)) result = MensagemUtil.ErroIDForm();
+                TempData["idAfiliadoForm"] = idAfiliado; // renovando sessao
+            }
+            else
+            {
+                result = MensagemUtil.ErroGeneralizado();
+            }
+
+            result = _dependenteServ.ValidarCadastroDependente(idAfiliado);
+
             ViewBag.MensagemRetorno = result;
 
             if (result.Trim() == "")
@@ -69,8 +101,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
                 return false;
             }
         }
-
-
+        
         private void CombosForm()
         {
 
@@ -90,7 +121,22 @@ namespace SINTALOCAS.Web.MVC.Controllers
 
             try
             {
-                validacaoViewServico.InsereDependente(lista);
+                int idAfiliado = 0;
+
+                if (TempData["idAfiliadoForm"] != null)
+                {
+                    if (!Int32.TryParse(TempData["idAfiliadoForm"].ToString(), out idAfiliado))
+                        ViewBag.MensagemRetorno = MensagemUtil.ErroIDForm();
+
+                    TempData["idAfiliadoForm"] = idAfiliado; // renovando sessao                   
+                }
+                else
+                {
+                    ViewBag.MensagemRetorno = MensagemUtil.ErroGeneralizado();
+                }
+
+                validacaoViewServico.InsereDependente(lista, idAfiliado);
+
             }
             catch (Exception ex)
             {

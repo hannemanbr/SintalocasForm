@@ -5,5 +5,6 @@ namespace SINTALOCAS.Modelo
     {
         public int ID { get; set; }
         public string Descricao { get; set; }
+        public int LimiteQuantidade { get; set; }
     }
 }

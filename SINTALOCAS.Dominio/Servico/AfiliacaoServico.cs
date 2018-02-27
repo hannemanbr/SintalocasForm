@@ -1,21 +1,44 @@
 ﻿using System;
 using SINTALOCAS.DAL.DB;
 using SINTALOCAS.Modelo;
-using SINTALOCAS.DAL;
 
 namespace SINTALOCAS.Dominio.Servico
 {
-    public class AfiliacaoServico
+    public static class AfiliacaoServico
     {
-        private AfiliacaoDAL _afiliacaoDAL = new AfiliacaoDAL();
+        private static AfiliacaoDAL _afiliacaoDAL = new AfiliacaoDAL();
+        //private static AfiliacaoEFDAL _afiliacaoEFDAL = new AfiliacaoEFDAL();
 
-        public int Insere(Afiliado afiliado){
+        public static int Insere(Afiliado afiliado){
 
-            int result = 0;
+            try
+            {
+                int result = _afiliacaoDAL.InserirAfiliado(afiliado);
+                //_afiliacaoEFDAL.Inserir(afiliado);
 
-            _afiliacaoDAL.InserirAfiliado(afiliado);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
-            return result;
+        public static bool Concordar(int id)
+        {
+            var result = false;
+
+            try
+            {
+                var registros = _afiliacaoDAL.Concordar(id);
+                if (registros > 0) result = true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return result; // qualquer excessao retorna false
         }
     }
 }

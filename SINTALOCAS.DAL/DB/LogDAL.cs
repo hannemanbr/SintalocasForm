@@ -7,7 +7,7 @@ namespace SINTALOCAS.DAL.DB
     {
         private static ContextoMySqlDB _contexto = new ContextoMySqlDB();
 
-        public static void RegistraLog(
+        public static int RegistraLog(
             string tipo, 
             string ip, 
             string usuario, 
@@ -18,6 +18,8 @@ namespace SINTALOCAS.DAL.DB
             int idacesso
             )
         {
+            var result = 0;
+
             try
             {
                 var query = "" +
@@ -42,19 +44,20 @@ namespace SINTALOCAS.DAL.DB
                 query += ",'" + link + "'";
                 query += ")";
 
-                _contexto.Transacao(query);
+                result = _contexto.Transacao(query);
             }
             catch (Exception ex)
             {
                 throw ex;
             }
+
+            return result;
         }
 
         public static void Consultar(DateTime data)
         {
             try
             {
-                DateTime temData;
                 var query = "SELECT * FROM Log";
 
                 if (data != null) query += " WHERE DataCadastro >= '" + data + "'";

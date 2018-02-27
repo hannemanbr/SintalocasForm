@@ -14,7 +14,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
     public class AfiliacaoController : Controller
     {
         private UFServico _ufServ = new UFServico();
-
+        
         public ActionResult Index()
         {
             //return RedirectToAction("Create");
@@ -39,11 +39,11 @@ namespace SINTALOCAS.Web.MVC.Controllers
             //validação específica cpf, cpn, pis, etc.
             result = Validacao.ValidarCodigos(lista);
 
-            ViewBag.MensagemRetorno = result;
-
+            result = "";
+            
             if (result.Trim() == "")
             {
-                InserirDados(lista); //gravando informaçoes
+                TempData["idAfiliadoForm"] = InserirDados(lista); //gravando informaçoes
                 return true;
             }
             else
@@ -59,7 +59,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
             var mensagem = "";
 
             if (!retorno) mensagem = MensagemUtil.ErroCamposNaoPreenchidos();
-
+            
             return Json(new { success = retorno, msg = mensagem }, JsonRequestBehavior.AllowGet); ;
 
         }
@@ -176,17 +176,20 @@ namespace SINTALOCAS.Web.MVC.Controllers
 
         }
 
-        private void InserirDados(Dictionary<string, string> lista) {
+        private int InserirDados(Dictionary<string, string> lista) {
+
+            int result = 0;
 
             try
             {
-                validacaoViewServico.InsereAfiliado(lista);
+                result = validacaoViewServico.InsereAfiliado(lista);
             }
             catch (Exception ex)
             {
                 throw ex;
             }
 
+            return result;
         }
 
     }

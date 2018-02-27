@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using SINTALOCAS.DAL.DB;
+using SINTALOCAS.Dominio.Util;
 using SINTALOCAS.Modelo;
 
 namespace SINTALOCAS.Dominio.Servico
@@ -31,19 +32,11 @@ namespace SINTALOCAS.Dominio.Servico
 
         }
 
-        public List<string> ListaGrausParentesco()
+        public List<GrauParentesco> ListaGrausParentesco()
         {
             try
             {
-                var listaResult = new List<string>();
-                var listaGrauParentesco = _afiliacaoDAL.ListaGrauPArenesco();
-
-                foreach (var item in listaGrauParentesco.OrderBy(x => x.Descricao))
-                {
-                    listaResult.Add(item.Descricao);
-                }
-
-                return listaResult;
+                return _afiliacaoDAL.ListaGrauPArenesco();
             }
             catch (Exception ex)
             {
@@ -51,13 +44,46 @@ namespace SINTALOCAS.Dominio.Servico
             }
 
         }
-
-        public int Insere(Dependentes dependentes)
+        public int Insere(Dependentes dependentes, int acrescimoMensal, int idAfiliado)
         {
 
             int result = 0;
+            
+            result = _afiliacaoDAL.InserirDependente(dependentes);
 
-            _afiliacaoDAL.InserirDependente(dependentes);
+            return result;
+        }
+
+        public List<Dependentes> ListaDependentes(int idAfiliado)
+        {
+            return _afiliacaoDAL.ListaDependentes(idAfiliado);
+        }
+
+        public string NomeGrauParentesco(int idGrau)
+        { 
+            var result = "";
+            var lista = DictionaryGrausParentesco();
+
+            if (lista.ContainsKey(idGrau))
+            {
+                result = lista[idGrau];
+            }
+
+            return result;
+        }
+
+        public string ValidarCadastroDependente(int idAfiliado)
+        {
+            var result = "";
+            var contParentesco = 0;            
+            var listaGrauParentesco = ListaGrausParentesco();
+            var lista = ListaDependentes(idAfiliado);
+
+            foreach(var item in listaGrauParentesco)
+            {
+                contParentesco = lista.Where(x => x.GrauParentescoID == item.ID).Count();
+                if (contParentesco > item.LimiteQuantidade) result += MensagemUtil.GrauParentescoAcimaPermitido(item.Descricao.Trim());
+            }           
 
             return result;
         }

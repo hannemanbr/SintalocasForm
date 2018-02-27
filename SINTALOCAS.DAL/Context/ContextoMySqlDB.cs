@@ -49,15 +49,16 @@ namespace SINTALOCAS.DAL.Context
             return dt;
         }
 
-        public void Transacao(string query)
+        public int Transacao(string query)
         {
-            
+            var result = 0;
+
             try
             {
                 AbrirConexao();
 
                 MySqlCommand cmd = CriarComando(query);
-                cmd.ExecuteNonQuery();
+                result = cmd.ExecuteNonQuery();
 
             }
             catch (Exception ex)
@@ -68,6 +69,8 @@ namespace SINTALOCAS.DAL.Context
             {
                 FecharConexao();
             }
+
+            return result;
 
         }
 

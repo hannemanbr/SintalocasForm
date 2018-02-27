@@ -15,5 +15,6 @@ namespace SINTALOCAS.Dominio.Util
 
             return dataResult;
         }
+        
     }
 }
