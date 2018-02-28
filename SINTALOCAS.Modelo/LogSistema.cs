@@ -17,5 +17,6 @@ namespace SINTALOCAS.Modelo
         public string Link { get; set; }
         public string Geolocation { get; set; }
         public int IDAcesso { get; set; }
+        public DateTime DataCadastro { get; set; }
     }
 }

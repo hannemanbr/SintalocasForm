@@ -65,25 +65,25 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/14/2016 23:16:48</publishTime>
     </File>
     <File Include="bin/SINTALOCAS.DAL.dll">
-      <publishTime>02/28/2018 11:46:42</publishTime>
+      <publishTime>02/28/2018 13:59:33</publishTime>
     </File>
     <File Include="bin/SINTALOCAS.DAL.dll.config">
       <publishTime>02/26/2018 21:32:33</publishTime>
     </File>
     <File Include="bin/SINTALOCAS.Dominio.dll">
-      <publishTime>02/28/2018 11:46:42</publishTime>
+      <publishTime>02/28/2018 13:59:34</publishTime>
     </File>
     <File Include="bin/SINTALOCAS.Dominio.dll.config">
       <publishTime>02/26/2018 21:32:34</publishTime>
     </File>
     <File Include="bin/SINTALOCAS.Dominio.XmlSerializers.dll">
-      <publishTime>02/28/2018 11:46:43</publishTime>
+      <publishTime>02/28/2018 13:59:34</publishTime>
     </File>
     <File Include="bin/SINTALOCAS.Modelo.dll">
-      <publishTime>02/28/2018 10:08:58</publishTime>
+      <publishTime>02/28/2018 13:44:31</publishTime>
     </File>
     <File Include="bin/SINTALOCAS.Web.MVC.dll">
-      <publishTime>02/28/2018 11:46:43</publishTime>
+      <publishTime>02/28/2018 13:59:34</publishTime>
     </File>
     <File Include="bin/System.AppContext.dll">
       <publishTime>02/22/2018 13:56:28</publishTime>
@@ -464,13 +464,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/22/2018 16:34:25</publishTime>
     </File>
     <File Include="Views/Relatorio/DetalheAfiliado.cshtml">
-      <publishTime>02/28/2018 11:45:47</publishTime>
+      <publishTime>02/28/2018 12:54:05</publishTime>
     </File>
     <File Include="Views/Relatorio/Index.cshtml">
       <publishTime>02/27/2018 23:09:02</publishTime>
     </File>
     <File Include="Views/Relatorio/RelAfiliados.cshtml">
-      <publishTime>02/28/2018 10:55:36</publishTime>
+      <publishTime>02/28/2018 12:53:45</publishTime>
+    </File>
+    <File Include="Views/Relatorio/RelLog.cshtml">
+      <publishTime>02/28/2018 13:22:37</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>02/22/2018 16:34:25</publishTime>

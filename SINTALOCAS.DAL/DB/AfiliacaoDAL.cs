@@ -275,10 +275,10 @@ namespace SINTALOCAS.DAL.DB
                                 ",E.UF                                    " +
                                 ",EP.CNPJ EmpresaCNPJ                     " +
                                 ",EP.Nome EmpresaNome                     " +
-                             " FROM sintalocasbd.Afiliado A               " +
-                             " LEFT JOIN sintalocasbd.Afiliado_Endereco E " +
+                             " FROM Afiliado A               " +
+                             " LEFT JOIN Afiliado_Endereco E " +
                              " ON E.IdAfiliado = A.ID                     " +
-                             " LEFT JOIN sintalocasbd.Afiliado_Empresa EP " +
+                             " LEFT JOIN Afiliado_Empresa EP " +
                              " ON EP.IdAfiliado = A.ID                    " +
                              " WHERE A.D_E_L_E_T_=0                       " +
                              "   AND E.D_E_L_E_T_=0                       " +

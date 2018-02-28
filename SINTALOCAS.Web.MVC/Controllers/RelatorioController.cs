@@ -27,14 +27,20 @@ namespace SINTALOCAS.Web.MVC.Controllers
 
         public ActionResult RelAfiliados()
         {
-            GeraViewBagRelatorio();
+            GeraViewBagRelatorio(1);
+            return View();
+        }
+
+        public ActionResult RelLog()
+        {
+            GeraViewBagRelatorio(2);
             return View();
         }
 
         public ActionResult DeleteAfiliado(int id)
         {            
             AfiliacaoServico.Delete(id);
-            GeraViewBagRelatorio();
+            GeraViewBagRelatorio(1);
             return View("RelAfiliados");
         }
 
@@ -59,10 +65,16 @@ namespace SINTALOCAS.Web.MVC.Controllers
             ViewBag.ListaRelatorio = RelatorioServico.ListarRelatorios();
         }
         
-        private void GeraViewBagRelatorio()
+        private void GeraViewBagRelatorio(int opcaoRelatorio)
         {
             LogAtivo();
-            ViewBag.Afiliados = AfiliacaoServico.Listar().Where(x => x.Nome.Trim() != "").ToList();
+
+            if (opcaoRelatorio == 1)
+                ViewBag.Lista = AfiliacaoServico.Listar().Where(x => x.Nome.Trim() != "").ToList();
+
+            if (opcaoRelatorio == 2)
+                ViewBag.Lista = LogServico.ListaAgrupado();
+
         }
 
         private void LogAtivo()
@@ -72,76 +84,5 @@ namespace SINTALOCAS.Web.MVC.Controllers
             ViewBag.UsuarioLogin = usuario;
         }
 
-        // GET: Relatorio/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        // GET: Relatorio/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Relatorio/Create
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Relatorio/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: Relatorio/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Relatorio/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Relatorio/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
     }
 }

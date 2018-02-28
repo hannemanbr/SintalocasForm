@@ -1,4 +1,5 @@
 ﻿using SINTALOCAS.DAL.DB;
+using SINTALOCAS.Modelo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,13 +42,13 @@ namespace SINTALOCAS.Dominio.Servico
                 for (var indice = 0; indice<= localizacaoXmlNode.Count - 1; indice++)
                 {
                     if (localizacaoXmlNode[indice].ChildNodes.Item(5).InnerText.Trim() != "")
-                        result += "| Cidade : " + localizacaoXmlNode[indice].ChildNodes.Item(5).InnerText.Trim();
+                        result += " | Cidade : " + localizacaoXmlNode[indice].ChildNodes.Item(5).InnerText.Trim();
 
                     if (localizacaoXmlNode[indice].ChildNodes.Item(2).InnerText.Trim() != "")
-                        result += "| País : " + localizacaoXmlNode[indice].ChildNodes.Item(2).InnerText.Trim();
+                        result += " | País : " + localizacaoXmlNode[indice].ChildNodes.Item(2).InnerText.Trim();
 
                     if (localizacaoXmlNode[indice].ChildNodes.Item(4).InnerText.Trim() != "")
-                        result += "| Região : " + localizacaoXmlNode[indice].ChildNodes.Item(4).InnerText.Trim();
+                        result += " | Região : " + localizacaoXmlNode[indice].ChildNodes.Item(4).InnerText.Trim();
 
                     //lbResultado.Items.Add("End. IP : " & xmlnode(i).ChildNodes.Item(0).InnerText.Trim())
                     //lbResultado.Items.Add("Cód. País : " & xmlnode(i).ChildNodes.Item(1).InnerText.Trim())
@@ -71,6 +72,42 @@ namespace SINTALOCAS.Dominio.Servico
             if (result.Length > 400) result = result.Substring(0, 400);
 
             return result;
+        }
+
+        public static List<LogSistema> Lista(string local = "")
+        {
+            try
+            {
+                var dataInicio = DateTime.Now;
+                var dataFim = DateTime.Now;
+
+                return LogDAL.Lista(local, dataInicio, dataFim)
+                    .Where(x => x.IP.Trim() != "::1")
+                    .OrderByDescending(x => x.DataCadastro)
+                    .ToList();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static List<LogSistema> ListaAgrupado(string local = "")
+        {
+            try
+            {
+                var dataInicio = DateTime.Now;
+                var dataFim = DateTime.Now;
+
+                return LogDAL.ListaAgrupado_Data_IP(local, dataInicio, dataFim)
+                    .Where(x => x.IP.Trim() != "::1")
+                    .OrderByDescending(x => x.DataCadastro)
+                    .ToList();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }
