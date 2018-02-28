@@ -116,7 +116,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\ContextoEF.cs" />
+    <Compile Include="DB\ConfigDAL.cs" />
+    <Compile Include="DB\UsuarioDAL.cs" />
     <Compile Include="DB\AfiliacaoEFDAL.cs" />
+    <Compile Include="DB\RelatorioDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DB\UFDAL.cs" />
     <Compile Include="Context\ContextoMySqlDB.cs" />

@@ -41,10 +41,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Servico\EmailServico.cs" />
     <Compile Include="Servico\LogServico.cs" />
+    <Compile Include="Servico\RelatorioServico.cs" />
     <Compile Include="Servico\TextosServico.cs" />
     <Compile Include="Servico\UFServico.cs" />
     <Compile Include="Servico\AfiliacaoServico.cs" />
+    <Compile Include="Servico\AdminServico.cs" />
     <Compile Include="Util\DataUtil.cs" />
     <Compile Include="Util\EnderecoUtil.cs" />
     <Compile Include="Util\ValidaCodigosUtil.cs" />

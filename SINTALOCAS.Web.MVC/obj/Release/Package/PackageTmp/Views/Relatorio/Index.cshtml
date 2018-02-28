@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@{
+    var usuario = ViewBag.UsuarioLogin;
+    var saudacao = "Bom dia";
+
+    if (DateTime.Now.Hour > 12)
+    {
+        saudacao = "Boa tarde";
+    }
+
+    if (DateTime.Now.Hour > 18)
+    {
+        saudacao = "Boa noite";
+    }
+}
+<h1>@saudacao, @usuario.Nome</h1>
+<form action="" id="formRelat" method="post">
+    <strong>Relatorios: </strong>
+    <select id="dropRelat">
+        <option value="0">Selecione</option>
+        @foreach (var item in ViewBag.ListaRelatorio)
+        {
+            <option value="@item.ID">@item.Nome</option>
+        }
+    </select>
+    <input type="button" value="Gerar" onclick="GerarRelatorio(dropRelat)" />    
+</form>

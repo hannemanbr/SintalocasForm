@@ -35,23 +35,30 @@
         <span id="rFormRetorno" style="color:#FF0000">@Html.Raw(ViewBag.MensagemRetorno)</span>
         <br />
         <input type="button" id="btnGravar" class="BotaoFinaliza" value="Enviar" onclick="validarFormAfilia('@ViewBag.RootView')" />
-        <br />
-        <br />
-        <input type="button" id="btnGravar" class="BotaoFinaliza" value="Finalizar" onclick="window.location.href='Finalizar'" />
     </form>
     <hr />
     @if (ViewBag.ListaDependentes.Count > 0)
     {
         <h3>Dependentes Cadastrados</h3>
-
-        foreach (var item in ViewBag.ListaDependentes)
-        {
-            <ul>@item.Nome</ul>
-        }
+        <table>
+            @foreach (var item in ViewBag.ListaDependentes)
+            {
+            <tr>
+                <td>@item.Nome</td>
+                <td>@item.GrauParentescoNome</td>
+                <td>
+                    <a href="~/Dependentes/Delete/@item.ID">Excluir teste</a>
+                    <a asp-action="Delete" style="color:#FF0000" asp-route-id="@item.ID">|X|excluir</a>
+                </td>
+            </tr>
+            }
+        </table>
     }
     else
     {
         <h2>Nenhum dependente cadastrado</h2>
     }
-
+    <br />
+    <br />
+    <input type="button" id="btnGravar" class="BotaoFinaliza" value="Finalizar" onclick="window.location.href='Finalizar'" />
 </body>

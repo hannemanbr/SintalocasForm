@@ -16,6 +16,9 @@ namespace SINTALOCAS.Dominio.Servico
             {
                 var geolocation = GetLocalizacao(ip);
                 LogDAL.RegistraLog(tipo, ip, usuario, link, acao, valor, geolocation, idacesso);
+
+                //ENVIAR EMAIL
+                //EmailServico.EnviarEmailAdmin();
             }
             catch (Exception)
             {
@@ -57,6 +60,7 @@ namespace SINTALOCAS.Dominio.Servico
                     //lbResultado.Items.Add("Latitude : " & xmlnode(i).ChildNodes.Item(8).InnerText.Trim())
                     //lbResultado.Items.Add("Longitude : " & xmlnode(i).ChildNodes.Item(9).InnerText.Trim())
                 }
+                
             }
             catch (Exception ex)
             {

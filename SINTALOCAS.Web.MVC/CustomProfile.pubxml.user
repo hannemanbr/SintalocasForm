@@ -59,31 +59,31 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/22/2018 16:34:26</publishTime>
     </File>
     <File Include="bin/Npgsql.dll">
-      <publishTime>02/22/2018 16:34:26</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="bin/Remotion.Linq.dll">
       <publishTime>06/14/2016 23:16:48</publishTime>
     </File>
     <File Include="bin/SINTALOCAS.DAL.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>02/27/2018 23:48:59</publishTime>
     </File>
     <File Include="bin/SINTALOCAS.DAL.dll.config">
       <publishTime>02/26/2018 21:32:33</publishTime>
     </File>
     <File Include="bin/SINTALOCAS.Dominio.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>02/28/2018 00:11:26</publishTime>
     </File>
     <File Include="bin/SINTALOCAS.Dominio.dll.config">
       <publishTime>02/26/2018 21:32:34</publishTime>
     </File>
     <File Include="bin/SINTALOCAS.Dominio.XmlSerializers.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>02/28/2018 00:11:26</publishTime>
     </File>
     <File Include="bin/SINTALOCAS.Modelo.dll">
-      <publishTime>02/27/2018 13:55:52</publishTime>
+      <publishTime>02/27/2018 23:48:58</publishTime>
     </File>
     <File Include="bin/SINTALOCAS.Web.MVC.dll">
-      <publishTime>02/27/2018 14:19:01</publishTime>
+      <publishTime>02/28/2018 00:11:27</publishTime>
     </File>
     <File Include="bin/System.AppContext.dll">
       <publishTime>02/22/2018 13:56:28</publishTime>
@@ -350,7 +350,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/22/2018 13:56:28</publishTime>
     </File>
     <File Include="bin/System.Threading.Tasks.Extensions.dll">
-      <publishTime>02/22/2018 16:34:26</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="bin/System.Threading.Tasks.Parallel.dll">
       <publishTime>02/22/2018 13:56:28</publishTime>
@@ -448,11 +448,14 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Style/estilo.css">
       <publishTime>02/24/2018 18:41:42</publishTime>
     </File>
+    <File Include="Views/Admin/Index.cshtml">
+      <publishTime>02/27/2018 21:57:51</publishTime>
+    </File>
     <File Include="Views/Afiliacao/Index.cshtml">
       <publishTime>02/24/2018 18:42:12</publishTime>
     </File>
     <File Include="Views/Dependentes/Index.cshtml">
-      <publishTime>02/27/2018 13:52:39</publishTime>
+      <publishTime>02/27/2018 17:33:22</publishTime>
     </File>
     <File Include="Views/Finalizar/Index.cshtml">
       <publishTime>02/24/2018 18:38:25</publishTime>
@@ -460,11 +463,17 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Views/Home/Index.cshtml">
       <publishTime>02/22/2018 16:34:25</publishTime>
     </File>
+    <File Include="Views/Relatorio/Index.cshtml">
+      <publishTime>02/27/2018 23:09:02</publishTime>
+    </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>02/22/2018 16:34:25</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>02/24/2018 19:26:33</publishTime>
+      <publishTime>02/27/2018 22:48:39</publishTime>
+    </File>
+    <File Include="Views/Shared/_LayoutAdmin.cshtml">
+      <publishTime>02/27/2018 22:48:44</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>02/22/2018 16:34:25</publishTime>

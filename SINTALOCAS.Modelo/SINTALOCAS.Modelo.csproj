@@ -50,17 +50,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConfigSistema.cs" />
     <Compile Include="LogSistema.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Dependentes.cs" />
     <Compile Include="Afiliado.cs" />
     <Compile Include="CTPS.cs" />
+    <Compile Include="Relatorio.cs" />
     <Compile Include="Telefone.cs" />
     <Compile Include="Endereco.cs" />
     <Compile Include="Enumerator\TelefoneEnum.cs" />
     <Compile Include="UnidadeFederativa.cs" />
     <Compile Include="GrauParentesco.cs" />
     <Compile Include="MensagemSistema.cs" />
+    <Compile Include="Usuario.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
