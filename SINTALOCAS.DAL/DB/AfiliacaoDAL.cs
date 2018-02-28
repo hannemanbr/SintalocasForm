@@ -41,11 +41,12 @@ namespace SINTALOCAS.DAL.DB
                 query += ",'" + afiliado.Email + "'";
                 query += ",'" + dataNascTx + "'";
                 query += ",'" + afiliado.CPF + "'";
-                query += ",'" + afiliado.RG + "'";
-                query += ",'" + afiliado.PIS + "'";
+                query += ",'" + afiliado.RG + "'";                
                 query += ",'" + afiliado.Cargo + "'";
                 query += ",'" + afiliado.CTPS.Numero + "'";
                 query += ",'" + afiliado.CTPS.Serie + "'";
+                query += ",'" + afiliado.CTPS.PIS + "'";
+                //query += ",'" + afiliado.PIS + "'";
                 query += ",'" + afiliado.Consir + "'";
                 query += ",'" + afiliado.NomePai + "'";
                 query += ",'" + afiliado.NomeMae + "'";
@@ -71,14 +72,8 @@ namespace SINTALOCAS.DAL.DB
                         Email = linha["Email"].ToString(),
                         Cargo = linha["Cargo"].ToString(),
                         Consir = linha["Consir"].ToString(),
-                        //CNPJ = linha["CNPJ"].ToString(),
-                        //CTPS = linha["Descricao"].ToString(),
-                        //DataNascimento = linha["Descricao"].ToString(),
-                        //Empresa = linha["Empresa"].ToString(),
-                        //Matricula = linha["Matricula"].ToString(),
                         NomeMae = linha["NomeMae"].ToString(),
-                        NomePai = linha["NomePai"].ToString(),
-                        PIS = linha["PIS"].ToString(),
+                        NomePai = linha["NomePai"].ToString()                        
                     };
 
                     if (idResult <= 0) return 0;
@@ -206,6 +201,23 @@ namespace SINTALOCAS.DAL.DB
             return result;
         }
 
+        public int RemoveAfiliado(int Id)
+        {
+            var result = 0;
+
+            try
+            {
+                var query = "UPDATE Afiliado SET D_E_L_E_T_ = 1 WHERE Id=" + Id;
+                result = _contexto.Transacao(query);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return result;
+        }
+
         public List<GrauParentesco> ListaGrauPArenesco() 
         {
             try
@@ -222,6 +234,87 @@ namespace SINTALOCAS.DAL.DB
                         Descricao = linha["Descricao"].ToString(),
                         LimiteQuantidade = Convert.ToInt32(linha["LimiteQuantidade"].ToString())
                     };
+
+                    lista.Add(obj);
+                }
+
+                return lista;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public List<Afiliado> ListaAfiliado(string cpf)
+        {
+            try
+            {
+                var lista = new List<Afiliado>();
+
+                var query = "SELECT                                       " +
+                                "A.Nome                                   " +
+                                ",A.Email                                 " +
+                                ",A.DataNascimento                        " +
+                                ",A.Cargo                                 " +
+                                ",A.CONSIR                                " +
+                                ",A.CPF                                   " +
+                                ",A.CTPS_Num                              " +
+                                ",A.CTPS_Serie                            " +
+                                ",A.ID                                    " +
+                                ",A.NomeMae                               " +
+                                ",A.NomePai                               " +
+                                ",A.PIS                                   " +
+                                ",A.RG                                    " +
+                                ",E.Rua                                   " +
+                                ",E.Numero                                " +
+                                ",E.Complemento                           " +
+                                ",E.Bairro                                " +
+                                ",E.Cidade                                " +
+                                ",E.CEP                                   " +
+                                ",E.UF                                    " +
+                                ",EP.CNPJ EmpresaCNPJ                     " +
+                                ",EP.Nome EmpresaNome                     " +
+                             " FROM sintalocasbd.Afiliado A               " +
+                             " LEFT JOIN sintalocasbd.Afiliado_Endereco E " +
+                             " ON E.IdAfiliado = A.ID                     " +
+                             " LEFT JOIN sintalocasbd.Afiliado_Empresa EP " +
+                             " ON EP.IdAfiliado = A.ID                    " +
+                             " WHERE A.D_E_L_E_T_=0                       " +
+                             "   AND E.D_E_L_E_T_=0                       " +
+                             "   AND EP.D_E_L_E_T_=0                      ";
+
+                if (cpf.Trim() != "") query += " AND A.CPF='" + cpf + "'";
+
+                var dataTable = _contexto.Consultar(query);
+
+                foreach (DataRow linha in dataTable.Rows)
+                {
+                    var obj = new Afiliado
+                    {
+                        ID = Convert.ToInt32(linha["ID"]),
+                        Nome = linha["Nome"].ToString(),
+                        RG = linha["RG"].ToString(),
+                        CPF = linha["CPF"].ToString(),
+                        Email = linha["Email"].ToString(),
+                        Cargo = linha["Cargo"].ToString(),
+                        Consir = linha["Consir"].ToString(),
+                        CNPJ = linha["EmpresaCNPJ"].ToString(),
+                        Empresa = linha["EmpresaNome"].ToString(),
+                        DataNascimento = Convert.ToDateTime(linha["DataNascimento"].ToString()),
+                        NomeMae = linha["NomeMae"].ToString(),
+                        NomePai = linha["NomePai"].ToString()
+                    };
+
+                    //OBJETO CTPS
+                    var ctps = new CTPS
+                    {
+                        Numero = linha["CTPS_Num"].ToString(),
+                        Serie = linha["CTPS_Serie"].ToString(),
+                        PIS = linha["PIS"].ToString()
+                    };
+
+                    obj.CTPS = ctps;
 
                     lista.Add(obj);
                 }

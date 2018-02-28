@@ -9,7 +9,6 @@ namespace SINTALOCAS.Web.MVC.Controllers
 {
     public class DependentesController : Controller
     {
-        private DependenteServico _dependenteServ = new DependenteServico();
 
         public ActionResult Index()
         {
@@ -24,7 +23,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
 
         public ActionResult Delete(int id)
         {
-            var result = _dependenteServ.Remove(id);
+            var result = DependenteServico.Remove(id);
 
             int idAfiliado = ConsultaIdAfiliado();
             if (idAfiliado == 0) return View("Afiliacao");
@@ -57,8 +56,8 @@ namespace SINTALOCAS.Web.MVC.Controllers
         {
             ViewBag.RootView = Validacao.AnalisaLink(@Request.RawUrl.ToString());
             ViewBag.LinkSubmitAfilia = Validacao.AnalisaLink(@Request.RawUrl.ToString() + "/Finaliza");
-            ViewBag.GrauParentesco = _dependenteServ.DictionaryGrausParentesco();
-            ViewBag.ListaDependentes = _dependenteServ.ListaDependentes(idAfiliado);
+            ViewBag.GrauParentesco = DependenteServico.DictionaryGrausParentesco();
+            ViewBag.ListaDependentes = DependenteServico.ListaDependentes(idAfiliado);
         }
 
         [HttpPost]
@@ -99,7 +98,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
             int idAfiliado = ConsultaIdAfiliado();
             if (idAfiliado == 0) return false;
 
-            result = _dependenteServ.ValidarCadastroDependente(idAfiliado);
+            result = DependenteServico.ValidarCadastroDependente(idAfiliado);
 
             ViewBag.MensagemRetorno = result;
 
@@ -119,7 +118,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
 
             try
             {
-                ViewBag.GrauParentesco = _dependenteServ.DictionaryGrausParentesco();
+                ViewBag.GrauParentesco = DependenteServico.DictionaryGrausParentesco();
             }
             catch (Exception ex)
             {

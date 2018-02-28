@@ -191,6 +191,8 @@
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Relatorio\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Views\Relatorio\RelAfiliados.cshtml" />
+    <Content Include="Views\Relatorio\DetalheAfiliado.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

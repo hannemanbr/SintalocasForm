@@ -79,17 +79,16 @@ namespace SINTALOCAS.Web.MVC.Servico
                 afiliado.Empresa = lista["EMPRESA"];
                 afiliado.RG = lista["RG"];
                 afiliado.Email = lista["EMAIL"];
-                //afiliado.Matricula = lista["Matricula"];
                 afiliado.Nome = lista["NOME"];
                 afiliado.NomeMae = lista["NOMEMAE"];
                 afiliado.NomePai = lista["NOMEPAI"];
-                afiliado.PIS = lista["PIS"];
 
                 // INFORMAÇOE CTPS
                 afiliado.CTPS = new CTPS
                 {
                     Numero = lista["CTPSNUM"],
-                    Serie = lista["CTPSSERIE"]
+                    Serie = lista["CTPSSERIE"],
+                    PIS = lista["PIS"]
                 };
 
                 //TELEFONES
@@ -160,10 +159,8 @@ namespace SINTALOCAS.Web.MVC.Servico
                 dependente.DataNascimento = dataNascimento;
                 dependente.AcrescimoMensal = 1;
                 dependente.IdAfiliado = idAfiliado;
-
-                var dependenteServ = new DependenteServico();
-
-                dependenteServ.Insere(dependente, 1, idAfiliado);
+                
+                DependenteServico.Insere(dependente, 1, idAfiliado);
 
                 return result;
 

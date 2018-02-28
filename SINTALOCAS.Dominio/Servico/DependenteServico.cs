@@ -7,11 +7,11 @@ using SINTALOCAS.Modelo;
 
 namespace SINTALOCAS.Dominio.Servico
 {
-    public class DependenteServico
+    public  static class DependenteServico
     {
-        private AfiliacaoDAL _afiliacaoDAL = new AfiliacaoDAL();
+        private static AfiliacaoDAL _afiliacaoDAL = new AfiliacaoDAL();
 
-        public Dictionary<int, string> DictionaryGrausParentesco()
+        public static Dictionary<int, string> DictionaryGrausParentesco()
         {
             try
             {
@@ -32,7 +32,7 @@ namespace SINTALOCAS.Dominio.Servico
 
         }
 
-        public List<GrauParentesco> ListaGrausParentesco()
+        public static List<GrauParentesco> ListaGrausParentesco()
         {
             try
             {
@@ -44,7 +44,7 @@ namespace SINTALOCAS.Dominio.Servico
             }
 
         }
-        public int Insere(Dependentes dependentes, int acrescimoMensal, int idAfiliado)
+        public static int Insere(Dependentes dependentes, int acrescimoMensal, int idAfiliado)
         {
 
             int result = 0;
@@ -54,19 +54,19 @@ namespace SINTALOCAS.Dominio.Servico
             return result;
         }
 
-        public int Remove(int idDependente)
+        public static int Remove(int idDependente)
         {
             int result = 0;
             result = _afiliacaoDAL.RemoveDependente(idDependente);
             return result;
         }
 
-        public List<Dependentes> ListaDependentes(int idAfiliado)
+        public static List<Dependentes> ListaDependentes(int idAfiliado)
         {
             return _afiliacaoDAL.ListaDependentes(idAfiliado);
         }
 
-        public string NomeGrauParentesco(int idGrau)
+        public static string NomeGrauParentesco(int idGrau)
         { 
             var result = "";
             var lista = DictionaryGrausParentesco();
@@ -79,7 +79,7 @@ namespace SINTALOCAS.Dominio.Servico
             return result;
         }
 
-        public string ValidarCadastroDependente(int idAfiliado)
+        public static string ValidarCadastroDependente(int idAfiliado)
         {
             var result = "";
             var contParentesco = 0;            

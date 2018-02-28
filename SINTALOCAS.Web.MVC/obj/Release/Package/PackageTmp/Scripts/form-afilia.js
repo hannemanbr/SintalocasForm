@@ -143,3 +143,8 @@ function validarDtNasc(valor, rootView)
     });
 }
 
+function ConfirmaAcao(acao)
+{
+    return confirm("Deseja " + acao + "?");
+}
+

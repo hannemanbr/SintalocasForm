@@ -25,12 +25,51 @@ namespace SINTALOCAS.Web.MVC.Controllers
             return View();
         }
 
+        public ActionResult RelAfiliados()
+        {
+            GeraViewBagRelatorio();
+            return View();
+        }
+
+        public ActionResult DeleteAfiliado(int id)
+        {            
+            AfiliacaoServico.Delete(id);
+            GeraViewBagRelatorio();
+            return View("RelAfiliados");
+        }
+
+        public ActionResult DetalheAfiliado(string id)
+        {
+            var listaAfiliado = AfiliacaoServico.Listar(id.ToString());
+            
+            ViewBag.Afiliados = listaAfiliado;
+
+            if (listaAfiliado.Count > 0)
+            {
+                var idAfiliado = listaAfiliado[0].ID;
+                ViewBag.Dependentes = DependenteServico.ListaDependentes(idAfiliado);
+            }
+
+            return View();
+        }
+
         private void GeraViewBag()
+        {
+            LogAtivo();            
+            ViewBag.ListaRelatorio = RelatorioServico.ListarRelatorios();
+        }
+        
+        private void GeraViewBagRelatorio()
+        {
+            LogAtivo();
+            ViewBag.Afiliados = AfiliacaoServico.Listar().Where(x => x.Nome.Trim() != "").ToList();
+        }
+
+        private void LogAtivo()
         {
             var usuario = TempData["LogAtivo"];
             TempData["LogAtivo"] = usuario;
             ViewBag.UsuarioLogin = usuario;
-            ViewBag.ListaRelatorio = RelatorioServico.ListarRelatorios();
         }
 
         // GET: Relatorio/Details/5
