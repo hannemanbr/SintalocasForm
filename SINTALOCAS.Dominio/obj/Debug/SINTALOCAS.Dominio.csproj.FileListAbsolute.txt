@@ -18,3 +18,23 @@
 /Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Dominio/bin/Debug/Postmon4Net.dll
 /Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Dominio/bin/Debug/Newtonsoft.Json.xml
 /Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Dominio/bin/Debug/Postmon4Net.xml
+D:\Thomas\Github\SintalocasForm\SINTALOCAS.Dominio\bin\Debug\SINTALOCAS.Dominio.dll.config
+D:\Thomas\Github\SintalocasForm\SINTALOCAS.Dominio\bin\Debug\SINTALOCAS.Dominio.dll
+D:\Thomas\Github\SintalocasForm\SINTALOCAS.Dominio\bin\Debug\SINTALOCAS.Dominio.pdb
+D:\Thomas\Github\SintalocasForm\SINTALOCAS.Dominio\bin\Debug\Newtonsoft.Json.dll
+D:\Thomas\Github\SintalocasForm\SINTALOCAS.Dominio\bin\Debug\Postmon4Net.dll
+D:\Thomas\Github\SintalocasForm\SINTALOCAS.Dominio\bin\Debug\SINTALOCAS.DAL.dll
+D:\Thomas\Github\SintalocasForm\SINTALOCAS.Dominio\bin\Debug\SINTALOCAS.Modelo.dll
+D:\Thomas\Github\SintalocasForm\SINTALOCAS.Dominio\bin\Debug\MySql.Data.dll
+D:\Thomas\Github\SintalocasForm\SINTALOCAS.Dominio\bin\Debug\EntityFramework.dll
+D:\Thomas\Github\SintalocasForm\SINTALOCAS.Dominio\bin\Debug\SINTALOCAS.Modelo.pdb
+D:\Thomas\Github\SintalocasForm\SINTALOCAS.Dominio\bin\Debug\SINTALOCAS.DAL.pdb
+D:\Thomas\Github\SintalocasForm\SINTALOCAS.Dominio\bin\Debug\SINTALOCAS.DAL.dll.config
+D:\Thomas\Github\SintalocasForm\SINTALOCAS.Dominio\bin\Debug\Newtonsoft.Json.xml
+D:\Thomas\Github\SintalocasForm\SINTALOCAS.Dominio\bin\Debug\Postmon4Net.xml
+D:\Thomas\Github\SintalocasForm\SINTALOCAS.Dominio\bin\Debug\MySql.Data.xml
+D:\Thomas\Github\SintalocasForm\SINTALOCAS.Dominio\bin\Debug\EntityFramework.xml
+D:\Thomas\Github\SintalocasForm\SINTALOCAS.Dominio\obj\Debug\SINTALOCAS.Dominio.csprojResolveAssemblyReference.cache
+D:\Thomas\Github\SintalocasForm\SINTALOCAS.Dominio\obj\Debug\SINTALOCAS.Dominio.csproj.CoreCompileInputs.cache
+D:\Thomas\Github\SintalocasForm\SINTALOCAS.Dominio\obj\Debug\SINTALOCAS.Dominio.dll
+D:\Thomas\Github\SintalocasForm\SINTALOCAS.Dominio\obj\Debug\SINTALOCAS.Dominio.pdb

@@ -6,3 +6,11 @@
 /Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Modelo/obj/Debug/SINTALOCAS.Modelo.pdb
 /Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Modelo/bin/Debug/Correios.Net.dll
 /Users/thomasalvessabrantes/Documents/WEB T/Github/SintalocasForm/SINTALOCAS.Modelo/bin/Debug/Correios.Net.pdb
+D:\Thomas\Github\SintalocasForm\SINTALOCAS.Modelo\bin\Debug\SINTALOCAS.Modelo.dll
+D:\Thomas\Github\SintalocasForm\SINTALOCAS.Modelo\bin\Debug\SINTALOCAS.Modelo.pdb
+D:\Thomas\Github\SintalocasForm\SINTALOCAS.Modelo\bin\Debug\Correios.Net.dll
+D:\Thomas\Github\SintalocasForm\SINTALOCAS.Modelo\bin\Debug\Correios.Net.pdb
+D:\Thomas\Github\SintalocasForm\SINTALOCAS.Modelo\obj\Debug\SINTALOCAS.Modelo.csprojResolveAssemblyReference.cache
+D:\Thomas\Github\SintalocasForm\SINTALOCAS.Modelo\obj\Debug\SINTALOCAS.Modelo.csproj.CoreCompileInputs.cache
+D:\Thomas\Github\SintalocasForm\SINTALOCAS.Modelo\obj\Debug\SINTALOCAS.Modelo.dll
+D:\Thomas\Github\SintalocasForm\SINTALOCAS.Modelo\obj\Debug\SINTALOCAS.Modelo.pdb

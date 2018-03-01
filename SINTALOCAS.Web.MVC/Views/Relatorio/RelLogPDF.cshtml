@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "Log de Acesso";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<h2>Log de Acesso</h2>
+@if (ViewBag.Lista.Count > 0)
+{
+    <div class="table-responsive">
+        <table id="tbrelatorio">
+            <thead>
+                <tr>
+                    <td>Data Acesso</td>
+                    <td>IP</td>
+                    <td>Link</td>
+                    <td>Geolocation</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in ViewBag.Lista)
+                {
+                    <tr>
+                        <td>@item.DataCadastro</td>
+                        <td>@item.IP</td>
+                        <td>@item.Link</td>
+                        <td>@item.Geolocation</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <br />
+    <br />
+    <div style="color:#ff0000; font-weight:bold">Nenhum registro encontrado</div>
+}

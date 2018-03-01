@@ -67,6 +67,9 @@
     <Reference Include="Remotion.Linq, Version=2.1.0.0, Culture=neutral, PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
       <HintPath>..\packages\Remotion.Linq.2.1.1\lib\net45\Remotion.Linq.dll</HintPath>
     </Reference>
+    <Reference Include="Rotativa, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rotativa.1.7.3\lib\net461\Rotativa.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Collections.Immutable, Version=1.2.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Collections.Immutable.1.4.0\lib\netstandard2.0\System.Collections.Immutable.dll</HintPath>
@@ -151,6 +154,10 @@
     <Content Include="Content\js\bootstrap.min.js" />
     <Content Include="Content\js\jquery.dataTables.min.js" />
     <Content Include="Content\js\jquery.min.js" />
+    <Content Include="Rotativa\help-wkhtmltoimage.txt" />
+    <Content Include="Rotativa\help-wkhtmltopdf.txt" />
+    <Content Include="Rotativa\wkhtmltoimage.exe" />
+    <Content Include="Rotativa\wkhtmltopdf.exe" />
     <Content Include="Style\estiloAdmin.css" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -187,6 +194,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Browsers\qt.browser" />
     <None Include="CustomProfile.pubxml" />
     <None Include="FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.slim.min.map" />
@@ -199,6 +207,9 @@
     <Content Include="Views\Relatorio\RelAfiliados.cshtml" />
     <Content Include="Views\Relatorio\DetalheAfiliado.cshtml" />
     <Content Include="Views\Relatorio\RelLog.cshtml" />
+    <Content Include="Views\Relatorio\RelLogPDF.cshtml" />
+    <Content Include="Views\Relatorio\RelAfiliadosPDF.cshtml" />
+    <Content Include="Views\Relatorio\DetalheAfiliadoPDF.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
