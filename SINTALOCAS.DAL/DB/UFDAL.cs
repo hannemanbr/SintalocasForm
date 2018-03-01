@@ -31,6 +31,8 @@ namespace SINTALOCAS.DAL.DB
                     lista.Add(obj);
                 }
 
+                dataTable.Dispose();
+
             }
             catch (Exception ex)
             {
@@ -61,6 +63,8 @@ namespace SINTALOCAS.DAL.DB
 
                     lista.Add(obj);
                 }
+
+                dataTable.Dispose();
 
             }
             catch (Exception ex)

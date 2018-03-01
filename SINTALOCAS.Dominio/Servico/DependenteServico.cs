@@ -91,5 +91,31 @@ namespace SINTALOCAS.Dominio.Servico
 
             return result;
         }
+
+        public static Dictionary<int, string> ListaGrauParentescoDisponivel(int idAfiliado)
+        {
+            try
+            {
+                int cont = 0;
+                var listaGrauParentesco = ListaGrausParentesco().OrderBy(x => x.Descricao);
+                var listaDependentesCadastrado = ListaDependentes(idAfiliado);
+
+                var listaResult = new Dictionary<int, string>();
+
+                foreach (var item in listaGrauParentesco)
+                {
+                    cont = listaDependentesCadastrado.Where(x => x.GrauParentescoID == item.ID).Count();
+
+                    if (cont <= item.LimiteQuantidade - 1) listaResult.Add(item.ID, item.Descricao);
+                }
+
+                return listaResult;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
     }
 }

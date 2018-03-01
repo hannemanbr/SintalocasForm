@@ -29,6 +29,7 @@
         <div style="color:#FF0000" id="rForm"></div>
         <span id="rFormRetorno" style="color:#FF0000;">@Html.Raw(ViewBag.MensagemRetorno)</span>
         <br />
+        <input type="hidden" id="idAfiliado" name="idAfiliado" value="@ViewBag.idAfiliado" />
         <input type="button" data-mini="true" id="btnGravar" class="BotaoFinaliza" value="Inserir" onclick="validarFormAfilia('@ViewBag.RootView')" />
     </form>
 

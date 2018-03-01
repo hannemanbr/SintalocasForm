@@ -39,6 +39,8 @@ namespace SINTALOCAS.DAL.DB
                     lista.Add(obj);
                 }
 
+                dataTable.Dispose();
+
                 return lista;
             }
             catch (Exception ex)

@@ -37,6 +37,8 @@ namespace SINTALOCAS.DAL.DB
                     lista.Add(obj);
                 }
 
+                dataTable.Dispose();
+
                 if (lista.Count == 0) lista.Add(
                       new MensagemSistema
                       {

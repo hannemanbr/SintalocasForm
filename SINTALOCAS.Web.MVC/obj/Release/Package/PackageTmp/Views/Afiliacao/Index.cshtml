@@ -155,10 +155,12 @@
             <input type="text" data-mini="true"  id="NomeMae" name="NomeMae" />
         </div>
         <div class="row">
-            <a target="_blank" href="~/Download/docs/Ficha_Filiacao_AcordoJAN2018.pdf">Ler Termos e Condições</a>
+            <label class="label">
+                <a target="_blank" style="font-size:14px;" href="~/Download/docs/Ficha_Filiacao_AcordoJAN2018.pdf">Ler Termos e Condições</a>
+            </label>            
         </div>
         <div class="row">
-            <div style="color:#FF0000" id="rForm"></div>
+            <div style="color:#FF0000" id="rForm"></div>            
             <span id="rFormRetorno" style="color:#FF0000">@Html.Raw(ViewBag.MensagemRetorno)</span>
             <br />
             <input type="button" data-mini="true" id="btnGravar" value="Enviar" class="BotaoFinaliza" onclick="validarFormAfilia('@ViewBag.RootView')" />

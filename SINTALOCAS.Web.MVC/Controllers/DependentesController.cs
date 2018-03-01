@@ -3,6 +3,7 @@ using SINTALOCAS.Dominio.Util;
 using SINTALOCAS.Web.MVC.Servico;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 
 namespace SINTALOCAS.Web.MVC.Controllers
@@ -29,7 +30,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
             if (idAfiliado == 0) return View("Afiliacao");
 
             GeraViewBag(idAfiliado);
-            CombosForm();
+            //CombosForm();
 
             return RedirectToAction("Index");
         }
@@ -52,6 +53,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
             return idAfiliado;
 
         }
+        
         private void GeraViewBag(int idAfiliado)
         {
             ViewBag.RootView = Validacao.AnalisaLink(@Request.RawUrl.ToString());
@@ -63,10 +65,10 @@ namespace SINTALOCAS.Web.MVC.Controllers
         [HttpPost]
         public JsonResult ValidarFormJSON(FormCollection Collection)
         {
-            var retorno = ValidarForm(Collection);
-            var mensagem = "";
+            var retorno = false;
+            var mensagem = ValidarForm(Collection);
 
-            if (!retorno) mensagem = MensagemUtil.ErroCamposNaoPreenchidos();
+            if (mensagem.Trim() == "") retorno = true;
 
             return Json(new { success = retorno, msg = mensagem }, JsonRequestBehavior.AllowGet); ;
 
@@ -82,7 +84,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
             return result;
         }
 
-        public bool ValidarForm(FormCollection Collection)
+        public string ValidarForm(FormCollection Collection)
         {
             var result = "";
 
@@ -96,7 +98,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
             result = Validacao.ValidarCodigos(lista);
 
             int idAfiliado = ConsultaIdAfiliado();
-            if (idAfiliado == 0) return false;
+            if (idAfiliado == 0) result += MensagemUtil.ErroGeneralizado(); ;
 
             result = DependenteServico.ValidarCadastroDependente(idAfiliado);
 
@@ -106,13 +108,11 @@ namespace SINTALOCAS.Web.MVC.Controllers
             {
                 InserirDados(lista); //gravando informaçoes
                 GeraViewBag(idAfiliado);
-                CombosForm();
-                return true;
+                //CombosForm();
             }
-            else
-            {
-                return false;
-            }
+
+            return result;
+
         }
         
         private void CombosForm()
@@ -120,7 +120,22 @@ namespace SINTALOCAS.Web.MVC.Controllers
 
             try
             {
-                ViewBag.GrauParentesco = DependenteServico.DictionaryGrausParentesco();
+                //int cont = 0;
+                //var listaGrauParentesco = DependenteServico.ListaGrausParentesco().OrderBy(x=>x.Descricao);
+                //var listaDependentesCadastrado = DependenteServico.ListaDependentes(ConsultaIdAfiliado());
+                ////var listaGrauParentesco = DependenteServico.DictionaryGrausParentesco();
+
+                //var listaCombo = new Dictionary<int, string>();
+
+                //foreach(var item in listaGrauParentesco)
+                //{
+                //    cont = listaDependentesCadastrado.Where(x=>x.GrauParentescoID==item.ID).Count();
+
+                //    if (cont < item.LimiteQuantidade) listaCombo.Add(item.ID, item.Descricao);
+                //}
+
+                ViewBag.GrauParentesco = DependenteServico.ListaGrauParentescoDisponivel(ConsultaIdAfiliado());
+
             }
             catch (Exception ex)
             {
