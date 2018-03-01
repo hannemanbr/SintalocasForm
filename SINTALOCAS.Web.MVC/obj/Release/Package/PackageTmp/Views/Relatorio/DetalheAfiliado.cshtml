@@ -5,9 +5,9 @@
 }
 <h2>Afiliados Cadastrados</h2>
 
-@if (ViewBag.Lista.Count > 0)
+@if (ViewBag.Lista != null)
 {
-    <table style="border-color:#ffffff; border-width: 2px; padding:3px; background-color:#e2e2e2">
+    <table style="width:100%; border-color:#ffffff; border-width: 2px; padding:3px; background-color:#e2e2e2">
         @foreach (var item in ViewBag.Lista)
         {
             <tr>
@@ -43,7 +43,46 @@ else
     <br />
     <div style="color:#ff0000; font-weight:bold">Nenhum registro encontrado</div>
 }
-<table>
+<br />
+<br />
+@if (@ViewBag.Enderecos != null)
+{
+<table style="width:100%; background-color:#e2e2e2;">
+    <tr>
+        <td style="background-color:#868686; color:#ffffff"><strong>Dependentes</strong></td>
+    </tr>
+    <tr>
+        <td>
+            <strong>Logradouro:</strong> @ViewBag.Enderecos.Logradouro
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <strong>Número:</strong> @ViewBag.Enderecos.Numero
+            <strong>Complemento:</strong> @ViewBag.Enderecos.Complemento
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <strong>Bairro:</strong> @ViewBag.Enderecos.Bairro
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <strong>Cidade:</strong> @ViewBag.Enderecos.Cidade
+            <strong>UF:</strong> @ViewBag.Enderecos.UF
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <strong>CEP:</strong> @ViewBag.Enderecos.CEP
+        </td>
+    </tr>
+</table>
+}
+<br />
+<br />
+<table style="width:100%; background-color:#e2e2e2;">
     <tr>
         <td style="background-color:#868686; color:#ffffff"><strong>Dependentes</strong></td>
     </tr>
@@ -56,11 +95,12 @@ else
             </td>
         </tr>
     }
-    @if (ViewBag.Dependentes.Count > 0)
+    @if (ViewBag.Dependentes.Count == 0)
     {
         <tr>
-            <td style="background-color:#868686; color:#ffffff"><strong>Nenhum dependentes cadastrado</strong></td>
+            <td style="color:#ff0000"><strong>Nenhum dependente cadastrado</strong></td>
         </tr>
     }
 </table>
-
+<br />
+<input type="button" id="btnVoltar" value="Voltar" onclick="window.location.href='../RelAfiliados'" />

@@ -252,37 +252,39 @@ namespace SINTALOCAS.DAL.DB
             {
                 var lista = new List<Afiliado>();
 
-                var query = "SELECT                                       " +
-                                "A.Nome                                   " +
-                                ",A.Email                                 " +
-                                ",A.DataNascimento                        " +
-                                ",A.Cargo                                 " +
-                                ",A.CONSIR                                " +
-                                ",A.CPF                                   " +
-                                ",A.CTPS_Num                              " +
-                                ",A.CTPS_Serie                            " +
-                                ",A.ID                                    " +
-                                ",A.NomeMae                               " +
-                                ",A.NomePai                               " +
-                                ",A.PIS                                   " +
-                                ",A.RG                                    " +
-                                ",E.Rua                                   " +
-                                ",E.Numero                                " +
-                                ",E.Complemento                           " +
-                                ",E.Bairro                                " +
-                                ",E.Cidade                                " +
-                                ",E.CEP                                   " +
-                                ",E.UF                                    " +
-                                ",EP.CNPJ EmpresaCNPJ                     " +
-                                ",EP.Nome EmpresaNome                     " +
+                var query = "SELECT                          " +
+                                "A.Nome                      " +
+                                ",A.Email                    " +
+                                ",A.DataNascimento           " +
+                                ",A.Cargo                    " +
+                                ",A.CONSIR                   " +
+                                ",A.CPF                      " +
+                                ",A.CTPS_Num                 " +
+                                ",A.CTPS_Serie               " +
+                                ",A.ID                       " +
+                                ",A.NomeMae                  " +
+                                ",A.NomePai                  " +
+                                ",A.PIS                      " +
+                                ",A.RG                       " +
+                                ",E.Rua                      " +
+                                ",E.Numero                   " +
+                                ",E.Complemento              " +
+                                ",E.Bairro                   " +
+                                ",E.Cidade                   " +
+                                ",E.CEP                      " +
+                                ",E.UF                       " +
+                                ",E.Pais                     " +
+                                ",EP.CNPJ EmpresaCNPJ        " +
+                                ",EP.Nome EmpresaNome        " +
                              " FROM Afiliado A               " +
-                             " LEFT JOIN Afiliado_Endereco E " +
-                             " ON E.IdAfiliado = A.ID                     " +
-                             " LEFT JOIN Afiliado_Empresa EP " +
-                             " ON EP.IdAfiliado = A.ID                    " +
-                             " WHERE A.D_E_L_E_T_=0                       " +
-                             "   AND E.D_E_L_E_T_=0                       " +
-                             "   AND EP.D_E_L_E_T_=0                      ";
+                             " LEFT JOIN Afiliado_Endereco E " +                             
+                             " ON E.IdAfiliado = A.ID        " +
+                             "      AND E.D_E_L_E_T_ = 0     " +
+                             "      AND A.D_E_L_E_T_ = 0     " +
+                             " LEFT JOIN Afiliado_Empresa EP " +                            
+                             " ON EP.IdAfiliado = A.ID       " +
+                             "      AND EP.D_E_L_E_T_ = 0    " +
+                             " WHERE 1=1                     ";
 
                 if (cpf.Trim() != "") query += " AND A.CPF='" + cpf + "'";
 
@@ -303,7 +305,7 @@ namespace SINTALOCAS.DAL.DB
                         Empresa = linha["EmpresaNome"].ToString(),
                         DataNascimento = Convert.ToDateTime(linha["DataNascimento"].ToString()),
                         NomeMae = linha["NomeMae"].ToString(),
-                        NomePai = linha["NomePai"].ToString()
+                        NomePai = linha["NomePai"].ToString(),
                     };
 
                     //OBJETO CTPS
@@ -313,8 +315,23 @@ namespace SINTALOCAS.DAL.DB
                         Serie = linha["CTPS_Serie"].ToString(),
                         PIS = linha["PIS"].ToString()
                     };
-
+                    
                     obj.CTPS = ctps;
+
+                    //OBJETO ENDEREÇO
+                    var endereco = new Endereco
+                    {
+                        Logradouro = linha["RUA"].ToString(),
+                        Numero = linha["Numero"].ToString(),
+                        Complemento = linha["Complemento"].ToString(),
+                        Bairro = linha["Bairro"].ToString(),
+                        CEP = linha["CEP"].ToString(),
+                        Cidade = linha["Cidade"].ToString(),
+                        Pais = linha["Pais"].ToString(),
+                        UF = linha["UF"].ToString()
+                    };
+
+                    obj.Endereco = endereco;
 
                     lista.Add(obj);
                 }

@@ -46,11 +46,8 @@ namespace SINTALOCAS.Dominio.Servico
         }
         public static int Insere(Dependentes dependentes, int acrescimoMensal, int idAfiliado)
         {
-
-            int result = 0;
-            
+            int result = 0;            
             result = _afiliacaoDAL.InserirDependente(dependentes);
-
             return result;
         }
 

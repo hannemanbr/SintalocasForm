@@ -69,7 +69,15 @@ namespace SINTALOCAS.Web.MVC.Controllers
         {
             var result = "";
 
-            if (!ValidaCodigosUtil.ValidaCpf(Cpf)) result = MensagemUtil.ErroCPFInvalido();
+            if (!ValidaCodigosUtil.ValidaCpf(Cpf))
+            {
+                result = MensagemUtil.ErroCPFInvalido();
+            }
+            else
+            {
+                //VALIDAR SE CPF EXISTE NA BASE DE DADOS
+                result = AfiliacaoServico.AfiliadoExistente(Cpf);
+            }
 
             return result;
         }

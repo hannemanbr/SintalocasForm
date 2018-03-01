@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using SINTALOCAS.DAL.DB;
+using SINTALOCAS.Dominio.Util;
 using SINTALOCAS.Modelo;
 
 namespace SINTALOCAS.Dominio.Servico
@@ -62,6 +63,7 @@ namespace SINTALOCAS.Dominio.Servico
             try
             {
                 var lista = _afiliacaoDAL.ListaAfiliado(cpf);
+                if (lista.Count > 0) result = MensagemUtil.ErroCPFExistente();
             }
             catch (Exception ex)
             {

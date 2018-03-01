@@ -48,12 +48,14 @@ namespace SINTALOCAS.Web.MVC.Controllers
         {
             var listaAfiliado = AfiliacaoServico.Listar(id.ToString());
             
-            ViewBag.Afiliados = listaAfiliado;
+            ViewBag.Lista = listaAfiliado;
 
             if (listaAfiliado.Count > 0)
             {
                 var idAfiliado = listaAfiliado[0].ID;
                 ViewBag.Dependentes = DependenteServico.ListaDependentes(idAfiliado);
+
+                ViewBag.Enderecos = listaAfiliado[0].Endereco;
             }
 
             return View();

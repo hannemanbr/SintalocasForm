@@ -7,58 +7,67 @@
 <body>
     @ViewBag.MensagemRetorno
     <form action="@ViewBag.LinkSubmitAfilia" id="formAfilia">
-        <table>
-            <tr>
-                <td class="TDcampoLabel">Nome</td>
-                <td>Dt Nasc.</td>
-                <td>Grau de parentesco</td>
-            </tr>
-            <tr>
-                <td class="TDcampoTexto">
-                    <input type="text" id="Nome" name="Nome" placeholder="nome completo" />
-                </td>
-                <td>
-                    <input type="text" id="DtNasc" name="DtNasc" style="width:80px;" placeholder="dd/mm/aaaa" onblur="validarDtNasc(this, '@ViewBag.RootView')" class="simple-field-data-mask" data-mask="00/00/0000" />
-                </td>
-                <td>
-                    <select id="GrauParente" name="GrauParente">
-                        @foreach (KeyValuePair<int, string> item in ViewBag.GrauParentesco)
-                        {
-                            <option value="@item.Key">@item.Value</option>
-                        }
-                    </select>
-                </td>
-            </tr>
-        </table>
+        <div class="row">
+            Nome:
+            <input type="text" data-mini="true" id="Nome" name="Nome" placeholder="nome completo" />
+        </div>
+        <div class="row">
+            Dt. Nasc.:
+            <input type="text" data-mini="true" id="DtNasc" name="DtNasc" style="width:120px;" placeholder="dd/mm/aaaa" onblur="validarDtNasc(this, '@ViewBag.RootView')" class="simple-field-data-mask" data-mask="00/00/0000" />
+        </div>
+        <div class="row">
+            Grau de parentesco:
+            <select id="GrauParente" data-mini="true" name="GrauParente" style="width:200px;">
+                @foreach (KeyValuePair<int, string> item in ViewBag.GrauParentesco)
+                {
+                    <option value="@item.Key">@item.Value</option>
+                }
+            </select>
+        </div>
+
         <div style="color:#FF0000" id="rDtNasc"></div>
         <div style="color:#FF0000" id="rForm"></div>
-        <span id="rFormRetorno" style="color:#FF0000">@Html.Raw(ViewBag.MensagemRetorno)</span>
+        <span id="rFormRetorno" style="color:#FF0000;">@Html.Raw(ViewBag.MensagemRetorno)</span>
         <br />
-        <input type="button" id="btnGravar" class="BotaoFinaliza" value="Enviar" onclick="validarFormAfilia('@ViewBag.RootView')" />
+        <input type="button" data-mini="true" id="btnGravar" class="BotaoFinaliza" value="Inserir" onclick="validarFormAfilia('@ViewBag.RootView')" />
     </form>
-    <hr />
+
     @if (ViewBag.ListaDependentes.Count > 0)
     {
-        <h3>Dependentes Cadastrados</h3>
-        <table>
-            @foreach (var item in ViewBag.ListaDependentes)
-            {
-            <tr>
-                <td>@item.Nome</td>
-                <td>@item.GrauParentescoNome</td>
-                <td>
-                    <a href="~/Dependentes/Delete/@item.ID">Excluir teste</a>
-                    <a asp-action="Delete" style="color:#FF0000" asp-route-id="@item.ID">|X|excluir</a>
-                </td>
-            </tr>
-            }
-        </table>
+        var cont = 0;
+        <div class="row">
+            <h3>Dependentes Cadastrados</h3>
+        </div>
+        @*<div class="row" style="font-weight:bold; background-color: #000000; color:#FFFFFF">
+                <div class="col-15" style="text-align:center">#</div>
+                <div class="col-25">Nome</div>
+                <div class="col-25">Parentesco</div>
+            </div>*@
+        foreach (var item in ViewBag.ListaDependentes)
+        {
+            cont++;
+            <div class="row">
+                @*<div style="text-align:center">@cont</div>
+                    <div>@item.Nome</div>
+                    <div>@item.GrauParentescoNome</div>
+                    <div style="text-align: center">
+                        <a href="~/Dependentes/Delete/@item.ID" style="color:#FFFFFF; background-color:#FF0000; padding:4px;" onclick="return ConfirmaAcao('excluir este registro')">Excluir</a>
+                    </div>*@
+
+                    <a href="~/Dependentes/Delete/@item.ID" style="color:#FFFFFF; background-color:#FF0000; padding:4px;" onclick="return ConfirmaAcao('excluir este registro')">Excluir</a>
+                    @cont - @item.Nome ( @item.GrauParentescoNome )
+            </div>
+        }
     }
     else
     {
-        <h2>Nenhum dependente cadastrado</h2>
+        <div class="row" style="font-weight:bold; font-size:16px; text-align: left">
+            <label class="label">
+                Nenhum dependente cadastrado
+            </label>
+        </div>
     }
     <br />
     <br />
-    <input type="button" id="btnGravar" class="BotaoFinaliza" value="Finalizar" onclick="window.location.href='Finalizar'" />
+    <input type="button" data-mini="true" id="btnProximo" class="BotaoFinaliza" value="Finalizar" onclick="window.location.href='Finalizar'" />
 </body>

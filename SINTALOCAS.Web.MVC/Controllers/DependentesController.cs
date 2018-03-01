@@ -31,7 +31,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
             GeraViewBag(idAfiliado);
             CombosForm();
 
-            return View("Index");
+            return RedirectToAction("Index");
         }
 
         private int ConsultaIdAfiliado()
@@ -105,6 +105,8 @@ namespace SINTALOCAS.Web.MVC.Controllers
             if (result.Trim() == "")
             {
                 InserirDados(lista); //gravando informaçoes
+                GeraViewBag(idAfiliado);
+                CombosForm();
                 return true;
             }
             else
