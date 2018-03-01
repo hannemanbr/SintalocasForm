@@ -3,29 +3,32 @@
     ViewBag.Title = "RelLog";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
-
-
 <h2>Log de Acesso</h2>
-
 @if (ViewBag.Lista.Count > 0)
 {
-    <table>
-        <tr style="background-color: #000000; color:#ffffff">
-            <td>Data Acesso</td>
-            <td>IP</td>
-            <td>Link</td>
-            <td>Geolocation</td>
-        </tr>
-        @foreach (var item in ViewBag.Lista)
-        {
-            <tr>
-                <td>@item.DataCadastro</td>
-                <td>@item.IP</td>
-                <td>@item.Link</td>
-                <td>@item.Geolocation</td>
-            </tr>
-        }
-    </table>
+    <div class="table-responsive">
+        <table id="tbrelatorio">
+            <thead>
+                <tr>
+                    <td>Data Acesso</td>
+                    <td>IP</td>
+                    <td>Link</td>
+                    <td>Geolocation</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in ViewBag.Lista)
+                {
+                    <tr>
+                        <td>@item.DataCadastro</td>
+                        <td>@item.IP</td>
+                        <td>@item.Link</td>
+                        <td>@item.Geolocation</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 }
 else
 {
@@ -33,5 +36,22 @@ else
     <br />
     <div style="color:#ff0000; font-weight:bold">Nenhum registro encontrado</div>
 }
+<script>
+    $(document).ready(function () {
+        $('#tbrelatorio').DataTable();
+    });
 
+    $('#tbrelatorio').dataTable({
+        "language": {
+            "paginate": {
+                "previous": "Anterior",
+                "next": "Próximo"
+            },
+            "zeroRecords": "Nenhum registro foi encontrado",
+            "search": "Pesquisar",
+            "infoEmpty": "nenhum registro encontrado",
+            "lengthMenu": "Registros por página _MENU_ "
+        }        
+    });
 
+</script>

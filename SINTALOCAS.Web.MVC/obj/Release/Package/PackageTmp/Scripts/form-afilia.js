@@ -148,3 +148,15 @@ function ConfirmaAcao(acao)
     return confirm("Deseja " + acao + "?");
 }
 
+//$('#tbrelatorio').dataTable({
+//    "language": {
+//        "paginate": {
+//            "previous": "Anterior",
+//            "next": "Próximo"
+//        },
+//        "zeroRecords": "Nenhum registro foi encontrado",
+//        "search": "Pesquisar",
+//        "infoEmpty": "nenhum registro encontrado",
+//        "lengthMenu": "Registros por página _MENU_ "
+//    }
+//});
