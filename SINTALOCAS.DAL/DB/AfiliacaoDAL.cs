@@ -380,5 +380,32 @@ namespace SINTALOCAS.DAL.DB
                 throw ex;
             }
         }
+
+        public Dictionary<int, int> QuantidadeDependentes(int idAfiliado)
+        {
+            try
+            {
+                var lista = new Dictionary<int, int>();
+
+                var query = "SELECT count(0) Total" +
+                    " Nome, DataNascimento, AcrescimoMensal, Grau" +
+                    " FROM Afiliado_Dependente D" +
+                    " WHERE idAfiliado=" + idAfiliado + "" +
+                    " GROUP BY Nome, DataNascimento, AcrescimoMensal";
+
+                var dataTable = _contexto.Consultar(query);
+
+                foreach (DataRow linha in dataTable.Rows)
+                {                    
+                    lista.Add(Convert.ToInt32(linha["Grau"]), Convert.ToInt32(linha["Total"]));
+                }
+
+                return lista;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

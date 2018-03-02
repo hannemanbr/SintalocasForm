@@ -1,23 +1,25 @@
 ﻿
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    Layout = "~/Views/Shared/_LayoutLoginAdmin.cshtml";
 }
 
 <h2>Painel de Controle</h2>
 Digite a senha e login
 
 <form action="@ViewBag.LinkSubmitAfilia" id="formAfilia" method="post">
-    <table>       
-        <tr>
-            <td class="TDcampoTexto">
-                <input type="text" id="Email" name="Email" placeholder="e-mail" />
-            </td>
-            <td>
-                <input type="password" id="Senha" name="Senha" style="width:80px;" placeholder="Digite s senha" />
-            </td>            
-        </tr>
-    </table>
+    <label class="col-form-label">
+        E-mail/Login
+    </label>
+    <div class="row">
+        <input type="text" id="Email" name="Email" placeholder="e-mail" />
+    </div>
+    <label class="col-form-label">
+        Senha
+    </label>
+    <div class="row">
+        <input type="password" id="Senha" name="Senha" style="width:80px;" placeholder="Digite s senha" />
+    </div>
     <span id="rFormRetorno" style="color:#FF0000">@Html.Raw(ViewBag.MensagemRetorno)</span>
     <br />
     <input type="submit" id="btnGravar" value="Login" />

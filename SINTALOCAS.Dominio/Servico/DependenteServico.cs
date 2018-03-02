@@ -82,12 +82,21 @@ namespace SINTALOCAS.Dominio.Servico
             var contParentesco = 0;            
             var listaGrauParentesco = ListaGrausParentesco();
             var lista = ListaDependentes(idAfiliado);
+            var listaQuantGroup = _afiliacaoDAL.QuantidadeDependentes(idAfiliado);
 
             foreach(var item in listaGrauParentesco)
             {
+                // VERIFICA SE AIDCIONOU PARENTE ACIMA DO LIMITE
                 contParentesco = lista.Where(x => x.GrauParentescoID == item.ID).Count();
                 if (contParentesco > item.LimiteQuantidade) result += MensagemUtil.GrauParentescoAcimaPermitido(item.Descricao.Trim());
-            }           
+
+                //VERIFICAR SE EXISTE MAIS DE UM REGISTRO PARA O MESMO DEPENDENTE
+                contParentesco = 0;
+                if (listaQuantGroup.ContainsKey(item.ID)) contParentesco = listaQuantGroup[item.ID];
+
+                if (contParentesco > 1) result += MensagemUtil.GrauParentescoAcimaPermitido(item.Descricao);
+
+            }
 
             return result;
         }

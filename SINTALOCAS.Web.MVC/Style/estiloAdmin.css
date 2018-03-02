@@ -15,7 +15,7 @@ body {
 
 /*Adicionando Estilo responsivo param formulario*/
 /* Style inputs, select elements and textareas */
-input[type=text], select, textarea {
+input[type=text], select, textarea, input[type=password] {
     width: 100%;
     padding: 12px;
     border: 1px solid #ccc;
@@ -23,6 +23,7 @@ input[type=text], select, textarea {
     box-sizing: border-box;
     resize: vertical;
 }
+
 
 /* Style the label to display next to the inputs */
 label {
@@ -59,10 +60,11 @@ input[type=text] {
 
 /* Style the container */
 .container {
-    border-radius: 5px;
+    border-radius: 15px;
     background-color: #f2f2f2;
-    padding: 5px;
+    padding: 30px;
     color:#000;
+    width:100%
 }
 
 .col-1-banner {

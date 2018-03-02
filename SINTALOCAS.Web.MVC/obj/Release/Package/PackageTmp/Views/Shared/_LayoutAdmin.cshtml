@@ -5,32 +5,54 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="~/image/logo_fundo.png" />
-    <link rel="stylesheet" type="text/css" href="~/Style/estilo.css">
-    <script src="~/Scripts/jquery-3.3.1.js" type="text/javascript"></script>
-    <script src="~/Scripts/jquery.unobtrusive-ajax.js" type="text/javascript"></script>
-    <script src="~/Scripts/jquery.mask.js"></script>
-    <link rel="stylesheet" href="~/Content/css/jquery.dataTables.min.css">
-    <script type="text/javascript" src="~/Content/js/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" src="~/Content/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css">
+    <link rel="stylesheet"
+          href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/umd/popper.min.js"></script>
+    <script type="text/javascript"
+            src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+
+    @*BOOTSTRAP*@
+    @*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+              integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet"
+              href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+                integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+                crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+                integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+                crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+                integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+                crossorigin="anonymous"></script>
+        <script type="text/javascript"
+                src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>*@
 
     @*SCRIPT DESENVOLVIDO PARA O SISTEMA*@
+    <link rel="stylesheet" type="text/css" href="~/Style/estiloAdmin.css">
+    @*<script src="~/Scripts/jquery.unobtrusive-ajax.js" type="text/javascript"></script>*@
     <script type="text/javascript" src="~/Scripts/form-afilia.js"></script>
+
 </head>
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-1-banner">
-                <img src="~/image/logo_fundo.png" width="50">
-            </div>
-            <div class="col-2-banner" style="vertical-align:baseline">
-                <label class="label">
-                    PAINEL DE CONTROLE<br />
-                    SINDICATO INTERESTADUAL DOS TRABALHADORES EM EMPRESAS DE LOCAÇÃO DE BENS MÓVEIS E ASSISTÊNCIA TÉCNICA DOS ESTADOS DO RIO DE JANEIRO, SÃO PAULO E
-                    ESPÍRITO SANTO – SINTALOCAS
-                </label>
-            </div>
+            <img src="~/image/logo_fundo.png" style="width:50px; height: 40px">
+            <label class="label">
+                <strong>PAINEL DE CONTROLE</strong>
+            </label>
         </div>
-        <div class="row" style="background-color:#000000; padding: 3px">
+        <div class="row" style="background-color:#000000; padding-bottom: 3px;">
             <a href="~/Relatorio/RelLog" style="color:#ffffff">Log de Acesso</a> |
             <a href="~/Relatorio/RelAfiliados" style="color:#ffffff">Afiliados</a> |
             <a href="~/Admin/Sair" style="color:#ffffff">Sair</a>
@@ -38,8 +60,6 @@
         @Html.Action("AcessoAdmin", "Log")
         @Html.Action("VerificarLogin", "Admin")
         @RenderBody()
-        <br />
-        <br />
     </div>
 </body>
 </html>
