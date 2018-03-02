@@ -20,6 +20,12 @@ namespace SINTALOCAS.Web.MVC.Controllers
             return View();
         }
 
+        public ActionResult Sair()
+        {
+            FormsAuthentication.SignOut();
+            return View("Index");
+        }
+
         [HttpPost]
         public ActionResult Index(FormCollection collection)
         {

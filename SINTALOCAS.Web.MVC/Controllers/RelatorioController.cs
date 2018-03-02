@@ -11,6 +11,7 @@ using Rotativa;
 
 namespace SINTALOCAS.Web.MVC.Controllers
 {
+    [Authorize]
     public class RelatorioController : Controller
     {
         // GET: Relatorio
@@ -98,16 +99,19 @@ namespace SINTALOCAS.Web.MVC.Controllers
         
         public ActionResult PDFPadrao(int id)
         {
+            ViewBag.TituloRelatorio = "SINTALOCAS Relatoório";
             var viewRelatorio = "";
 
             if (id == 2)
             {
                 GeraViewBagRelatorio(id);
+                ViewBag.TituloRelatorio += " - Log de acessos";
                 viewRelatorio = "RelLogPDF";
             }
             if (id == 1)
             {
                 GeraViewBagRelatorio(id);
+                ViewBag.TituloRelatorio += " - Cadastro de afiliados";
                 viewRelatorio = "RelAfiliadosPDF";
             }
             if (id == 3)
@@ -115,6 +119,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
                 if (TempData["cpfAfiliado"] != null)
                 {
                     var cpfAfiliado = TempData["cpfAfiliado"].ToString();
+                    ViewBag.TituloRelatorio += " - Afiliado";
                     GeraViewBagRelatorio(id, cpfAfiliado);
                     viewRelatorio = "DetalheAfiliadoPDF";
                 }
