@@ -13,6 +13,8 @@ namespace SINTALOCAS.Web.MVC.Controllers
         // GET: Log
         public void AcessoFormAfilia()
         {
+            ViewBag.TituloSite = "SINTALOCAS - Cadastro de afiliados";
+            ViewBag.TituloRelatorio = "Relatórios - " + ViewBag.TituloSite;
             LogServico.Registrar("UsuarioWeb", Request.UserHostAddress, Request.UserHostName, Request.RawUrl, "Acesso", "", 0);
         }
 
@@ -20,6 +22,8 @@ namespace SINTALOCAS.Web.MVC.Controllers
         // GET: Log
         public void AcessoAdmin()
         {
+            ViewBag.TituloSite = "SINTALOCAS - Painel de controle";
+            ViewBag.TituloRelatorio = "Relatórios - " + ViewBag.TituloSite;
             LogServico.Registrar("PainelControle", Request.UserHostAddress, Request.UserHostName, Request.RawUrl, "Acesso", "", 0);
         }
 

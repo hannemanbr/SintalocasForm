@@ -9,6 +9,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <_PublishTargetUrl>D:\Thomas\Compilados\Sintalocas</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
+    <File Include="App_Browsers/qt.browser">
+      <publishTime>03/01/2018 14:10:46</publishTime>
+    </File>
     <File Include="bin/AWSSDK.Core.dll">
       <publishTime>02/22/2018 16:34:25</publishTime>
     </File>
@@ -63,26 +66,29 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="bin/Remotion.Linq.dll">
       <publishTime>06/14/2016 23:16:48</publishTime>
     </File>
+    <File Include="bin/Rotativa.dll">
+      <publishTime>09/29/2017 14:13:30</publishTime>
+    </File>
     <File Include="bin/SINTALOCAS.DAL.dll">
-      <publishTime>02/26/2018 22:08:09</publishTime>
+      <publishTime>03/01/2018 11:00:49</publishTime>
     </File>
     <File Include="bin/SINTALOCAS.DAL.dll.config">
       <publishTime>02/26/2018 21:32:33</publishTime>
     </File>
     <File Include="bin/SINTALOCAS.Dominio.dll">
-      <publishTime>02/26/2018 22:08:10</publishTime>
+      <publishTime>03/01/2018 14:59:43</publishTime>
     </File>
     <File Include="bin/SINTALOCAS.Dominio.dll.config">
       <publishTime>02/26/2018 21:32:34</publishTime>
     </File>
     <File Include="bin/SINTALOCAS.Dominio.XmlSerializers.dll">
-      <publishTime>02/26/2018 22:08:11</publishTime>
+      <publishTime>03/01/2018 14:59:44</publishTime>
     </File>
     <File Include="bin/SINTALOCAS.Modelo.dll">
-      <publishTime>02/26/2018 22:08:08</publishTime>
+      <publishTime>02/28/2018 13:44:31</publishTime>
     </File>
     <File Include="bin/SINTALOCAS.Web.MVC.dll">
-      <publishTime>02/26/2018 22:39:42</publishTime>
+      <publishTime>03/01/2018 15:35:33</publishTime>
     </File>
     <File Include="bin/System.AppContext.dll">
       <publishTime>02/22/2018 13:56:28</publishTime>
@@ -402,6 +408,21 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="bin/System.Xml.XPath.XDocument.dll">
       <publishTime>02/22/2018 13:56:28</publishTime>
     </File>
+    <File Include="Content/css/bootstrap.min.css">
+      <publishTime>03/01/2018 12:45:55</publishTime>
+    </File>
+    <File Include="Content/css/jquery.dataTables.min.css">
+      <publishTime>03/01/2018 12:48:05</publishTime>
+    </File>
+    <File Include="Content/js/bootstrap.min.js">
+      <publishTime>03/01/2018 12:48:38</publishTime>
+    </File>
+    <File Include="Content/js/jquery.dataTables.min.js">
+      <publishTime>03/01/2018 12:48:23</publishTime>
+    </File>
+    <File Include="Content/js/jquery.min.js">
+      <publishTime>03/01/2018 12:47:08</publishTime>
+    </File>
     <File Include="Global.asax">
       <publishTime>02/22/2018 16:34:25</publishTime>
     </File>
@@ -415,10 +436,22 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/22/2018 16:34:25</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>02/26/2018 18:39:52</publishTime>
+      <publishTime>03/01/2018 14:10:46</publishTime>
+    </File>
+    <File Include="Rotativa/help-wkhtmltoimage.txt">
+      <publishTime>03/01/2018 14:10:46</publishTime>
+    </File>
+    <File Include="Rotativa/help-wkhtmltopdf.txt">
+      <publishTime>03/01/2018 14:10:46</publishTime>
+    </File>
+    <File Include="Rotativa/wkhtmltoimage.exe">
+      <publishTime>03/01/2018 14:10:46</publishTime>
+    </File>
+    <File Include="Rotativa/wkhtmltopdf.exe">
+      <publishTime>03/01/2018 14:10:46</publishTime>
     </File>
     <File Include="Scripts/form-afilia.js">
-      <publishTime>02/22/2018 16:34:25</publishTime>
+      <publishTime>03/01/2018 13:30:49</publishTime>
     </File>
     <File Include="Scripts/jquery-3.3.1-vsdoc.js">
       <publishTime>02/22/2018 16:34:25</publishTime>
@@ -445,13 +478,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/22/2018 16:34:25</publishTime>
     </File>
     <File Include="Style/estilo.css">
-      <publishTime>02/24/2018 18:41:42</publishTime>
+      <publishTime>02/28/2018 22:36:23</publishTime>
+    </File>
+    <File Include="Style/estiloAdmin.css">
+      <publishTime>03/01/2018 12:24:10</publishTime>
+    </File>
+    <File Include="Views/Admin/Index.cshtml">
+      <publishTime>02/27/2018 21:57:51</publishTime>
     </File>
     <File Include="Views/Afiliacao/Index.cshtml">
-      <publishTime>02/24/2018 18:42:12</publishTime>
+      <publishTime>03/01/2018 11:21:15</publishTime>
     </File>
     <File Include="Views/Dependentes/Index.cshtml">
-      <publishTime>02/24/2018 18:43:04</publishTime>
+      <publishTime>03/01/2018 10:31:29</publishTime>
     </File>
     <File Include="Views/Finalizar/Index.cshtml">
       <publishTime>02/24/2018 18:38:25</publishTime>
@@ -459,11 +498,35 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Views/Home/Index.cshtml">
       <publishTime>02/22/2018 16:34:25</publishTime>
     </File>
+    <File Include="Views/Relatorio/DetalheAfiliado.cshtml">
+      <publishTime>03/01/2018 14:45:34</publishTime>
+    </File>
+    <File Include="Views/Relatorio/DetalheAfiliadoPDF.cshtml">
+      <publishTime>03/01/2018 14:35:22</publishTime>
+    </File>
+    <File Include="Views/Relatorio/Index.cshtml">
+      <publishTime>02/27/2018 23:09:02</publishTime>
+    </File>
+    <File Include="Views/Relatorio/RelAfiliados.cshtml">
+      <publishTime>03/01/2018 14:19:23</publishTime>
+    </File>
+    <File Include="Views/Relatorio/RelAfiliadosPDF.cshtml">
+      <publishTime>03/01/2018 14:32:11</publishTime>
+    </File>
+    <File Include="Views/Relatorio/RelLog.cshtml">
+      <publishTime>03/01/2018 14:32:29</publishTime>
+    </File>
+    <File Include="Views/Relatorio/RelLogPDF.cshtml">
+      <publishTime>03/01/2018 14:32:38</publishTime>
+    </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>02/22/2018 16:34:25</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>02/24/2018 19:26:33</publishTime>
+      <publishTime>03/01/2018 10:15:31</publishTime>
+    </File>
+    <File Include="Views/Shared/_LayoutAdmin.cshtml">
+      <publishTime>03/01/2018 13:30:27</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>02/22/2018 16:34:25</publishTime>

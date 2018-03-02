@@ -187,3 +187,4 @@ D:\Thomas\Github\SintalocasForm\SINTALOCAS.Web.MVC\bin\System.Interactive.Async.
 D:\Thomas\Github\SintalocasForm\SINTALOCAS.Web.MVC\bin\System.Runtime.CompilerServices.Unsafe.xml
 D:\Thomas\Github\SintalocasForm\SINTALOCAS.Web.MVC\bin\MySql.Data.xml
 D:\Thomas\Github\SintalocasForm\SINTALOCAS.Web.MVC\bin\EntityFramework.xml
+D:\Thomas\Github\SintalocasForm\SINTALOCAS.Web.MVC\bin\Rotativa.dll

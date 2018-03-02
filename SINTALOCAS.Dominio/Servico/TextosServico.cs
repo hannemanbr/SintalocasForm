@@ -14,10 +14,19 @@ namespace SINTALOCAS.Dominio.Servico
         public static MensagemSistema TextoDeAcordo()
         {
             var textoDAL = new TextosDAL();
-            var lista = textoDAL.Consultar("concordo", "concordar");
+            var lista = textoDAL.Consultar("concordo", "WEB");
 
             return lista[0];
             
+        }
+
+        public static  List<MensagemSistema> ListarTextosSite()
+        {
+            var textoDAL = new TextosDAL();
+            var lista = textoDAL.Consultar("", "WEB");
+
+            return lista;
+
         }
     }
 }

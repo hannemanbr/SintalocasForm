@@ -145,7 +145,6 @@ D:\Thomas\Github\SintalocasForm\SINTALOCAS.Web.MVC\bin\Microsoft.Extensions.Prim
 D:\Thomas\Github\SintalocasForm\SINTALOCAS.Web.MVC\bin\Microsoft.Web.Infrastructure.dll
 D:\Thomas\Github\SintalocasForm\SINTALOCAS.Web.MVC\bin\Newtonsoft.Json.dll
 D:\Thomas\Github\SintalocasForm\SINTALOCAS.Web.MVC\bin\Remotion.Linq.dll
-D:\Thomas\Github\SintalocasForm\SINTALOCAS.Web.MVC\bin\Rotativa.dll
 D:\Thomas\Github\SintalocasForm\SINTALOCAS.Web.MVC\bin\SINTALOCAS.Dominio.dll
 D:\Thomas\Github\SintalocasForm\SINTALOCAS.Web.MVC\bin\SINTALOCAS.Modelo.dll
 D:\Thomas\Github\SintalocasForm\SINTALOCAS.Web.MVC\bin\System.Collections.Immutable.dll
@@ -195,3 +194,5 @@ D:\Thomas\Github\SintalocasForm\SINTALOCAS.Web.MVC\obj\Debug\SINTALOCAS.Web.MVC.
 D:\Thomas\Github\SintalocasForm\SINTALOCAS.Web.MVC\obj\Debug\SINTALOCAS.Web.MVC.csproj.CoreCompileInputs.cache
 D:\Thomas\Github\SintalocasForm\SINTALOCAS.Web.MVC\obj\Debug\SINTALOCAS.Web.MVC.dll
 D:\Thomas\Github\SintalocasForm\SINTALOCAS.Web.MVC\obj\Debug\SINTALOCAS.Web.MVC.pdb
+D:\Thomas\Github\SintalocasForm\SINTALOCAS.Web.MVC\bin\itextsharp.dll
+D:\Thomas\Github\SintalocasForm\SINTALOCAS.Web.MVC\bin\Rotativa.dll

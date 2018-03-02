@@ -15,6 +15,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
         // GET: Admin
         public ActionResult Index()
         {
+            TempData["LogAtivo"] = null;
             GeraViewBag();
             return View();
         }

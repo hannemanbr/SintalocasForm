@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "DetalheAfiliado";
+    ViewBag.Title = ViewBag.TituloSite;
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 <h2>Afiliados Cadastrados</h2>
@@ -49,7 +49,7 @@ else
 {
 <table style="width:100%; background-color:#e2e2e2;">
     <tr>
-        <td style="background-color:#868686; color:#ffffff"><strong>Dependentes</strong></td>
+        <td style="background-color:#868686; color:#ffffff"><strong>Endereço</strong></td>
     </tr>
     <tr>
         <td>
@@ -104,3 +104,4 @@ else
 </table>
 <br />
 <input type="button" id="btnVoltar" value="Voltar" onclick="window.location.href='../RelAfiliados'" />
+<input type="button" id="btnRel" value="Gerar relatorio" onclick="window.open('../PDFPadrao/3')" />

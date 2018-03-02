@@ -59,5 +59,33 @@ namespace SINTALOCAS.DAL.DB
             return lista;
         }
 
+        public int Atualizar(List<MensagemSistema> mensagem)
+        {
+            var result = 0;
+
+            try
+            {
+                var query = "";
+
+                foreach (var item in mensagem)
+                {
+                    query += "UPDATE Cfg_Textos SET Texto='" + item.Texto + "'" +
+                    " WHERE Alias='" + item.Alias + "'" +
+                    " AND ID=" + item.ID + "" +
+                    " AND Categoria='" + item.Categoria + "';";
+
+                }
+
+                result = _contexto.Transacao(query);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return result;
+
+        }
+
     }
 }

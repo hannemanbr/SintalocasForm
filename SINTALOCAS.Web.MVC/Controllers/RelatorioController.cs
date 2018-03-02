@@ -6,8 +6,8 @@ using System.Web;
 using System.Web.Mvc;
 using SINTALOCAS.Dominio.Servico;
 using SINTALOCAS.Web.MVC.Servico;
-using Rotativa;
 using SINTALOCAS.Dominio.Util;
+using Rotativa;
 
 namespace SINTALOCAS.Web.MVC.Controllers
 {
@@ -62,7 +62,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
 
             return View();
         }
-
+        
         private void GeraViewBag()
         {
             LogAtivo();            
@@ -95,7 +95,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
             }
 
         }
-
+        
         public ActionResult PDFPadrao(int id)
         {
             var viewRelatorio = "";
@@ -119,14 +119,15 @@ namespace SINTALOCAS.Web.MVC.Controllers
                     viewRelatorio = "DetalheAfiliadoPDF";
                 }
             }
-
+            
             if (viewRelatorio.Trim() != "")
             {
                 var pdf = new ViewAsPdf
                 {
                     ViewName = viewRelatorio
                 };
-                return pdf;
+
+                    return pdf;
             }
             else
             {
