@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using SINTALOCAS.Dominio.Servico;
 
 namespace SINTALOCAS.Dominio.Util
 {
@@ -18,10 +19,23 @@ namespace SINTALOCAS.Dominio.Util
 
             return listaCampoOpcional;
         }
+              
 
-        public static string AnalisaLink(string link)
+        public static string AnalisaLink(string link, bool nivelRaiz = false)
         {
             link = link.Trim().Replace("//", "/"); // remove barras duplicadas
+
+            if (nivelRaiz)
+            {                
+                var vetor = link.Split('/'); // envia link com nivel abaixo
+                var indice = vetor.Count() - 2;
+                link = ""; //reinicia variavel
+
+                for(var i =0; i <= indice; i++)
+                {
+                    link += vetor[i] + "/";
+                }
+            }
 
             return link;
         }
@@ -41,6 +55,45 @@ namespace SINTALOCAS.Dominio.Util
                     if (valorCampo == "") result += "<li>" + itens.Key + "</li>";
                 }
 
+            }
+
+            if (result.Trim() != "") result = "<strong>Preencha os campos:</strong> <ul>" + result + "</ul>";
+
+            return result;
+
+        }
+        
+        public static string FormUsuarioValidarPreenchimento(Dictionary<string, string> listaCampos)
+        {
+
+            var result = "";
+
+            // VALIDAR PREENCHIMENTO DE CAMPO OBRIGATORIO
+            var camposOpcionais = FormAfiliacaoCampoOpcional();
+
+            foreach (KeyValuePair<string, string> itens in listaCampos)
+            {
+                var valorCampo = itens.Value.Trim();
+                if (valorCampo == "") result += "<li>" + itens.Key + "</li>";
+            }
+
+            //validar se existe usuario
+            if (listaCampos.ContainsKey("EMAIL"))
+            {
+                if (UsuarioServico.ConsultarEmail(listaCampos["EMAIL"]).Count()>0)
+                {
+                    result += "<li>" + MensagemUtil.ErroEMAILExistente() + "</li>";
+                }
+            }
+            
+            //VALIDAR CONFIRMAÇÃO DE SENHA
+            if (listaCampos.ContainsKey("SENHA") && listaCampos.ContainsKey("CONFIRMAÇÃO DE SENHA"))
+            {
+                if (listaCampos["SENHA"].Trim() != listaCampos["CONFIRMAÇÃO DE SENHA"].Trim()) result += "<li>" + MensagemUtil.ErroConfirmacaoSenha() + "</li>";
+            }
+            else
+            {
+                result += MensagemUtil.ErroCamposNaoPreenchidos();
             }
 
             if (result.Trim() != "") result = "<strong>Preencha os campos:</strong> <ul>" + result + "</ul>";

@@ -148,6 +148,34 @@ function ConfirmaAcao(acao)
     return confirm("Deseja " + acao + "?");
 }
 
+function validarFormUsuario(rootView) {
+
+    var formData = $("#formUsuario").serialize();
+
+    $.ajax({
+        type: "POST",
+        data: formData,
+        url: rootView + "/ValidarFormJSON",
+        dataType: 'json',
+        success: function (response) {
+
+            //alert(response.msg + ' - ' + response.success);
+            $("#rFormRetorno").html(response.msg);
+
+            if (response.success) {
+                alert("Operação realizada com sucesso!");
+                window.location.replace("Index");
+            } else {
+                alert("Existe(m) campo(s) incorreto(s), verifique.");
+            }
+
+        },
+        error: function (response) {
+            alert("Ocorreu um erro durante o processo, tente novamente!\n retorno: " + response.status);
+        }
+    });
+}
+
 //$('#tbrelatorio').dataTable({
 //    "language": {
 //        "paginate": {

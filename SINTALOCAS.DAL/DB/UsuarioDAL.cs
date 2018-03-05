@@ -22,7 +22,8 @@ namespace SINTALOCAS.DAL.DB
                     + " FROM Admin_Login"
                     + " WHERE D_E_L_E_T_ = 0";
 
-                if (email.Trim() != "") query += " AND Email = '" + email + "' AND Senha = '" + senha + "'";
+                if (email.Trim() != "") query += " AND Email = '" + email + "'";
+                if (senha.Trim() != "") query += " AND Senha = '" + senha + "'";
 
                 var dataTable = _contexto.Consultar(query);
 
@@ -42,6 +43,49 @@ namespace SINTALOCAS.DAL.DB
                 dataTable.Dispose();
 
                 return lista;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static int Insere(Usuario usuario)
+        {
+            try
+            {
+                var lista = new List<Usuario>();
+                var query = "INSERT INTO Admin_Login " +
+                    "(" +
+                    " Nome, Email, Senha, Perfil" +
+                    ") VALUES (" +
+                    "'" + usuario.Nome + "'," +
+                    "'" + usuario.Email + "'," +
+                    "'" + usuario.Senha + "'," +
+                    "'1'" +
+                    ")";
+
+                return _contexto.Transacao(query);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static int Update(Usuario usuario)
+        {
+            try
+            {
+                var lista = new List<Usuario>();
+                var query = "UPDATE Admin_Login" +
+                    " SET" +
+                    " NOME = '" + usuario.Nome + "'," +
+                    " EMAIL = '" + usuario.Email + "'," +                    
+                    " SENHA = '" + usuario.Senha + "'" +
+                    " WHERE ID=" + usuario.ID + "";
+
+                return _contexto.Transacao(query);
             }
             catch (Exception ex)
             {

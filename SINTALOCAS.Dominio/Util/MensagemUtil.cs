@@ -17,7 +17,9 @@ namespace SINTALOCAS.Dominio.Util
         //public static string ErroDTNASCInvalido() { return "Data de Nascimento inválida ou com idade menor que 16 anos"; }
 
         public static string ErroCPFInvalido() { return MensagemServico.Consultar("ERRO","CPFERRO")[0].Texto; }
+        public static string ErroConfirmacaoSenha() { return MensagemServico.Consultar("ERRO", "SENHAERRO")[0].Texto; }
         public static string ErroCPFExistente() { return MensagemServico.Consultar("ERRO", "CPFEXISTENTE")[0].Texto; }
+        public static string ErroEMAILExistente() { return MensagemServico.Consultar("ERRO", "EMAILEXISTE")[0].Texto; }
         public static string ErroRGInvalido() { return MensagemServico.Consultar("ERRO","RGERRO")[0].Texto; }
         public static string ErroEMAILInvalido() { return MensagemServico.Consultar("ERRO","EMAILERRO")[0].Texto; }
         public static string ErroCNPJInvalido() { return MensagemServico.Consultar("ERRO","CNPJERRO")[0].Texto; }

@@ -95,6 +95,9 @@ namespace SINTALOCAS.Web.MVC.Controllers
                 }
             }
 
+            if (opcaoRelatorio == 4)
+                ViewBag.Lista = UsuarioServico.ConsultarEmail("");
+
         }
         
         public ActionResult PDFPadrao(int id)
@@ -124,7 +127,13 @@ namespace SINTALOCAS.Web.MVC.Controllers
                     viewRelatorio = "DetalheAfiliadoPDF";
                 }
             }
-            
+            if (id == 1)
+            {
+                GeraViewBagRelatorio(id);
+                ViewBag.TituloRelatorio += " - Usuários";
+                viewRelatorio = "RelUsuariosPDF";
+            }
+
             if (viewRelatorio.Trim() != "")
             {
                 var pdf = new ViewAsPdf

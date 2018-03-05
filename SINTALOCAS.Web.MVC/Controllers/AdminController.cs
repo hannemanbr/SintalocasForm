@@ -15,7 +15,6 @@ namespace SINTALOCAS.Web.MVC.Controllers
         // GET: Admin
         public ActionResult Index()
         {
-            TempData["LogAtivo"] = null;
             GeraViewBag();
             return View();
         }
@@ -37,8 +36,8 @@ namespace SINTALOCAS.Web.MVC.Controllers
                 var email = lista["EMAIL"];
                 var senha = lista["SENHA"];
 
-                senha = AdminServico.GerarSenhaSHA1(senha);
-                var validar = AdminServico.Consultar(email, senha);
+                senha = UsuarioServico.GerarSenhaSHA1(senha);
+                var validar = UsuarioServico.ConsultarLogin(email, senha);
 
                 if (validar.Count == 0)
                 {

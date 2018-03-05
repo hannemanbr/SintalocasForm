@@ -174,11 +174,15 @@ namespace SINTALOCAS.Web.MVC.Servico
 
         public static Dictionary<string, string> GeraListaCampos(FormCollection collection){
 
+            var nomeCampo = "";
             var lista = new Dictionary<string, string>();
 
             foreach (string formDados in collection)
             {
-                lista.Add(formDados.ToUpper(), collection[formDados]);
+                nomeCampo = formDados.ToUpper().Trim();
+                if (nomeCampo.ToUpper().Trim() == "SENHA2") nomeCampo = "CONFIRMAÇÃO DE SENHA";
+
+                lista.Add(nomeCampo, collection[formDados]);
             }
 
             return lista;
