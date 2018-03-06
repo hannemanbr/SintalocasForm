@@ -86,9 +86,11 @@ namespace SINTALOCAS.Dominio.Util
                 }
             }
             
-            //VALIDAR CONFIRMAÇÃO DE SENHA
             if (listaCampos.ContainsKey("SENHA") && listaCampos.ContainsKey("CONFIRMAÇÃO DE SENHA"))
             {
+                //VALIDANDO SENHA DIGITADA
+                result += UsuarioServico.ValidarSenha(listaCampos["SENHA"].Trim());
+                //VALIDAR CONFIRMAÇÃO DE SENHA
                 if (listaCampos["SENHA"].Trim() != listaCampos["CONFIRMAÇÃO DE SENHA"].Trim()) result += "<li>" + MensagemUtil.ErroConfirmacaoSenha() + "</li>";
             }
             else

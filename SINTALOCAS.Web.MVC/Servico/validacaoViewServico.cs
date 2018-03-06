@@ -135,8 +135,8 @@ namespace SINTALOCAS.Web.MVC.Servico
 
                 return result;
 
-            } catch (Exception ex) {
-                throw ex;
+            } catch (Exception) {
+                throw;
             }
 
         }
@@ -165,9 +165,9 @@ namespace SINTALOCAS.Web.MVC.Servico
                 return result;
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
 
         }

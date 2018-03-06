@@ -41,7 +41,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
         }
 
         public ActionResult DeleteAfiliado(int id)
-        {            
+        {
             AfiliacaoServico.Delete(id);
             GeraViewBagRelatorio(1);
             return View("RelAfiliados");
@@ -56,20 +56,20 @@ namespace SINTALOCAS.Web.MVC.Controllers
             if (listaAfiliado.Count > 0)
             {
                 var idAfiliado = listaAfiliado[0].ID;
-                
+
                 ViewBag.Dependentes = DependenteServico.ListaDependentes(idAfiliado);
                 ViewBag.Enderecos = listaAfiliado[0].Endereco;
             }
 
             return View();
         }
-        
+
         private void GeraViewBag()
         {
-            LogAtivo();            
+            LogAtivo();
             ViewBag.ListaRelatorio = RelatorioServico.ListarRelatorios();
         }
-        
+
         private void GeraViewBagRelatorio(int opcaoRelatorio, string id = "")
         {
             LogAtivo();
@@ -99,7 +99,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
                 ViewBag.Lista = UsuarioServico.ConsultarEmail("");
 
         }
-        
+
         public ActionResult PDFPadrao(int id)
         {
             ViewBag.TituloRelatorio = "SINTALOCAS Relatoório";
@@ -127,7 +127,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
                     viewRelatorio = "DetalheAfiliadoPDF";
                 }
             }
-            if (id == 1)
+            if (id == 4)
             {
                 GeraViewBagRelatorio(id);
                 ViewBag.TituloRelatorio += " - Usuários";
@@ -141,7 +141,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
                     ViewName = viewRelatorio
                 };
 
-                    return pdf;
+                return pdf;
             }
             else
             {

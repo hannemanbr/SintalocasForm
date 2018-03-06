@@ -51,9 +51,9 @@ namespace SINTALOCAS.DAL.DB
                       });
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
 
             return lista;
@@ -78,9 +78,9 @@ namespace SINTALOCAS.DAL.DB
 
                 result = _contexto.Transacao(query);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
 
             return result;

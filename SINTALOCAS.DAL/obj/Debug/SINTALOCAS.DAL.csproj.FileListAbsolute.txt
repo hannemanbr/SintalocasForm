@@ -131,7 +131,6 @@ D:\Thomas\Github\SintalocasForm\SINTALOCAS.DAL\bin\Debug\Microsoft.Extensions.Pr
 D:\Thomas\Github\SintalocasForm\SINTALOCAS.DAL\bin\Debug\MySql.Data.dll
 D:\Thomas\Github\SintalocasForm\SINTALOCAS.DAL\bin\Debug\MySql.Data.Entity.EF6.dll
 D:\Thomas\Github\SintalocasForm\SINTALOCAS.DAL\bin\Debug\Newtonsoft.Json.dll
-D:\Thomas\Github\SintalocasForm\SINTALOCAS.DAL\bin\Debug\Npgsql.dll
 D:\Thomas\Github\SintalocasForm\SINTALOCAS.DAL\bin\Debug\Remotion.Linq.dll
 D:\Thomas\Github\SintalocasForm\SINTALOCAS.DAL\bin\Debug\SINTALOCAS.Modelo.dll
 D:\Thomas\Github\SintalocasForm\SINTALOCAS.DAL\bin\Debug\System.Buffers.dll
@@ -162,7 +161,6 @@ D:\Thomas\Github\SintalocasForm\SINTALOCAS.DAL\bin\Debug\System.Collections.Immu
 D:\Thomas\Github\SintalocasForm\SINTALOCAS.DAL\bin\Debug\System.Diagnostics.DiagnosticSource.xml
 D:\Thomas\Github\SintalocasForm\SINTALOCAS.DAL\bin\Debug\System.Interactive.Async.xml
 D:\Thomas\Github\SintalocasForm\SINTALOCAS.DAL\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
-D:\Thomas\Github\SintalocasForm\SINTALOCAS.DAL\bin\Debug\Npgsql.xml
 D:\Thomas\Github\SintalocasForm\SINTALOCAS.DAL\bin\Debug\System.Threading.Tasks.Extensions.xml
 D:\Thomas\Github\SintalocasForm\SINTALOCAS.DAL\obj\Debug\SINTALOCAS.DAL.csprojResolveAssemblyReference.cache
 D:\Thomas\Github\SintalocasForm\SINTALOCAS.DAL\obj\Debug\SINTALOCAS.DAL.csproj.CoreCompileInputs.cache

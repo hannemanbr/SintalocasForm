@@ -25,9 +25,9 @@ namespace SINTALOCAS.Dominio.Servico
 
                 return listaResult;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
 
         }
@@ -38,9 +38,9 @@ namespace SINTALOCAS.Dominio.Servico
             {
                 return _afiliacaoDAL.ListaGrauPArenesco();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
 
         }
@@ -120,9 +120,9 @@ namespace SINTALOCAS.Dominio.Servico
 
                 return listaResult;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
 
         }

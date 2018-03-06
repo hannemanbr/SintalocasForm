@@ -18,6 +18,7 @@ namespace SINTALOCAS.Dominio.Util
 
         public static string ErroCPFInvalido() { return MensagemServico.Consultar("ERRO","CPFERRO")[0].Texto; }
         public static string ErroConfirmacaoSenha() { return MensagemServico.Consultar("ERRO", "SENHAERRO")[0].Texto; }
+        public static string ErroTamanhoSenha() { return MensagemServico.Consultar("ERRO", "SENHATAM")[0].Texto; }
         public static string ErroCPFExistente() { return MensagemServico.Consultar("ERRO", "CPFEXISTENTE")[0].Texto; }
         public static string ErroEMAILExistente() { return MensagemServico.Consultar("ERRO", "EMAILEXISTE")[0].Texto; }
         public static string ErroRGInvalido() { return MensagemServico.Consultar("ERRO","RGERRO")[0].Texto; }

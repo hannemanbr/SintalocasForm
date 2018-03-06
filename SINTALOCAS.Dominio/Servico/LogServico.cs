@@ -86,9 +86,9 @@ namespace SINTALOCAS.Dominio.Servico
                     .OrderByDescending(x => x.DataCadastro)
                     .ToList();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
 
@@ -104,9 +104,9 @@ namespace SINTALOCAS.Dominio.Servico
                     .OrderByDescending(x => x.DataCadastro)
                     .ToList();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
     }

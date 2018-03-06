@@ -20,9 +20,9 @@ namespace SINTALOCAS.Dominio.Servico
 
                 return result;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
 
@@ -33,9 +33,9 @@ namespace SINTALOCAS.Dominio.Servico
                 int result = _afiliacaoDAL.RemoveAfiliado(id);
                 return result;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
 
@@ -48,9 +48,9 @@ namespace SINTALOCAS.Dominio.Servico
                 var registros = _afiliacaoDAL.Concordar(id);
                 if (registros > 0) result = true;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
 
             return result; // qualquer excessao retorna false
@@ -65,9 +65,9 @@ namespace SINTALOCAS.Dominio.Servico
                 var lista = _afiliacaoDAL.ListaAfiliado(cpf);
                 if (lista.Count > 0) result = MensagemUtil.ErroCPFExistente();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
 
             return result;
@@ -81,9 +81,9 @@ namespace SINTALOCAS.Dominio.Servico
             {
                 result = _afiliacaoDAL.ListaAfiliado(cpf);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
 
             return result;

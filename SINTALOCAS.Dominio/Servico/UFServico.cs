@@ -34,9 +34,9 @@ namespace SINTALOCAS.Dominio.Servico
 
                 return listaResult;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
 
         }

@@ -22,12 +22,10 @@ D:\Thomas\Github\SintalocasForm\SINTALOCAS.Dominio\bin\Release\Postmon4Net.dll
 D:\Thomas\Github\SintalocasForm\SINTALOCAS.Dominio\bin\Release\SINTALOCAS.DAL.dll
 D:\Thomas\Github\SintalocasForm\SINTALOCAS.Dominio\bin\Release\SINTALOCAS.Modelo.dll
 D:\Thomas\Github\SintalocasForm\SINTALOCAS.Dominio\bin\Release\MySql.Data.dll
-D:\Thomas\Github\SintalocasForm\SINTALOCAS.Dominio\bin\Release\EntityFramework.dll
 D:\Thomas\Github\SintalocasForm\SINTALOCAS.Dominio\bin\Release\SINTALOCAS.DAL.dll.config
 D:\Thomas\Github\SintalocasForm\SINTALOCAS.Dominio\bin\Release\Newtonsoft.Json.xml
 D:\Thomas\Github\SintalocasForm\SINTALOCAS.Dominio\bin\Release\Postmon4Net.xml
 D:\Thomas\Github\SintalocasForm\SINTALOCAS.Dominio\bin\Release\MySql.Data.xml
-D:\Thomas\Github\SintalocasForm\SINTALOCAS.Dominio\bin\Release\EntityFramework.xml
 D:\Thomas\Github\SintalocasForm\SINTALOCAS.Dominio\obj\Release\SINTALOCAS.Dominio.csprojResolveAssemblyReference.cache
 D:\Thomas\Github\SintalocasForm\SINTALOCAS.Dominio\obj\Release\SINTALOCAS.Dominio.csproj.CoreCompileInputs.cache
 D:\Thomas\Github\SintalocasForm\SINTALOCAS.Dominio\obj\Release\SINTALOCAS.Dominio.dll

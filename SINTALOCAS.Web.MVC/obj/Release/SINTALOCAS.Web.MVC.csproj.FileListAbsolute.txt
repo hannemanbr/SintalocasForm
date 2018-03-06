@@ -157,7 +157,6 @@ D:\Thomas\Github\SintalocasForm\SINTALOCAS.Web.MVC\bin\System.Web.WebPages.dll
 D:\Thomas\Github\SintalocasForm\SINTALOCAS.Web.MVC\bin\System.Web.WebPages.Razor.dll
 D:\Thomas\Github\SintalocasForm\SINTALOCAS.Web.MVC\bin\SINTALOCAS.DAL.dll
 D:\Thomas\Github\SintalocasForm\SINTALOCAS.Web.MVC\bin\MySql.Data.dll
-D:\Thomas\Github\SintalocasForm\SINTALOCAS.Web.MVC\bin\EntityFramework.dll
 D:\Thomas\Github\SintalocasForm\SINTALOCAS.Web.MVC\bin\SINTALOCAS.Dominio.dll.config
 D:\Thomas\Github\SintalocasForm\SINTALOCAS.Web.MVC\bin\Microsoft.Extensions.Caching.Abstractions.xml
 D:\Thomas\Github\SintalocasForm\SINTALOCAS.Web.MVC\bin\Microsoft.Extensions.Caching.Memory.xml
@@ -183,7 +182,6 @@ D:\Thomas\Github\SintalocasForm\SINTALOCAS.Web.MVC\bin\AWSSDK.Core.xml
 D:\Thomas\Github\SintalocasForm\SINTALOCAS.Web.MVC\bin\Newtonsoft.Json.xml
 D:\Thomas\Github\SintalocasForm\SINTALOCAS.Web.MVC\bin\SINTALOCAS.DAL.dll.config
 D:\Thomas\Github\SintalocasForm\SINTALOCAS.Web.MVC\bin\MySql.Data.xml
-D:\Thomas\Github\SintalocasForm\SINTALOCAS.Web.MVC\bin\EntityFramework.xml
 D:\Thomas\Github\SintalocasForm\SINTALOCAS.Web.MVC\bin\SINTALOCAS.Dominio.XmlSerializers.dll
 D:\Thomas\Github\SintalocasForm\SINTALOCAS.Web.MVC\obj\Release\SINTALOCAS.Web.MVC.csprojResolveAssemblyReference.cache
 D:\Thomas\Github\SintalocasForm\SINTALOCAS.Web.MVC\obj\Release\SINTALOCAS.Web.MVC.csproj.CoreCompileInputs.cache

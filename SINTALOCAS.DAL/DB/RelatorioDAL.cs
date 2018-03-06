@@ -38,9 +38,9 @@ namespace SINTALOCAS.DAL.DB
 
                 return lista;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
     }

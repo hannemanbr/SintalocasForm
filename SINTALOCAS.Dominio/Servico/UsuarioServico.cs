@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SINTALOCAS.DAL.DB;
+using SINTALOCAS.Dominio.Util;
 using SINTALOCAS.Modelo;
 
 namespace SINTALOCAS.Dominio.Servico
@@ -17,10 +18,10 @@ namespace SINTALOCAS.Dominio.Servico
                 //senha = GerarSenhaSHA1(senha);
                 return UsuarioDAL.Consultar(email, senha);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
-                throw ex;
+                throw;
             }
         }
 
@@ -31,10 +32,10 @@ namespace SINTALOCAS.Dominio.Servico
                 //senha = GerarSenhaSHA1(senha);
                 return UsuarioDAL.Consultar(email);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
-                throw ex;
+                throw;
             }
         }
 
@@ -46,11 +47,20 @@ namespace SINTALOCAS.Dominio.Servico
 
                 return false;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
-                throw ex;
+                throw;
             }
+        }
+
+        public static string ValidarSenha(string senha)
+        {
+            var result = "";
+
+            if (senha.Trim().Length < 8) return MensagemUtil.ErroTamanhoSenha();
+
+            return result;
         }
 
         public static int Insere(Usuario usuario)
@@ -67,10 +77,10 @@ namespace SINTALOCAS.Dominio.Servico
 
                 return 0;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
-                throw ex;
+                throw;
             }
         }
 
@@ -99,10 +109,10 @@ namespace SINTALOCAS.Dominio.Servico
                 };
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
-                throw ex;
+                throw;
             }
         }
 
@@ -112,10 +122,10 @@ namespace SINTALOCAS.Dominio.Servico
             {
                 return UsuarioDAL.Update(usuario);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
-                throw ex;
+                throw;
             }
         }
 

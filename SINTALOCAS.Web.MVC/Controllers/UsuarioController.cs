@@ -99,7 +99,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
 
             //validar campos
             var result = Validacao.FormUsuarioValidarPreenchimento(listaCampos);
-            
+                        
             try
             {
                 if (result.Trim() == "")

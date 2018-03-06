@@ -17,9 +17,9 @@ namespace SINTALOCAS.DAL.Context
                 //var conexaoString = ConfigurationManager.ConnectionStrings["MySQLDBEXT"].ConnectionString;
                 conexao = new MySqlConnection(conexaoString);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
         }
 
@@ -37,9 +37,9 @@ namespace SINTALOCAS.DAL.Context
                 dt.Load(dataReaderBD);
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
             finally
             {
@@ -61,9 +61,9 @@ namespace SINTALOCAS.DAL.Context
                 result = cmd.ExecuteNonQuery();
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
             finally
             {
@@ -88,13 +88,13 @@ namespace SINTALOCAS.DAL.Context
                 if (conexao.State == ConnectionState.Open) return;
                 conexao.Open();
             }
-            catch (MySqlException ex)
+            catch (MySqlException)
             {
-                throw ex;
+                throw;
             }
-            catch (Exception ex)
+            catch (Exception )
             {
-                throw ex;
+                throw;
             }
 
 

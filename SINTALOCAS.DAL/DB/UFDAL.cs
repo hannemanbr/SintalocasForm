@@ -34,9 +34,9 @@ namespace SINTALOCAS.DAL.DB
                 dataTable.Dispose();
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
 
             return lista;
@@ -67,9 +67,9 @@ namespace SINTALOCAS.DAL.DB
                 dataTable.Dispose();
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
 
             return lista;

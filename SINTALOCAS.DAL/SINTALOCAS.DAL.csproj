@@ -107,15 +107,11 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Security" />
-    <Reference Include="Npgsql">
-      <HintPath>..\packages\Npgsql.3.2.6\lib\net451\Npgsql.dll</HintPath>
-    </Reference>
     <Reference Include="System.Threading.Tasks.Extensions">
       <HintPath>..\packages\System.Threading.Tasks.Extensions.4.3.0\lib\portable-net45+win8+wp8+wpa81\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Context\ContextoEF.cs" />
     <Compile Include="DB\ConfigDAL.cs" />
     <Compile Include="DB\UsuarioDAL.cs" />
     <Compile Include="DB\RelatorioDAL.cs" />
@@ -123,7 +119,6 @@
     <Compile Include="DB\UFDAL.cs" />
     <Compile Include="Context\ContextoMySqlDB.cs" />
     <Compile Include="DB\AfiliacaoDAL.cs" />
-    <Compile Include="Context\ContextoODBCDB.cs" />
     <Compile Include="DB\LogDAL.cs" />
     <Compile Include="DB\TextosDAL.cs" />
   </ItemGroup>
