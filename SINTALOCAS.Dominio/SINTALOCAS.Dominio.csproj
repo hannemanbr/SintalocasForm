@@ -48,6 +48,7 @@
     <Compile Include="Servico\UFServico.cs" />
     <Compile Include="Servico\AfiliacaoServico.cs" />
     <Compile Include="Servico\UsuarioServico.cs" />
+    <Compile Include="Util\Cores.cs" />
     <Compile Include="Util\DataUtil.cs" />
     <Compile Include="Util\EnderecoUtil.cs" />
     <Compile Include="Util\ValidaCodigosUtil.cs" />

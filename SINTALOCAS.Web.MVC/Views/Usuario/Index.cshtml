@@ -24,8 +24,8 @@
                     <td>@item.Nome</td>
                     <td>@item.Email</td>
                     <td>
-                        <a href="~/Relatorio/Editar/@item.ID">Ver detalhes</a> |
-                        <a href="~/Relatorio/Delete/@item.ID" onclick="return ConfirmaAcao('excluir este registro')" style="color:#ff0000">|X| Excluir</a>
+                        <a href="~/Usuario/Editar/@item.ID">Ver detalhes</a> |
+                        <a href="~/Usuario/Delete/@item.ID" onclick="return ConfirmaAcao('excluir este registro')" style="color:#ff0000">|X| Excluir</a>
                     </td>
                 </tr>
             }
@@ -33,6 +33,7 @@
     </table>
     <br />
     <br />
+    <div style="color:@ViewBag.CorFonte">@ViewBag.MensagemRetorno</div>
     <input type="button" id="btnRel" value="Gerar relatorio" onclick="window.open('../Relatorio/PDFPadrao/4')" />
     <input type="button" id="btnNovo" value="Novo usuário" onclick="window.location.href='/Usuario/Cadastro'" />
 </div>

@@ -25,12 +25,12 @@ namespace SINTALOCAS.Dominio.Servico
             }
         }
 
-        public static List<Usuario> ConsultarEmail(string email)
+        public static List<Usuario> Consultar(string email, int id)
         {
             try
             {
                 //senha = GerarSenhaSHA1(senha);
-                return UsuarioDAL.Consultar(email);
+                return UsuarioDAL.Consultar(email, "", id);
             }
             catch (Exception)
             {
@@ -120,7 +120,20 @@ namespace SINTALOCAS.Dominio.Servico
         {
             try
             {
-                return UsuarioDAL.Update(usuario);
+                return UsuarioDAL.Atualizar(usuario);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public static int Delete(int id)
+        {
+            try
+            {
+                return UsuarioDAL.Remove(id);
             }
             catch (Exception)
             {

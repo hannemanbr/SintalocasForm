@@ -72,25 +72,25 @@ namespace SINTALOCAS.Web.MVC.Controllers
         // GET: Usuario/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
-        }
+            //nao permitir que o proprio usuario realize a sua exclusão
+            var usuario = UsuarioServico.Consultar("", id)[0];
+            var nomeLogin = Server.HtmlEncode(User.Identity.Name);
 
-        // POST: Usuario/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
+            if (usuario!=null)
             {
-                // TODO: Add delete logic here
+                if (usuario.Nome.ToUpper().Trim() == nomeLogin)
+                {
+                    ViewBag.MensagemRetorno =  MensagemUtil.ErroExcluirUsuarioLogado();
+                    return View();
+                } 
+            }
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+
+            var reg = UsuarioServico.Delete(id);
+
+            return RedirectToAction("Index");
         }
-
+                
         [HttpPost]
         public JsonResult ValidarFormJSON(FormCollection collection)
         {

@@ -4,10 +4,8 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-@{
-    var usuario = ViewBag.UsuarioLogin;
-}
-<h1>@ViewBag.Saudadacao, @usuario.Nome</h1>
+<h3>@ViewBag.Saudadacao, @ViewBag.UsuarioLogin</h3>
+
 @*<form action="" id="formRelat" method="post">
     <strong>Relatorios: </strong>
     <select id="dropRelat">

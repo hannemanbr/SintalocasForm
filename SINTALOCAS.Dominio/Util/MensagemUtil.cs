@@ -21,6 +21,7 @@ namespace SINTALOCAS.Dominio.Util
         public static string ErroTamanhoSenha() { return MensagemServico.Consultar("ERRO", "SENHATAM")[0].Texto; }
         public static string ErroCPFExistente() { return MensagemServico.Consultar("ERRO", "CPFEXISTENTE")[0].Texto; }
         public static string ErroEMAILExistente() { return MensagemServico.Consultar("ERRO", "EMAILEXISTE")[0].Texto; }
+        public static string ErroExcluirUsuarioLogado() { return MensagemServico.Consultar("ERRO", "DELETEUSUARIOLOGADO")[0].Texto; }
         public static string ErroRGInvalido() { return MensagemServico.Consultar("ERRO","RGERRO")[0].Texto; }
         public static string ErroEMAILInvalido() { return MensagemServico.Consultar("ERRO","EMAILERRO")[0].Texto; }
         public static string ErroCNPJInvalido() { return MensagemServico.Consultar("ERRO","CNPJERRO")[0].Texto; }
@@ -37,14 +38,14 @@ namespace SINTALOCAS.Dominio.Util
         public static string OperacaoRealizada() { return MensagemServico.Consultar("OP", "OPREALIZADA")[0].Texto; }
         public static string Saudacao()
         {
-            var saudacao = "Bom dia";
-
-            if (DateTime.Now.Hour > 12)
+            var saudacao = "Bom dia"; ;
+            
+            if (DateTime.Now.Hour >= 12)
             {
                 saudacao = "Boa tarde";
             }
 
-            if (DateTime.Now.Hour > 18 && DateTime.Now.Hour < 5)
+            if (DateTime.Now.Hour >= 18 || DateTime.Now.Hour < 5)
             {
                 saudacao = "Boa noite";
             }

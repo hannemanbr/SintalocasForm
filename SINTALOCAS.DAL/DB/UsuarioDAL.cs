@@ -13,7 +13,7 @@ namespace SINTALOCAS.DAL.DB
     {
         private static ContextoMySqlDB _contexto = new ContextoMySqlDB();
 
-        public static List<Usuario> Consultar(string email  = "", string senha = "")
+        public static List<Usuario> Consultar(string email  = "", string senha = "", int id = 0)
         {
             try
             {
@@ -24,6 +24,7 @@ namespace SINTALOCAS.DAL.DB
 
                 if (email.Trim() != "") query += " AND Email = '" + email + "'";
                 if (senha.Trim() != "") query += " AND Senha = '" + senha + "'";
+                if (id > 0) query += " AND ID = '" + id + "'";
 
                 var dataTable = _contexto.Consultar(query);
 
@@ -54,7 +55,6 @@ namespace SINTALOCAS.DAL.DB
         {
             try
             {
-                var lista = new List<Usuario>();
                 var query = "INSERT INTO Admin_Login " +
                     "(" +
                     " Nome, Email, Senha, Perfil" +
@@ -73,17 +73,33 @@ namespace SINTALOCAS.DAL.DB
             }
         }
 
-        public static int Update(Usuario usuario)
+        public static int Atualizar(Usuario usuario)
         {
             try
             {
-                var lista = new List<Usuario>();
                 var query = "UPDATE Admin_Login" +
                     " SET" +
                     " NOME = '" + usuario.Nome + "'," +
                     " EMAIL = '" + usuario.Email + "'," +                    
                     " SENHA = '" + usuario.Senha + "'" +
                     " WHERE ID=" + usuario.ID + "";
+
+                return _contexto.Transacao(query);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public static int Remove(int id)
+        {
+            try
+            {
+                var query = "UPDATE Admin_Login" +
+                    " SET" +
+                    " D_E_L_E_T_ = '1'" +
+                    " WHERE ID=" + id + "";
 
                 return _contexto.Transacao(query);
             }
