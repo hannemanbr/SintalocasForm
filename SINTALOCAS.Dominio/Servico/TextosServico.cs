@@ -13,20 +13,49 @@ namespace SINTALOCAS.Dominio.Servico
 
         public static MensagemSistema TextoDeAcordo()
         {
-            var textoDAL = new TextosDAL();
-            var lista = textoDAL.Consultar("concordo", "WEB");
+            try
+            {
+                var textoDAL = new TextosDAL();
+                var lista = textoDAL.Consultar("concordo", "WEB");
 
-            return lista[0];
-            
+                return lista[0];
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public static  List<MensagemSistema> ListarTextosSite()
         {
-            var textoDAL = new TextosDAL();
-            var lista = textoDAL.Consultar("", "WEB");
+            try
+            {
+                var textoDAL = new TextosDAL();
+                var lista = textoDAL.Consultar("", "WEB");
 
-            return lista;
+                return lista;
+            }
+            catch (Exception)
+            {
 
+                throw;
+            }
+
+        }
+
+        public static int Atualizar(List<MensagemSistema> listaTextos)
+        {
+            try
+            {
+                var textoDAL = new TextosDAL();
+                return textoDAL.Atualizar(listaTextos);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

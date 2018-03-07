@@ -34,6 +34,22 @@ namespace SINTALOCAS.Dominio.Util
         public static string ErroIDForm() { return MensagemServico.Consultar("ERRO", "IDFORMERRO")[0].Texto; }
         public static string GrauParentescoAcimaPermitido(string grauNome) { return grauNome + " - " + MensagemServico.Consultar("ERRO", "GRAUPARENTEACIMA")[0].Texto; }
         public static string MensagemConcordar() { return MensagemServico.Consultar("CONCORDAR", "CONCORDO")[0].Texto; }
+        public static string OperacaoRealizada() { return MensagemServico.Consultar("OP", "OPREALIZADA")[0].Texto; }
+        public static string Saudacao()
+        {
+            var saudacao = "Bom dia";
 
+            if (DateTime.Now.Hour > 12)
+            {
+                saudacao = "Boa tarde";
+            }
+
+            if (DateTime.Now.Hour > 18 && DateTime.Now.Hour < 5)
+            {
+                saudacao = "Boa noite";
+            }
+
+            return saudacao;
+        }
     }
 }

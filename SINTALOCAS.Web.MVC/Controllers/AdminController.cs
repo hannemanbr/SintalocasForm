@@ -22,7 +22,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
         public ActionResult Sair()
         {
             FormsAuthentication.SignOut();
-            return View("Index");
+            return RedirectToAction("Index");
         }
 
         [HttpPost]
@@ -46,7 +46,8 @@ namespace SINTALOCAS.Web.MVC.Controllers
                 }
                 else
                 {
-                    FormsAuthentication.SetAuthCookie(validar[0].Email, false);
+                    //FormsAuthentication.SetAuthCookie(validar[0].Email, false);
+                    FormsAuthentication.SetAuthCookie(validar[0].Nome, false);
                     TempData["LogAtivo"] = validar[0];
                     return Redirect("~/Relatorio");
                 }

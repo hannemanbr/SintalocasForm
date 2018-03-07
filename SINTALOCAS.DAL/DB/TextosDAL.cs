@@ -76,7 +76,7 @@ namespace SINTALOCAS.DAL.DB
 
                 }
 
-                result = _contexto.Transacao(query);
+                result += _contexto.Transacao(query);
             }
             catch (Exception)
             {

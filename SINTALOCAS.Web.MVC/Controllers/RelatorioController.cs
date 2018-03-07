@@ -8,6 +8,7 @@ using SINTALOCAS.Dominio.Servico;
 using SINTALOCAS.Web.MVC.Servico;
 using SINTALOCAS.Dominio.Util;
 using Rotativa;
+using System.Web.Security;
 
 namespace SINTALOCAS.Web.MVC.Controllers
 {
@@ -66,14 +67,13 @@ namespace SINTALOCAS.Web.MVC.Controllers
 
         private void GeraViewBag()
         {
-            LogAtivo();
+            ViewBag.UsuarioLogin = Server.HtmlEncode(User.Identity.Name);
+            ViewBag.Saudadacao = MensagemUtil.Saudacao();
             ViewBag.ListaRelatorio = RelatorioServico.ListarRelatorios();
         }
 
         private void GeraViewBagRelatorio(int opcaoRelatorio, string id = "")
         {
-            LogAtivo();
-
             if (opcaoRelatorio == 1)
                 ViewBag.Lista = AfiliacaoServico.Listar().Where(x => x.Nome.Trim() != "").ToList();
 
@@ -149,13 +149,6 @@ namespace SINTALOCAS.Web.MVC.Controllers
                 return View();
             }
         }
-
-        private void LogAtivo()
-        {
-            var usuario = TempData["LogAtivo"];
-            TempData["LogAtivo"] = usuario;
-            ViewBag.UsuarioLogin = usuario;
-        }
-
+        
     }
 }
