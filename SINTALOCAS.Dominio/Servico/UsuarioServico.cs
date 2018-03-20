@@ -68,7 +68,7 @@ namespace SINTALOCAS.Dominio.Servico
             try
             {
                 // VERIFICAR SE E-MAIL JA É CADASTRADO
-                if (ConsultarEmail(usuario.Email).Count == 0)
+                if (Consultar(usuario.Email, 0).Count == 0)
                 {
                     //criptografar senha
                     usuario.Senha = GerarSenhaSHA1(usuario.Senha);
@@ -95,7 +95,7 @@ namespace SINTALOCAS.Dominio.Servico
                 if (lista.ContainsKey("EMAIL")) email = lista["EMAIL"];
                 
                 // VERIFICAR SE E-MAIL JA É CADASTRADO
-                if (ConsultarEmail(email).Count == 0)
+                if (Consultar(email, 0).Count == 0)
                 {
                     if (lista.ContainsKey("SENHA")) senha = lista["SENHA"]; //GerarSenhaSHA1(lista["SENHA"]);
                     if (lista.ContainsKey("NOME")) nome = lista["NOME"];                   

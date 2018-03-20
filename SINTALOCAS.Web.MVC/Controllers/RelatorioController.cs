@@ -96,7 +96,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
             }
 
             if (opcaoRelatorio == 4)
-                ViewBag.Lista = UsuarioServico.ConsultarEmail("");
+                ViewBag.Lista = UsuarioServico.Consultar("", 0);
 
         }
 

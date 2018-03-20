@@ -80,7 +80,7 @@ namespace SINTALOCAS.Dominio.Util
             //validar se existe usuario
             if (listaCampos.ContainsKey("EMAIL"))
             {
-                if (UsuarioServico.ConsultarEmail(listaCampos["EMAIL"]).Count()>0)
+                if (UsuarioServico.Consultar(listaCampos["EMAIL"], 0).Count()>0)
                 {
                     result += "<li>" + MensagemUtil.ErroEMAILExistente() + "</li>";
                 }

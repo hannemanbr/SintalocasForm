@@ -16,7 +16,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
         // GET: Usuario
         public ActionResult Index()
         {
-            ViewBag.Usuarios = UsuarioServico.ConsultarEmail("").OrderBy(x=>x.Nome).ToList();
+            ViewBag.Usuarios = UsuarioServico.Consultar("", 0).OrderBy(x=>x.Nome).ToList();
             return View();
         }
 

@@ -3,3 +3,12 @@
 ################################################################################
 
 /SINTALOCAS.Modelo/obj/Debug
+/SINTALOCAS.DAL/obj/Debug
+
+\.vs/SintalocasForm/v15/
+
+*.ide
+
+*.dll
+
+*.pdb
