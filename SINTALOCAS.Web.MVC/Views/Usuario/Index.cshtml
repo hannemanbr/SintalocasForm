@@ -35,8 +35,8 @@
     <br />
     <br />
     <div style="color:@ViewBag.CorFonte">@ViewBag.MensagemRetorno</div>
-    <input type="button" id="btnRel" value="Gerar relatorio" onclick="window.open('../Relatorio/PDFPadrao/4')" />
-    <input type="button" id="btnNovo" value="Novo usuário" onclick="window.location.href='/Usuario/Cadastro'" />
+    <input type="button" id="btnRel" value="Gerar relatorio" onclick="window.open('@ViewBag.LinkRelatorio01')" />
+    <input type="button" id="btnNovo" value="Novo usuário" onclick="window.location.href='@ViewBag.LinkCadastro'" />
 </div>
 }
 else

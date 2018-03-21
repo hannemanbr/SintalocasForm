@@ -92,7 +92,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/21/2018 12:15:02</publishTime>
     </File>
     <File Include="bin/SINTALOCAS.Web.MVC.dll">
-      <publishTime>03/21/2018 15:50:58</publishTime>
+      <publishTime>03/21/2018 17:54:37</publishTime>
     </File>
     <File Include="bin/System.AppContext.dll">
       <publishTime>03/20/2018 17:43:19</publishTime>
@@ -689,13 +689,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/21/2018 12:12:35</publishTime>
     </File>
     <File Include="Views/Usuario/Cadastro.cshtml">
-      <publishTime>03/21/2018 12:12:35</publishTime>
+      <publishTime>03/21/2018 17:53:52</publishTime>
     </File>
     <File Include="Views/Usuario/Editar.cshtml">
       <publishTime>03/21/2018 15:07:57</publishTime>
     </File>
     <File Include="Views/Usuario/Index.cshtml">
-      <publishTime>03/21/2018 15:01:56</publishTime>
+      <publishTime>03/21/2018 17:41:42</publishTime>
     </File>
     <File Include="Views/Usuario/Senha.cshtml">
       <publishTime>03/21/2018 15:21:25</publishTime>

@@ -21,8 +21,14 @@ namespace SINTALOCAS.Web.MVC.Controllers
         // GET: Log
         public void AcessoAdmin()
         {
+            var id = Convert.ToInt32(Server.HtmlEncode(User.Identity.Name));
+            var lista = UsuarioServico.Consultar("", id);
+            var usuario = new Modelo.Usuario();
+
+            if (lista.Count > 0) usuario = lista[0];
+
             ViewBag.TituloSite = "SINTALOCAS - Painel de controle";
-            LogServico.Registrar("PainelControle", Request.UserHostAddress, Request.UserHostName, Request.RawUrl, "Acesso", "", 0);
+            LogServico.Registrar("PainelControle", Request.UserHostAddress, Request.UserHostName, Request.RawUrl, "Acesso", usuario.Email, usuario.ID );
         }
 
     }
