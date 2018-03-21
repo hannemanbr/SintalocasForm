@@ -11,7 +11,9 @@
     <span id="rFormRetorno" style="color:#FF0000">@Html.Raw(ViewBag.MensagemRetorno)</span>
     <br />
     <br />
-    <input type="button" id="btnGravar" class="BotaoFinaliza" value="Concordar e enviar pedido de afiliação" />
+    <form action="Finalizar/Realizado" method="post">
+        <input type="submit" id="btnGravar" class="BotaoFinaliza" value="Concordar e enviar pedido de afiliação" />
+    </form>
     <br />
 </p>
 

@@ -36,3 +36,4 @@ D:\Thomas\Github\SintalocasForm\SINTALOCAS.Dominio\obj\Debug\SINTALOCAS.Dominio.
 D:\Thomas\Github\SintalocasForm\SINTALOCAS.Dominio\obj\Debug\SINTALOCAS.Dominio.csproj.CoreCompileInputs.cache
 D:\Thomas\Github\SintalocasForm\SINTALOCAS.Dominio\obj\Debug\SINTALOCAS.Dominio.dll
 D:\Thomas\Github\SintalocasForm\SINTALOCAS.Dominio\obj\Debug\SINTALOCAS.Dominio.pdb
+D:\Thomas\Github\SintalocasForm\SINTALOCAS.Dominio\obj\Debug\SINTALOCAS.Dominio.csproj.CopyComplete

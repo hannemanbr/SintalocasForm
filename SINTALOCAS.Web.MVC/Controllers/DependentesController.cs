@@ -57,7 +57,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
         private void GeraViewBag(int idAfiliado)
         {
             ViewBag.RootView = Validacao.AnalisaLink(@Request.RawUrl.ToString());
-            ViewBag.LinkSubmitAfilia = Validacao.AnalisaLink(@Request.RawUrl.ToString() + "/Finaliza");
+            ViewBag.LinkSubmitAfilia = Validacao.AnalisaLink(@Request.RawUrl.ToString() + "/ValidarFormJSON");
             ViewBag.GrauParentesco = DependenteServico.DictionaryGrausParentesco();
             ViewBag.ListaDependentes = DependenteServico.ListaDependentes(idAfiliado);
         }

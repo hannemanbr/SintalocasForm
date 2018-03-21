@@ -186,3 +186,4 @@ D:\Thomas\Github\SintalocasForm\SINTALOCAS.Web.MVC\bin\SINTALOCAS.Dominio.XmlSer
 D:\Thomas\Github\SintalocasForm\SINTALOCAS.Web.MVC\obj\Release\SINTALOCAS.Web.MVC.csprojResolveAssemblyReference.cache
 D:\Thomas\Github\SintalocasForm\SINTALOCAS.Web.MVC\obj\Release\SINTALOCAS.Web.MVC.csproj.CoreCompileInputs.cache
 D:\Thomas\Github\SintalocasForm\SINTALOCAS.Web.MVC\obj\Release\SINTALOCAS.Web.MVC.dll
+D:\Thomas\Github\SintalocasForm\SINTALOCAS.Web.MVC\obj\Release\SINTALOCAS.Web.MVC.csproj.CopyComplete

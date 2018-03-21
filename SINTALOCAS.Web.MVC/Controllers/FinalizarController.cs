@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using SINTALOCAS.Dominio.Servico;
 using SINTALOCAS.Dominio.Util;
+using SINTALOCAS.Modelo;
 
 namespace SINTALOCAS.Web.MVC.Controllers
 {
@@ -13,8 +14,9 @@ namespace SINTALOCAS.Web.MVC.Controllers
         // GET: Finalizar
         public ActionResult Index()
         {
+            int idAfiliado = ConsultaIdAfiliado();
             var mensagemSistema = TextosServico.TextoDeAcordo();
-            int idAfiliado = 0;
+            GeraViewBag(idAfiliado);
 
             if (TempData["idAfiliadoForm"] != null)
             {
@@ -32,76 +34,49 @@ namespace SINTALOCAS.Web.MVC.Controllers
             return View();
         }
 
-        // GET: Finalizar/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        // GET: Finalizar/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Finalizar/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Realizado(FormCollection collection)
         {
             try
             {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
+                int idAfiliado = ConsultaIdAfiliado();
+                AfiliacaoServico.Concordar(idAfiliado);
                 return View();
             }
-        }
-
-        // GET: Finalizar/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: Finalizar/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
+            catch (Exception)
             {
-                // TODO: Add update logic here
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
+                throw;
             }
         }
 
-        // GET: Finalizar/Delete/5
-        public ActionResult Delete(int id)
+        private int ConsultaIdAfiliado()
         {
-            return View();
+            var idAfiliado = 0;
+
+            if (TempData["idAfiliadoForm"] != null)
+            {
+                if (!Int32.TryParse(TempData["idAfiliadoForm"].ToString(), out idAfiliado))
+                    ViewBag.MensagemRetorno = MensagemUtil.ErroIDForm();
+                TempData["idAfiliadoForm"] = idAfiliado; // renovando sessao                
+            }
+            else
+            {
+                ViewBag.MensagemRetorno = MensagemUtil.ErroGeneralizado();
+            }
+
+            return idAfiliado;
+
         }
 
-        // POST: Finalizar/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        private void GeraViewBag(int idAfiliado)
         {
-            try
-            {
-                // TODO: Add delete logic here
+            ViewBag.RootView = Validacao.AnalisaLink(@Request.RawUrl.ToString());
+            var afiliado = AfiliacaoServico.GetByID(idAfiliado);
+            var dependentes = new List<Dependentes>();
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            if (afiliado!=null)
+                dependentes = DependenteServico.ListaDependentes(idAfiliado);
         }
     }
 }

@@ -30,3 +30,4 @@ D:\Thomas\Github\SintalocasForm\SINTALOCAS.Dominio\obj\Release\SINTALOCAS.Domini
 D:\Thomas\Github\SintalocasForm\SINTALOCAS.Dominio\obj\Release\SINTALOCAS.Dominio.csproj.CoreCompileInputs.cache
 D:\Thomas\Github\SintalocasForm\SINTALOCAS.Dominio\obj\Release\SINTALOCAS.Dominio.dll
 D:\Thomas\Github\SintalocasForm\SINTALOCAS.Dominio\obj\Release\SINTALOCAS.Dominio.XmlSerializers.dll
+D:\Thomas\Github\SintalocasForm\SINTALOCAS.Dominio\obj\Release\SINTALOCAS.Dominio.csproj.CopyComplete

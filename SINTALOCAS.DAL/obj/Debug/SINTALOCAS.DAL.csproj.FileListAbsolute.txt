@@ -166,3 +166,4 @@ D:\Thomas\Github\SintalocasForm\SINTALOCAS.DAL\obj\Debug\SINTALOCAS.DAL.csprojRe
 D:\Thomas\Github\SintalocasForm\SINTALOCAS.DAL\obj\Debug\SINTALOCAS.DAL.csproj.CoreCompileInputs.cache
 D:\Thomas\Github\SintalocasForm\SINTALOCAS.DAL\obj\Debug\SINTALOCAS.DAL.dll
 D:\Thomas\Github\SintalocasForm\SINTALOCAS.DAL\obj\Debug\SINTALOCAS.DAL.pdb
+D:\Thomas\Github\SintalocasForm\SINTALOCAS.DAL\obj\Debug\SINTALOCAS.DAL.csproj.CopyComplete

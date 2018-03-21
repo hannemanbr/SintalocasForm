@@ -246,7 +246,7 @@ namespace SINTALOCAS.DAL.DB
             }
         }
 
-        public List<Afiliado> ListaAfiliado(string cpf)
+        public List<Afiliado> ListaAfiliado(string cpf, int id = 0)
         {
             try
             {
@@ -287,6 +287,7 @@ namespace SINTALOCAS.DAL.DB
                              " WHERE 1=1                     ";
 
                 if (cpf.Trim() != "") query += " AND A.CPF='" + cpf + "'";
+                if (id > 0) query += " AND A.ID='" + id + "'";
 
                 var dataTable = _contexto.Consultar(query);
 
@@ -387,7 +388,7 @@ namespace SINTALOCAS.DAL.DB
             {
                 var lista = new Dictionary<int, int>();
 
-                var query = "SELECT count(0) Total" +
+                var query = "SELECT count(0) Total," +
                     " Nome, DataNascimento, AcrescimoMensal, Grau" +
                     " FROM Afiliado_Dependente D" +
                     " WHERE idAfiliado=" + idAfiliado + "" +

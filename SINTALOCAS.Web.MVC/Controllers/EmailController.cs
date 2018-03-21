@@ -26,7 +26,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
                 var listaCampos = validacaoViewServico.GeraListaCampos(collection);
                 var destino = listaCampos["DESTINO"];
                 
-                EmailServico.EnviarEmail(destino, "teste e-mail");
+                EmailServico.EnviarEmail(destino, "teste e-mail", "teste");
 
                 return View("Index");
             }

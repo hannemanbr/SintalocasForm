@@ -17,7 +17,7 @@ namespace SINTALOCAS.Dominio.Servico
             {
                 int result = _afiliacaoDAL.InserirAfiliado(afiliado);
                 //_afiliacaoEFDAL.Inserir(afiliado);
-
+                
                 return result;
             }
             catch (Exception)
@@ -46,6 +46,15 @@ namespace SINTALOCAS.Dominio.Servico
             try
             {
                 var registros = _afiliacaoDAL.Concordar(id);
+                var dependente = new List<Dependentes>();              
+                var afiliado = GetByID(id);
+
+                if (afiliado != null)
+                {
+                    dependente = DependenteServico.ListaDependentes(id);
+                    EmailServico.NotificarCadastro(afiliado, dependente);
+                }
+
                 if (registros > 0) result = true;
             }
             catch (Exception)
@@ -80,6 +89,23 @@ namespace SINTALOCAS.Dominio.Servico
             try
             {
                 result = _afiliacaoDAL.ListaAfiliado(cpf);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+            return result;
+        }
+
+        public static Afiliado GetByID(int id)
+        {
+            var result = new Afiliado();
+
+            try
+            {
+                if(_afiliacaoDAL.ListaAfiliado("", id).Count>0)
+                    result = _afiliacaoDAL.ListaAfiliado("", id)[0];
             }
             catch (Exception)
             {
