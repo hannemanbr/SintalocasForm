@@ -21,10 +21,15 @@ namespace SINTALOCAS.Dominio.Servico
             {         
                 var listaUsuario = UsuarioDAL.Consultar();
                 var from = ConfigDAL.GetValor("EMAILFROM", "EMAIL");
-                var pass = ConfigDAL.GetValor("EMAILSENHA", "EMAIL");                
-                
+                var pass = ConfigDAL.GetValor("EMAILSENHA", "EMAIL");
+
+                var msg = new MailMessage(from, destino, titulo, mensagem);
+                msg.IsBodyHtml = true;
+
                 client.Credentials = new NetworkCredential(from, pass);
-                client.Send(from, destino, titulo, mensagem);                
+                //client.Send(from, destino, titulo, mensagem);                
+                client.Send(msg);
+
             }
             catch (Exception)
             {
@@ -43,6 +48,9 @@ namespace SINTALOCAS.Dominio.Servico
             var banner = "<h1>SINTALOCAS - " + titulo + "</h1>";
             var corpo = "<br/><br/>" + texto + "<br/><br/>";
             var rodape = "<br/><h3>Este é um e-mail automático, favor nâo responda ele</h3>";
+
+            result += banner + corpo + rodape;
+
             return result;
         }
 
