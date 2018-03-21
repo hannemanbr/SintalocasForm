@@ -81,6 +81,23 @@ namespace SINTALOCAS.DAL.DB
                     " SET" +
                     " NOME = '" + usuario.Nome + "'," +
                     " EMAIL = '" + usuario.Email + "'," +                    
+                    //" SENHA = '" + usuario.Senha + "'" +
+                    " WHERE ID=" + usuario.ID + "";
+
+                return _contexto.Transacao(query);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public static int AlteraSenha(Usuario usuario)
+        {
+            try
+            {
+                var query = "UPDATE Admin_Login" +
+                    " SET" +
                     " SENHA = '" + usuario.Senha + "'" +
                     " WHERE ID=" + usuario.ID + "";
 

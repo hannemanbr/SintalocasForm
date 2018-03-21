@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    @*<title>@ViewBag.Title</title>*@
+    <title>SINTALOCAS - PAINEL DE CONTROLE</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width">
+    <link rel="shortcut icon" href="~/image/logo_fundo.png" />
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css">
+    <link rel="stylesheet"
+          href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css">
+    @*<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>*@
+    <script src="~/Scripts/jquery-3.3.1.js" type="text/javascript"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/umd/popper.min.js"></script>
+    <script type="text/javascript" src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+    
+    @*SCRIPT DESENVOLVIDO PARA O SISTEMA*@
+    <link rel="stylesheet" type="text/css" href="~/Style/estiloAdmin.css">
+    <script type="text/javascript" src="~/Scripts/form-afilia.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <img src="~/image/logo_fundo.png" style="width:50px; height: 40px">
+            <label class="label">
+                <strong>PAINEL DE CONTROLE</strong>
+            </label>
+        </div>
+        <div class="row" style="background-color:#000000; padding-bottom: 3px;">
+            <a href="~/Relatorio/RelLog" style="color:#ffffff">[ Log de Acesso ]</a>
+            <a href="~/Relatorio/RelAfiliados" style="color:#ffffff">[ Afiliados ]</a>
+            <a href="~/Textos/" style="color:#ffffff">[ Textos do Sistema ]</a>
+            <a href="~/Usuario" style="color:#ffffff">[ Usuários ]</a> |
+            <a href="~/Admin/Sair" style="color:#ff0000" onclick="return confirm('Deseja finalizar a sessão?');">[ |X|Sair ]</a>
+        </div>
+        @Html.Action("AcessoAdmin", "Log")
+        @RenderBody()
+    </div>
+</body>
+</html>
+

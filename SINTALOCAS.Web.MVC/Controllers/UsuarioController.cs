@@ -16,21 +16,62 @@ namespace SINTALOCAS.Web.MVC.Controllers
         // GET: Usuario
         public ActionResult Index()
         {
-            ViewBag.Usuarios = UsuarioServico.Consultar("", 0).OrderBy(x=>x.Nome).ToList();
+            GeraView();            
             return View();
         }
 
         // GET: Usuario/Details/5
         public ActionResult Cadastro()
         {
+            GeraView();
             ViewBag.RootView = Validacao.AnalisaLink(@Request.RawUrl.ToString(), true);
             return View();
         }
 
-        public ActionResult Senha()
+        public ActionResult Senha(int id)
+        {
+            GeraView();
+            var lista = UsuarioServico.Consultar("", id).OrderBy(x => x.Nome).ToList();
+
+            if (lista.Count > 0)
+                ViewBag.Usuario = lista[0];
+
+            return View();
+        }
+
+        private void GeraView()
         {
             ViewBag.Usuarios = UsuarioServico.Consultar("", 0).OrderBy(x => x.Nome).ToList();
-            return View();
+            ViewBag.RootView = Validacao.AnalisaLink(@Request.RawUrl.ToString());
+        }
+
+        [HttpPost]
+        public ActionResult Senha(FormCollection collection)
+        {
+            try
+            {
+                var valida = validacaoViewServico.ValidaCampoObrigatorio(collection);
+                var listaCampos = validacaoViewServico.GeraListaCampos(collection);
+
+                //validar campos
+                var result = Validacao.FormUsuarioValidarPreenchimento(listaCampos, true);
+                ViewBag.MensagemRetorno = result;
+
+                if (result.Trim() == "")
+                {
+                    Usuario usuario = UsuarioServico.ConverteInfoFormEmObj(listaCampos, true);
+                    var registro = UsuarioServico.AlteraSenha(usuario); //gravando informaçoes
+                    return RedirectToAction("Index");
+                }
+
+                return RedirectToAction("Senha");
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         [HttpPost]
@@ -45,7 +86,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
 
             if (result.Trim() == "")
             {
-                Usuario usuario = UsuarioServico.ConverteInfoFormEmObj(listaCampos);
+                Usuario usuario = UsuarioServico.ConverteInfoFormEmObj(listaCampos, false);
                 var registro = UsuarioServico.Insere(usuario); //gravando informaçoes
             }
 
@@ -110,7 +151,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
             {
                 if (result.Trim() == "")
                 {
-                    Usuario usuario = UsuarioServico.ConverteInfoFormEmObj(listaCampos);
+                    Usuario usuario = UsuarioServico.ConverteInfoFormEmObj(listaCampos, false);
                     var registro = UsuarioServico.Insere(usuario); //gravando informaçoes
                     retorno = true;
                 }

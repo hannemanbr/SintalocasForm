@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = ViewBag.TituloSite;
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Atualização de informações</h2>
+
+<body>    
+    <form action="" method="post" id="formAfilia">
+        <div class="row">
+            Tela finalizar (Termos e Condições):
+            <textarea data-mini="true" id="Concordar" name="Concordar" placeholder="Digite seu texto" rows="10">@ViewBag.TxConcordar</textarea>
+            <input type="hidden" id="ConcordarID" name="ConcordarID" value="@ViewBag.ID" />
+        </div>
+        <div style="color:#FF0000" id="rForm"></div>
+        <br />
+        <div style="color: #248801; font-weight: bold">@ViewBag.MsgRetorno</div>
+        <input type="submit" data-mini="true" id="btnGravar" class="BotaoFinaliza" value="Atualizar" />
+    </form>
+</body>
+

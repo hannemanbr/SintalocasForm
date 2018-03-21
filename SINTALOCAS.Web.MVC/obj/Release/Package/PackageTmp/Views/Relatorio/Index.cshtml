@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = ViewBag.TituloSite;
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h3>@ViewBag.Saudadacao, @ViewBag.UsuarioLogin</h3>
+
+@*<form action="" id="formRelat" method="post">
+    <strong>Relatorios: </strong>
+    <select id="dropRelat">
+        <option value="0">Selecione</option>
+        @foreach (var item in ViewBag.ListaRelatorio)
+        {
+            <option value="@item.ID">@item.Nome</option>
+        }
+    </select>
+    <input type="button" value="Gerar" onclick="GerarRelatorio(dropRelat)" />    
+</form>*@

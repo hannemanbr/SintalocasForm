@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "Senha";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Alterar Senha</h2>
+<form action="" id="formUsuario" method="post">
+    <label class="col-form-label">
+        Nome
+    </label>
+    <div class="row">
+        <input type="text" value="@ViewBag.Usuario.Nome" readonly="readonly" id="Nome" name="Nome" placeholder="Digite o nome do usuário" />
+    </div>
+    <label class="col-form-label">
+        E-mail/Login
+    </label>
+    <div class="row">
+        <input type="text" value="@ViewBag.Usuario.Email" readonly="readonly" id="Email" name="Email" placeholder="Informe o e-mail" />
+    </div>
+    <label class="col-form-label">
+        Senha
+    </label>
+    <div class="row">
+        <input type="password" id="Senha" name="Senha" style="width:120px;" placeholder="Digite a senha" />
+    </div>
+    <label class="col-form-label" ">
+        Confirme a Senha
+    </label>
+    <div class="row">
+        <input type="password" id="Senha2" name="Senha2" style="width:120px;" placeholder="Confirme a senha" />
+    </div>
+    <span id="rFormRetorno" style="color:#FF0000">@Html.Raw(ViewBag.MensagemRetorno)</span>
+    <br />
+    <input type="hidden" name="ID" id="ID" value="@ViewBag.Usuario.ID" />
+    @ViewBag.MensagemRetorno
+    <input type="submit" data-mini="true" id="btnGravar" value="Enviar" class="BotaoFinaliza" />
+</form>
+
+

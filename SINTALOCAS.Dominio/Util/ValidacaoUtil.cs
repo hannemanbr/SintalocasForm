@@ -63,7 +63,7 @@ namespace SINTALOCAS.Dominio.Util
 
         }
         
-        public static string FormUsuarioValidarPreenchimento(Dictionary<string, string> listaCampos)
+        public static string FormUsuarioValidarPreenchimento(Dictionary<string, string> listaCampos, bool alterarSenha = false)
         {
 
             var result = "";
@@ -78,7 +78,7 @@ namespace SINTALOCAS.Dominio.Util
             }
 
             //validar se existe usuario
-            if (listaCampos.ContainsKey("EMAIL"))
+            if (!alterarSenha && listaCampos.ContainsKey("EMAIL"))
             {
                 if (UsuarioServico.Consultar(listaCampos["EMAIL"], 0).Count()>0)
                 {

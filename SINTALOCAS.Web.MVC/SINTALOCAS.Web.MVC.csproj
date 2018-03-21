@@ -265,6 +265,8 @@
     <Content Include="Views\Email\Index.cshtml" />
     <Content Include="Views\Relatorio\RelUsuariosPDF.cshtml" />
     <Content Include="Views\Finalizar\Realizado.cshtml" />
+    <Content Include="Views\Usuario\Senha.cshtml" />
+    <Content Include="Views\Usuario\Editar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />

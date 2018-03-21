@@ -84,28 +84,31 @@ namespace SINTALOCAS.Dominio.Servico
             }
         }
 
-        public static Usuario ConverteInfoFormEmObj(Dictionary<string, string> lista)
+        public static Usuario ConverteInfoFormEmObj(Dictionary<string, string> lista, bool alteracaoSenha)
         {
             try
             {
                 var senha = "";
                 var nome = "";
                 var email = "";
+                var idUsuario = 0;
 
                 if (lista.ContainsKey("EMAIL")) email = lista["EMAIL"];
                 
                 // VERIFICAR SE E-MAIL JA É CADASTRADO
-                if (Consultar(email, 0).Count == 0)
+                if (alteracaoSenha || Consultar(email, 0).Count == 0)
                 {
                     if (lista.ContainsKey("SENHA")) senha = lista["SENHA"]; //GerarSenhaSHA1(lista["SENHA"]);
-                    if (lista.ContainsKey("NOME")) nome = lista["NOME"];                   
+                    if (lista.ContainsKey("NOME")) nome = lista["NOME"];
+                    if (lista.ContainsKey("ID")) idUsuario = Convert.ToInt32(lista["ID"]);
                 }
 
                 return new Usuario
                 {
+                    ID = idUsuario,
                     Senha = senha,
                     Email = email,
-                    Nome = nome
+                    Nome = nome                    
                 };
 
             }
@@ -121,6 +124,20 @@ namespace SINTALOCAS.Dominio.Servico
             try
             {
                 return UsuarioDAL.Atualizar(usuario);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public static int AlteraSenha(Usuario usuario)
+        {
+            try
+            {
+                usuario.Senha = GerarSenhaSHA1(usuario.Senha);
+                return UsuarioDAL.AlteraSenha(usuario);
             }
             catch (Exception)
             {
@@ -147,10 +164,18 @@ namespace SINTALOCAS.Dominio.Servico
         {
             try
             {
-                byte[] buffer = Encoding.Default.GetBytes(texto);
-                System.Security.Cryptography.SHA1CryptoServiceProvider cryptoTransformSHA1 = new System.Security.Cryptography.SHA1CryptoServiceProvider();
-                string hash = BitConverter.ToString(cryptoTransformSHA1.ComputeHash(buffer)).Replace("-", "");
+                string hash = "";
+
+                if (texto.Trim() != "")
+                {
+                    byte[] buffer = Encoding.Default.GetBytes(texto);
+                    System.Security.Cryptography.SHA1CryptoServiceProvider cryptoTransformSHA1 = new System.Security.Cryptography.SHA1CryptoServiceProvider();
+                    hash = BitConverter.ToString(cryptoTransformSHA1.ComputeHash(buffer)).Replace("-", "");
+                    
+                }
+
                 return hash;
+
             }
             catch (Exception x)
             {

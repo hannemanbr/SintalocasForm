@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width">
+    <link rel="shortcut icon" href="~/image/logo_fundo.png" />
+    <link rel="stylesheet" type="text/css" href="~/Style/estilo.css">
+    <script src="~/Scripts/jquery-3.3.1.js" type="text/javascript"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js" type="text/javascript"></script>
+    <script type="text/javascript" src="~/Scripts/form-afilia.js"></script>
+    <script src="~/Scripts/jquery.mask.js"></script>
+    @*<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>*@
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-1-banner">
+                <img src="~/image/logo_fundo.png" width="50">
+            </div>
+            <div class="col-2-banner" style="vertical-align:baseline">
+                <label class="label">
+                    SINDICATO INTERESTADUAL DOS TRABALHADORES <br />
+                    EM EMPRESAS DE LOCAÇÃO DE BENS MÓVEIS E ASSISTÊNCIA TÉCNICA <br />
+                    DOS ESTADOS RJ, SP e ES
+                </label>
+            </div>
+        </div>
+        <br />
+        <br />
+        @Html.Action("AcessoFormAfilia", "Log")
+        @RenderBody()
+        <br />
+        <br />
+        <div class="row">
+            <div class="col-2-banner" style="font-size: 10px; font-family: Arial, Helvetica, sans-serif">
+                <label class="label">
+                    <strong>
+                        SINDICATO INTERESTADUAL DOS TRABALHADORES EM EMPRESAS DE LOCAÇÃO DE BENS MÓVEIS E ASSISTÊNCIA TÉCNICA DOS ESTADOS DO RIO DE JANEIRO, SÃO PAULO E
+                        ESPÍRITO SANTO – SINTALOCAS
+                    </strong>
+                    <br />Rua Senador Dantas 117 Sala 721 e 725 – Centro Rio de Janeiro / RJ - CEP 20031-911
+                    <br />CNPJ No 72.343.569/0001-60 – Cód. Sindical 000.000.89447-8
+                    <br />(21) 2510-3351 / 2510-3150 / 2262-0385
+                    <br /><strong>E-mail:</strong> sintalocas@sintalocas.org.br / homologacoes@sintalocas.org.br
+                    <br /><strong>Site:</strong> www.sintalocas.org.br
+                </label>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
