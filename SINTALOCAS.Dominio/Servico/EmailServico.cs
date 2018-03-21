@@ -47,7 +47,7 @@ namespace SINTALOCAS.Dominio.Servico
             var result = "";
             var banner = "<h1>SINTALOCAS - " + titulo + "</h1>";
             var corpo = "<br/><br/>" + texto + "<br/><br/>";
-            var rodape = "<br/><h3>Este é um e-mail automático, favor nâo responda ele</h3>";
+            var rodape = "<br/><h3>Este é um e-mail automático, favor nâo responder</h3>";
 
             result += banner + corpo + rodape;
 
@@ -82,8 +82,8 @@ namespace SINTALOCAS.Dominio.Servico
                 foreach (var item in dependentes)
                 {
                     texto += "<strong>- Nome:</strong> " + item.Nome + " | " +
-                        "Dt.Nasc: " + item.Nome + " | " +
-                        "Grau: " + item.GrauParentescoNome + "<br/>";
+                        "<strong>Dt.Nasc:</strong> " + item.Nome + " | " +
+                        "<strong>Grau:</strong> " + item.GrauParentescoNome + "<br/>";
                 }
 
                 var titulo = ConfigDAL.GetValor("EMAILTIT", "EMAIL");
