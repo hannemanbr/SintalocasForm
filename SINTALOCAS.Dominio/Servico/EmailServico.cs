@@ -47,7 +47,7 @@ namespace SINTALOCAS.Dominio.Servico
             var result = "";
             var banner = "<h1>SINTALOCAS - " + titulo + "</h1>";
             var corpo = "<br/><br/>" + texto + "<br/><br/>";
-            var rodape = "<br/><h3>Este é um e-mail automático, favor nâo responder</h3>";
+            var rodape = "<br/><h3>Este é um e-mail automático, nâo responder</h3>";
 
             result += banner + corpo + rodape;
 
