@@ -27,6 +27,12 @@ namespace SINTALOCAS.Web.MVC.Controllers
             return View();
         }
 
+        public ActionResult Senha()
+        {
+            ViewBag.Usuarios = UsuarioServico.Consultar("", 0).OrderBy(x => x.Nome).ToList();
+            return View();
+        }
+
         [HttpPost]
         // GET: Usuario/Create
         public ActionResult Novo(FormCollection collection)
