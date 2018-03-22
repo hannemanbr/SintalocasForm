@@ -106,7 +106,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
 
             if (result.Trim() == "")
             {
-                InserirDados(lista); //gravando informaçoes
+                InserirDados(lista, idAfiliado); //gravando informaçoes
                 GeraViewBag(idAfiliado);
                 //CombosForm();
             }
@@ -144,14 +144,12 @@ namespace SINTALOCAS.Web.MVC.Controllers
 
         }
 
-        private void InserirDados(Dictionary<string, string> lista)
+        private void InserirDados(Dictionary<string, string> lista, int idAfiliado)
         {
 
             try
             {
-                int idAfiliado = ConsultaIdAfiliado();
                 validacaoViewServico.InsereDependente(lista, idAfiliado);
-
             }
             catch (Exception ex)
             {

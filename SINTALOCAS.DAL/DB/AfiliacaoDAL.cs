@@ -398,7 +398,8 @@ namespace SINTALOCAS.DAL.DB
 
                 foreach (DataRow linha in dataTable.Rows)
                 {                    
-                    lista.Add(Convert.ToInt32(linha["Grau"]), Convert.ToInt32(linha["Total"]));
+                    if (lista.ContainsKey(Convert.ToInt32(linha["Grau"])))
+                        lista.Add(Convert.ToInt32(linha["Grau"]), Convert.ToInt32(linha["Total"]));
                 }
 
                 return lista;

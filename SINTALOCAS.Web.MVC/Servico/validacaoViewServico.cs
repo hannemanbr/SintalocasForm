@@ -146,6 +146,7 @@ namespace SINTALOCAS.Web.MVC.Servico
             try
             {
                 int result = 0;
+                int acrescimo = 0;
 
                 // criando objeto de afiliado
                 var dependente = new Dependentes();
@@ -153,11 +154,14 @@ namespace SINTALOCAS.Web.MVC.Servico
                 dependente.Nome = lista["NOME"];
                 dependente.GrauParentescoID = Convert.ToInt32(lista["GRAUPARENTE"]);
 
+                if (lista.ContainsKey("ACRESCIMO"))
+                    acrescimo = Convert.ToInt32(lista["ACRESCIMO"]);
+                                
                 //Datas
                 DateTime dataNascimento = DataUtil.ConverterString(lista["DTNASC"]);
 
                 dependente.DataNascimento = dataNascimento;
-                dependente.AcrescimoMensal = 1;
+                dependente.AcrescimoMensal = acrescimo;
                 dependente.IdAfiliado = idAfiliado;
                 
                 DependenteServico.Insere(dependente, 1, idAfiliado);
