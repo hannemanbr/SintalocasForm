@@ -88,7 +88,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/21/2018 22:06:54</publishTime>
     </File>
     <File Include="bin/SINTALOCAS.Web.MVC.dll">
-      <publishTime>03/26/2018 00:56:31</publishTime>
+      <publishTime>03/26/2018 01:12:55</publishTime>
     </File>
     <File Include="bin/System.AppContext.dll">
       <publishTime>03/19/2018 20:59:30</publishTime>
