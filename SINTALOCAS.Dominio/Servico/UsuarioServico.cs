@@ -39,45 +39,6 @@ namespace SINTALOCAS.Dominio.Servico
             }
         }
 
-        public static Usuario ConsultarPorEmail(string email)
-        {
-            try
-            {
-                var usuario = new Usuario() { ID = 0, Email = "", Nome = "" };
-                //senha = GerarSenhaSHA1(senha);
-                var lista = UsuarioDAL.Consultar(email, "", 0);
-
-                if (lista.Count > 0) usuario = lista[0];
-
-                return usuario;
-
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
-
-        public static Usuario ConsultarPorID(int id)
-        {
-            try
-            {
-                var usuario = new Usuario() { ID = 0, Email = "", Nome = "" };
-                //senha = GerarSenhaSHA1(senha);
-                var lista = UsuarioDAL.Consultar("", "", id);
-
-                if (lista.Count > 0) usuario = lista[0];
-
-                return usuario;
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
-
         public static  bool ValidarLogin(string email, string senha)
         {
             try

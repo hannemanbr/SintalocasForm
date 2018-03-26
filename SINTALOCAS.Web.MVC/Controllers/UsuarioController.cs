@@ -41,11 +41,9 @@ namespace SINTALOCAS.Web.MVC.Controllers
         private void GeraView()
         {
             var linkRoot = Validacao.AnalisaLink(@Request.RawUrl.ToString(), true);
-            var id = Convert.ToInt32(Server.HtmlEncode(User.Identity.Name));
-
-            ViewBag.UsuarioLogin = UsuarioServico.ConsultarPorID(id);
             ViewBag.Usuarios = UsuarioServico.Consultar("", 0).OrderBy(x => x.Nome).ToList();
             ViewBag.RootView = Validacao.AnalisaLink(@Request.RawUrl.ToString());
+
             ViewBag.LinkRelatorio01 = linkRoot + "Relatorio/PDFPadrao/4"; 
             ViewBag.LinkCadastro = linkRoot + "Usuario/Cadastro";
         }

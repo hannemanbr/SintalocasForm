@@ -41,6 +41,11 @@
         <div class="row">
             <h3>Dependentes Cadastrados</h3>
         </div>
+        @*<div class="row" style="font-weight:bold; background-color: #000000; color:#FFFFFF">
+                <div class="col-15" style="text-align:center">#</div>
+                <div class="col-25">Nome</div>
+                <div class="col-25">Parentesco</div>
+            </div>*@
         <table id="tbrelatorio">
             <thead>
                 <tr style="background-color: #000000; color:#ffffff; text-align:center">
@@ -55,6 +60,12 @@
                 @foreach (var item in ViewBag.ListaDependentes)
                 {
                 cont++;
+                    @*<div style="text-align:center">@cont</div>
+                    <div>@item.Nome</div>
+                    <div>@item.GrauParentescoNome</div>
+                    <div style="text-align: center">
+                        <a href="~/Dependentes/Delete/@item.ID" style="color:#FFFFFF; background-color:#FF0000; padding:4px;" onclick="return ConfirmaAcao('excluir este registro')">Excluir</a>
+                    </div>*@
                     <tr>
                         <td style="text-align:center">@cont</td>
                         <td>@item.Nome</td>

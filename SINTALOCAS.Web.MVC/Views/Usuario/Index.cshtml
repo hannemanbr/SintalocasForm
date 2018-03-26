@@ -26,10 +26,7 @@
                     <td>
                         <a href="~/Usuario/Senha/@item.ID" onclick="return ConfirmaAcao('Deseja alterar a senha deste usuário?')">Alterar Senha</a> |
                         <a href="~/Usuario/Editar/@item.ID">Ver detalhes</a> |
-                        @if (ViewBag.UsuarioLogin.ID != item.ID)
-                        {
-                            <a href="~/Usuario/Delete/@item.ID" onclick="return ConfirmaAcao('excluir este registro?')" style="color:#ff0000">|X| Excluir</a>
-                        }
+                        <a href="~/Usuario/Delete/@item.ID" onclick="return ConfirmaAcao('excluir este registro?')" style="color:#ff0000">|X| Excluir</a>
                     </td>
                 </tr>
             }
