@@ -68,7 +68,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
         private void GeraViewBag()
         {
             var id = Convert.ToInt32(Server.HtmlEncode(User.Identity.Name));
-            ViewBag.UsuarioLogin = UsuarioServico.ConsultarPorID(id);
+            ViewBag.UsuarioLogin = UsuarioServico.ConsultarPorID(id).Nome;
             ViewBag.Saudadacao = MensagemUtil.Saudacao();
             ViewBag.ListaRelatorio = RelatorioServico.ListarRelatorios();
         }
