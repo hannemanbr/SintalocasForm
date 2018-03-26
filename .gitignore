@@ -12,3 +12,4 @@
 *.dll
 
 *.pdb
+/SINTALOCAS.Web.MVC
