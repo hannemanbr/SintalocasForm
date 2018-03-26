@@ -82,7 +82,7 @@ namespace SINTALOCAS.Dominio.Servico
                 foreach (var item in dependentes)
                 {
                     texto += "<strong>- Nome:</strong> " + item.Nome + " | " +
-                        "<strong>Dt.Nasc:</strong> " + item.Nome + " | " +
+                        "<strong>Dt.Nasc:</strong> " + item.DataNascimento + " | " +
                         "<strong>Grau:</strong> " + item.GrauParentescoNome + "<br/>";
                 }
 

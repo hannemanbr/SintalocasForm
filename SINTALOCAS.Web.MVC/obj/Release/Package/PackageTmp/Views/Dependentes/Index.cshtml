@@ -22,9 +22,9 @@
             Grau de parentesco:
             <select id="GrauParente" data-mini="true" name="GrauParente" style="width:200px;">
                 @foreach (KeyValuePair<int, string> item in ViewBag.GrauParentesco)
-            {
-                <option value="@item.Key">@item.Value</option>
-        }
+                {
+                    <option value="@item.Key">@item.Value</option>
+                }
             </select>
         </div>
         <div style="color:#FF0000" id="rDtNasc"></div>
@@ -46,32 +46,34 @@
                 <tr style="background-color: #000000; color:#ffffff; text-align:center">
                     <td>#</td>
                     <td>Nome</td>
+                    <td>Dt. Nasc</td>
                     <td>Grau</td>
                     <td>Acrescimo</td>
                     <td>Ação</td>
                 </tr>
             </thead>
-            <tbody>                    
+            <tbody>
                 @foreach (var item in ViewBag.ListaDependentes)
                 {
-                cont++;
-                    <tr>
-                        <td style="text-align:center">@cont</td>
-                        <td>@item.Nome</td>
+                    cont++;
+                    <tr style="text-align:center">
+                        <td>@cont</td>
+                        <td style="text-align:left">@item.Nome</td>
+                        <td>@item.DataNascimento.ToString("dd/MM/yyyy")</td>
                         <td>@item.GrauParentescoNome</td>
-                        <td style="text-align:center">
+                        <td>
                             @if (item.AcrescimoMensal == 1)
-                            {                    
+                            {
                                 <img src="~/Image/check.png" style="width:12px;" alt="Acréscimo Mensal" />
                             }
                         </td>
                         <td style="text-align:center">
-                            <a href="~/Dependentes/Delete/@item.ID" 
+                            <a href="~/Dependentes/Delete/@item.ID"
                                onclick="return ConfirmaAcao('excluir este registro?')">
                                 <img src="~/Image/excluir.png" style="width:12px;" alt="Excluir" />
                             </a>
                         </td>
-                    </tr>                    
+                    </tr>
                 }
             </tbody>
         </table>
