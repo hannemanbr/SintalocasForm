@@ -74,25 +74,25 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/21/2018 12:12:37</publishTime>
     </File>
     <File Include="bin/SINTALOCAS.DAL.dll">
-      <publishTime>03/28/2018 13:58:40</publishTime>
+      <publishTime>03/28/2018 15:47:17</publishTime>
     </File>
     <File Include="bin/SINTALOCAS.DAL.dll.config">
       <publishTime>03/21/2018 12:12:17</publishTime>
     </File>
     <File Include="bin/SINTALOCAS.Dominio.dll">
-      <publishTime>03/28/2018 13:58:40</publishTime>
+      <publishTime>03/28/2018 15:47:17</publishTime>
     </File>
     <File Include="bin/SINTALOCAS.Dominio.dll.config">
       <publishTime>03/21/2018 12:12:17</publishTime>
     </File>
     <File Include="bin/SINTALOCAS.Dominio.XmlSerializers.dll">
-      <publishTime>03/28/2018 13:58:41</publishTime>
+      <publishTime>03/28/2018 15:47:18</publishTime>
     </File>
     <File Include="bin/SINTALOCAS.Modelo.dll">
       <publishTime>03/26/2018 10:21:30</publishTime>
     </File>
     <File Include="bin/SINTALOCAS.Web.MVC.dll">
-      <publishTime>03/28/2018 13:58:44</publishTime>
+      <publishTime>03/28/2018 15:47:20</publishTime>
     </File>
     <File Include="bin/System.AppContext.dll">
       <publishTime>03/20/2018 17:43:19</publishTime>
@@ -635,7 +635,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/03/2018 14:54:38</publishTime>
     </File>
     <File Include="Views/Afiliacao/Index.cshtml">
-      <publishTime>03/21/2018 12:12:35</publishTime>
+      <publishTime>03/28/2018 14:33:11</publishTime>
     </File>
     <File Include="Views/Dependentes/Index.cshtml">
       <publishTime>03/26/2018 10:23:26</publishTime>

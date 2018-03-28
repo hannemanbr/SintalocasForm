@@ -111,7 +111,7 @@ namespace SINTALOCAS.DAL.DB
                         "Nome" +
                         ") VALUES (";
 
-                    query += idResult + ",";                    
+                    query += idResult;
                     query += ",'" + afiliado.CNPJ + "'";
                     query += ",'" + afiliado.Empresa + "'";
                     query += ")";
