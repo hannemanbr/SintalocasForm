@@ -113,7 +113,7 @@ namespace SINTALOCAS.DAL.DB
 
                     query += idResult + ",";                    
                     query += ",'" + afiliado.CNPJ + "'";
-                    query += "'" + afiliado.Empresa + "'";
+                    query += ",'" + afiliado.Empresa + "'";
                     query += ")";
 
                     _contexto.Transacao(query);
