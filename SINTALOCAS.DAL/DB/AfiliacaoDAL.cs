@@ -20,8 +20,7 @@ namespace SINTALOCAS.DAL.DB
                 var dataNascTx = afiliado.DataNascimento.Year + "-" + afiliado.DataNascimento.Month + "-" + afiliado.DataNascimento.Day;
 
                 var query = "" +
-                    " INSERT INTO Afiliado(" +                
-                    //"ID, " +                
+                    " INSERT INTO Afiliado(" +      
                     "Nome, " +                
                     "Email, " +                
                     "DataNascimento, " +                
@@ -41,12 +40,11 @@ namespace SINTALOCAS.DAL.DB
                 query += ",'" + afiliado.Email + "'";
                 query += ",'" + dataNascTx + "'";
                 query += ",'" + afiliado.CPF + "'";
-                query += ",'" + afiliado.RG + "'";                
+                query += ",'" + afiliado.RG + "'";
+                query += ",'" + afiliado.CTPS.PIS + "'";
                 query += ",'" + afiliado.Cargo + "'";
                 query += ",'" + afiliado.CTPS.Numero + "'";
-                query += ",'" + afiliado.CTPS.Serie + "'";
-                query += ",'" + afiliado.CTPS.PIS + "'";
-                //query += ",'" + afiliado.PIS + "'";
+                query += ",'" + afiliado.CTPS.Serie + "'";                
                 query += ",'" + afiliado.Consir + "'";
                 query += ",'" + afiliado.NomePai + "'";
                 query += ",'" + afiliado.NomeMae + "'";
@@ -113,9 +111,9 @@ namespace SINTALOCAS.DAL.DB
                         "Nome" +
                         ") VALUES (";
 
-                    query += idResult + ",";
-                    query += "'" + afiliado.Empresa + "'";
+                    query += idResult + ",";                    
                     query += ",'" + afiliado.CNPJ + "'";
+                    query += "'" + afiliado.Empresa + "'";
                     query += ")";
 
                     _contexto.Transacao(query);
