@@ -17,13 +17,31 @@ namespace SINTALOCAS.Web.MVC.Controllers
         
         public ActionResult Index()
         {
-            //return RedirectToAction("Create");
-            //ViewBag.LinkSubmitAfilia = Validacao.AnalisaLink(@Request.RawUrl.ToString() + "/Depentente");
-            
             ViewBag.RootView = Validacao.AnalisaLink(@Request.RawUrl.ToString());
 
             CombosForm();
             return View();
+        }
+
+        public ActionResult Editar()
+        {
+            var objTemp = TempData["AfiliadoID"];
+
+            if (objTemp != null)
+            {
+                TempData["AfiliadoID"] = objTemp;
+                var idAfiliado = Convert.ToInt32(objTemp);
+                GeraViewBag(idAfiliado);
+            }
+
+            return View();
+        }
+
+        private void GeraViewBag(int idAfiliado)
+        {
+            ViewBag.RootView = Validacao.AnalisaLink(@Request.RawUrl.ToString());
+            ViewBag.LinkSubmitAfilia = Validacao.AnalisaLink(@Request.RawUrl.ToString() + "/ValidarFormJSON");
+            ViewBag.Afiliado = AfiliacaoServico.GetByID(idAfiliado);
         }
 
         public bool ValidarForm(FormCollection Collection)
