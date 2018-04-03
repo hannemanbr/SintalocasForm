@@ -20,8 +20,7 @@ namespace SINTALOCAS.DAL.DB
                 var dataNascTx = afiliado.DataNascimento.Year + "-" + afiliado.DataNascimento.Month + "-" + afiliado.DataNascimento.Day;
 
                 var query = "" +
-                    " INSERT INTO Afiliado(" +                
-                    //"ID, " +                
+                    " INSERT INTO Afiliado(" +      
                     "Nome, " +                
                     "Email, " +                
                     "DataNascimento, " +                
@@ -41,12 +40,11 @@ namespace SINTALOCAS.DAL.DB
                 query += ",'" + afiliado.Email + "'";
                 query += ",'" + dataNascTx + "'";
                 query += ",'" + afiliado.CPF + "'";
-                query += ",'" + afiliado.RG + "'";                
+                query += ",'" + afiliado.RG + "'";
+                query += ",'" + afiliado.CTPS.PIS + "'";
                 query += ",'" + afiliado.Cargo + "'";
                 query += ",'" + afiliado.CTPS.Numero + "'";
-                query += ",'" + afiliado.CTPS.Serie + "'";
-                query += ",'" + afiliado.CTPS.PIS + "'";
-                //query += ",'" + afiliado.PIS + "'";
+                query += ",'" + afiliado.CTPS.Serie + "'";                
                 query += ",'" + afiliado.Consir + "'";
                 query += ",'" + afiliado.NomePai + "'";
                 query += ",'" + afiliado.NomeMae + "'";
@@ -113,9 +111,9 @@ namespace SINTALOCAS.DAL.DB
                         "Nome" +
                         ") VALUES (";
 
-                    query += idResult + ",";
-                    query += "'" + afiliado.Empresa + "'";
+                    query += idResult;
                     query += ",'" + afiliado.CNPJ + "'";
+                    query += ",'" + afiliado.Empresa + "'";
                     query += ")";
 
                     _contexto.Transacao(query);
@@ -296,25 +294,25 @@ namespace SINTALOCAS.DAL.DB
                     var obj = new Afiliado
                     {
                         ID = Convert.ToInt32(linha["ID"]),
-                        Nome = linha["Nome"].ToString(),
-                        RG = linha["RG"].ToString(),
-                        CPF = linha["CPF"].ToString(),
-                        Email = linha["Email"].ToString(),
-                        Cargo = linha["Cargo"].ToString(),
-                        Consir = linha["Consir"].ToString(),
-                        CNPJ = linha["EmpresaCNPJ"].ToString(),
-                        Empresa = linha["EmpresaNome"].ToString(),
+                        Nome = linha["Nome"].ToString().ToUpper(),
+                        RG = linha["RG"].ToString().ToUpper(),
+                        CPF = linha["CPF"].ToString().ToUpper(),
+                        Email = linha["Email"].ToString().ToUpper(),
+                        Cargo = linha["Cargo"].ToString().ToUpper(),
+                        Consir = linha["Consir"].ToString().ToUpper(),
+                        CNPJ = linha["EmpresaCNPJ"].ToString().ToUpper(),
+                        Empresa = linha["EmpresaNome"].ToString().ToUpper(),
                         DataNascimento = Convert.ToDateTime(linha["DataNascimento"].ToString()),
-                        NomeMae = linha["NomeMae"].ToString(),
-                        NomePai = linha["NomePai"].ToString(),
+                        NomeMae = linha["NomeMae"].ToString().ToUpper(),
+                        NomePai = linha["NomePai"].ToString().ToUpper(),
                     };
 
                     //OBJETO CTPS
                     var ctps = new CTPS
                     {
-                        Numero = linha["CTPS_Num"].ToString(),
-                        Serie = linha["CTPS_Serie"].ToString(),
-                        PIS = linha["PIS"].ToString()
+                        Numero = linha["CTPS_Num"].ToString().ToUpper(),
+                        Serie = linha["CTPS_Serie"].ToString().ToUpper(),
+                        PIS = linha["PIS"].ToString().ToUpper()
                     };
                     
                     obj.CTPS = ctps;
@@ -322,18 +320,18 @@ namespace SINTALOCAS.DAL.DB
                     //OBJETO ENDEREÇO
                     var endereco = new Endereco
                     {
-                        Logradouro = linha["RUA"].ToString(),
-                        Numero = linha["Numero"].ToString(),
-                        Complemento = linha["Complemento"].ToString(),
-                        Bairro = linha["Bairro"].ToString(),
+                        Logradouro = linha["RUA"].ToString().ToUpper(),
+                        Numero = linha["Numero"].ToString().ToUpper(),
+                        Complemento = linha["Complemento"].ToString().ToUpper(),
+                        Bairro = linha["Bairro"].ToString().ToUpper(),
                         CEP = linha["CEP"].ToString(),
-                        Cidade = linha["Cidade"].ToString(),
-                        Pais = linha["Pais"].ToString(),
-                        UF = linha["UF"].ToString()
+                        Cidade = linha["Cidade"].ToString().ToUpper(),
+                        Pais = linha["Pais"].ToString().ToUpper(),
+                        UF = linha["UF"].ToString().ToUpper()
                     };
 
                     obj.Endereco = endereco;
-
+                    
                     lista.Add(obj);
                 }
 
@@ -364,10 +362,10 @@ namespace SINTALOCAS.DAL.DB
                     var obj = new Dependentes
                     {
                         ID = Convert.ToInt32(linha["ID"]),
-                        Nome = linha["Nome"].ToString(),
+                        Nome = linha["Nome"].ToString().ToUpper(),
                         DataNascimento = Convert.ToDateTime(linha["DataNascimento"].ToString()),
                         GrauParentescoID = Convert.ToInt32(linha["Grau"].ToString()),
-                        GrauParentescoNome = linha["GrauNome"].ToString(),
+                        GrauParentescoNome = linha["GrauNome"].ToString().ToUpper(),
                         AcrescimoMensal = Convert.ToInt32(linha["AcrescimoMensal"].ToString())
                     };
 
