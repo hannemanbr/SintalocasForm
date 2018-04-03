@@ -17,9 +17,6 @@ namespace SINTALOCAS.Web.MVC.Controllers
         
         public ActionResult Index()
         {
-            //return RedirectToAction("Create");
-            //ViewBag.LinkSubmitAfilia = Validacao.AnalisaLink(@Request.RawUrl.ToString() + "/Depentente");
-            
             ViewBag.RootView = Validacao.AnalisaLink(@Request.RawUrl.ToString());
 
             CombosForm();
@@ -39,7 +36,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
             //validação específica cpf, cpn, pis, etc.
             result = Validacao.ValidarCodigos(lista);
 
-            //result = "";
+            result = "";
             
             if (result.Trim() == "")
             {

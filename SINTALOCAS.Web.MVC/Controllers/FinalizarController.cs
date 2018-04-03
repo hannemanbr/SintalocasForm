@@ -71,12 +71,10 @@ namespace SINTALOCAS.Web.MVC.Controllers
 
         private void GeraViewBag(int idAfiliado)
         {
+            ViewBag.Aviso = MensagemUtil.AvisoConcordo();
             ViewBag.RootView = Validacao.AnalisaLink(@Request.RawUrl.ToString());
             var afiliado = AfiliacaoServico.GetByID(idAfiliado);
-            var dependentes = new List<Dependentes>();
-
-            if (afiliado!=null)
-                dependentes = DependenteServico.ListaDependentes(idAfiliado);
+            ViewBag.Pagamento = PagamentoServico.Consultar();
         }
     }
 }

@@ -113,6 +113,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DB\ConfigDAL.cs" />
+    <Compile Include="DB\PagamentoDAL.cs" />
     <Compile Include="DB\UsuarioDAL.cs" />
     <Compile Include="DB\RelatorioDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

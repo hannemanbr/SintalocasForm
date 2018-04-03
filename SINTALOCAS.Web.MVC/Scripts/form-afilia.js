@@ -10,7 +10,7 @@
         // contentType: false,
         // processData: false,               
         success: function (response) {
-            
+
             //alert(response.msg + ' - ' + response.success);
             $("#rForm").html(response.msg);
             //return response.success;
@@ -25,27 +25,23 @@
         },
         error: function (response) {
             // alert("Ocorreu um erro durante o processo, tente novamente!");   
-            alert("Ocorreu um erro durante o processo, tente novamente!\n retorno: " + response.status); 
+            alert("Ocorreu um erro durante o processo, tente novamente!\n retorno: " + response.status);
         }
     });
 }
 
-function validarCPF(valor, rootView) 
-{
+function validarCPF(valor, rootView) {
     var url = rootView + "/ValidarCPF/";
     var valor = $(valor).val();
-    $.get(url, { Cpf: valor}, function (data)
-    {
+    $.get(url, { Cpf: valor }, function (data) {
         $("#rCpf").html(data);
     });
 }
 
-function validarCNPJ(valor, rootView)
-{
+function validarCNPJ(valor, rootView) {
     var url = rootView + "/ValidarCNPJ/";
     var valor = $(valor).val();
-    $.get(url, { Cnpj: valor}, function (data)
-    {
+    $.get(url, { Cnpj: valor }, function (data) {
         $("#rCnpj").html(data);
     });
 }
@@ -54,8 +50,7 @@ function validarPIS(valor, rootView) {
 
     var url = rootView + "/ValidarPIS/";
     var valor = $(valor).val();
-    $.get(url, { Pis: valor}, function (data)
-    {
+    $.get(url, { Pis: valor }, function (data) {
         $("#rPis").html(data);
     });
 
@@ -65,8 +60,7 @@ function validarRG(valor, rootView) {
 
     var url = rootView + "/ValidarRG/";
     var valor = $(valor).val();
-    $.get(url, { Rg: valor}, function (data)
-    {
+    $.get(url, { Rg: valor }, function (data) {
         $("#rRg").html(data);
     });
 
@@ -79,40 +73,35 @@ function validarCEP(valor, rootView) {
     var valor = $(valor).val();
     var msgErro = "CEP inválido";
 
-    if (valor.length < 8) 
-    {
+    if (valor.length < 8) {
         $("#rCEP").html(msgErro);
         //alert(msgErro);
     }
-    else
-    {
-        $.getJSON(url, { Cep: valor}, function (data)
-        {
+    else {
+        $.getJSON(url, { Cep: valor }, function (data) {
             $("#Bairro").val(data.Bairro);
             $("#Rua").val(data.Logradouro);
             $("#Cidade").val(data.Cidade);
             $("#UF").val(data.UF);
             $("#CEP").val(data.CEP);
-    
+
             if (data == null) $("#rCEP").html(msgErro); //alert(msgErro);
-    
+
         });
     }
 
 }
 
-function validarUF(valor, rootView) 
-{
+function validarUF(valor, rootView) {
     var url = rootView + "/ValidarUF/";
     var valor = $(valor).val();
-    $.get(url, { Uf: valor}, function (data)
-    {
+    $.get(url, { Uf: valor }, function (data) {
         $("#rUF").html(data);
     });
 }
 
 // MASCARA NOS CAMPOS
-$(document).ready(function(){
+$(document).ready(function () {
     // $("#DtNasc").mask("(99) 9999-9999");
     $("#TelCelNum").mask("99999-9999");
     $("#TelResNum").mask("9999-9999");
@@ -123,28 +112,23 @@ $(document).ready(function(){
     $("#CEP").mask("99999999");
 });
 
-function validarEmail(valor, rootView) 
-{
+function validarEmail(valor, rootView) {
     var url = rootView + "/ValidarEMAIL/";
     var valor = $(valor).val();
-    $.get(url, { emailtx: valor}, function (data)
-    {
+    $.get(url, { emailtx: valor }, function (data) {
         $("#rEmail").html(data);
     });
 }
 
-function validarDtNasc(valor, rootView) 
-{
+function validarDtNasc(valor, rootView) {
     var url = rootView + "/ValidarDtNasc/";
     var valor = $(valor).val();
-    $.get(url, { dtnasc: valor}, function (data)
-    {
+    $.get(url, { dtnasc: valor }, function (data) {
         $("#rDtNasc").html(data);
     });
 }
 
-function ConfirmaAcao(acao)
-{
+function ConfirmaAcao(acao) {
     return confirm("Deseja " + acao + "?");
 }
 
@@ -176,15 +160,25 @@ function validarFormUsuario(rootView) {
     });
 }
 
-//$('#tbrelatorio').dataTable({
-//    "language": {
-//        "paginate": {
-//            "previous": "Anterior",
-//            "next": "Próximo"
-//        },
-//        "zeroRecords": "Nenhum registro foi encontrado",
-//        "search": "Pesquisar",
-//        "infoEmpty": "nenhum registro encontrado",
-//        "lengthMenu": "Registros por página _MENU_ "
-//    }
-//});
+function ValidaConcordo(aviso) {
+
+    var valor = $("#concordo");
+
+    if (!valor.is(':checked')) {
+        alert("Para finalizar você deve clicar em '" + aviso + "'");
+        return false;
+    }
+
+    var countChecked = function () {
+
+        var n = $("input:checked").length;
+
+        if (n <= 0) {
+            alert("Para finalizar você deve selecionar a opção de pagamento.");
+            return false;
+        }
+    };
+    countChecked();
+
+    return false
+}
