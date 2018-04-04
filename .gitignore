@@ -12,3 +12,12 @@
 *.dll
 
 *.pdb
+/SINTALOCAS.Web.MVC
+
+SINTALOCAS\.Dominio/obj/Debug/SINTALOCAS\.Dominio\.csprojResolveAssemblyReference\.cache
+
+SINTALOCAS\.Dominio/obj/Release/
+
+SINTALOCAS\.Dominio/bin/Release/
+
+SINTALOCAS\.Dominio/obj/Debug/

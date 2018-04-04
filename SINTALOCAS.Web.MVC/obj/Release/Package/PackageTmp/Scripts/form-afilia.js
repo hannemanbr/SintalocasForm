@@ -176,15 +176,14 @@ function validarFormUsuario(rootView) {
     });
 }
 
-//$('#tbrelatorio').dataTable({
-//    "language": {
-//        "paginate": {
-//            "previous": "Anterior",
-//            "next": "Próximo"
-//        },
-//        "zeroRecords": "Nenhum registro foi encontrado",
-//        "search": "Pesquisar",
-//        "infoEmpty": "nenhum registro encontrado",
-//        "lengthMenu": "Registros por página _MENU_ "
-//    }
-//});
+function ValidaConcordo(aviso) {
+
+    var valor = $("#concordo");
+    
+    if (!valor.is(':checked')) {
+        alert("Para finalizar você deve clicar em '" + aviso + "'");
+        return false;
+    }
+
+    return true;
+}
