@@ -182,3 +182,35 @@ function ValidaConcordo(aviso) {
 
     return false
 }
+
+function validarFormAfiliaEdita(rootView) {
+
+    var formData = $("#formAfilia").serialize();
+
+    $.ajax({
+        type: "POST",
+        data: formData,
+        url: rootView + "/ValidarFormEditaJSON",
+        dataType: 'json',
+        // contentType: false,
+        // processData: false,               
+        success: function (response) {
+
+            //alert(response.msg + ' - ' + response.success);
+            $("#rForm").html(response.msg);
+            //return response.success;
+
+            if (response.success) {
+                //$("#formAfilia").submit();
+                window.location.replace("Dependentes");
+            } else {
+                alert(response.msg);
+            }
+
+        },
+        error: function (response) {
+            // alert("Ocorreu um erro durante o processo, tente novamente!");   
+            alert("Ocorreu um erro durante o processo, tente novamente!\n retorno: " + response.status);
+        }
+    });
+}

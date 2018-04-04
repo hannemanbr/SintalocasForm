@@ -36,7 +36,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
 
             return View();
         }
-
+                
         private void GeraViewBag(int idAfiliado)
         {
             ViewBag.RootView = Validacao.AnalisaLink(@Request.RawUrl.ToString());
@@ -44,7 +44,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
             ViewBag.Afiliado = AfiliacaoServico.GetByID(idAfiliado);
         }
 
-        public bool ValidarForm(FormCollection Collection)
+        public bool ValidarForm(FormCollection Collection, bool editar = false)
         {
             var result = "";
 
@@ -61,13 +61,24 @@ namespace SINTALOCAS.Web.MVC.Controllers
             
             if (result.Trim() == "")
             {
-                TempData["idAfiliadoForm"] = InserirDados(lista); //gravando informaçoes
+                TempData["idAfiliadoForm"] = AtualizarDados(lista, editar); //gravando informaçoes
                 return true;
             }
             else
             {
                 return false;
             }
+        }
+
+        [HttpPost]
+        public JsonResult ValidarFormEditaJSON(FormCollection Collection)
+        {
+            var retorno = ValidarForm(Collection);
+            var mensagem = "";
+
+            if (!retorno) mensagem = MensagemUtil.ErroCamposNaoPreenchidos();
+
+            return Json(new { success = retorno, msg = mensagem }, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]
@@ -78,7 +89,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
 
             if (!retorno) mensagem = MensagemUtil.ErroCamposNaoPreenchidos();
             
-            return Json(new { success = retorno, msg = mensagem }, JsonRequestBehavior.AllowGet); ;
+            return Json(new { success = retorno, msg = mensagem }, JsonRequestBehavior.AllowGet);
 
         }
 
@@ -202,13 +213,13 @@ namespace SINTALOCAS.Web.MVC.Controllers
 
         }
 
-        private int InserirDados(Dictionary<string, string> lista) {
+        private int AtualizarDados(Dictionary<string, string> lista, bool editar) {
 
             int result = 0;
 
             try
             {
-                result = validacaoViewServico.InsereAfiliado(lista);
+                result = validacaoViewServico.Atualizar(lista, editar);
             }
             catch (Exception ex)
             {

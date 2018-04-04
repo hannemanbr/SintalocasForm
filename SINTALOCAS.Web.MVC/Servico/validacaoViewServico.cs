@@ -63,7 +63,7 @@ namespace SINTALOCAS.Web.MVC.Servico
             return afiliado;
         }
 
-        public static int InsereAfiliado(Dictionary<string, string> lista)
+        public static int Atualizar(Dictionary<string, string> lista, bool editar)
         {
             try
             {
@@ -82,6 +82,9 @@ namespace SINTALOCAS.Web.MVC.Servico
                 afiliado.Nome = lista["NOME"];
                 afiliado.NomeMae = lista["NOMEMAE"];
                 afiliado.NomePai = lista["NOMEPAI"];
+
+                if (lista["ID"] != null)
+                    afiliado.ID = Convert.ToInt32(lista["ID"]);
 
                 // INFORMAÇOE CTPS
                 afiliado.CTPS = new CTPS
@@ -129,9 +132,14 @@ namespace SINTALOCAS.Web.MVC.Servico
 
                 afiliado.Endereco = endereco;
 
-                //var _afiliacaoServ = new AfiliacaoServico();
-
-                result = AfiliacaoServico.Insere(afiliado);
+                if (editar)
+                {
+                    result = AfiliacaoServico.Insere(afiliado);
+                }
+                else
+                {
+                    result = AfiliacaoServico.Insere(afiliado);
+                }
 
                 return result;
 
