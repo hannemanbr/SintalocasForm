@@ -83,7 +83,7 @@ namespace SINTALOCAS.Web.MVC.Servico
                 afiliado.NomeMae = lista["NOMEMAE"];
                 afiliado.NomePai = lista["NOMEPAI"];
 
-                if (lista["ID"] != null)
+                if (lista.ContainsKey("ID"))
                     afiliado.ID = Convert.ToInt32(lista["ID"]);
 
                 // INFORMAÇOE CTPS

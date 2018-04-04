@@ -6,7 +6,6 @@
 
 <h1> @ViewBag.Titulo</h1>
 <br />
-<<<<<<< HEAD
 <p>
     <form action="Finalizar/Realizado" method="post">
         <div class="row">
@@ -18,40 +17,35 @@
             </label>
         </div>
         <div class="row">
+            <strong>Selecione a opção de contribuição</strong><br />
+            @foreach (var item in ViewBag.Contribuicao)
+            {
+                <input type="radio" id="contribuicao" name="contribuicao" value="@item" />
+                <span id="contribuicaoTx" name="contribuicaoTx">@item.Texto</span>
+                <br />
+            }
+            <br />
+            <br />
+        </div>
+        <div class="row">
+            <strong>Selecione a opção de pagamento</strong><br />
             @foreach (var item in ViewBag.Pagamento)
             {
                 <input type="radio" id="pagamento" name="pagamento" value="@item" />
-                <span id="pagamentoTx" style="font-size:14px; font-weight: bold" name="pagamentoTx">@item.Texto</span>
+                <span id="pagamentoTx" name="pagamentoTx">@item.Texto</span>
                 <br />
             }
+            <br />
+            <br />
         </div>
-        <br />
         <div class="row">
             <input type="checkbox" id="concordo" name="concordo" value="1" />
             <span id="concordoTx" style="font-size:14px; font-weight: bold" name="concordoTx">@ViewBag.Aviso</span>
         </div>
         <br />
         <br />
-        <input type="submit" id="btnGravar" class="BotaoFinaliza" onclick="return ValidaConcordo('@ViewBag.Aviso');" value="Concordar e enviar pedido de afiliação" />
+        <div class="row">
+            <input type="submit" id="btnGravar" class="BotaoFinaliza" onclick="return ValidaConcordo('@ViewBag.Aviso');" value="Concordar e enviar pedido de afiliação" />
+        </div>
     </form>
 </p>
-
-=======
-@Html.Raw(ViewBag.TextoPrincipal)
-<span id="rFormRetorno" style="color:#FF0000">@Html.Raw(ViewBag.MensagemRetorno)</span>
-<br />
-<form action="Finalizar/Realizado" method="post">
-    <div class="row">
-        <label class="label">
-            <a target="_blank" style="font-size:14px;" href="~/Download/docs/Ficha_Filiacao_AcordoJAN2018.pdf">Ler Termos e Condições</a>
-        </label>
-    </div>
-    <div class="row">
-        <input type="checkbox" id="concordo" name="concordo" value="1" />
-        <span id="concordoTx" style="font-size:14px; font-weight: bold" name="concordoTx">@ViewBag.Aviso</span>
-    </div>
-    <br />
-    <input type="submit" id="btnGravar" class="BotaoFinaliza" onclick="return ValidaConcordo('@ViewBag.Aviso');" value="Concordar e enviar pedido de afiliação" />
-</form>
-<br />
->>>>>>> Estabilizacao

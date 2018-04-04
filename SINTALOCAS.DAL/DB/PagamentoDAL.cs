@@ -13,7 +13,7 @@ namespace SINTALOCAS.DAL.DB
     {
         private static ContextoMySqlDB _contexto = new ContextoMySqlDB();
 
-        public static List<Pagamento> Consultar()
+        public static List<Pagamento> Consultar(string categoria)
         {
             try
             {
@@ -21,7 +21,8 @@ namespace SINTALOCAS.DAL.DB
 
                 var query = "SELECT ID, Texto"
                     + " FROM Cfg_OpcaoPagto"
-                    + " WHERE D_E_L_E_T_ = 0";
+                    + " WHERE D_E_L_E_T_ = 0"
+                    + " AND Categoria='" + categoria.ToUpper().Trim() + "'";
 
                 var dataTable = _contexto.Consultar(query);
 

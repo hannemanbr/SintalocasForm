@@ -173,11 +173,12 @@ function ValidaConcordo(aviso) {
 
         var n = $("input:checked").length;
 
-        if (n <= 0) {
-            alert("Para finalizar você deve selecionar a opção de pagamento.");
+        if (n <= 1) {
+            alert("Para finalizar você deve selecionar a opção de pagamento e contribuição.");
             return false;
         }
     };
+
     countChecked();
 
     return false
