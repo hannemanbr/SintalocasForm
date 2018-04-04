@@ -23,14 +23,14 @@ namespace SINTALOCAS.Web.MVC.Controllers
             return View();
         }
 
-        public ActionResult Editar()
+        [HttpGet]
+        public ActionResult Editar(int id)
         {
-            var objTemp = TempData["AfiliadoID"];
+            TempData["AfiliadoID"] = id;
 
-            if (objTemp != null)
+            if (id != null)
             {
-                TempData["AfiliadoID"] = objTemp;
-                var idAfiliado = Convert.ToInt32(objTemp);
+                var idAfiliado = Convert.ToInt32((int)id);
                 GeraViewBag(idAfiliado);
             }
 
@@ -44,7 +44,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
             ViewBag.Afiliado = AfiliacaoServico.GetByID(idAfiliado);
         }
 
-        public bool ValidarForm(FormCollection Collection, bool editar = false)
+        public bool ValidarForm(FormCollection Collection, bool editar)
         {
             var result = "";
 
@@ -73,7 +73,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
         [HttpPost]
         public JsonResult ValidarFormEditaJSON(FormCollection Collection)
         {
-            var retorno = ValidarForm(Collection);
+            var retorno = ValidarForm(Collection, true);
             var mensagem = "";
 
             if (!retorno) mensagem = MensagemUtil.ErroCamposNaoPreenchidos();
@@ -84,7 +84,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
         [HttpPost]
         public JsonResult ValidarFormJSON(FormCollection Collection)
         {
-            var retorno = ValidarForm(Collection);
+            var retorno = ValidarForm(Collection, false);
             var mensagem = "";
 
             if (!retorno) mensagem = MensagemUtil.ErroCamposNaoPreenchidos();
