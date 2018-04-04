@@ -23,3 +23,13 @@ SINTALOCAS\.Dominio/bin/Release/
 SINTALOCAS\.Dominio/obj/Debug/
 
 SINTALOCAS\.DAL/bin/Debug/
+
+\.vs/
+
+SINTALOCAS\.Dominio/bin/Debug/
+
+SINTALOCAS\.Dominio/obj/
+
+SINTALOCAS\.Modelo/obj/
+
+SINTALOCAS\.Modelo/bin/Debug/
