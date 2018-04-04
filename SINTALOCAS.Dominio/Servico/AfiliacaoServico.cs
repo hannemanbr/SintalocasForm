@@ -16,7 +16,6 @@ namespace SINTALOCAS.Dominio.Servico
             try
             {
                 int result = _afiliacaoDAL.InserirAfiliado(afiliado);
-                //_afiliacaoEFDAL.Inserir(afiliado);
                 
                 return result;
             }
@@ -39,13 +38,13 @@ namespace SINTALOCAS.Dominio.Servico
             }
         }
 
-        public static bool Concordar(int id)
+        public static bool Concordar(int id, int opcaoPagamento, int opcaoContribuicao)
         {
             var result = false;
 
             try
             {
-                var registros = _afiliacaoDAL.Concordar(id);
+                var registros = _afiliacaoDAL.Concordar(id, opcaoPagamento, opcaoContribuicao);
                 var dependente = new List<Dependentes>();              
                 var afiliado = GetByID(id);
 
@@ -104,8 +103,9 @@ namespace SINTALOCAS.Dominio.Servico
 
             try
             {
-                if(_afiliacaoDAL.ListaAfiliado("", id).Count>0)
-                    result = _afiliacaoDAL.ListaAfiliado("", id)[0];
+                var lista = _afiliacaoDAL.ListaAfiliado("", id);
+                if (lista.Count>0)
+                    result = lista[0];
             }
             catch (Exception)
             {

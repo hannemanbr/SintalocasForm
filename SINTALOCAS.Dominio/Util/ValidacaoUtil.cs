@@ -19,8 +19,7 @@ namespace SINTALOCAS.Dominio.Util
 
             return listaCampoOpcional;
         }
-              
-
+        
         public static string AnalisaLink(string link, bool nivelRaiz = false)
         {
             link = link.Trim().Replace("//", "/"); // remove barras duplicadas

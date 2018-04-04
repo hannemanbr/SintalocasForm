@@ -23,7 +23,28 @@ namespace SINTALOCAS.Web.MVC.Controllers
             return View();
         }
 
-        public bool ValidarForm(FormCollection Collection)
+        [HttpGet]
+        public ActionResult Editar(int id)
+        {
+            TempData["AfiliadoID"] = id;
+
+            if (id != null)
+            {
+                var idAfiliado = Convert.ToInt32((int)id);
+                GeraViewBag(idAfiliado);
+            }
+
+            return View();
+        }
+                
+        private void GeraViewBag(int idAfiliado)
+        {
+            ViewBag.RootView = Validacao.AnalisaLink(@Request.RawUrl.ToString());
+            ViewBag.LinkSubmitAfilia = Validacao.AnalisaLink(@Request.RawUrl.ToString() + "/ValidarFormJSON");
+            ViewBag.Afiliado = AfiliacaoServico.GetByID(idAfiliado);
+        }
+
+        public bool ValidarForm(FormCollection Collection, bool editar)
         {
             var result = "";
 
@@ -36,11 +57,11 @@ namespace SINTALOCAS.Web.MVC.Controllers
             //validação específica cpf, cpn, pis, etc.
             result = Validacao.ValidarCodigos(lista);
 
-            //result = "";
+            result = "";
             
             if (result.Trim() == "")
             {
-                TempData["idAfiliadoForm"] = InserirDados(lista); //gravando informaçoes
+                TempData["idAfiliadoForm"] = AtualizarDados(lista, editar); //gravando informaçoes
                 return true;
             }
             else
@@ -50,14 +71,25 @@ namespace SINTALOCAS.Web.MVC.Controllers
         }
 
         [HttpPost]
+        public JsonResult ValidarFormEditaJSON(FormCollection Collection)
+        {
+            var retorno = ValidarForm(Collection, true);
+            var mensagem = "";
+
+            if (!retorno) mensagem = MensagemUtil.ErroCamposNaoPreenchidos();
+
+            return Json(new { success = retorno, msg = mensagem }, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
         public JsonResult ValidarFormJSON(FormCollection Collection)
         {
-            var retorno = ValidarForm(Collection);
+            var retorno = ValidarForm(Collection, false);
             var mensagem = "";
 
             if (!retorno) mensagem = MensagemUtil.ErroCamposNaoPreenchidos();
             
-            return Json(new { success = retorno, msg = mensagem }, JsonRequestBehavior.AllowGet); ;
+            return Json(new { success = retorno, msg = mensagem }, JsonRequestBehavior.AllowGet);
 
         }
 
@@ -181,13 +213,13 @@ namespace SINTALOCAS.Web.MVC.Controllers
 
         }
 
-        private int InserirDados(Dictionary<string, string> lista) {
+        private int AtualizarDados(Dictionary<string, string> lista, bool editar) {
 
             int result = 0;
 
             try
             {
-                result = validacaoViewServico.InsereAfiliado(lista);
+                result = validacaoViewServico.Atualizar(lista, editar);
             }
             catch (Exception ex)
             {
