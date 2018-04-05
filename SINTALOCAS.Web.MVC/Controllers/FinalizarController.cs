@@ -45,12 +45,15 @@ namespace SINTALOCAS.Web.MVC.Controllers
                 int idAfiliado = ConsultaIdAfiliado();
                 int opcaoPagamento = 0;
                 int opcaoContribuicao = 0;
+                int concordo = 0;
 
-                if (lista.ContainsKey("pagamento")) opcaoPagamento = Convert.ToInt32(lista["pagamento"]);
-                if (lista.ContainsKey("contribuicao")) opcaoPagamento = Convert.ToInt32(lista["contribuicao"]);
+                if (lista.ContainsKey("CONCORDO")) concordo = Convert.ToInt32(lista["CONCORDO"]);
+                if (lista.ContainsKey("PAGAMENTO")) opcaoPagamento = Convert.ToInt32(lista["PAGAMENTO"]);
+                if (lista.ContainsKey("CONTRIBUICAO")) opcaoContribuicao = Convert.ToInt32(lista["CONTRIBUICAO"]);
 
-                if (idAfiliado == 0 || opcaoPagamento == 0 || opcaoContribuicao == 0)
+                if (idAfiliado == 0 || opcaoPagamento == 0 || opcaoContribuicao == 0 || concordo == 0)
                 {
+                    GeraViewBag(idAfiliado);
                     ViewBag.MensagemRetorno = MensagemUtil.ErroCamposNaoPreenchidos();
                     return View("Index");
                 }

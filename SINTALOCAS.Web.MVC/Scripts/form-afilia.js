@@ -162,26 +162,35 @@ function validarFormUsuario(rootView) {
 
 function ValidaConcordo(aviso) {
 
-    var valor = $("#concordo");
-
-    if (!valor.is(':checked')) {
-        alert("Para finalizar você deve clicar em '" + aviso + "'");
-        return false;
-    }
+    var result = true;
 
     var countChecked = function () {
 
-        var n = $("input:checked").length;
-
-        if (n <= 1) {
-            alert("Para finalizar você deve selecionar a opção de pagamento e contribuição.");
-            return false;
+        if ($('input[name=contribuicao]:checked').length <= 0) {
+            alert("Para finalizar você deve selecionar a opção de contribuição.");
+            result = false;
         }
+
+        if ($('input[name=pagamento]:checked').length <= 0) {
+            alert("Para finalizar você deve selecionar a opção de pagamento.");
+            result = false;
+        }
+
     };
 
     countChecked();
 
-    return false
+    if (result) {
+        var valor = $("#concordo");
+
+        if (!valor.is(':checked')) {
+            alert("Para finalizar você deve clicar em '" + aviso + "'");
+            result = false;
+        }
+    }
+    
+    return result;
+
 }
 
 function validarFormAfiliaEdita(rootView) {
