@@ -163,16 +163,19 @@ function validarFormUsuario(rootView) {
 function ValidaConcordo(aviso) {
 
     var result = true;
+    var msg = "";
 
     var countChecked = function () {
 
         if ($('input[name=contribuicao]:checked').length <= 0) {
-            alert("Para finalizar você deve selecionar a opção de contribuição.");
+            //alert("Para finalizar você deve selecionar a opção de contribuição.");
+            msg += "Para finalizar você deve selecionar a opção de contribuição.\n";
             result = false;
         }
 
         if ($('input[name=pagamento]:checked').length <= 0) {
-            alert("Para finalizar você deve selecionar a opção de pagamento.");
+            //alert("Para finalizar você deve selecionar a opção de pagamento.");
+            msg += "Para finalizar você deve selecionar a opção de pagamento.\n";
             result = false;
         }
 
@@ -184,9 +187,14 @@ function ValidaConcordo(aviso) {
         var valor = $("#concordo");
 
         if (!valor.is(':checked')) {
-            alert("Para finalizar você deve clicar em '" + aviso + "'");
+            //alert("Para finalizar você deve clicar em '" + aviso + "'");
+            msg += "Para finalizar você deve clicar em '" + aviso + "'\n";
             result = false;
         }
+    }
+
+    if (!result) {
+        alert(msg);
     }
     
     return result;
@@ -206,20 +214,16 @@ function validarFormAfiliaEdita(rootView) {
         // processData: false,               
         success: function (response) {
 
-            //alert(response.msg + ' - ' + response.success);
             $("#rForm").html(response.msg);
-            //return response.success;
-
+            
             if (response.success) {
-                //$("#formAfilia").submit();
                 window.location.replace("Dependentes");
             } else {
                 alert(response.msg);
             }
 
         },
-        error: function (response) {
-            // alert("Ocorreu um erro durante o processo, tente novamente!");   
+        error: function (response) { 
             alert("Ocorreu um erro durante o processo, tente novamente!\n retorno: " + response.status);
         }
     });

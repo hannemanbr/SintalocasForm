@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using SINTALOCAS.Dominio.Servico;
 using SINTALOCAS.Dominio.Util;
-using SINTALOCAS.Modelo;
 using SINTALOCAS.Modelo.Enumerator;
 using SINTALOCAS.Web.MVC.Servico;
 
