@@ -134,7 +134,7 @@ namespace SINTALOCAS.Web.MVC.Servico
 
                 if (editar)
                 {
-                    result = AfiliacaoServico.Insere(afiliado);
+                    result = AfiliacaoServico.Editar(afiliado);
                 }
                 else
                 {

@@ -3,6 +3,8 @@ using SINTALOCAS.Modelo;
 using SINTALOCAS.DAL.Context;
 using System.Data;
 using System.Collections.Generic;
+using System.Linq;
+using SINTALOCAS.Modelo.Enumerator;
 
 namespace SINTALOCAS.DAL.DB
 {
@@ -32,7 +34,11 @@ namespace SINTALOCAS.DAL.DB
                     "CTPS_Serie, " +                
                     "CONSIR, " +                
                     "NomePai, " +                
-                    "NomeMae " +                
+                    "NomeMae, " +
+                    "CelDDD, " +
+                    "CelNumero," +
+                    "TelDDD," +
+                    "TelNumero" +
                     ") VALUES (";
 
                 //query += "'1',";
@@ -48,6 +54,12 @@ namespace SINTALOCAS.DAL.DB
                 query += ",'" + afiliado.Consir + "'";
                 query += ",'" + afiliado.NomePai + "'";
                 query += ",'" + afiliado.NomeMae + "'";
+
+                query += ",'" + afiliado.Telefones.Where(t=>t.TipoTelefone == TelefoneEnum.Celular01).Select(t=>t.DDD).ToString() + "'";
+                query += ",'" + afiliado.Telefones.Where(t => t.TipoTelefone == TelefoneEnum.Celular01).Select(t => t.Numero).ToString() + "'";
+                query += ",'" + afiliado.Telefones.Where(t => t.TipoTelefone == TelefoneEnum.Residencia).Select(t => t.DDD).ToString() + "'";
+                query += ",'" + afiliado.Telefones.Where(t => t.TipoTelefone == TelefoneEnum.Residencia).Select(t => t.Numero).ToString() + "'";
+
                 query += ")";
 
                 result = _contexto.Transacao(query);
@@ -271,6 +283,10 @@ namespace SINTALOCAS.DAL.DB
                                 ",A.RG                       " +
                                 ",A.Pagamento                " +
                                 ",A.Contribuicao             " +
+                                ",A.CelDDD                   " +
+                                ",A.CelNumero                " +
+                                ",A.TelDDD                   " +
+                                ",A.TelNumero                " +
                                 ",E.Rua                      " +
                                 ",E.Numero                   " +
                                 ",E.Complemento              " +
@@ -295,7 +311,7 @@ namespace SINTALOCAS.DAL.DB
                 if (id > 0) query += " AND A.ID='" + id + "'";
 
                 var dataTable = _contexto.Consultar(query);
-
+                
                 foreach (DataRow linha in dataTable.Rows)
                 {
                     var obj = new Afiliado
@@ -314,6 +330,19 @@ namespace SINTALOCAS.DAL.DB
                         NomePai = linha["NomePai"].ToString().ToUpper(),
                         ContribuicaoID = Convert.ToInt32(linha["Contribuicao"].ToString()),
                         PagamentoID = Convert.ToInt32(linha["Pagamento"].ToString())
+                    };
+
+                    //TELEFONES
+                    obj.Telefones = new List<Telefone>
+                    {
+                        new Telefone{
+                            DDD =linha["CelDDD"].ToString(),
+                            Numero =linha["CelNumero"].ToString()
+                        },
+                        new Telefone{
+                            DDD =linha["TelDDD"].ToString(),
+                            Numero =linha["TelNumero"].ToString()
+                        }
                     };
 
                     //OBJETO CTPS

@@ -27,6 +27,21 @@ namespace SINTALOCAS.Dominio.Servico
             }
         }
 
+        public static int Editar(Afiliado afiliado)
+        {
+
+            try
+            {
+                int result = _afiliacaoDAL.InserirAfiliado(afiliado);
+
+                return result;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public static int Delete(int id)
         {
             try

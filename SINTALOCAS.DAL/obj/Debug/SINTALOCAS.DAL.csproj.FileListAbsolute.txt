@@ -178,7 +178,6 @@ C:\Users\thomas.abrantes\Documents\Thomas\GitHub\SintaLocas\SINTALOCAS.DAL\bin\D
 C:\Users\thomas.abrantes\Documents\Thomas\GitHub\SintaLocas\SINTALOCAS.DAL\bin\Debug\MySql.Data.xml
 C:\Users\thomas.abrantes\Documents\Thomas\GitHub\SintaLocas\SINTALOCAS.DAL\bin\Debug\MySql.Data.Entity.EF6.xml
 C:\Users\thomas.abrantes\Documents\Thomas\GitHub\SintaLocas\SINTALOCAS.DAL\bin\Debug\Newtonsoft.Json.xml
-C:\Users\thomas.abrantes\Documents\Thomas\GitHub\SintaLocas\SINTALOCAS.DAL\bin\Debug\Remotion.Linq.xml
 C:\Users\thomas.abrantes\Documents\Thomas\GitHub\SintaLocas\SINTALOCAS.DAL\obj\Debug\SINTALOCAS.DAL.csprojResolveAssemblyReference.cache
 C:\Users\thomas.abrantes\Documents\Thomas\GitHub\SintaLocas\SINTALOCAS.DAL\obj\Debug\SINTALOCAS.DAL.csproj.CoreCompileInputs.cache
 C:\Users\thomas.abrantes\Documents\Thomas\GitHub\SintaLocas\SINTALOCAS.DAL\obj\Debug\SINTALOCAS.DAL.csproj.CopyComplete
