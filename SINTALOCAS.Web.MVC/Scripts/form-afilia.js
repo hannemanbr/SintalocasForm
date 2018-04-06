@@ -169,13 +169,13 @@ function ValidaConcordo(aviso) {
 
         if ($('input[name=contribuicao]:checked').length <= 0) {
             //alert("Para finalizar você deve selecionar a opção de contribuição.");
-            msg += "Para finalizar você deve selecionar a opção de contribuição.\n";
+            msg += "- Selecione a opção de contribuição.\n";
             result = false;
         }
 
         if ($('input[name=pagamento]:checked').length <= 0) {
             //alert("Para finalizar você deve selecionar a opção de pagamento.");
-            msg += "Para finalizar você deve selecionar a opção de pagamento.\n";
+            msg += "- Selecione a opção de pagamento.\n";
             result = false;
         }
 
@@ -188,7 +188,7 @@ function ValidaConcordo(aviso) {
 
         if (!valor.is(':checked')) {
             //alert("Para finalizar você deve clicar em '" + aviso + "'");
-            msg += "Para finalizar você deve clicar em '" + aviso + "'\n";
+            msg += "- você deve clicar em '" + aviso + "'\n";
             result = false;
         }
     }

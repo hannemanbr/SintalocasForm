@@ -7,35 +7,45 @@
 
 @if (ViewBag.Lista != null)
 {
-    <table style="width:100%; border-color:#ffffff; border-width: 2px; padding:3px; background-color:#e2e2e2">
-        @foreach (var item in ViewBag.Lista)
-        {
-            <tr>
-                <td style="background-color:#868686; color:#ffffff"><strong>Informações Gerais</strong></td>
-            </tr>
-            <tr>
-                <td><strong>Nome:</strong> @item.Nome</td>
-            </tr>
-            <tr>
-                <td>
-                    <strong>CPF:</strong> @item.CPF
-                    <strong>RG:</strong> @item.RG
-                    <strong>Dt. Nasc.:</strong> @item.DataNascimento
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <strong>Cargo:</strong> @item.Cargo
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <strong>Empresa:</strong> @item.Empresa
-                    <strong>CNPJ:</strong> @item.CNPJ
-                </td>
-            </tr>
-        }
-    </table>
+<table style="width:100%; border-color:#ffffff; border-width: 2px; padding:3px; background-color:#e2e2e2">
+    @foreach (var item in ViewBag.Lista)
+    {
+        <tr>
+            <td style="background-color:#868686; color:#ffffff"><strong>Informações Gerais</strong></td>
+        </tr>
+        <tr>
+            <td><strong>Nome:</strong> @item.Nome</td>
+        </tr>
+        <tr>
+            <td>
+                <strong>CPF:</strong> @item.CPF
+                <strong>RG:</strong> @item.RG
+                <strong>Dt. Nasc.:</strong> @item.DataNascimento
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Cargo:</strong> @item.Cargo
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Empresa:</strong> @item.Empresa
+                <strong>CNPJ:</strong> @item.CNPJ
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Opção de Pagamento:</strong> @item.PagamentoTx
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Opção de Contribuição:</strong> @item.ContribuicaoTx
+            </td>
+        </tr>
+    }
+</table>
 }
 else
 {

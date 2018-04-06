@@ -10,11 +10,37 @@ namespace SINTALOCAS.Dominio.Servico
 {
     public static class PagamentoServico
     {
-        public static List<Pagamento> Consultar(string categoria)
+        public static List<Pagamento> ConsultarPorCategoria(string categoria)
         {
             try
             {
-                return PagamentoDAL.Consultar(categoria);
+                return PagamentoDAL.ConsultarPorCategoria(categoria);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public static List<Pagamento> ConsultarTodos()
+        {
+            try
+            {
+                return PagamentoDAL.ConsultarPorCategoria("");
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public static List<Pagamento> ConsultarPorID(int id)
+        {
+            try
+            {
+                return PagamentoDAL.ConsultarPorID(id);
             }
             catch (Exception)
             {

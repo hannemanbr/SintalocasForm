@@ -8,7 +8,7 @@
 
 @if (ViewBag.Lista.Count > 0)
 {
-<div class="table-responsive">
+<div class="table-responsive table-hover table-striped">
     <table id="tbrelatorio">
         <thead>
             <tr style="background-color: #000000; color:#ffffff">
@@ -34,8 +34,8 @@
                     <td>@item.CNPJ</td>
                     <td>@item.Cargo</td>
                     <td>
-                        <a href="~/Relatorio/DetalheAfiliado/@item.CPF">Ver detalhes</a> |
-                        <a href="~/Afiliado/Editar/@item.ID">Editar</a> |                        
+                        <a href="~/Relatorio/DetalheAfiliado/@item.CPF">Ver detalhes</a> <br />
+                        <a href="~/Afiliado/Editar/@item.ID">Editar</a> <br />  
                         <a href="~/Relatorio/DeleteAfiliado/@item.ID" onclick="return ConfirmaAcao('excluir este registro')" style="color:#ff0000">|X| Excluir</a>
                     </td>
                 </tr>

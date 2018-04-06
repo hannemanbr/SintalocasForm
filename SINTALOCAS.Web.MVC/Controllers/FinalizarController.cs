@@ -89,8 +89,8 @@ namespace SINTALOCAS.Web.MVC.Controllers
 
             ViewBag.Aviso = MensagemUtil.AvisoConcordo();
             ViewBag.RootView = Validacao.AnalisaLink(@Request.RawUrl.ToString());
-            ViewBag.Pagamento = PagamentoServico.Consultar(OpcaoPagamentoEnum.PAGTO.ToString());
-            ViewBag.Contribuicao = PagamentoServico.Consultar(OpcaoPagamentoEnum.CONTRIB.ToString());
+            ViewBag.Pagamento = PagamentoServico.ConsultarPorCategoria(OpcaoPagamentoEnum.PAGTO.ToString());
+            ViewBag.Contribuicao = PagamentoServico.ConsultarPorCategoria(OpcaoPagamentoEnum.CONTRIB.ToString());
 
             var mensagemSistema = TextosServico.TextoDeAcordo();
 

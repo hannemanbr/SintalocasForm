@@ -172,9 +172,9 @@ namespace SINTALOCAS.DAL.DB
             try
             {
                 var query = "UPDATE Afiliado SET " +
-                    " Concordar = 1 WHERE Id=" + Id +
-                    " Pagamento =" + opcaoPagamento + "" +
-                    " Contribuicao =" + opcaoContribuicao + "" +
+                    " Concordar = 1" + 
+                    " ,Pagamento =" + opcaoPagamento + "" +
+                    " ,Contribuicao =" + opcaoContribuicao + "" +
                     " WHERE Id=" + Id;
 
                 result = _contexto.Transacao(query);
@@ -269,6 +269,8 @@ namespace SINTALOCAS.DAL.DB
                                 ",A.NomePai                  " +
                                 ",A.PIS                      " +
                                 ",A.RG                       " +
+                                ",A.Pagamento                " +
+                                ",A.Contribuicao             " +
                                 ",E.Rua                      " +
                                 ",E.Numero                   " +
                                 ",E.Complemento              " +
@@ -287,7 +289,7 @@ namespace SINTALOCAS.DAL.DB
                              " LEFT JOIN Afiliado_Empresa EP " +                            
                              " ON EP.IdAfiliado = A.ID       " +
                              "      AND EP.D_E_L_E_T_ = 0    " +
-                             " WHERE 1=1                     ";
+                             " WHERE A.D_E_L_E_T_=0          ";
 
                 if (cpf.Trim() != "") query += " AND A.CPF='" + cpf + "'";
                 if (id > 0) query += " AND A.ID='" + id + "'";
@@ -310,6 +312,8 @@ namespace SINTALOCAS.DAL.DB
                         DataNascimento = Convert.ToDateTime(linha["DataNascimento"].ToString()),
                         NomeMae = linha["NomeMae"].ToString().ToUpper(),
                         NomePai = linha["NomePai"].ToString().ToUpper(),
+                        ContribuicaoID = Convert.ToInt32(linha["Contribuicao"].ToString()),
+                        PagamentoID = Convert.ToInt32(linha["Pagamento"].ToString())
                     };
 
                     //OBJETO CTPS

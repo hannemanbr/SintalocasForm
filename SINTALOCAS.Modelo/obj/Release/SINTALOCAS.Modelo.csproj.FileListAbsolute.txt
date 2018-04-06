@@ -16,3 +16,4 @@ C:\Users\thomas.abrantes\Documents\Thomas\GitHub\SintaLocas\SINTALOCAS.Modelo\ob
 C:\Users\thomas.abrantes\Documents\Thomas\GitHub\SintaLocas\SINTALOCAS.Modelo\obj\Release\SINTALOCAS.Modelo.csproj.CoreCompileInputs.cache
 C:\Users\thomas.abrantes\Documents\Thomas\GitHub\SintaLocas\SINTALOCAS.Modelo\obj\Release\SINTALOCAS.Modelo.csproj.CopyComplete
 C:\Users\thomas.abrantes\Documents\Thomas\GitHub\SintaLocas\SINTALOCAS.Modelo\obj\Release\SINTALOCAS.Modelo.dll
+D:\Thomas\Github\SintalocasForm\SINTALOCAS.Modelo\obj\Release\SINTALOCAS.Modelo.csproj.CopyComplete

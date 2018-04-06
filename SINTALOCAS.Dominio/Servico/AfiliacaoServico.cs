@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using SINTALOCAS.DAL.DB;
 using SINTALOCAS.Dominio.Util;
 using SINTALOCAS.Modelo;
@@ -11,12 +12,13 @@ namespace SINTALOCAS.Dominio.Servico
         private static AfiliacaoDAL _afiliacaoDAL = new AfiliacaoDAL();
         //private static AfiliacaoEFDAL _afiliacaoEFDAL = new AfiliacaoEFDAL();
 
-        public static int Insere(Afiliado afiliado){
+        public static int Insere(Afiliado afiliado)
+        {
 
             try
             {
                 int result = _afiliacaoDAL.InserirAfiliado(afiliado);
-                
+
                 return result;
             }
             catch (Exception)
@@ -45,7 +47,7 @@ namespace SINTALOCAS.Dominio.Servico
             try
             {
                 var registros = _afiliacaoDAL.Concordar(id, opcaoPagamento, opcaoContribuicao);
-                var dependente = new List<Dependentes>();              
+                var dependente = new List<Dependentes>();
                 var afiliado = GetByID(id);
 
                 if (afiliado != null)
@@ -83,11 +85,28 @@ namespace SINTALOCAS.Dominio.Servico
 
         public static List<Afiliado> Listar(string cpf = "")
         {
-            List<Afiliado> result = new List<Afiliado>();
+            var result = new List<Afiliado>();
 
             try
             {
-                result = _afiliacaoDAL.ListaAfiliado(cpf);
+                var pagamento = PagamentoServico.ConsultarTodos();
+                var pagamentoTx = "";
+                var contribuicaoTx = "";
+
+                var listaFiliado = _afiliacaoDAL.ListaAfiliado(cpf);
+
+                foreach (var item in listaFiliado)
+                {
+                    if (item.PagamentoID > 0)
+                        pagamentoTx = pagamento.Where(p => p.ID == item.PagamentoID).First().Texto;
+                    if (item.ContribuicaoID > 0)
+                        contribuicaoTx = pagamento.Where(p => p.ID == item.ContribuicaoID).First().Texto;
+
+                    item.PagamentoTx = pagamentoTx;
+                    item.ContribuicaoTx = contribuicaoTx;
+
+                    result.Add(item);
+                }
             }
             catch (Exception)
             {
@@ -104,8 +123,16 @@ namespace SINTALOCAS.Dominio.Servico
             try
             {
                 var lista = _afiliacaoDAL.ListaAfiliado("", id);
-                if (lista.Count>0)
+                if (lista.Count > 0)
                     result = lista[0];
+
+                var pagamento = PagamentoServico.ConsultarTodos();
+
+                if (result.PagamentoID > 0)
+                    result.PagamentoTx = pagamento.Where(p => p.ID == result.PagamentoID).First().Texto;
+                if (result.ContribuicaoID > 0)
+                    result.ContribuicaoTx = pagamento.Where(p => p.ID == result.ContribuicaoID).First().Texto;
+
             }
             catch (Exception)
             {
@@ -114,5 +141,6 @@ namespace SINTALOCAS.Dominio.Servico
 
             return result;
         }
+
     }
 }
