@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using SINTALOCAS.Dominio.Servico;
 using SINTALOCAS.Dominio.Util;
-using SINTALOCAS.Modelo;
+using SINTALOCAS.Modelo.Enumerator;
+using SINTALOCAS.Web.MVC.Servico;
 
 namespace SINTALOCAS.Web.MVC.Controllers
 {
@@ -15,7 +13,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
         public ActionResult Index()
         {
             int idAfiliado = ConsultaIdAfiliado();
-            var mensagemSistema = TextosServico.TextoDeAcordo();
+            
             GeraViewBag(idAfiliado);
 
             if (TempData["idAfiliadoForm"] != null)
@@ -29,8 +27,6 @@ namespace SINTALOCAS.Web.MVC.Controllers
                 ViewBag.MensagemRetorno = MensagemUtil.ErroGeneralizado();
             }
 
-            ViewBag.Titulo = mensagemSistema.Titulo;
-            ViewBag.TextoPrincipal = mensagemSistema.Texto.Replace(System.Environment.NewLine, "<br/>");
             return View();
         }
 
@@ -39,8 +35,26 @@ namespace SINTALOCAS.Web.MVC.Controllers
         {
             try
             {
+                //Convertendo informaçoes dos campos em uma lista
+                var lista = validacaoViewServico.GeraListaCampos(collection);
+
                 int idAfiliado = ConsultaIdAfiliado();
-                AfiliacaoServico.Concordar(idAfiliado);
+                int opcaoPagamento = 0;
+                int opcaoContribuicao = 0;
+                int concordo = 0;
+
+                if (lista.ContainsKey("CONCORDO")) concordo = Convert.ToInt32(lista["CONCORDO"]);
+                if (lista.ContainsKey("PAGAMENTO")) opcaoPagamento = Convert.ToInt32(lista["PAGAMENTO"]);
+                if (lista.ContainsKey("CONTRIBUICAO")) opcaoContribuicao = Convert.ToInt32(lista["CONTRIBUICAO"]);
+
+                if (idAfiliado == 0 || opcaoPagamento == 0 || opcaoContribuicao == 0 || concordo == 0)
+                {
+                    GeraViewBag(idAfiliado);
+                    ViewBag.MensagemRetorno = MensagemUtil.ErroCamposNaoPreenchidos();
+                    return View("Index");
+                }
+
+                AfiliacaoServico.Concordar(idAfiliado, opcaoPagamento, opcaoContribuicao);
                 return View();
             }
             catch (Exception)
@@ -71,12 +85,17 @@ namespace SINTALOCAS.Web.MVC.Controllers
 
         private void GeraViewBag(int idAfiliado)
         {
-            ViewBag.RootView = Validacao.AnalisaLink(@Request.RawUrl.ToString());
             var afiliado = AfiliacaoServico.GetByID(idAfiliado);
-            var dependentes = new List<Dependentes>();
 
-            if (afiliado!=null)
-                dependentes = DependenteServico.ListaDependentes(idAfiliado);
+            ViewBag.Aviso = MensagemUtil.AvisoConcordo();
+            ViewBag.RootView = Validacao.AnalisaLink(@Request.RawUrl.ToString());
+            ViewBag.Pagamento = PagamentoServico.ConsultarPorCategoria(OpcaoPagamentoEnum.PAGTO.ToString());
+            ViewBag.Contribuicao = PagamentoServico.ConsultarPorCategoria(OpcaoPagamentoEnum.CONTRIB.ToString());
+
+            var mensagemSistema = TextosServico.TextoDeAcordo();
+
+            ViewBag.Titulo = mensagemSistema.Titulo;
+            ViewBag.TextoPrincipal = mensagemSistema.Texto.Replace(System.Environment.NewLine, "<br/>");
         }
     }
 }

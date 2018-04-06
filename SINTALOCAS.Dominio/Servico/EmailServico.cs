@@ -70,6 +70,9 @@ namespace SINTALOCAS.Dominio.Servico
                 texto += "<strong>CTPS:</strong> " + afiliado.CTPS.Numero + " <strong>Série:</strong> " + afiliado.CTPS.Serie + "<br/>";
                 texto += "<strong>PIS:</strong> " + afiliado.CTPS.PIS + "<br/>";
                 texto += "<strong>Data de Nascimento:</strong> " + afiliado.DataNascimento + "<br/>";
+                texto += "<h2>Opção de Contribuição e Pagamento:</h2><br/>";
+                texto += "<strong>Pagamento:</strong> " + afiliado.PagamentoTx + "<br/>";
+                texto += "<strong>Contribuição:</strong> " + afiliado.ContribuicaoTx + "<br/>";
                 texto += "<h2>Endereço:</h2><br/>";
                 texto += "<strong>Logradouto:</strong> " + afiliado.Endereco.Logradouro + "<br/>";
                 texto += "<strong>Número:</strong> " + afiliado.Endereco.Numero + " ";
@@ -82,7 +85,7 @@ namespace SINTALOCAS.Dominio.Servico
                 foreach (var item in dependentes)
                 {
                     texto += "<strong>- Nome:</strong> " + item.Nome + " | " +
-                        "<strong>Dt.Nasc:</strong> " + item.Nome + " | " +
+                        "<strong>Dt.Nasc:</strong> " + item.DataNascimento + " | " +
                         "<strong>Grau:</strong> " + item.GrauParentescoNome + "<br/>";
                 }
 

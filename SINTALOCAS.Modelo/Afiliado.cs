@@ -21,5 +21,10 @@ namespace SINTALOCAS.Modelo
         public CTPS CTPS { get; set; }
         public List<Telefone> Telefones { get; set; }
         public Endereco Endereco { get; set; }
+        public int PagamentoID { get; set; }
+        public string PagamentoTx { get; set; }
+        public int ContribuicaoID { get; set; }
+        public string ContribuicaoTx { get; set; }
+        public int Concordar { get; set; }
     }
 }
