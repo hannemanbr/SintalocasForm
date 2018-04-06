@@ -32,7 +32,7 @@ namespace SINTALOCAS.Dominio.Servico
 
             try
             {
-                int result = _afiliacaoDAL.InserirAfiliado(afiliado);
+                int result = _afiliacaoDAL.EditarAfiliado(afiliado);
 
                 return result;
             }
