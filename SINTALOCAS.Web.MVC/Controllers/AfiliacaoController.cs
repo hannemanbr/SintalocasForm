@@ -28,11 +28,8 @@ namespace SINTALOCAS.Web.MVC.Controllers
         {
             TempData["AfiliadoID"] = id;
 
-            if (id != null)
-            {
-                var idAfiliado = Convert.ToInt32((int)id);
-                GeraViewBag(idAfiliado);
-            }
+            var idAfiliado = Convert.ToInt32((int)id);
+            GeraViewBag(idAfiliado);
 
             return View();
         }

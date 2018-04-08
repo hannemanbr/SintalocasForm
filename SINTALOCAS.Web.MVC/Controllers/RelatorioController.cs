@@ -9,6 +9,7 @@ using SINTALOCAS.Web.MVC.Servico;
 using SINTALOCAS.Dominio.Util;
 using Rotativa;
 using System.Web.Security;
+using SINTALOCAS.Modelo.Enumerator;
 
 namespace SINTALOCAS.Web.MVC.Controllers
 {
@@ -50,21 +51,11 @@ namespace SINTALOCAS.Web.MVC.Controllers
 
         public ActionResult DetalheAfiliado(string id)
         {
-            var listaAfiliado = AfiliacaoServico.Listar(id.ToString());
-            TempData["cpfAfiliado"] = id;
-            ViewBag.Lista = listaAfiliado;
-
-            if (listaAfiliado.Count > 0)
-            {
-                var idAfiliado = listaAfiliado[0].ID;
-
-                ViewBag.Dependentes = DependenteServico.ListaDependentes(idAfiliado);
-                ViewBag.Enderecos = listaAfiliado[0].Endereco;
-            }
-
+            GeraViewBagDetalhe();
+            ConsultarPorCPF(id);
             return View();
         }
-
+        
         private void GeraViewBag()
         {
             var id = Convert.ToInt32(Server.HtmlEncode(User.Identity.Name));
@@ -150,6 +141,40 @@ namespace SINTALOCAS.Web.MVC.Controllers
                 return View();
             }
         }
-        
+
+        private void ConsultarPorCPF(string cpf)
+        {
+            if (cpf.Trim() == "") ViewBag.MensagemRetorno = MensagemUtil.ErroGeneralizado();
+
+            var listaAfiliado = AfiliacaoServico.Listar(cpf.ToString());
+            TempData["cpfAfiliado"] = cpf;
+            ViewBag.Lista = listaAfiliado;
+
+            if (listaAfiliado.Count > 0)
+            {
+                var idAfiliado = listaAfiliado[0].ID;
+
+                ViewBag.Dependentes = DependenteServico.ListaDependentes(idAfiliado);
+                ViewBag.Enderecos = listaAfiliado[0].Endereco;
+            }
+        }
+
+        public ActionResult Delete(int id)
+        {
+            var cpf = TempData["cpfAfiliado"].ToString();
+            var result = DependenteServico.Remove(id);
+
+            if (id == 0) ViewBag.MensagemRetorno = MensagemUtil.ErroGeneralizado();
+            ConsultarPorCPF(cpf);
+
+            return RedirectToAction("DetalheAfiliado/" + TempData["cpfAfiliado"]);
+        }
+
+        private void GeraViewBagDetalhe()
+        {
+            ViewBag.Pagamento = PagamentoServico.ConsultarPorCategoria(OpcaoPagamentoEnum.PAGTO.ToString());
+            ViewBag.Contribuicao = PagamentoServico.ConsultarPorCategoria(OpcaoPagamentoEnum.CONTRIB.ToString());
+            ViewBag.GrauParentesco = DependenteServico.ListaGrausParentesco();
+        }
     }
 }

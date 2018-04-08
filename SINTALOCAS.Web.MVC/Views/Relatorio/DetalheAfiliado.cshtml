@@ -3,132 +3,165 @@
     ViewBag.Title = ViewBag.TituloSite;
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
-<h2>Afiliados Cadastrados</h2>
 
-@if (ViewBag.Lista != null)
-{
-<table style="width:100%; border-color:#ffffff; border-width: 2px; padding:3px; background-color:#e2e2e2">
-    @foreach (var item in ViewBag.Lista)
+<form action="" id="formAfilia">
+    @if (ViewBag.Lista != null)
     {
-        <tr>
-            <td style="background-color:#868686; color:#ffffff"><strong>Informações Gerais</strong></td>
-        </tr>
-        <tr>
-            <td><strong>Nome:</strong> @item.Nome</td>
-        </tr>
-        <tr>
-            <td>
-                <strong>CPF:</strong> @item.CPF
-                <strong>RG:</strong> @item.RG
-                <strong>Dt. Nasc.:</strong> @item.DataNascimento
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <strong>Cargo:</strong> @item.Cargo
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <strong>Empresa:</strong> @item.Empresa
-                <strong>CNPJ:</strong> @item.CNPJ
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <strong>Opção de Pagamento:</strong> @item.PagamentoTx
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <strong>Opção de Contribuição:</strong> @item.ContribuicaoTx
-            </td>
-        </tr>
+        <div class="row">
+            <h5>Cadastrado de Afiliado</h5>
+        </div>
+        foreach (var item in ViewBag.Lista)
+        {
+            <div class="row">
+                <strong>Nome:</strong>
+                <input type="text" name="nome" id="nome" value="@item.Nome" />
+            </div>
+            <div class="row">
+                <strong>CPF:</strong>
+                <input type="text" name="cpf" id="cpf" value="@item.CPF" />
+            </div>
+            <div class="row">
+                <strong>RG:</strong>
+                <input type="text" name="rg" id="rg" value="@item.RG" />
+            </div>
+            <div class="row">
+                <strong>Dt. Nasc.:</strong>
+                <input type="text" name="dtnasc" id="dtnasc" value="@item.DataNascimento" />
+            </div>
+            <div class="row">
+                <strong>Cargo:</strong>
+                <input type="text" name="cargo" id="cargo" value="@item.Cargo" />
+            </div>
+            <div class="row">
+                <strong>Empresa:</strong><br />
+                <input type="text" name="empresa" id="empresa" value="@item.Empresa" />
+            </div>
+            <div class="row">
+                <strong>CNPJ:</strong>
+                <input type="text" name="cnpj" id="cnpj" value="@item.CNPJ" />
+            </div>
+            <div class="row">
+                <strong>Opção de Pagamento:</strong>
+            </div>
+            foreach (var itemRadio in ViewBag.Pagamento)
+            {
+                <div class="row">
+                    <input type="radio" id="pagamento" name="pagamento" value="@itemRadio.ID" @(itemRadio.ID == item.PagamentoID ? "checked" : "") />
+                    <span id="pagamentoTx" name="pagamentoTx">@itemRadio.Texto</span>
+                </div>
+            }
+
+            <div class="row">
+                <strong>Opção de Contribuição:</strong>
+            </div>
+            foreach (var itemRadio in ViewBag.Contribuicao)
+            {
+                <div class="row">
+                    <input type="radio" id="contribuicao" name="contribuicao" value="@itemRadio.ID" @(itemRadio.ID == item.ContribuicaoID ? "checked" : "") />
+                    <span id="contribuicaoTx" name="contribuicaoTx">@itemRadio.Texto</span>
+                </div>
+            }
+        }
     }
-</table>
-}
-else
-{
+    else
+    {
+        <br />
+        <br />
+        <div style="color:#ff0000; font-weight:bold">Nenhum registro encontrado</div>
+    }
     <br />
     <br />
-    <div style="color:#ff0000; font-weight:bold">Nenhum registro encontrado</div>
-}
-<br />
-<br />
-@if (@ViewBag.Enderecos != null)
-{
-    <table style="width:100%; background-color:#e2e2e2;">
+    @if (@ViewBag.Enderecos != null)
+    {
+
+        <div class="row">
+            <h5>Endereço</h5>
+        </div>
+        <div class="row">
+            <strong>Logradouro:</strong>
+            <input type="text" name="rua" id="rua" value="@ViewBag.Enderecos.Logradouro" />
+        </div>
+        <div class="row">
+            <strong>Número:</strong>
+            <input type="text" name="numero" id="numero" value="@ViewBag.Enderecos.Numero" />
+            <strong>Complemento:</strong>
+            <input type="text" name="complemento" id="complemento" value="@ViewBag.Enderecos.Complemento" />
+        </div>
+        <div class="row">
+            <strong>Bairro:</strong>
+            <input type="text" name="empresa" id="empresa" value="@ViewBag.Enderecos.Bairro" />
+        </div>
+        <div class="row">
+            <strong>Cidade:</strong>
+            <input type="text" name="cidade" id="cidade" value="@ViewBag.Enderecos.Cidade" />
+            <strong>UF:</strong>
+            <input type="text" name="uf" id="uf" value="@ViewBag.Enderecos.UF" />
+        </div>
+        <div class="row">
+            <strong>CEP:</strong>
+            <input type="text" name="uf" id="uf" value="@ViewBag.Enderecos.CEP" />
+        </div>
+    }
+    <br />
+    <br />
+    <table>
         <tr>
-            <td style="background-color:#868686; color:#ffffff"><strong>Endereço</strong></td>
-        </tr>
-        <tr>
-            <td>
-                <strong>Logradouro:</strong> @ViewBag.Enderecos.Logradouro
+            <td colspan="4">
+                <h5>Dependentes</h5>
             </td>
         </tr>
-        <tr>
+        <tr style="background-color: #000000; color:#ffffff;">
             <td>
-                <strong>Número:</strong> @ViewBag.Enderecos.Numero
-                <strong>Complemento:</strong> @ViewBag.Enderecos.Complemento
+                Nome
+            </td>
+            <td>
+                Grau
+            </td>
+            <td>
+                Acrescimo
+            </td>
+            <td>
+                Ação
             </td>
         </tr>
-        <tr>
-            <td>
-                <strong>Bairro:</strong> @ViewBag.Enderecos.Bairro
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <strong>Cidade:</strong> @ViewBag.Enderecos.Cidade
-                <strong>UF:</strong> @ViewBag.Enderecos.UF
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <strong>CEP:</strong> @ViewBag.Enderecos.CEP
-            </td>
-        </tr>
+        @foreach (var itemDep in ViewBag.Dependentes)
+        {
+            <tr>
+                <td>
+                    <input type="text" name="uf" id="uf" value="@itemDep.Nome" />
+                </td>
+                <td>
+                    <select name="grau" id="grau">
+                        @foreach (var item in ViewBag.GrauParentesco)
+                        {
+                            <option value="item.ID" @(item.ID == itemDep.GrauParentescoID ? "selected" : "")>@item.Descricao</option>
+                        }
+                    </select>
+                </td>
+                <td style="text-align:center">
+                    <select name="acrescimo">
+                        <option value="1" @(itemDep.AcrescimoMensal == 1 ? "selected" : "")>Sim</option>
+                        <option value="1" @(itemDep.AcrescimoMensal == 0 ? "selected" : "")>Não</option>
+                    </select>
+                </td>
+                <td style="text-align:center">
+                    <a href="../Delete/@itemDep.ID"
+                       onclick="return ConfirmaAcao('excluir este registro?')">
+                        <img src="~/Image/excluir.png" style="width:20px;" alt="Excluir" />
+                    </a>
+                </td>
+            </tr>
+        }
+        @if (ViewBag.Dependentes.Count == 0)
+        {
+            <tr>
+                <td style="color:#ff0000"><strong>Nenhum dependente cadastrado</strong></td>
+            </tr>
+        }
     </table>
-}
-<br />
-<br />
-<table style="width:100%; background-color:#e2e2e2;">
-    <tr>
-        <td colspan="3" style="background-color:#868686; color:#ffffff"><strong>Dependentes</strong></td>
-    </tr>
-    <tr style="background-color: #000000; color:#ffffff; text-align:center">
-        <td style="text-align:left">Nome</td>
-        <td style="text-align:left">Grau</td>
-        <td style="text-align:center">Acrescimo</tdstyle="text-align:center">
-    </tr>
-    @foreach (var itemDep in ViewBag.Dependentes)
-    {
-        <tr>
-            <td>
-                @itemDep.Nome
-            </td>
-            <td>
-                @itemDep.GrauParentescoNome
-            </td>
-            <td style="text-align:center">
-                @if (itemDep.AcrescimoMensal == 1)
-                {
-                    <span>SIM</span>
-                }
-                else
-                {
-                    <span>NÃO</span>
-                }
-            </td>
-        </tr>
-    }
-    @if (ViewBag.Dependentes.Count == 0)
-    {
-        <tr>
-            <td style="color:#ff0000"><strong>Nenhum dependente cadastrado</strong></td>
-        </tr>
-    }
-</table>
-<br />
-<input type="button" id="btnVoltar" value="Voltar" onclick="window.location.href='../RelAfiliados'" />
-<input type="button" id="btnRel" value="Gerar relatorio" onclick="window.open('../PDFPadrao/3')" />
+    <div style="color:#FF0000">@ViewBag.MensagemRetorno</div>
+    <br />
+    <input type="button" id="btnVoltar" value="Voltar" onclick="window.location.href='../RelAfiliados'" />
+    <input type="button" id="btnSalvar" value="Salar" onclick="window.location.href='../RelAfiliados'" />
+    <input type="button" id="btnRel" value="Gerar relatorio" onclick="window.open('../PDFPadrao/3')" />
+</form>
