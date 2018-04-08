@@ -64,6 +64,43 @@ namespace SINTALOCAS.Web.MVC.Controllers
             ViewBag.ListaRelatorio = RelatorioServico.ListarRelatorios();
         }
 
+        [HttpPost]
+        public ActionResult EditarDetalheAfiliado(FormCollection collection)
+        {
+
+            ValidarForm(collection);
+            var cpf = TempData["cpfAfiliado"].ToString();
+
+            ConsultarPorCPF(cpf);
+            GeraViewBagDetalhe();
+            return View();
+        }
+
+        public bool ValidarForm(FormCollection Collection)
+        {
+            var result = "";
+
+            //Convertendo informaçoes dos campos em uma lista
+            var lista = validacaoViewServico.GeraListaCampos(Collection);
+
+            //validar campos opcionais
+            result = Validacao.FormAfiliacaoValidarPreenchimento(lista);
+
+            //validação específica cpf, cpn, pis, etc.
+            result = Validacao.ValidarCodigos(lista);
+            
+            if (result.Trim() == "")
+            {
+                var reg = validacaoViewServico.Atualizar(lista, false); //gravando informaçoes
+                
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         private void GeraViewBagRelatorio(int opcaoRelatorio, string id = "")
         {
             if (opcaoRelatorio == 1)
@@ -176,5 +213,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
             ViewBag.Contribuicao = PagamentoServico.ConsultarPorCategoria(OpcaoPagamentoEnum.CONTRIB.ToString());
             ViewBag.GrauParentesco = DependenteServico.ListaGrausParentesco();
         }
+
+
     }
 }
