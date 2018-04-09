@@ -26,5 +26,6 @@ namespace SINTALOCAS.Modelo
         public int ContribuicaoID { get; set; }
         public string ContribuicaoTx { get; set; }
         public int Concordar { get; set; }
+        public List<Dependentes> dependentes { get; set; }
     }
 }

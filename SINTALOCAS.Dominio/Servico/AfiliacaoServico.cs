@@ -107,10 +107,10 @@ namespace SINTALOCAS.Dominio.Servico
                 var pagamento = PagamentoServico.ConsultarTodos();
                 var pagamentoTx = "";
                 var contribuicaoTx = "";
+                var listaDependente = new List<Dependentes>();
+                var listaAfiliado = _afiliacaoDAL.ListaAfiliado(cpf);
 
-                var listaFiliado = _afiliacaoDAL.ListaAfiliado(cpf);
-
-                foreach (var item in listaFiliado)
+                foreach (var item in listaAfiliado)
                 {
                     if (item.PagamentoID > 0)
                         pagamentoTx = pagamento.Where(p => p.ID == item.PagamentoID).First().Texto;
@@ -120,8 +120,12 @@ namespace SINTALOCAS.Dominio.Servico
                     item.PagamentoTx = pagamentoTx;
                     item.ContribuicaoTx = contribuicaoTx;
 
+                    // CONSULTAR DEPENDENTE
+                    item.dependentes = DependenteServico.ListaDependentes(item.ID);
+
                     result.Add(item);
                 }
+                
             }
             catch (Exception)
             {
@@ -147,6 +151,9 @@ namespace SINTALOCAS.Dominio.Servico
                     result.PagamentoTx = pagamento.Where(p => p.ID == result.PagamentoID).First().Texto;
                 if (result.ContribuicaoID > 0)
                     result.ContribuicaoTx = pagamento.Where(p => p.ID == result.ContribuicaoID).First().Texto;
+
+                // CONSULTAR DEPENDENTE
+                result.dependentes = DependenteServico.ListaDependentes(result.ID);
 
             }
             catch (Exception)

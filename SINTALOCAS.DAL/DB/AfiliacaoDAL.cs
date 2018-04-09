@@ -3,6 +3,8 @@ using SINTALOCAS.Modelo;
 using SINTALOCAS.DAL.Context;
 using System.Data;
 using System.Collections.Generic;
+using System.Linq;
+using SINTALOCAS.Modelo.Enumerator;
 
 namespace SINTALOCAS.DAL.DB
 {
@@ -127,6 +129,12 @@ namespace SINTALOCAS.DAL.DB
                 query += ",'" + afiliado.Consir + "'";
                 query += ",'" + afiliado.NomePai + "'";
                 query += ",'" + afiliado.NomeMae + "'";
+
+                query += ",'" + afiliado.Telefones.Where(t => t.TipoTelefone == TelefoneEnum.Celular01).Select(t => t.DDD).ToString() + "'";
+                query += ",'" + afiliado.Telefones.Where(t => t.TipoTelefone == TelefoneEnum.Celular01).Select(t => t.Numero).ToString() + "'";
+                query += ",'" + afiliado.Telefones.Where(t => t.TipoTelefone == TelefoneEnum.Residencia).Select(t => t.DDD).ToString() + "'";
+                query += ",'" + afiliado.Telefones.Where(t => t.TipoTelefone == TelefoneEnum.Residencia).Select(t => t.Numero).ToString() + "'";
+
                 query += ")";
 
                 result = _contexto.Transacao(query);
@@ -235,7 +243,7 @@ namespace SINTALOCAS.DAL.DB
 
                 result = _contexto.Transacao(query);
             }
-            catch (Exception )
+            catch (Exception)
             {
                 throw;
             }
@@ -251,7 +259,7 @@ namespace SINTALOCAS.DAL.DB
             try
             {
                 var query = "UPDATE Afiliado SET " +
-                    " Concordar = 1" + 
+                    " Concordar = 1" +
                     " ,Pagamento =" + opcaoPagamento + "" +
                     " ,Contribuicao =" + opcaoContribuicao + "" +
                     " WHERE Id=" + Id;
@@ -300,7 +308,7 @@ namespace SINTALOCAS.DAL.DB
             return result;
         }
 
-        public List<GrauParentesco> ListaGrauPArenesco() 
+        public List<GrauParentesco> ListaGrauPArenesco()
         {
             try
             {
@@ -350,6 +358,10 @@ namespace SINTALOCAS.DAL.DB
                                 ",A.RG                       " +
                                 ",A.Pagamento                " +
                                 ",A.Contribuicao             " +
+                                ",A.CelDDD                   " +
+                                ",A.CelNumero                " +
+                                ",A.TelDDD                   " +
+                                ",A.TelNumero                " +
                                 ",E.Rua                      " +
                                 ",E.Numero                   " +
                                 ",E.Complemento              " +
@@ -361,11 +373,11 @@ namespace SINTALOCAS.DAL.DB
                                 ",EP.CNPJ EmpresaCNPJ        " +
                                 ",EP.Nome EmpresaNome        " +
                              " FROM Afiliado A               " +
-                             " LEFT JOIN Afiliado_Endereco E " +                             
+                             " LEFT JOIN Afiliado_Endereco E " +
                              " ON E.IdAfiliado = A.ID        " +
                              "      AND E.D_E_L_E_T_ = 0     " +
                              "      AND A.D_E_L_E_T_ = 0     " +
-                             " LEFT JOIN Afiliado_Empresa EP " +                            
+                             " LEFT JOIN Afiliado_Empresa EP " +
                              " ON EP.IdAfiliado = A.ID       " +
                              "      AND EP.D_E_L_E_T_ = 0    " +
                              " WHERE A.D_E_L_E_T_=0          ";
@@ -395,6 +407,19 @@ namespace SINTALOCAS.DAL.DB
                         PagamentoID = Convert.ToInt32(linha["Pagamento"].ToString())
                     };
 
+                    //TELEFONES
+                    obj.Telefones = new List<Telefone>
+                    {
+                        new Telefone{
+                            DDD =linha["CelDDD"].ToString(),
+                            Numero =linha["CelNumero"].ToString()
+                        },
+                        new Telefone{
+                            DDD =linha["TelDDD"].ToString(),
+                            Numero =linha["TelNumero"].ToString()
+                        }
+                    };
+
                     //OBJETO CTPS
                     var ctps = new CTPS
                     {
@@ -402,7 +427,7 @@ namespace SINTALOCAS.DAL.DB
                         Serie = linha["CTPS_Serie"].ToString().ToUpper(),
                         PIS = linha["PIS"].ToString().ToUpper()
                     };
-                    
+
                     obj.CTPS = ctps;
 
                     //OBJETO ENDEREÇO
@@ -419,7 +444,7 @@ namespace SINTALOCAS.DAL.DB
                     };
 
                     obj.Endereco = endereco;
-                    
+
                     lista.Add(obj);
                 }
 
@@ -483,7 +508,7 @@ namespace SINTALOCAS.DAL.DB
                 var dataTable = _contexto.Consultar(query);
 
                 foreach (DataRow linha in dataTable.Rows)
-                {                    
+                {
                     if (lista.ContainsKey(Convert.ToInt32(linha["Grau"])))
                         lista.Add(Convert.ToInt32(linha["Grau"]), Convert.ToInt32(linha["Total"]));
                 }

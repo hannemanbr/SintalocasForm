@@ -54,8 +54,8 @@ namespace SINTALOCAS.Web.MVC.Controllers
             //validação específica cpf, cpn, pis, etc.
             result = Validacao.ValidarCodigos(lista);
 
-            //result = "";
-            
+            result = "";
+
             if (result.Trim() == "")
             {
                 TempData["idAfiliadoForm"] = AtualizarDados(lista, editar); //gravando informaçoes
