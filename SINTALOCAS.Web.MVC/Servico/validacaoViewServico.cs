@@ -68,6 +68,7 @@ namespace SINTALOCAS.Web.MVC.Servico
             try
             {
                 int result = 0;
+                int idEndereco = 0;
 
                 // criando objeto de afiliado
                 var afiliado = new Afiliado();
@@ -117,9 +118,12 @@ namespace SINTALOCAS.Web.MVC.Servico
                 DateTime dataNascimento = DataUtil.ConverterString(lista["DTNASC"]);
                 afiliado.DataNascimento = dataNascimento;
 
+                if (lista.ContainsKey("IDENDERECO")) idEndereco = Convert.ToInt32(lista["IDENDERECO"]);
+
                 //Endereco
                 Endereco endereco = new Endereco()
                 {
+                    ID = idEndereco,
                     Logradouro = lista["RUA"],
                     Bairro = lista["BAIRRO"],
                     CEP = lista["CEP"],
@@ -134,7 +138,7 @@ namespace SINTALOCAS.Web.MVC.Servico
 
                 if (editar)
                 {
-                    result = AfiliacaoServico.Insere(afiliado);
+                    result = AfiliacaoServico.Editar(afiliado);
                 }
                 else
                 {

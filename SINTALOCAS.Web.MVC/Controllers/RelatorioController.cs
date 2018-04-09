@@ -91,7 +91,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
             
             if (result.Trim() == "")
             {
-                var reg = validacaoViewServico.Atualizar(lista, false); //gravando informaçoes
+                var reg = validacaoViewServico.Atualizar(lista, true); //gravando informaçoes
                 
                 return true;
             }

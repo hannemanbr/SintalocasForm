@@ -10,6 +10,85 @@ namespace SINTALOCAS.DAL.DB
     {
         ContextoMySqlDB _contexto = new ContextoMySqlDB();
 
+        public int EditarAfiliado(Afiliado afiliado)
+        {
+            var idAfiliado = 0;
+
+            try
+            {
+                int idResult = afiliado.ID;
+                var dataNascTx = afiliado.DataNascimento.Year + "-" + afiliado.DataNascimento.Month + "-" + afiliado.DataNascimento.Day;
+
+                string query = " UPDATE Afiliado " +
+                    "Nome='" + afiliado.Nome + "'" +
+                    ",Email='" + afiliado.Email + "'" + 
+                    ",DataNascimento='" + dataNascTx + "'" +            
+                    ",CPF='" + afiliado.CPF + "'" +
+                    ",RG='" + afiliado.RG + "'" +
+                    ",PIS='" + afiliado.CTPS.PIS + "'" +
+                    ",Cargo='" + afiliado.Cargo + "'" +
+                    ",CTPS_Num='" + afiliado.CTPS.Numero + "'" +      
+                    ",CTPS_Serie='" + afiliado.CTPS.Serie + "'" +         
+                    ",CONSIR='" + afiliado.Consir + "'" +
+                    ",NomePai='" + afiliado.NomePai + "'" +     
+                    ",NomeMae='" + afiliado.NomeMae + "'" +   
+                    " WHERE ID="+ idResult;
+
+                idAfiliado = _contexto.Transacao(query);
+
+                var dataTable = _contexto.Consultar(query);
+
+                foreach (DataRow linha in dataTable.Rows)
+                {
+                    var obj = new Afiliado
+                    {
+                        ID = Convert.ToInt32(linha["ID"]),
+                        Nome = linha["Nome"].ToString(),
+                        RG = linha["RG"].ToString(),
+                        CPF = linha["CPF"].ToString(),
+                        Email = linha["Email"].ToString(),
+                        Cargo = linha["Cargo"].ToString(),
+                        Consir = linha["Consir"].ToString(),
+                        NomeMae = linha["NomeMae"].ToString(),
+                        NomePai = linha["NomePai"].ToString()                        
+                    };
+
+                    if (idResult <= 0) return 0;
+
+                    //GRAVAR ENDERECO
+                    query = " UPDATE Afiliado_Endereco " +                        
+                        "Rua='" + afiliado.Endereco.Logradouro + "'" +
+                        ",Numero='" + afiliado.Endereco.Numero + "'" +
+                        ",Complemento='" + afiliado.Endereco.Complemento + "'" +
+                        ",Bairro='" + afiliado.Endereco.Bairro + "'" +
+                        ",Cidade='" + afiliado.Endereco.Cidade + "'" +
+                        ",UF='" + afiliado.Endereco.UF + "'" +
+                        ",Pais='BRASIL'" +
+                        ",CEP='" + afiliado.Endereco.CEP + "'" +
+                        "WHERE IDAfiliado=" + afiliado.Endereco.ID + "";
+
+                    _contexto.Transacao(query);
+                        
+                    //GRAVAR INFO EMPRESA
+                    query = " UPDATE Afiliado_Empresa " +
+                        ",CNPJ='" + afiliado.CNPJ + "'" +
+                        ",Nome='" + afiliado.Empresa + "'" +
+                        " WHERE IDAfiliado=" + idResult;
+                    
+                    _contexto.Transacao(query);
+
+                }
+
+                return idResult;
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+        }
+
         public int InserirAfiliado(Afiliado afiliado)
         {
             var result = 0;
@@ -20,19 +99,19 @@ namespace SINTALOCAS.DAL.DB
                 var dataNascTx = afiliado.DataNascimento.Year + "-" + afiliado.DataNascimento.Month + "-" + afiliado.DataNascimento.Day;
 
                 var query = "" +
-                    " INSERT INTO Afiliado(" +      
-                    "Nome, " +                
-                    "Email, " +                
-                    "DataNascimento, " +                
-                    "CPF, " + 
+                    " INSERT INTO Afiliado(" +
+                    "Nome, " +
+                    "Email, " +
+                    "DataNascimento, " +
+                    "CPF, " +
                     "RG, " +
                     "PIS, " +
-                    "Cargo, " + 
-                    "CTPS_Num, " +                
-                    "CTPS_Serie, " +                
-                    "CONSIR, " +                
-                    "NomePai, " +                
-                    "NomeMae " +                
+                    "Cargo, " +
+                    "CTPS_Num, " +
+                    "CTPS_Serie, " +
+                    "CONSIR, " +
+                    "NomePai, " +
+                    "NomeMae " +
                     ") VALUES (";
 
                 //query += "'1',";
@@ -44,7 +123,7 @@ namespace SINTALOCAS.DAL.DB
                 query += ",'" + afiliado.CTPS.PIS + "'";
                 query += ",'" + afiliado.Cargo + "'";
                 query += ",'" + afiliado.CTPS.Numero + "'";
-                query += ",'" + afiliado.CTPS.Serie + "'";                
+                query += ",'" + afiliado.CTPS.Serie + "'";
                 query += ",'" + afiliado.Consir + "'";
                 query += ",'" + afiliado.NomePai + "'";
                 query += ",'" + afiliado.NomeMae + "'";
@@ -71,7 +150,7 @@ namespace SINTALOCAS.DAL.DB
                         Cargo = linha["Cargo"].ToString(),
                         Consir = linha["Consir"].ToString(),
                         NomeMae = linha["NomeMae"].ToString(),
-                        NomePai = linha["NomePai"].ToString()                        
+                        NomePai = linha["NomePai"].ToString()
                     };
 
                     if (idResult <= 0) return 0;
@@ -79,7 +158,7 @@ namespace SINTALOCAS.DAL.DB
                     //GRAVAR ENDERECO
                     query = "" +
                         " INSERT INTO Afiliado_Endereco (" +
-                        "IDAfiliado, " +                
+                        "IDAfiliado, " +
                         "Rua, " +
                         "Numero, " +
                         "Complemento, " +
@@ -90,19 +169,19 @@ namespace SINTALOCAS.DAL.DB
                         "CEP" +
                         ") VALUES (";
 
-                        query += idResult + ",";
-                        query += "'" + afiliado.Endereco.Logradouro + "'";
-                        query += ",'" + afiliado.Endereco.Numero + "'";
-                        query += ",'" + afiliado.Endereco.Complemento + "'";
-                        query += ",'" + afiliado.Endereco.Bairro + "'";
-                        query += ",'" + afiliado.Endereco.Cidade + "'";
-                        query += ",'" + afiliado.Endereco.UF + "'";
-                        query += ",'BRASIL'";
-                        query += ",'" + afiliado.Endereco.CEP + "'";
-                        query += ")";
+                    query += idResult + ",";
+                    query += "'" + afiliado.Endereco.Logradouro + "'";
+                    query += ",'" + afiliado.Endereco.Numero + "'";
+                    query += ",'" + afiliado.Endereco.Complemento + "'";
+                    query += ",'" + afiliado.Endereco.Bairro + "'";
+                    query += ",'" + afiliado.Endereco.Cidade + "'";
+                    query += ",'" + afiliado.Endereco.UF + "'";
+                    query += ",'BRASIL'";
+                    query += ",'" + afiliado.Endereco.CEP + "'";
+                    query += ")";
 
                     _contexto.Transacao(query);
-                        
+
                     //GRAVAR INFO EMPRESA
                     query = "" +
                         " INSERT INTO Afiliado_Empresa (" +
