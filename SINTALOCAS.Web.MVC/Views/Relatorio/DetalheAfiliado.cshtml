@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<form action="" id="formAfilia">
+<form action="EditarDetalheAfiliado" id="formAfilia" method="post">
     @if (ViewBag.Lista != null)
     {
         <div class="row">
@@ -160,9 +160,11 @@
             </tr>
         }
     </table>
-    <div style="color:#FF0000">@ViewBag.MensagemRetorno</div>
-    <br />
-    <input type="button" id="btnVoltar" value="Voltar" onclick="window.location.href='../RelAfiliados'" />
-    <input type="button" id="btnSalvar" value="Salar" onclick="window.location.href='../RelAfiliados'" />
-    <input type="button" id="btnRel" value="Gerar relatorio" onclick="window.open('../PDFPadrao/3')" />
+    <div class="row">
+        <div style="color:#FF0000">@ViewBag.MensagemRetorno</div>
+        <br />
+        <input type="button" id="btnVoltar" value="Voltar" onclick="window.location.href='../RelAfiliados'" />
+        <input type="submit" id="btnSalvar" value="Salvar" />
+        <input type="button" id="btnRel" value="Gerar relatorio" onclick="window.open('../PDFPadrao/3')" />
+        </div>
 </form>

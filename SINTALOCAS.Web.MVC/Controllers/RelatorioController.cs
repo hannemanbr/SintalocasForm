@@ -67,13 +67,12 @@ namespace SINTALOCAS.Web.MVC.Controllers
         [HttpPost]
         public ActionResult EditarDetalheAfiliado(FormCollection collection)
         {
-
             ValidarForm(collection);
             var cpf = TempData["cpfAfiliado"].ToString();
 
             ConsultarPorCPF(cpf);
             GeraViewBagDetalhe();
-            return View();
+            return RedirectToAction("../DetalheAfiliado/" + cpf);
         }
 
         public bool ValidarForm(FormCollection Collection)
