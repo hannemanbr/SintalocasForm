@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\SINTALOCAS.DAL",
+    "\\SINTALOCAS.DAL\\DB",
+    "\\SINTALOCAS.Dominio",
+    "\\SINTALOCAS.Dominio\\Servico",
+    "\\SINTALOCAS.Web.MVC",
+    "\\SINTALOCAS.Web.MVC\\Controllers",
+    "\\SINTALOCAS.Web.MVC\\Views",
+    "\\SINTALOCAS.Web.MVC\\Views\\Usuario"
+  ],
+  "PreviewInSolutionExplorer": false
+}
