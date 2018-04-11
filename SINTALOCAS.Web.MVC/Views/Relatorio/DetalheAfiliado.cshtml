@@ -10,6 +10,11 @@
         <div class="row">
             <h5>Cadastrado de Afiliado</h5>
         </div>
+        <div class="row">
+            <div style="font-size: 16px; color:@ViewBag.ColorAlerta ; font-weight:bold">
+                @ViewBag.MensagemRetorno
+            </div>
+        </div>
         foreach (var item in ViewBag.Lista)
         {
             <div class="row">
@@ -213,10 +218,23 @@
         }
     </table>
     <div class="row">
-        <div style="color:#FF0000">@ViewBag.MensagemRetorno</div>
         <br />
-        <input type="button" id="btnVoltar" value="Voltar" onclick="window.location.href='../RelAfiliados'" />
-        <input type="submit" id="btnSalvar" value="Salvar" />
-        <input type="button" id="btnRel" value="Gerar relatorio" onclick="window.open('../PDFPadrao/3')" />
+        <br />
+        <div style="font-size: 16px; color:@ViewBag.ColorAlerta ; font-weight:bold">
+            @ViewBag.MensagemRetorno
+        </div>
+        <br />
+        <br />
+    </div>
+    <div class="row">
+        <div class="col-25">
+            <input type="button" id="btnVoltar" value="Voltar" onclick="window.location.href='../RelAfiliados'" />
+        </div>
+        <div class="col-25">
+            <input type="submit" id="btnSalvar" value="Salvar" />
+        </div>
+        <div class="col-25">
+            <input type="button" id="btnRel" value="Gerar relatorio" onclick="window.open('../PDFPadrao/3')" />
+        </div>
     </div>
 </form>

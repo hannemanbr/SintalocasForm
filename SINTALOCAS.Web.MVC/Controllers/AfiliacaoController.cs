@@ -54,7 +54,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
             //validação específica cpf, cpn, pis, etc.
             result = Validacao.ValidarCodigos(lista);
 
-            result = "";
+            //result = "";
 
             if (result.Trim() == "")
             {

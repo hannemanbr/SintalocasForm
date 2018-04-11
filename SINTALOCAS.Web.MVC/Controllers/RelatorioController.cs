@@ -67,7 +67,16 @@ namespace SINTALOCAS.Web.MVC.Controllers
         [HttpPost]
         public ActionResult DetalheAfiliado(FormCollection collection)
         {
-            ValidarForm(collection);
+            if (ValidarForm(collection))
+            {
+                ViewBag.MensagemRetorno = MensagemUtil.OperacaoRealizada();
+                ViewBag.ColorAlerta = "#149603";
+            }
+            else
+            {
+                ViewBag.ColorAlerta = "#FF0000";
+            }
+
             var cpf = TempData["cpfAfiliado"].ToString();
 
             ConsultarPorCPF(cpf);
@@ -77,27 +86,40 @@ namespace SINTALOCAS.Web.MVC.Controllers
 
         public bool ValidarForm(FormCollection Collection)
         {
-            var result = "";
+            var validar = false;
 
-            //Convertendo informaçoes dos campos em uma lista
-            var lista = validacaoViewServico.GeraListaCampos(Collection);
-
-            //validar campos opcionais
-            result = Validacao.FormAfiliacaoValidarPreenchimento(lista);
-
-            //validação específica cpf, cpn, pis, etc.
-            result = Validacao.ValidarCodigos(lista);
-            
-            if (result.Trim() == "")
+            try
             {
-                var reg = validacaoViewServico.Atualizar(lista, true); //gravando informaçoes
-                
-                return true;
+                var result = "";
+
+                //Convertendo informaçoes dos campos em uma lista
+                var lista = validacaoViewServico.GeraListaCampos(Collection);
+
+                //validar campos opcionais
+                result = Validacao.FormAfiliacaoValidarPreenchimento(lista);
+
+                //validação específica cpf, cpn, pis, etc.
+                result = Validacao.ValidarCodigos(lista);
+
+                if (result.Trim() == "")
+                {
+                    var reg = validacaoViewServico.Atualizar(lista, true); //gravando informaçoes
+
+                    validar = true;
+                }
+                else
+                {
+                    ViewBag.MensagemRetorno = result;
+                    validar = false;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                return false;
+                validar = false;
+                ViewBag.MensagemRetorno = ex.Message;                
             }
+
+            return validar;
         }
 
         private void GeraViewBagRelatorio(int opcaoRelatorio, string id = "")
