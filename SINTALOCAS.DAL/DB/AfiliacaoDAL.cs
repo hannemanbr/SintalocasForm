@@ -21,7 +21,7 @@ namespace SINTALOCAS.DAL.DB
                 int idResult = afiliado.ID;
                 var dataNascTx = afiliado.DataNascimento.Year + "-" + afiliado.DataNascimento.Month + "-" + afiliado.DataNascimento.Day;
 
-                string query = " UPDATE Afiliado " +
+                string query = " UPDATE Afiliado SET " +
                     "Nome='" + afiliado.Nome + "'" +
                     ",Email='" + afiliado.Email + "'" + 
                     ",DataNascimento='" + dataNascTx + "'" +            
@@ -58,7 +58,7 @@ namespace SINTALOCAS.DAL.DB
                     if (idResult <= 0) return 0;
 
                     //GRAVAR ENDERECO
-                    query = " UPDATE Afiliado_Endereco " +                        
+                    query = " UPDATE Afiliado_Endereco SET " +                        
                         "Rua='" + afiliado.Endereco.Logradouro + "'" +
                         ",Numero='" + afiliado.Endereco.Numero + "'" +
                         ",Complemento='" + afiliado.Endereco.Complemento + "'" +
@@ -72,8 +72,8 @@ namespace SINTALOCAS.DAL.DB
                     _contexto.Transacao(query);
                         
                     //GRAVAR INFO EMPRESA
-                    query = " UPDATE Afiliado_Empresa " +
-                        ",CNPJ='" + afiliado.CNPJ + "'" +
+                    query = " UPDATE Afiliado_Empresa SET " +
+                        "CNPJ='" + afiliado.CNPJ + "'" +
                         ",Nome='" + afiliado.Empresa + "'" +
                         " WHERE IDAfiliado=" + idResult;
                     
@@ -400,7 +400,7 @@ namespace SINTALOCAS.DAL.DB
                         Consir = linha["Consir"].ToString().ToUpper(),
                         CNPJ = linha["EmpresaCNPJ"].ToString().ToUpper(),
                         Empresa = linha["EmpresaNome"].ToString().ToUpper(),
-                        DataNascimento = Convert.ToDateTime(linha["DataNascimento"].ToString()),
+                        DataNascimento = Convert.ToDateTime(linha["DataNascimento"]),
                         NomeMae = linha["NomeMae"].ToString().ToUpper(),
                         NomePai = linha["NomePai"].ToString().ToUpper(),
                         ContribuicaoID = Convert.ToInt32(linha["Contribuicao"].ToString()),
@@ -412,11 +412,13 @@ namespace SINTALOCAS.DAL.DB
                     {
                         new Telefone{
                             DDD =linha["CelDDD"].ToString(),
-                            Numero =linha["CelNumero"].ToString()
+                            Numero =linha["CelNumero"].ToString(),
+                            TipoTelefone = TelefoneEnum.Celular01
                         },
                         new Telefone{
                             DDD =linha["TelDDD"].ToString(),
-                            Numero =linha["TelNumero"].ToString()
+                            Numero =linha["TelNumero"].ToString(),
+                            TipoTelefone = TelefoneEnum.Residencia
                         }
                     };
 
@@ -476,7 +478,7 @@ namespace SINTALOCAS.DAL.DB
                     {
                         ID = Convert.ToInt32(linha["ID"]),
                         Nome = linha["Nome"].ToString().ToUpper(),
-                        DataNascimento = Convert.ToDateTime(linha["DataNascimento"].ToString()),
+                        DataNascimento = Convert.ToDateTime(linha["DataNascimento"]),
                         GrauParentescoID = Convert.ToInt32(linha["Grau"].ToString()),
                         GrauParentescoNome = linha["GrauNome"].ToString().ToUpper(),
                         AcrescimoMensal = Convert.ToInt32(linha["AcrescimoMensal"].ToString())

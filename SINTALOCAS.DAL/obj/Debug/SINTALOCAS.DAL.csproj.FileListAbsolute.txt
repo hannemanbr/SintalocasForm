@@ -55,3 +55,4 @@ C:\Users\thomas.abrantes\Documents\Thomas\GitHub\SintaLocas\SINTALOCAS.DAL\bin\D
 C:\Users\thomas.abrantes\Documents\Thomas\GitHub\SintaLocas\SINTALOCAS.DAL\bin\Debug\MySql.Data.Entity.EF6.dll
 C:\Users\thomas.abrantes\Documents\Thomas\GitHub\SintaLocas\SINTALOCAS.DAL\bin\Debug\Rotativa.dll
 D:\Thomas\Github\SintalocasForm\SINTALOCAS.DAL\bin\Debug\Rotativa.dll
+D:\Thomas\Github\SintalocasForm\SINTALOCAS.DAL\bin\Debug\Remotion.Linq.xml

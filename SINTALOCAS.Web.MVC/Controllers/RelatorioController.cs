@@ -50,9 +50,9 @@ namespace SINTALOCAS.Web.MVC.Controllers
         }
 
         public ActionResult DetalheAfiliado(string id)
-        {
-            GeraViewBagDetalhe();
+        {            
             ConsultarPorCPF(id);
+            GeraViewBagDetalhe();
             return View();
         }
         
@@ -65,14 +65,14 @@ namespace SINTALOCAS.Web.MVC.Controllers
         }
 
         [HttpPost]
-        public ActionResult EditarDetalheAfiliado(FormCollection collection)
+        public ActionResult DetalheAfiliado(FormCollection collection)
         {
             ValidarForm(collection);
             var cpf = TempData["cpfAfiliado"].ToString();
 
             ConsultarPorCPF(cpf);
             GeraViewBagDetalhe();
-            return RedirectToAction("../DetalheAfiliado/" + cpf);
+            return View();
         }
 
         public bool ValidarForm(FormCollection Collection)
@@ -192,6 +192,9 @@ namespace SINTALOCAS.Web.MVC.Controllers
 
                 ViewBag.Dependentes = DependenteServico.ListaDependentes(idAfiliado);
                 ViewBag.Enderecos = listaAfiliado[0].Endereco;
+                ViewBag.Telefone = listaAfiliado[0].Telefones.Where(x => x.TipoTelefone == TelefoneEnum.Residencia).First();
+                ViewBag.Celular = listaAfiliado[0].Telefones.Where(x => x.TipoTelefone == TelefoneEnum.Celular01).First();
+
             }
         }
 

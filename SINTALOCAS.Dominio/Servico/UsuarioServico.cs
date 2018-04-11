@@ -16,7 +16,10 @@ namespace SINTALOCAS.Dominio.Servico
             try
             {
                 //senha = GerarSenhaSHA1(senha);
-                return UsuarioDAL.Consultar(email, senha);
+                if (email.Trim()!="" || senha.Trim()!="")
+                    return UsuarioDAL.Consultar(email, senha);
+
+                return new List<Usuario>();
             }
             catch (Exception)
             {

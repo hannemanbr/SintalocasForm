@@ -73,8 +73,7 @@ namespace SINTALOCAS.Web.MVC.Servico
                 // criando objeto de afiliado
                 var afiliado = new Afiliado();
 
-                afiliado.Cargo = lista["CARGO"];
-                afiliado.Consir = lista["CONSIR"];
+                afiliado.Cargo = lista["CARGO"];                
                 afiliado.CPF = lista["CPF"];
                 afiliado.CNPJ = lista["CNPJ"];
                 afiliado.Empresa = lista["EMPRESA"];
@@ -84,8 +83,11 @@ namespace SINTALOCAS.Web.MVC.Servico
                 afiliado.NomeMae = lista["NOMEMAE"];
                 afiliado.NomePai = lista["NOMEPAI"];
 
-                if (lista.ContainsKey("ID"))
-                    afiliado.ID = Convert.ToInt32(lista["ID"]);
+                if (lista.ContainsKey("CONSIR"))
+                    afiliado.Consir = lista["CONSIR"];
+
+                if (lista.ContainsKey("IDAFILIADO"))
+                    afiliado.ID = Convert.ToInt32(lista["IDAFILIADO"]);
 
                 // INFORMAÇOE CTPS
                 afiliado.CTPS = new CTPS

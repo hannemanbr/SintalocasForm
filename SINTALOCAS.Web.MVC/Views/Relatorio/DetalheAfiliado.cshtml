@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<form action="EditarDetalheAfiliado" id="formAfilia" method="post">
+<form action="" id="formAfilia" method="post">
     @if (ViewBag.Lista != null)
     {
         <div class="row">
@@ -13,12 +13,56 @@
         foreach (var item in ViewBag.Lista)
         {
             <div class="row">
+                <input type="hidden" name="idAfiliado" id="idAfiliado" value="@item.ID" />
                 <strong>Nome:</strong>
                 <input type="text" name="nome" id="nome" value="@item.Nome" />
             </div>
             <div class="row">
+                <strong>E-mail:</strong>
+                <input type="text" name="email" id="email" value="@item.Email" />
+            </div>
+            <div class="row">
+                <strong>Telefone Residencial:</strong>
+            </div>
+            <div class="row">
+                <div class="col-15">
+                    DDD <input type="text" name="TELRESDDD" id="TELRESDDD" value="@ViewBag.Telefone.DDD" maxlength="2" width="20px;" />
+                </div>
+                <div class="col-35">
+                    Número <input type="text" name="TELRESNUM" id="TELRESNUM" value="@ViewBag.Telefone.Numero" />
+                </div>
+            </div>
+            <div class="row">
+                <strong>Celular:</strong>
+            </div>
+            <div class="row">
+                <div class="col-15">
+                    DDD <input type="text" name="TELCELDDD" id="TELCELDDD" value="@ViewBag.Celular.DDD" maxlength="2" />
+                </div>
+                <div class="col-35">
+                    Número <input type="text" name="TELCELNUM" id="TELCELNUM" value="@ViewBag.Celular.Numero" />
+                </div>
+            </div>
+            <div class="row">
+                <strong>Nome do Pai:</strong>
+                <input type="text" name="nomepai" id="nomepai" value="@item.NomePai" />
+            </div>
+            <div class="row">
                 <strong>CPF:</strong>
                 <input type="text" name="cpf" id="cpf" value="@item.CPF" />
+            </div>
+            <div class="row">
+                <strong>PIS:</strong>
+                <input type="text" name="PIS" id="PIS" value="@item.CTPS.PIS" />
+            </div>
+
+            <div class="row">
+                <strong>CTPS Número:</strong>
+                <input type="text" name="CTPSNUM" id="CTPSNUM" value="@item.CTPS.Numero" />
+            </div>
+            <div class="row">
+                <strong>CTPS Serie:</strong>
+                <input type="text" name="CTPSSERIE" id="CTPSSERIE" value="@item.CTPS." />
             </div>
             <div class="row">
                 <strong>RG:</strong>
@@ -39,6 +83,14 @@
             <div class="row">
                 <strong>CNPJ:</strong>
                 <input type="text" name="cnpj" id="cnpj" value="@item.CNPJ" />
+            </div>
+            <div class="row">
+                <strong>Nome do Pai:</strong>
+                <input type="text" name="nomepai" id="nomepai" value="@item.NomePai" />
+            </div>
+            <div class="row">
+                <strong>Nome da Mãe:</strong>
+                <input type="text" name="nomemae" id="nomemae" value="@item.NomeMae" />
             </div>
             <div class="row">
                 <strong>Opção de Pagamento:</strong>
@@ -89,7 +141,7 @@
         </div>
         <div class="row">
             <strong>Bairro:</strong>
-            <input type="text" name="empresa" id="empresa" value="@ViewBag.Enderecos.Bairro" />
+            <input type="text" name="bairro" id="bairro" value="@ViewBag.Enderecos.Bairro" />
         </div>
         <div class="row">
             <strong>Cidade:</strong>
@@ -99,7 +151,7 @@
         </div>
         <div class="row">
             <strong>CEP:</strong>
-            <input type="text" name="uf" id="uf" value="@ViewBag.Enderecos.CEP" />
+            <input type="text" name="CEP" id="CEP" value="@ViewBag.Enderecos.CEP" />
         </div>
         <input type="hidden" name="idEndereco" id="idEndereco" value="@ViewBag.Enderecos.ID" />
     }
@@ -166,5 +218,5 @@
         <input type="button" id="btnVoltar" value="Voltar" onclick="window.location.href='../RelAfiliados'" />
         <input type="submit" id="btnSalvar" value="Salvar" />
         <input type="button" id="btnRel" value="Gerar relatorio" onclick="window.open('../PDFPadrao/3')" />
-        </div>
+    </div>
 </form>

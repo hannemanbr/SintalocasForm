@@ -5,9 +5,10 @@ namespace SINTALOCAS.Dominio.Util
     {
         public static DateTime ConverterString( string dataTx)
         {
+            var dtAux = Convert.ToDateTime(dataTx);
             DateTime dataResult = new DateTime();
 
-            var vetorData = dataTx.Split('/');
+            var vetorData = dtAux.ToString("dd/MM/yyyy").Split('/');
 
             if (vetorData.Length!=3) return dataResult;
 
