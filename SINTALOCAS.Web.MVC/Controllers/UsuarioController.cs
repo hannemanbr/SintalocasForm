@@ -46,7 +46,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
             ViewBag.UsuarioLogin = UsuarioServico.ConsultarPorID(id);
             ViewBag.Usuarios = UsuarioServico.Consultar("", 0).OrderBy(x => x.Nome).ToList();
             ViewBag.RootView = Validacao.AnalisaLink(@Request.RawUrl.ToString());
-            ViewBag.LinkRelatorio01 = linkRoot + "Relatorio/PDFPadrao/4"; 
+            ViewBag.LinkRelatorio01 = linkRoot + "Relatorio/RelUsuariosPDF"; 
             ViewBag.LinkCadastro = linkRoot + "Usuario/Cadastro";
         }
 
@@ -112,9 +112,28 @@ namespace SINTALOCAS.Web.MVC.Controllers
         {
             try
             {
-                // TODO: Add update logic here
+                var listaCampos = validacaoViewServico.GeraListaCampos(collection);
 
-                return RedirectToAction("Index");
+                //validar campos
+                var result = Validacao.FormUsuarioValidarPreenchimento(listaCampos, false, false);
+
+                if (result.Trim() == "")
+                {
+
+                    Usuario usuario = UsuarioServico.ConverteInfoFormEmObj(listaCampos, false);
+                    var registro = UsuarioServico.Atualizar(usuario); //gravando informaçoes
+
+                    ViewBag.MensagemRetorno = MensagemUtil.OperacaoRealizada();
+                    ViewBag.ColorAlerta = "#149603";
+                    ViewBag.Usuario = UsuarioServico.ConsultarPorID(usuario.ID);
+                }
+                else
+                {
+                    ViewBag.MensagemRetorno = result;
+                    ViewBag.ColorAlerta = "#FF0000";
+                }
+
+                return View();
             }
             catch
             {
@@ -143,34 +162,6 @@ namespace SINTALOCAS.Web.MVC.Controllers
 
             return RedirectToAction("Index");
         }
-                
-        //[HttpPost]
-        //public JsonResult ValidarFormJSON(FormCollection collection)
-        //{
-        //    var retorno = false;
-        //    var listaCampos = validacaoViewServico.GeraListaCampos(collection);
-
-        //    //validar campos
-        //    var result = Validacao.FormUsuarioValidarPreenchimento(listaCampos);
-                        
-        //    try
-        //    {
-        //        if (result.Trim() == "")
-        //        {
-        //            Usuario usuario = UsuarioServico.ConverteInfoFormEmObj(listaCampos, false);
-        //            var registro = UsuarioServico.Insere(usuario); //gravando informaçoes
-        //            retorno = true;
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        result = ex.Message;
-        //        //throw;
-        //    }
-
-        //    return Json(new { success = retorno, msg = result }, JsonRequestBehavior.AllowGet); ;
-
-        //}
-
+        
     }
 }

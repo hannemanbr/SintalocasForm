@@ -79,9 +79,9 @@ namespace SINTALOCAS.DAL.DB
             {
                 var query = "UPDATE Admin_Login" +
                     " SET" +
-                    " NOME = '" + usuario.Nome + "'," +
-                    " EMAIL = '" + usuario.Email + "'," +                    
-                    //" SENHA = '" + usuario.Senha + "'" +
+                    " NOME = '" + usuario.Nome + "'" +
+                    //" ,EMAIL = '" + usuario.Email + "'" +                    
+                    //" ,SENHA = '" + usuario.Senha + "'" +
                     " WHERE ID=" + usuario.ID + "";
 
                 return _contexto.Transacao(query);

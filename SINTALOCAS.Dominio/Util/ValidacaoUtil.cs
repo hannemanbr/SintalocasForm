@@ -62,7 +62,10 @@ namespace SINTALOCAS.Dominio.Util
 
         }
         
-        public static string FormUsuarioValidarPreenchimento(Dictionary<string, string> listaCampos, bool alterarSenha = false)
+        public static string FormUsuarioValidarPreenchimento(
+            Dictionary<string, string> listaCampos, 
+            bool alterarSenha = false, 
+            bool validarEmailExistte = true)
         {
 
             var result = "";
@@ -79,24 +82,27 @@ namespace SINTALOCAS.Dominio.Util
             //validar se existe usuario
             if (!alterarSenha && listaCampos.ContainsKey("EMAIL"))
             {
-                if (UsuarioServico.Consultar(listaCampos["EMAIL"], 0).Count()>0)
+                if (UsuarioServico.Consultar(listaCampos["EMAIL"], 0).Count()>0 && validarEmailExistte)
                 {
                     result += "<li>" + MensagemUtil.ErroEMAILExistente() + "</li>";
                 }
             }
             
-            if (listaCampos.ContainsKey("SENHA") && listaCampos.ContainsKey("CONFIRMAÇÃO DE SENHA"))
+            if (alterarSenha)
             {
-                //VALIDANDO SENHA DIGITADA
-                result += UsuarioServico.ValidarSenha(listaCampos["SENHA"].Trim());
-                //VALIDAR CONFIRMAÇÃO DE SENHA
-                if (listaCampos["SENHA"].Trim() != listaCampos["CONFIRMAÇÃO DE SENHA"].Trim()) result += "<li>" + MensagemUtil.ErroConfirmacaoSenha() + "</li>";
+                if (listaCampos.ContainsKey("SENHA") && listaCampos.ContainsKey("CONFIRMAÇÃO DE SENHA"))
+                {
+                    //VALIDANDO SENHA DIGITADA
+                    result += UsuarioServico.ValidarSenha(listaCampos["SENHA"].Trim());
+                    //VALIDAR CONFIRMAÇÃO DE SENHA
+                    if (listaCampos["SENHA"].Trim() != listaCampos["CONFIRMAÇÃO DE SENHA"].Trim()) result += "<li>" + MensagemUtil.ErroConfirmacaoSenha() + "</li>";
+                }
+                else
+                {
+                    result += MensagemUtil.ErroCamposNaoPreenchidos();
+                }
             }
-            else
-            {
-                result += MensagemUtil.ErroCamposNaoPreenchidos();
-            }
-
+            
             if (result.Trim() != "") result = "<strong>Preencha os campos:</strong> <ul>" + result + "</ul>";
 
             return result;

@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "Editar";
+    ViewBag.Title = "Cadastro de Usuários";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -10,18 +10,26 @@
         Nome
     </label>
     <div class="row">
-        <input type="text" value="@ViewBag.Usuario.Nome" id="Nome" name="Nome" placeholder="Digite o nome do usuário" />
+        <input type="text" data-mini="true" value="@ViewBag.Usuario.Nome" id="Nome" name="Nome" placeholder="Digite o nome do usuário" />
     </div>
     <label class="col-form-label">
         E-mail/Login
     </label>
     <div class="row">
-        <input type="text" value="@ViewBag.Usuario.Email" id="Email" name="Email" placeholder="Informe o e-mail" />
+        <input type="text" data-mini="true" value="@ViewBag.Usuario.Email" id="Email" name="Email" placeholder="Informe o e-mail" />
     </div>
     <span id="rFormRetorno" style="color:#FF0000">@Html.Raw(ViewBag.MensagemRetorno)</span>
     <br />
-    <input type="hidden" name="ID" id="ID" value="@ViewBag.Usuario.ID" />
-    <input type="button" data-mini="true" id="btnGravar" value="Enviar" class="BotaoFinaliza" onclick="validarFormUsuario('@ViewBag.RootView')" />
+    <div class="row">
+        <div class="col-50">
+            <input type="hidden" name="ID" id="ID" value="@ViewBag.Usuario.ID" />
+            <input type="button" data-mini="true" id="btnGravar" value="Enviar" class="BotaoFinaliza" onclick="validarFormUsuario('@ViewBag.RootView')" />
+        </div>
+        <div class="col-50">
+            <input type="button" data-mini="true" id="btnVoltar" value="Voltar" onclick="window.location.href='../Index'" />
+        </div>
+    </div>
+    
 </form>
 
 

@@ -105,6 +105,19 @@ namespace SINTALOCAS.Dominio.Servico
             return result;
         }
 
+        public static int Atualizar(Usuario usuario)
+        {
+            try
+            {
+                return UsuarioDAL.Atualizar(usuario);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         public static int Insere(Usuario usuario)
         {
             try
@@ -142,6 +155,13 @@ namespace SINTALOCAS.Dominio.Servico
                 {
                     if (lista.ContainsKey("SENHA")) senha = lista["SENHA"]; //GerarSenhaSHA1(lista["SENHA"]);
                     if (lista.ContainsKey("NOME")) nome = lista["NOME"];
+                    if (lista.ContainsKey("EMAIL")) email = lista["EMAIL"];
+                    if (lista.ContainsKey("ID")) idUsuario = Convert.ToInt32(lista["ID"]);
+                }
+                else
+                {
+                    if (lista.ContainsKey("NOME")) nome = lista["NOME"];
+                    if (lista.ContainsKey("EMAIL")) email = lista["EMAIL"];
                     if (lista.ContainsKey("ID")) idUsuario = Convert.ToInt32(lista["ID"]);
                 }
 

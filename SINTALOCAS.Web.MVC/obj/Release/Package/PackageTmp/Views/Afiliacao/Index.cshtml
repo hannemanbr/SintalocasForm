@@ -10,75 +10,75 @@
             <label class="label">ASSOCIADO:</label>
         </div>
         <div class="row">
-            <input type="text" maxlength="100" data-mini="true"  id="Nome" name="Nome" placeholder="nome completo" value="@ViewBag.Afiliado.Nome" />
+            <input type="text" maxlength="100" data-mini="true" id="Nome" name="Nome" placeholder="nome completo" value="@ViewBag.Afiliado.Nome" />
         </div>
         <div class="row">
             <label class="label">E-MAIL:</label>
         </div>
         <div class="row">
-            <input type="text" maxlength="100" data-mini="true"  id="Email" name="Email" onblur="validarEmail(this, '@ViewBag.RootView')" placeholder="e-mail" value="@ViewBag.Afiliado.Email" />
+            <input type="text" maxlength="100" data-mini="true" id="Email" name="Email" onblur="validarEmail(this, '@ViewBag.RootView')" placeholder="e-mail" value="@ViewBag.Afiliado.Email" />
             <div style="color:#FF0000" id="rEmail"></div>
         </div>
         <div class="row"><label class="label">DATA DE NASCIMENTO:</label></div>
         <div class="row">
-            <input type="text" maxlength="10" data-mini="true"  id="DtNasc" name="DtNasc" onblur="validarDtNasc(this, '@ViewBag.RootView')" class="simple-field-data-mask" data-mask="00/00/0000" />
+            <input type="text" maxlength="10" data-mini="true" id="DtNasc" name="DtNasc" onblur="validarDtNasc(this, '@ViewBag.RootView')" class="simple-field-data-mask" data-mask="00/00/0000" />
             <div style="color:#FF0000" id="rDtNasc"></div>
         </div>
         <div class="row"><label class="label">RG:</label></div>
         <div class="row">
-            <input type="text" maxlength="20" data-mini="true"  id="Rg" name="Rg" onblur="validarRG(this, '@ViewBag.RootView')" placeholder="Somente número" value="@ViewBag.Afiliado.RG" />
+            <input type="text" maxlength="20" data-mini="true" id="Rg" name="Rg" onblur="validarRG(this, '@ViewBag.RootView')" placeholder="Somente número" value="@ViewBag.Afiliado.RG" />
             <div style="color:#FF0000" id="rRg"></div>
         </div>
         <div class="row">
             <label class="label">CPF:</label>
         </div><div class="row">
-            <input type="text" maxlength="20" data-mini="true"  id="Cpf" name="Cpf" onblur="validarCPF(this, '@ViewBag.RootView')" placeholder="Somente número" value="@ViewBag.Afiliado.CPF" />
+            <input type="text" maxlength="20" data-mini="true" id="Cpf" name="Cpf" onblur="validarCPF(this, '@ViewBag.RootView')" placeholder="Somente número" value="@ViewBag.Afiliado.CPF" />
             <div style="color:#FF0000" id="rCpf"></div>
         </div>
         <div class="row">
             <label class="label">PIS:</label>
         </div>
         <div class="row">
-            <input type="text" maxlength="20" data-mini="true"  id="Pis" name="Pis" placeholder="" onblur="validarPIS(this, '@ViewBag.RootView')" value="@ViewBag.Afiliado.PIS" />
+            <input type="text" maxlength="20" data-mini="true" id="Pis" name="Pis" placeholder="" onblur="validarPIS(this, '@ViewBag.RootView')" value="@ViewBag.Afiliado.PIS" />
             <div style="color:#FF0000" id="rPis"></div>
         </div>
         <div class="row">
             <label class="label">CTPS:</label>
         </div>
         <div class="row">
-            <input type="text" maxlength="20" data-mini="true"  id="CtpsNum" name="CtpsNum" placeholder="" value="@ViewBag.Afiliado.CTPS_Numero" />
+            <input type="text" maxlength="20" data-mini="true" id="CtpsNum" name="CtpsNum" placeholder="" value="@ViewBag.Afiliado.CTPS_Numero" />
             <div style="color:#FF0000" id="rCtpsNum"></div>
         </div>
         <div class="row">
             <label class="label">Serie:</label>
         </div>
         <div class="row">
-            <input type="text" maxlength="20" data-mini="true"  id="CtpsSerie" name="CtpsSerie" placeholder="" value="@ViewBag.Afiliado.CTPS_Serie" />
+            <input type="text" maxlength="20" data-mini="true" id="CtpsSerie" name="CtpsSerie" placeholder="" value="@ViewBag.Afiliado.CTPS_Serie" />
         </div>
         <div class="row">
             <label class="label">Cargo:</label>
         </div>
         <div class="row">
-            <input type="text" maxlength="60" data-mini="true"  id="Cargo" name="Cargo" placeholder="" value="@ViewBag.Afiliado.Nome" />
+            <input type="text" maxlength="60" data-mini="true" id="Cargo" name="Cargo" placeholder="" value="@ViewBag.Afiliado.Nome" />
         </div>
         <div class="row">
             <label class="label">Empresa:</label>
         </div>
         <div class="row">
-            <input type="text" maxlength="100" data-mini="true"  id="Empresa" name="Empresa" placeholder="" />
+            <input type="text" maxlength="100" data-mini="true" id="Empresa" name="Empresa" placeholder="" />
         </div>
         <div class="row">
             <label class="label">CNPJ:</label>
         </div>
         <div class="row">
-            <input type="text" maxlength="20" data-mini="true"  id="Cnpj" name="Cnpj" placeholder="" onblur="validarCNPJ(this, '@ViewBag.RootView')" />
+            <input type="text" maxlength="20" data-mini="true" id="Cnpj" name="Cnpj" placeholder="" onblur="validarCNPJ(this, '@ViewBag.RootView')" />
             <div style="color:#FF0000" id="rCnpj"></div>
         </div>
         <div class="row">
             <label class="label">CONSIR:</label>
         </div>
         <div class="row">
-            <input type="text" maxlength="10" data-mini="true"  id="Consir" name="Consir" placeholder="" />
+            <input type="text" maxlength="10" data-mini="true" id="Consir" name="Consir" placeholder="" />
         </div>
         <div class="row">
             <label class="label">Celular:</label>
