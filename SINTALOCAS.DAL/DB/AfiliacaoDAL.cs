@@ -113,7 +113,11 @@ namespace SINTALOCAS.DAL.DB
                     "CTPS_Serie, " +
                     "CONSIR, " +
                     "NomePai, " +
-                    "NomeMae " +
+                    "NomeMae, " +
+                    "CelDDD," +
+                    "CelNumero," +
+                    "TelDDD," + 
+                    "TelNumero" +
                     ") VALUES (";
 
                 //query += "'1',";
@@ -130,10 +134,10 @@ namespace SINTALOCAS.DAL.DB
                 query += ",'" + afiliado.NomePai + "'";
                 query += ",'" + afiliado.NomeMae + "'";
 
-                query += ",'" + afiliado.Telefones.Where(t => t.TipoTelefone == TelefoneEnum.Celular01).Select(t => t.DDD).ToString() + "'";
-                query += ",'" + afiliado.Telefones.Where(t => t.TipoTelefone == TelefoneEnum.Celular01).Select(t => t.Numero).ToString() + "'";
-                query += ",'" + afiliado.Telefones.Where(t => t.TipoTelefone == TelefoneEnum.Residencia).Select(t => t.DDD).ToString() + "'";
-                query += ",'" + afiliado.Telefones.Where(t => t.TipoTelefone == TelefoneEnum.Residencia).Select(t => t.Numero).ToString() + "'";
+                query += ",'" + afiliado.Telefones.Where(t => t.TipoTelefone == TelefoneEnum.Celular01).Select(t => t.DDD).First() + "'";
+                query += ",'" + afiliado.Telefones.Where(t => t.TipoTelefone == TelefoneEnum.Celular01).Select(t => t.Numero).First() + "'";
+                query += ",'" + afiliado.Telefones.Where(t => t.TipoTelefone == TelefoneEnum.Residencia).Select(t => t.DDD).First() + "'";
+                query += ",'" + afiliado.Telefones.Where(t => t.TipoTelefone == TelefoneEnum.Residencia).Select(t => t.Numero).First() + "'";
 
                 query += ")";
 

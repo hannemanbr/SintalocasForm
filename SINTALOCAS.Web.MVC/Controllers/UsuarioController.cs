@@ -102,6 +102,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
         // GET: Usuario/Edit/5
         public ActionResult Editar(int id)
         {
+            ViewBag.Usuario = UsuarioServico.ConsultarPorID(id);
             return View();
         }
 

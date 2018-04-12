@@ -20,11 +20,11 @@
             <div class="row">
                 <input type="hidden" name="idAfiliado" id="idAfiliado" value="@item.ID" />
                 <strong>Nome:</strong>
-                <input type="text" name="nome" id="nome" value="@item.Nome" />
+                <input type="text" name="nome" id="nome" value="@item.Nome" maxlength="100"/>
             </div>
             <div class="row">
                 <strong>E-mail:</strong>
-                <input type="text" name="email" id="email" value="@item.Email" />
+                <input type="text" name="email" id="email" value="@item.Email" maxlength="100" />
             </div>
             <div class="row">
                 <strong>Telefone Residencial:</strong>
@@ -34,7 +34,7 @@
                     DDD <input type="text" name="TELRESDDD" id="TELRESDDD" value="@ViewBag.Telefone.DDD" maxlength="2" width="20px;" />
                 </div>
                 <div class="col-35">
-                    Número <input type="text" name="TELRESNUM" id="TELRESNUM" value="@ViewBag.Telefone.Numero" />
+                    Número <input type="text" name="TELRESNUM" id="TELRESNUM" value="@ViewBag.Telefone.Numero" maxlength="10" />
                 </div>
             </div>
             <div class="row">
@@ -45,57 +45,58 @@
                     DDD <input type="text" name="TELCELDDD" id="TELCELDDD" value="@ViewBag.Celular.DDD" maxlength="2" />
                 </div>
                 <div class="col-35">
-                    Número <input type="text" name="TELCELNUM" id="TELCELNUM" value="@ViewBag.Celular.Numero" />
+                    Número <input type="text" name="TELCELNUM" id="TELCELNUM" value="@ViewBag.Celular.Numero" maxlength="10" />
                 </div>
             </div>
             <div class="row">
                 <strong>Nome do Pai:</strong>
-                <input type="text" name="nomepai" id="nomepai" value="@item.NomePai" />
+                <input type="text" name="nomepai" id="nomepai" value="@item.NomePai" maxlength="100" />
             </div>
             <div class="row">
                 <strong>CPF:</strong>
-                <input type="text" name="cpf" id="cpf" value="@item.CPF" />
+                <input type="text" name="cpf" id="cpf" value="@item.CPF" maxlength="20" />
             </div>
             <div class="row">
                 <strong>PIS:</strong>
-                <input type="text" name="PIS" id="PIS" value="@item.CTPS.PIS" />
+                <input type="text" name="PIS" id="PIS" value="@item.CTPS.PIS" maxlength="20" />
             </div>
 
             <div class="row">
                 <strong>CTPS Número:</strong>
-                <input type="text" name="CTPSNUM" id="CTPSNUM" value="@item.CTPS.Numero" />
+                <input type="text" name="CTPSNUM" id="CTPSNUM" value="@item.CTPS.Numero" maxlength="20" />
             </div>
             <div class="row">
                 <strong>CTPS Serie:</strong>
-                <input type="text" name="CTPSSERIE" id="CTPSSERIE" value="@item.CTPS." />
+                <input type="text" name="CTPSSERIE" id="CTPSSERIE" value="@item.CTPS." max="20" />
             </div>
             <div class="row">
                 <strong>RG:</strong>
-                <input type="text" name="rg" id="rg" value="@item.RG" />
+                <input type="text" name="rg" id="rg" value="@item.RG" maxlength="20" />
             </div>
             <div class="row">
                 <strong>Dt. Nasc.:</strong>
-                <input type="text" name="dtnasc" id="dtnasc" value="@item.DataNascimento" />
+                <input type="text" name="dtnasc" id="dtnasc" value="@item.DataNascimento" maxlength="10" />
             </div>
             <div class="row">
                 <strong>Cargo:</strong>
-                <input type="text" name="cargo" id="cargo" value="@item.Cargo" />
+                <input type="text" name="cargo" id="cargo" value="@item.Cargo" maxlength="100" />
+                <input type="text" name="cargo" id="cargo" value="@item.Cargo" maxlength="100" />
             </div>
             <div class="row">
                 <strong>Empresa:</strong><br />
-                <input type="text" name="empresa" id="empresa" value="@item.Empresa" />
+                <input type="text" name="empresa" id="empresa" value="@item.Empresa" maxlength="100" />
             </div>
             <div class="row">
                 <strong>CNPJ:</strong>
-                <input type="text" name="cnpj" id="cnpj" value="@item.CNPJ" />
+                <input type="text" name="cnpj" id="cnpj" value="@item.CNPJ" maxlength="20" />
             </div>
             <div class="row">
                 <strong>Nome do Pai:</strong>
-                <input type="text" name="nomepai" id="nomepai" value="@item.NomePai" />
+                <input type="text" name="nomepai" id="nomepai" value="@item.NomePai" maxlength="100" />
             </div>
             <div class="row">
                 <strong>Nome da Mãe:</strong>
-                <input type="text" name="nomemae" id="nomemae" value="@item.NomeMae" />
+                <input type="text" name="nomemae" id="nomemae" value="@item.NomeMae" maxlength="100" />
             </div>
             <div class="row">
                 <strong>Opção de Pagamento:</strong>

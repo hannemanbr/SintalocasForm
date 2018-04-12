@@ -211,7 +211,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
             if (listaAfiliado.Count > 0)
             {
                 var idAfiliado = listaAfiliado[0].ID;
-
+                ViewBag.DtNasc = listaAfiliado[0].DataNascimento.ToString("dd/MM/yyyy");
                 ViewBag.Dependentes = DependenteServico.ListaDependentes(idAfiliado);
                 ViewBag.Enderecos = listaAfiliado[0].Endereco;
                 ViewBag.Telefone = listaAfiliado[0].Telefones.Where(x => x.TipoTelefone == TelefoneEnum.Residencia).First();
