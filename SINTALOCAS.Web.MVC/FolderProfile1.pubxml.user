@@ -10,7 +10,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="App_Browsers/qt.browser">
-      <publishTime>04/12/2018 10:31:36</publishTime>
+      <publishTime>04/13/2018 15:20:04</publishTime>
     </File>
     <File Include="bin/AWSSDK.Core.dll">
       <publishTime>04/13/2018 12:01:19</publishTime>
@@ -61,7 +61,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/13/2018 12:01:20</publishTime>
     </File>
     <File Include="bin/Rotativa.dll">
-      <publishTime>04/13/2018 12:01:20</publishTime>
+      <publishTime>09/29/2017 14:13:30</publishTime>
     </File>
     <File Include="bin/SINTALOCAS.DAL.dll">
       <publishTime>04/13/2018 14:41:51</publishTime>
@@ -82,7 +82,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/13/2018 12:02:45</publishTime>
     </File>
     <File Include="bin/SINTALOCAS.Web.MVC.dll">
-      <publishTime>04/13/2018 15:00:31</publishTime>
+      <publishTime>04/13/2018 15:53:22</publishTime>
     </File>
     <File Include="bin/System.AppContext.dll">
       <publishTime>03/20/2018 17:43:19</publishTime>
@@ -469,7 +469,28 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/03/2018 12:32:25</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>04/13/2018 11:59:31</publishTime>
+      <publishTime>04/13/2018 15:27:27</publishTime>
+    </File>
+    <File Include="Rotativa/help-wkhtmltoimage.txt">
+      <publishTime>04/13/2018 15:20:04</publishTime>
+    </File>
+    <File Include="Rotativa/help-wkhtmltopdf.txt">
+      <publishTime>04/13/2018 15:20:04</publishTime>
+    </File>
+    <File Include="Rotativa/msvcp120.dll">
+      <publishTime>04/13/2018 15:02:58</publishTime>
+    </File>
+    <File Include="Rotativa/msvcr120.dll">
+      <publishTime>04/13/2018 15:02:58</publishTime>
+    </File>
+    <File Include="Rotativa/vccorlib120.dll">
+      <publishTime>04/13/2018 15:02:58</publishTime>
+    </File>
+    <File Include="Rotativa/wkhtmltoimage.exe">
+      <publishTime>04/13/2018 15:20:04</publishTime>
+    </File>
+    <File Include="Rotativa/wkhtmltopdf.exe">
+      <publishTime>04/13/2018 15:19:51</publishTime>
     </File>
     <File Include="Scripts/bootstrap.bundle.js">
       <publishTime>04/13/2018 11:59:31</publishTime>
@@ -631,7 +652,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/13/2018 12:15:49</publishTime>
     </File>
     <File Include="Views/Relatorio/DetalheAfiliadoPDF.cshtml">
-      <publishTime>04/06/2018 11:09:22</publishTime>
+      <publishTime>04/13/2018 15:42:00</publishTime>
     </File>
     <File Include="Views/Relatorio/Index.cshtml">
       <publishTime>04/03/2018 12:32:25</publishTime>
@@ -643,13 +664,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/03/2018 12:32:25</publishTime>
     </File>
     <File Include="Views/Relatorio/RelLog.cshtml">
-      <publishTime>04/06/2018 11:09:22</publishTime>
+      <publishTime>04/13/2018 15:06:21</publishTime>
     </File>
     <File Include="Views/Relatorio/RelLogPDF.cshtml">
-      <publishTime>04/03/2018 12:32:25</publishTime>
+      <publishTime>04/13/2018 15:06:19</publishTime>
     </File>
     <File Include="Views/Relatorio/RelUsuariosPDF.cshtml">
-      <publishTime>04/03/2018 12:32:25</publishTime>
+      <publishTime>04/13/2018 15:05:56</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>04/03/2018 12:32:25</publishTime>

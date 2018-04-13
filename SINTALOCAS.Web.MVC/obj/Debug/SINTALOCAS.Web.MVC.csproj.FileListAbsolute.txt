@@ -453,7 +453,6 @@ C:\Users\thomas.abrantes\Documents\Thomas\SintaLocas\SINTALOCAS.Web.MVC\bin\Syst
 C:\Users\thomas.abrantes\Documents\Thomas\SintaLocas\SINTALOCAS.Web.MVC\bin\System.Xml.XmlSerializer.dll
 C:\Users\thomas.abrantes\Documents\Thomas\SintaLocas\SINTALOCAS.Web.MVC\bin\System.Xml.XPath.dll
 C:\Users\thomas.abrantes\Documents\Thomas\SintaLocas\SINTALOCAS.Web.MVC\bin\System.Xml.XPath.XDocument.dll
-C:\Users\thomas.abrantes\Documents\Thomas\SintaLocas\SINTALOCAS.Web.MVC\bin\AWSSDK.Core.dll
 C:\Users\thomas.abrantes\Documents\Thomas\SintaLocas\SINTALOCAS.Web.MVC\bin\Microsoft.Extensions.Caching.Abstractions.dll
 C:\Users\thomas.abrantes\Documents\Thomas\SintaLocas\SINTALOCAS.Web.MVC\bin\Microsoft.Extensions.Caching.Memory.dll
 C:\Users\thomas.abrantes\Documents\Thomas\SintaLocas\SINTALOCAS.Web.MVC\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll
@@ -503,8 +502,6 @@ C:\Users\thomas.abrantes\Documents\Thomas\SintaLocas\SINTALOCAS.Web.MVC\bin\Syst
 C:\Users\thomas.abrantes\Documents\Thomas\SintaLocas\SINTALOCAS.Web.MVC\bin\System.Web.WebPages.xml
 C:\Users\thomas.abrantes\Documents\Thomas\SintaLocas\SINTALOCAS.Web.MVC\bin\System.Web.WebPages.Razor.xml
 C:\Users\thomas.abrantes\Documents\Thomas\SintaLocas\SINTALOCAS.Web.MVC\bin\System.Web.Mvc.xml
-C:\Users\thomas.abrantes\Documents\Thomas\SintaLocas\SINTALOCAS.Web.MVC\bin\AWSSDK.Core.pdb
-C:\Users\thomas.abrantes\Documents\Thomas\SintaLocas\SINTALOCAS.Web.MVC\bin\AWSSDK.Core.xml
 C:\Users\thomas.abrantes\Documents\Thomas\SintaLocas\SINTALOCAS.Web.MVC\bin\Newtonsoft.Json.xml
 C:\Users\thomas.abrantes\Documents\Thomas\SintaLocas\SINTALOCAS.Web.MVC\bin\SINTALOCAS.DAL.pdb
 C:\Users\thomas.abrantes\Documents\Thomas\SintaLocas\SINTALOCAS.Web.MVC\bin\SINTALOCAS.DAL.dll.config
