@@ -53,6 +53,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
         {            
             ConsultarPorCPF(id);
             GeraViewBagDetalhe();
+
             return View();
         }
         

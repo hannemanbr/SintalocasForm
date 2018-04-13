@@ -31,7 +31,8 @@ namespace SINTALOCAS.DAL.DB
                     query += ");";
                 }
 
-                result = Transacao(query);
+                if(query.Trim()!="")
+                    result = Transacao(query);
             }
             catch (Exception)
             {
@@ -50,9 +51,7 @@ namespace SINTALOCAS.DAL.DB
                 var listaContribuicao = PagamentoDAL.ConsultarPorCategoria(OpcaoPagamentoEnum.CONTRIBuICAO.ToString());
                 var lista = new List<Contribuicao>();
 
-                var query = "SELECT ";
-                query += " D.ID, D.Nome, D.DataNascimento, D.AcrescimoMensal, D.Grau, P.Descricao GrauNome";
-                query += " FROM Afiliado_Contribuicao";
+                var query = "SELECT * FROM Afiliado_Contribuicao";
                 query += " WHERE D_E_L_E_T_ = 0 AND idAfiliado=" + idAfiliado + "";
 
                 var dataTable = Consultar(query);

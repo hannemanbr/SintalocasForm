@@ -40,14 +40,14 @@ namespace SINTALOCAS.Web.MVC.Controllers
 
                 int idAfiliado = ConsultaIdAfiliado();
                 int opcaoPagamento = 0;
-                int opcaoContribuicao = 0;
+                string opcaoContribuicao = "";
                 int concordo = 0;
 
                 if (lista.ContainsKey("CONCORDO")) concordo = Convert.ToInt32(lista["CONCORDO"]);
                 if (lista.ContainsKey("PAGAMENTO")) opcaoPagamento = Convert.ToInt32(lista["PAGAMENTO"]);
-                if (lista.ContainsKey("CONTRIBUICAO")) opcaoContribuicao = Convert.ToInt32(lista["CONTRIBUICAO"]);
+                if (lista.ContainsKey("CONTRIBUICAO")) opcaoContribuicao = lista["CONTRIBUICAO"];
 
-                if (idAfiliado == 0 || opcaoPagamento == 0 || opcaoContribuicao == 0 || concordo == 0)
+                if (idAfiliado == 0 || opcaoPagamento == 0 || opcaoContribuicao.Trim() == "" || concordo == 0)
                 {
                     GeraViewBag(idAfiliado);
                     ViewBag.MensagemRetorno = MensagemUtil.ErroCamposNaoPreenchidos();
@@ -55,6 +55,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
                 }
 
                 AfiliacaoServico.Concordar(idAfiliado, opcaoPagamento, opcaoContribuicao);
+
                 return View();
             }
             catch (Exception)

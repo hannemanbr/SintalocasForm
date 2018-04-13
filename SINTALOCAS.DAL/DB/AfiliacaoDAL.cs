@@ -221,7 +221,7 @@ namespace SINTALOCAS.DAL.DB
 
         }
         
-        public int Concordar(int Id, int opcaoPagamento, int opcaoContribuicao)
+        public int Concordar(int Id, int opcaoPagamento, string opcaoContribuicao)
         {
             var result = 0;
 
@@ -230,7 +230,6 @@ namespace SINTALOCAS.DAL.DB
                 var query = "UPDATE Afiliado SET " +
                     " Concordar = 1" +
                     " ,Pagamento =" + opcaoPagamento + "" +
-                    " ,Contribuicao =" + opcaoContribuicao + "" +
                     " WHERE Id=" + Id;
 
                 result = Transacao(query);

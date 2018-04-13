@@ -20,7 +20,7 @@
             <strong>Selecione a opção de contribuição</strong><br />
             @foreach (var item in ViewBag.Contribuicao)
             {
-                <input type="radio" id="contribuicao" name="contribuicao" value="@item.ID" />
+                <input type="checkbox" id="contribuicao" name="contribuicao" value="@item.ID" />
                 <span id="contribuicaoTx" name="contribuicaoTx">@item.Texto</span>
                 <br />
             }

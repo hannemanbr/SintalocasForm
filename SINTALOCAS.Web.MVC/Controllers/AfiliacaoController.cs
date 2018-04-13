@@ -22,17 +22,6 @@ namespace SINTALOCAS.Web.MVC.Controllers
             CombosForm();
             return View();
         }
-
-        [HttpGet]
-        public ActionResult Editar(int id)
-        {
-            TempData["AfiliadoID"] = id;
-
-            var idAfiliado = Convert.ToInt32((int)id);
-            GeraViewBag(idAfiliado);
-
-            return View();
-        }
                 
         private void GeraViewBag(int idAfiliado)
         {
@@ -54,7 +43,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
             //validação específica cpf, cpn, pis, etc.
             result = Validacao.ValidarCodigos(lista);
 
-            //result = "";
+            result = "";
 
             if (result.Trim() == "")
             {

@@ -113,8 +113,18 @@
             </div>
             foreach (var itemRadio in ViewBag.Contribuicao)
             {
+                var checar = "";
+
+                foreach (var contribuicao in item.Contribuicoes)
+                {
+                    if (contribuicao.ID == itemRadio.ID)
+                    {
+                        checar = "checked";
+                    }
+                }
+
                 <div class="row">
-                    <input type="radio" data-mini="true" id="contribuicao" name="contribuicao" value="@itemRadio.ID" @(itemRadio.ID == item.ContribuicaoID ? "checked" : "") />
+                    <input type="checkbox" data-mini="true" id="contribuicao" name="contribuicao" value="@itemRadio.ID" @checar />
                     <span id="contribuicaoTx" name="contribuicaoTx">@itemRadio.Texto</span>
                 </div>
             }
@@ -233,7 +243,7 @@
         <div class="col-25">
             <input type="submit" id="btnSalvar" value="Salvar" />
         </div>
-        <div class="col-25">
+        <div class="col-45">
             <input type="button" id="btnRel" value="Gerar relatorio" onclick="window.open('../PDFPadrao/3')" />
         </div>
     </div>

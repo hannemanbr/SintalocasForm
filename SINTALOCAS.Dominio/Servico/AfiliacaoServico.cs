@@ -4,6 +4,7 @@ using System.Linq;
 using SINTALOCAS.DAL.DB;
 using SINTALOCAS.Dominio.Util;
 using SINTALOCAS.Modelo;
+using SINTALOCAS.Modelo.Enumerator;
 
 namespace SINTALOCAS.Dominio.Servico
 {
@@ -55,7 +56,32 @@ namespace SINTALOCAS.Dominio.Servico
             }
         }
 
-        public static bool Concordar(int id, int opcaoPagamento, int opcaoContribuicao)
+        private static List<Contribuicao> GerarListaContribuicao(string contribuicao)
+        {
+            try
+            {
+                var listaResult = new List<Contribuicao>();
+                var lista = PagamentoServico.ConsultarPorCategoria(OpcaoPagamentoEnum.CONTRIBuICAO.ToString());
+                string[] vetor = contribuicao.Split(',');
+
+                foreach (var id in vetor)
+                {
+                    var obj = lista.Where(x => x.ID == Convert.ToInt32(id)).First();
+
+                    listaResult.Add(new Contribuicao() { ID = obj.ID, Nome = obj.Texto });
+                }
+
+                return listaResult;
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public static bool Concordar(int id, int opcaoPagamento, string opcaoContribuicao)
         {
             var result = false;
 
@@ -67,7 +93,13 @@ namespace SINTALOCAS.Dominio.Servico
 
                 if (afiliado != null)
                 {
+                    //ATUALIZAR CONTRIBUICAO
+                    afiliado.Contribuicoes = GerarListaContribuicao(opcaoContribuicao);
+                    _contribuicao.Inserir(afiliado);
+
                     dependente = DependenteServico.ListaDependentes(id);
+
+                    //NOTIFICAR
                     EmailServico.NotificarCadastro(afiliado, dependente);
                 }
 
@@ -123,7 +155,7 @@ namespace SINTALOCAS.Dominio.Servico
 
                     result.Add(item);
                 }
-                
+
             }
             catch (Exception)
             {
