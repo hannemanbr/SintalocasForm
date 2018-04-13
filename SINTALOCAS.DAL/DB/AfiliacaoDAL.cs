@@ -221,7 +221,7 @@ namespace SINTALOCAS.DAL.DB
 
         }
         
-        public int Concordar(int Id, int opcaoPagamento, string opcaoContribuicao)
+        public int ConcordaOpcaoPagamento(int Id, int opcaoPagamento)
         {
             var result = 0;
 

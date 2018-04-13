@@ -87,7 +87,7 @@ namespace SINTALOCAS.Dominio.Servico
 
             try
             {
-                var registros = _afiliacaoDAL.Concordar(id, opcaoPagamento, opcaoContribuicao);
+                var registros = _afiliacaoDAL.ConcordaOpcaoPagamento(id, opcaoPagamento);
                 var dependente = new List<Dependentes>();
                 var afiliado = GetByID(id);
 
