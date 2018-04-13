@@ -76,7 +76,7 @@ namespace SINTALOCAS.Dominio.Servico
 
                 foreach (var item in afiliado.Contribuicoes)
                 {
-                    texto += " - " + item.Nome;
+                    texto += " - " + item.Nome + "<br/>";
                 }
 
                 texto += "<h2>Endereço:</h2><br/>";
