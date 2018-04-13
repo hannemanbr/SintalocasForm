@@ -82,7 +82,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/13/2018 12:02:45</publishTime>
     </File>
     <File Include="bin/SINTALOCAS.Web.MVC.dll">
-      <publishTime>04/13/2018 15:53:22</publishTime>
+      <publishTime>04/13/2018 19:39:24</publishTime>
     </File>
     <File Include="bin/System.AppContext.dll">
       <publishTime>03/20/2018 17:43:19</publishTime>
@@ -625,10 +625,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/03/2018 12:32:25</publishTime>
     </File>
     <File Include="Views/Admin/Index.cshtml">
-      <publishTime>04/03/2018 12:32:25</publishTime>
+      <publishTime>04/13/2018 19:17:31</publishTime>
     </File>
     <File Include="Views/Afiliacao/Index.cshtml">
       <publishTime>04/13/2018 12:01:18</publishTime>
+    </File>
+    <File Include="Views/CentralAtendimento/Index.cshtml">
+      <publishTime>04/13/2018 19:13:10</publishTime>
     </File>
     <File Include="Views/Dependentes/Index.cshtml">
       <publishTime>04/06/2018 10:59:15</publishTime>
@@ -643,7 +646,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/03/2018 12:32:25</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>04/03/2018 12:32:25</publishTime>
+      <publishTime>04/13/2018 19:34:02</publishTime>
     </File>
     <File Include="Views/Partial/EditarAfiliado.cshtml">
       <publishTime>04/13/2018 14:40:57</publishTime>

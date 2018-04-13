@@ -15,7 +15,6 @@ namespace SINTALOCAS.Web.MVC.Controllers
         // GET: Admin
         public ActionResult Index()
         {
-            GeraViewBag();
             return View();
         }
 
@@ -57,13 +56,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
             ViewBag.MensagemRetorno = "Usuário inválido";
             return View();
         }
-
-        private void GeraViewBag()
-        {
-            ViewBag.RootView = "Index"; //Validacao.AnalisaLink(@Request.RawUrl.ToString());
-            //ViewBag.LinkSubmitAfilia = Validacao.AnalisaLink(@Request.RawUrl.ToString() + "/Admin");
-        }
-
+        
         [ChildActionOnly]
         public void VerificarLogin()
         {
