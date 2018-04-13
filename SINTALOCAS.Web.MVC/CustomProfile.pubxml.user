@@ -71,19 +71,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/12/2018 21:41:17</publishTime>
     </File>
     <File Include="bin/SINTALOCAS.Dominio.dll">
-      <publishTime>04/12/2018 23:08:44</publishTime>
+      <publishTime>04/12/2018 23:27:27</publishTime>
     </File>
     <File Include="bin/SINTALOCAS.Dominio.dll.config">
       <publishTime>04/12/2018 21:41:17</publishTime>
     </File>
     <File Include="bin/SINTALOCAS.Dominio.XmlSerializers.dll">
-      <publishTime>04/12/2018 23:08:46</publishTime>
+      <publishTime>04/12/2018 23:27:29</publishTime>
     </File>
     <File Include="bin/SINTALOCAS.Modelo.dll">
       <publishTime>04/12/2018 23:08:42</publishTime>
     </File>
     <File Include="bin/SINTALOCAS.Web.MVC.dll">
-      <publishTime>04/12/2018 23:08:50</publishTime>
+      <publishTime>04/12/2018 23:27:34</publishTime>
     </File>
     <File Include="bin/System.AppContext.dll">
       <publishTime>04/12/2018 21:41:17</publishTime>
@@ -437,19 +437,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/12/2018 21:41:18</publishTime>
     </File>
     <File Include="Content/css/bootstrap.min.css">
-      <publishTime>01/03/2018 12:45:55</publishTime>
+      <publishTime>03/01/2018 12:45:55</publishTime>
     </File>
     <File Include="Content/css/jquery.dataTables.min.css">
-      <publishTime>01/03/2018 12:48:05</publishTime>
+      <publishTime>03/01/2018 12:48:05</publishTime>
     </File>
     <File Include="Content/js/bootstrap.min.js">
-      <publishTime>03/01/2018 12:48:38</publishTime>
+      <publishTime>01/03/2018 12:48:38</publishTime>
     </File>
     <File Include="Content/js/jquery.dataTables.min.js">
-      <publishTime>03/01/2018 12:48:23</publishTime>
+      <publishTime>01/03/2018 12:48:23</publishTime>
     </File>
     <File Include="Content/js/jquery.min.js">
-      <publishTime>03/01/2018 12:47:08</publishTime>
+      <publishTime>01/03/2018 12:47:08</publishTime>
     </File>
     <File Include="Global.asax">
       <publishTime>04/12/2018 21:41:18</publishTime>
@@ -473,49 +473,49 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/12/2018 21:41:18</publishTime>
     </File>
     <File Include="Scripts/bootstrap.bundle.js">
-      <publishTime>02/03/2018 13:19:27</publishTime>
+      <publishTime>03/02/2018 13:19:27</publishTime>
     </File>
     <File Include="Scripts/bootstrap.bundle.js.map">
       <publishTime>04/12/2018 21:41:18</publishTime>
     </File>
     <File Include="Scripts/bootstrap.bundle.min.js">
-      <publishTime>02/03/2018 13:19:27</publishTime>
+      <publishTime>03/02/2018 13:19:27</publishTime>
     </File>
     <File Include="Scripts/bootstrap.bundle.min.js.map">
       <publishTime>04/12/2018 21:41:18</publishTime>
     </File>
     <File Include="Scripts/bootstrap.js">
-      <publishTime>02/03/2018 13:19:27</publishTime>
+      <publishTime>03/02/2018 13:19:27</publishTime>
     </File>
     <File Include="Scripts/bootstrap.js.map">
       <publishTime>04/12/2018 21:41:18</publishTime>
     </File>
     <File Include="Scripts/bootstrap.min.js">
-      <publishTime>02/03/2018 13:19:27</publishTime>
+      <publishTime>03/02/2018 13:19:27</publishTime>
     </File>
     <File Include="Scripts/bootstrap.min.js.map">
       <publishTime>04/12/2018 21:41:18</publishTime>
     </File>
     <File Include="Scripts/esm/popper-utils.js">
-      <publishTime>02/03/2018 13:19:26</publishTime>
+      <publishTime>03/02/2018 13:19:26</publishTime>
     </File>
     <File Include="Scripts/esm/popper-utils.js.map">
       <publishTime>04/12/2018 21:41:18</publishTime>
     </File>
     <File Include="Scripts/esm/popper-utils.min.js">
-      <publishTime>02/03/2018 13:19:26</publishTime>
+      <publishTime>03/02/2018 13:19:26</publishTime>
     </File>
     <File Include="Scripts/esm/popper-utils.min.js.map">
       <publishTime>04/12/2018 21:41:18</publishTime>
     </File>
     <File Include="Scripts/esm/popper.js">
-      <publishTime>02/03/2018 13:19:26</publishTime>
+      <publishTime>03/02/2018 13:19:26</publishTime>
     </File>
     <File Include="Scripts/esm/popper.js.map">
       <publishTime>04/12/2018 21:41:18</publishTime>
     </File>
     <File Include="Scripts/esm/popper.min.js">
-      <publishTime>02/03/2018 13:19:26</publishTime>
+      <publishTime>03/02/2018 13:19:26</publishTime>
     </File>
     <File Include="Scripts/esm/popper.min.js.map">
       <publishTime>04/12/2018 21:41:18</publishTime>
@@ -539,7 +539,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/12/2018 21:41:18</publishTime>
     </File>
     <File Include="Scripts/jquery.mask.js">
-      <publishTime>01/03/2018 19:54:52</publishTime>
+      <publishTime>03/01/2018 19:54:52</publishTime>
     </File>
     <File Include="Scripts/jquery.unobtrusive-ajax.js">
       <publishTime>04/12/2018 21:41:18</publishTime>
@@ -548,52 +548,52 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/12/2018 21:41:18</publishTime>
     </File>
     <File Include="Scripts/popper-utils.js">
-      <publishTime>02/03/2018 13:19:26</publishTime>
+      <publishTime>03/02/2018 13:19:26</publishTime>
     </File>
     <File Include="Scripts/popper-utils.js.map">
       <publishTime>04/12/2018 21:41:18</publishTime>
     </File>
     <File Include="Scripts/popper-utils.min.js">
-      <publishTime>02/03/2018 13:19:26</publishTime>
+      <publishTime>03/02/2018 13:19:26</publishTime>
     </File>
     <File Include="Scripts/popper-utils.min.js.map">
       <publishTime>04/12/2018 21:41:18</publishTime>
     </File>
     <File Include="Scripts/popper.js">
-      <publishTime>02/03/2018 13:19:26</publishTime>
+      <publishTime>03/02/2018 13:19:26</publishTime>
     </File>
     <File Include="Scripts/popper.js.map">
       <publishTime>04/12/2018 21:41:18</publishTime>
     </File>
     <File Include="Scripts/popper.min.js">
-      <publishTime>02/03/2018 13:19:26</publishTime>
+      <publishTime>03/02/2018 13:19:26</publishTime>
     </File>
     <File Include="Scripts/popper.min.js.map">
       <publishTime>04/12/2018 21:41:18</publishTime>
     </File>
     <File Include="Scripts/README.md">
-      <publishTime>02/03/2018 13:19:26</publishTime>
+      <publishTime>03/02/2018 13:19:26</publishTime>
     </File>
     <File Include="Scripts/umd/popper-utils.js">
-      <publishTime>02/03/2018 13:19:26</publishTime>
+      <publishTime>03/02/2018 13:19:26</publishTime>
     </File>
     <File Include="Scripts/umd/popper-utils.js.map">
       <publishTime>04/12/2018 21:41:18</publishTime>
     </File>
     <File Include="Scripts/umd/popper-utils.min.js">
-      <publishTime>02/03/2018 13:19:26</publishTime>
+      <publishTime>03/02/2018 13:19:26</publishTime>
     </File>
     <File Include="Scripts/umd/popper-utils.min.js.map">
       <publishTime>04/12/2018 21:41:18</publishTime>
     </File>
     <File Include="Scripts/umd/popper.js">
-      <publishTime>02/03/2018 13:19:26</publishTime>
+      <publishTime>03/02/2018 13:19:26</publishTime>
     </File>
     <File Include="Scripts/umd/popper.js.map">
       <publishTime>04/12/2018 21:41:18</publishTime>
     </File>
     <File Include="Scripts/umd/popper.min.js">
-      <publishTime>02/03/2018 13:19:26</publishTime>
+      <publishTime>03/02/2018 13:19:26</publishTime>
     </File>
     <File Include="Scripts/umd/popper.min.js.map">
       <publishTime>04/12/2018 21:41:18</publishTime>
@@ -668,7 +668,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/12/2018 21:41:18</publishTime>
     </File>
     <File Include="Views/Textos/Index.cshtml">
-      <publishTime>06/03/2018 00:53:19</publishTime>
+      <publishTime>04/12/2018 21:41:18</publishTime>
     </File>
     <File Include="Views/Usuario/Cadastro.cshtml">
       <publishTime>03/21/2018 22:06:54</publishTime>
@@ -677,7 +677,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/12/2018 21:01:15</publishTime>
     </File>
     <File Include="Views/Usuario/Index.cshtml">
-      <publishTime>03/04/2018 21:47:40</publishTime>
+      <publishTime>04/03/2018 21:47:40</publishTime>
     </File>
     <File Include="Views/Usuario/Senha.cshtml">
       <publishTime>03/21/2018 22:06:54</publishTime>
