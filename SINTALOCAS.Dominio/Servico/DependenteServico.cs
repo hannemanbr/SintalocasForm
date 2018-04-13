@@ -10,6 +10,7 @@ namespace SINTALOCAS.Dominio.Servico
     public  static class DependenteServico
     {
         private static AfiliacaoDAL _afiliacaoDAL = new AfiliacaoDAL();
+        private static DependenteDAL _dependenteDAL = new DependenteDAL();
 
         public static Dictionary<int, string> DictionaryGrausParentesco()
         {
@@ -47,7 +48,7 @@ namespace SINTALOCAS.Dominio.Servico
         public static int Insere(Dependentes dependentes, int acrescimoMensal, int idAfiliado)
         {
             int result = 0;            
-            result = _afiliacaoDAL.InserirDependente(dependentes);
+            result = _dependenteDAL.Inserir(dependentes);
             return result;
         }
 
@@ -60,7 +61,7 @@ namespace SINTALOCAS.Dominio.Servico
 
         public static List<Dependentes> ListaDependentes(int idAfiliado)
         {
-            return _afiliacaoDAL.ListaDependentes(idAfiliado);
+            return _dependenteDAL.ConsultarPorAfiliado(idAfiliado);
         }
 
         public static string NomeGrauParentesco(int idGrau)
@@ -82,7 +83,7 @@ namespace SINTALOCAS.Dominio.Servico
             var contParentesco = 0;            
             var listaGrauParentesco = ListaGrausParentesco();
             var lista = ListaDependentes(idAfiliado);
-            var listaQuantGroup = _afiliacaoDAL.QuantidadeDependentes(idAfiliado);
+            var listaQuantGroup = _dependenteDAL.QuantidadeDependentes(idAfiliado);
 
             foreach(var item in listaGrauParentesco)
             {

@@ -72,7 +72,13 @@ namespace SINTALOCAS.Dominio.Servico
                 texto += "<strong>Data de Nascimento:</strong> " + afiliado.DataNascimento + "<br/>";
                 texto += "<h2>Opção de Contribuição e Pagamento:</h2><br/>";
                 texto += "<strong>Pagamento:</strong> " + afiliado.PagamentoTx + "<br/>";
-                texto += "<strong>Contribuição:</strong> " + afiliado.ContribuicaoTx + "<br/>";
+                texto += "<strong>Contribuição:</strong> <br/>";
+
+                foreach (var item in afiliado.Contribuicoes)
+                {
+                    texto += " - " + item.Nome;
+                }
+
                 texto += "<h2>Endereço:</h2><br/>";
                 texto += "<strong>Logradouto:</strong> " + afiliado.Endereco.Logradouro + "<br/>";
                 texto += "<strong>Número:</strong> " + afiliado.Endereco.Numero + " ";

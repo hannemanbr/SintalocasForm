@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConfigSistema.cs" />
+    <Compile Include="Contribuicao.cs" />
     <Compile Include="Enumerator\OpcaoPagamentoEnum.cs" />
     <Compile Include="LogSistema.cs" />
     <Compile Include="Pagamento.cs" />

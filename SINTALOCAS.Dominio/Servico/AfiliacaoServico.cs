@@ -10,7 +10,7 @@ namespace SINTALOCAS.Dominio.Servico
     public static class AfiliacaoServico
     {
         private static AfiliacaoDAL _afiliacaoDAL = new AfiliacaoDAL();
-        //private static AfiliacaoEFDAL _afiliacaoEFDAL = new AfiliacaoEFDAL();
+        private static ContribuicaoDAL _contribuicao = new ContribuicaoDAL();
 
         public static int Insere(Afiliado afiliado)
         {
@@ -114,11 +114,9 @@ namespace SINTALOCAS.Dominio.Servico
                 {
                     if (item.PagamentoID > 0)
                         pagamentoTx = pagamento.Where(p => p.ID == item.PagamentoID).First().Texto;
-                    if (item.ContribuicaoID > 0)
-                        contribuicaoTx = pagamento.Where(p => p.ID == item.ContribuicaoID).First().Texto;
 
+                    item.Contribuicoes = _contribuicao.ConsultarPorAfiliado(item.ID);
                     item.PagamentoTx = pagamentoTx;
-                    item.ContribuicaoTx = contribuicaoTx;
 
                     // CONSULTAR DEPENDENTE
                     item.dependentes = DependenteServico.ListaDependentes(item.ID);
@@ -149,8 +147,8 @@ namespace SINTALOCAS.Dominio.Servico
 
                 if (result.PagamentoID > 0)
                     result.PagamentoTx = pagamento.Where(p => p.ID == result.PagamentoID).First().Texto;
-                if (result.ContribuicaoID > 0)
-                    result.ContribuicaoTx = pagamento.Where(p => p.ID == result.ContribuicaoID).First().Texto;
+
+                result.Contribuicoes = _contribuicao.ConsultarPorAfiliado(result.ID);
 
                 // CONSULTAR DEPENDENTE
                 result.dependentes = DependenteServico.ListaDependentes(result.ID);

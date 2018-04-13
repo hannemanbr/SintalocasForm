@@ -8,7 +8,7 @@ namespace SINTALOCAS.Modelo.Enumerator
 {
     public enum OpcaoPagamentoEnum
     {
-        CONTRIB,
+        CONTRIBuICAO,
         PAGTO
     }
 }

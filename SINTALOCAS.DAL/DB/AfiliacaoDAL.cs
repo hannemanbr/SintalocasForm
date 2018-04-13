@@ -8,9 +8,9 @@ using SINTALOCAS.Modelo.Enumerator;
 
 namespace SINTALOCAS.DAL.DB
 {
-    public class AfiliacaoDAL
+    public class AfiliacaoDAL : ContextoMySqlDB
     {
-        ContextoMySqlDB _contexto = new ContextoMySqlDB();
+        private DependenteDAL _dependenteDAL = new DependenteDAL();
 
         public int EditarAfiliado(Afiliado afiliado)
         {
@@ -36,9 +36,9 @@ namespace SINTALOCAS.DAL.DB
                     ",NomeMae='" + afiliado.NomeMae + "'" +   
                     " WHERE ID="+ idResult;
 
-                idAfiliado = _contexto.Transacao(query);
+                idAfiliado = Transacao(query);
 
-                var dataTable = _contexto.Consultar(query);
+                var dataTable = Consultar(query);
 
                 foreach (DataRow linha in dataTable.Rows)
                 {
@@ -69,7 +69,7 @@ namespace SINTALOCAS.DAL.DB
                         ",CEP='" + afiliado.Endereco.CEP + "'" +
                         "WHERE IDAfiliado=" + afiliado.Endereco.ID + "";
 
-                    _contexto.Transacao(query);
+                    Transacao(query);
                         
                     //GRAVAR INFO EMPRESA
                     query = " UPDATE Afiliado_Empresa SET " +
@@ -77,7 +77,7 @@ namespace SINTALOCAS.DAL.DB
                         ",Nome='" + afiliado.Empresa + "'" +
                         " WHERE IDAfiliado=" + idResult;
                     
-                    _contexto.Transacao(query);
+                    Transacao(query);
 
                 }
 
@@ -141,12 +141,12 @@ namespace SINTALOCAS.DAL.DB
 
                 query += ")";
 
-                result = _contexto.Transacao(query);
+                result = Transacao(query);
 
                 //CAPTURANDO ID INSERIDO
                 query = "SELECT * FROM Afiliado WHERE CPF='" + afiliado.CPF + "' AND Email='" + afiliado.Email + "' ORDER by ID DESC LIMIT 1";
 
-                var dataTable = _contexto.Consultar(query);
+                var dataTable = Consultar(query);
 
                 foreach (DataRow linha in dataTable.Rows)
                 {
@@ -192,7 +192,7 @@ namespace SINTALOCAS.DAL.DB
                     query += ",'" + afiliado.Endereco.CEP + "'";
                     query += ")";
 
-                    _contexto.Transacao(query);
+                    Transacao(query);
 
                     //GRAVAR INFO EMPRESA
                     query = "" +
@@ -207,7 +207,7 @@ namespace SINTALOCAS.DAL.DB
                     query += ",'" + afiliado.Empresa + "'";
                     query += ")";
 
-                    _contexto.Transacao(query);
+                    Transacao(query);
 
                 }
 
@@ -220,42 +220,7 @@ namespace SINTALOCAS.DAL.DB
             }
 
         }
-
-        public int InserirDependente(Dependentes dependentes)
-        {
-            var result = 0;
-
-            try
-            {
-
-                var dataNascTx = dependentes.DataNascimento.Year + "-" + dependentes.DataNascimento.Month + "-" + dependentes.DataNascimento.Day;
-
-                var query = "" +
-                    " INSERT INTO Afiliado_Dependente (" +
-                    "Nome," +
-                    "DataNascimento," +
-                    "Grau," +
-                    "AcrescimoMensal," +
-                    "IdAfiliado" +
-                    ") VALUES (";
-                query += "'" + dependentes.Nome + "',";
-                query += "'" + dataNascTx + "',";
-                query += "'" + dependentes.GrauParentescoID + "',";
-                query += "'" + dependentes.AcrescimoMensal + "',";
-                query += "'" + dependentes.IdAfiliado + "'";
-                query += ")";
-
-                result = _contexto.Transacao(query);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-
-            return result;
-
-        }
-
+        
         public int Concordar(int Id, int opcaoPagamento, int opcaoContribuicao)
         {
             var result = 0;
@@ -268,7 +233,7 @@ namespace SINTALOCAS.DAL.DB
                     " ,Contribuicao =" + opcaoContribuicao + "" +
                     " WHERE Id=" + Id;
 
-                result = _contexto.Transacao(query);
+                result = Transacao(query);
             }
             catch (Exception)
             {
@@ -285,7 +250,7 @@ namespace SINTALOCAS.DAL.DB
             try
             {
                 var query = "UPDATE Afiliado_Dependente SET D_E_L_E_T_ = 1 WHERE Id=" + Id;
-                result = _contexto.Transacao(query);
+                result = Transacao(query);
             }
             catch (Exception)
             {
@@ -302,7 +267,7 @@ namespace SINTALOCAS.DAL.DB
             try
             {
                 var query = "UPDATE Afiliado SET D_E_L_E_T_ = 1 WHERE Id=" + Id;
-                result = _contexto.Transacao(query);
+                result = Transacao(query);
             }
             catch (Exception)
             {
@@ -318,7 +283,7 @@ namespace SINTALOCAS.DAL.DB
             {
                 var lista = new List<GrauParentesco>();
                 var query = "SELECT ID, Descricao, LimiteQuantidade FROM Cfg_GrauParentesco WHERE Grau=1 AND D_E_L_E_T_ = 0";
-                var dataTable = _contexto.Consultar(query);
+                var dataTable = Consultar(query);
 
                 foreach (DataRow linha in dataTable.Rows)
                 {
@@ -389,7 +354,7 @@ namespace SINTALOCAS.DAL.DB
                 if (cpf.Trim() != "") query += " AND A.CPF='" + cpf + "'";
                 if (id > 0) query += " AND A.ID='" + id + "'";
 
-                var dataTable = _contexto.Consultar(query);
+                var dataTable = Consultar(query);
 
                 foreach (DataRow linha in dataTable.Rows)
                 {
@@ -406,8 +371,7 @@ namespace SINTALOCAS.DAL.DB
                         Empresa = linha["EmpresaNome"].ToString().ToUpper(),
                         DataNascimento = Convert.ToDateTime(linha["DataNascimento"]),
                         NomeMae = linha["NomeMae"].ToString().ToUpper(),
-                        NomePai = linha["NomePai"].ToString().ToUpper(),
-                        ContribuicaoID = Convert.ToInt32(linha["Contribuicao"].ToString()),
+                        NomePai = linha["NomePai"].ToString().ToUpper(),                        
                         PagamentoID = Convert.ToInt32(linha["Pagamento"].ToString())
                     };
 
@@ -462,69 +426,5 @@ namespace SINTALOCAS.DAL.DB
             }
         }
 
-        public List<Dependentes> ListaDependentes(int idAfiliado)
-        {
-            try
-            {
-                var lista = new List<Dependentes>();
-
-                var query = "SELECT ";
-                query += " D.ID, D.Nome, D.DataNascimento, D.AcrescimoMensal, D.Grau, P.Descricao GrauNome";
-                query += " FROM Afiliado_Dependente D";
-                query += " INNER JOIN Cfg_GrauParentesco P ON D.Grau = P.ID";
-                query += " WHERE D.D_E_L_E_T_ = 0 AND D.idAfiliado=" + idAfiliado + "";
-
-                var dataTable = _contexto.Consultar(query);
-
-                foreach (DataRow linha in dataTable.Rows)
-                {
-                    var obj = new Dependentes
-                    {
-                        ID = Convert.ToInt32(linha["ID"]),
-                        Nome = linha["Nome"].ToString().ToUpper(),
-                        DataNascimento = Convert.ToDateTime(linha["DataNascimento"]),
-                        GrauParentescoID = Convert.ToInt32(linha["Grau"].ToString()),
-                        GrauParentescoNome = linha["GrauNome"].ToString().ToUpper(),
-                        AcrescimoMensal = Convert.ToInt32(linha["AcrescimoMensal"].ToString())
-                    };
-
-                    lista.Add(obj);
-                }
-
-                return lista;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
-        public Dictionary<int, int> QuantidadeDependentes(int idAfiliado)
-        {
-            try
-            {
-                var lista = new Dictionary<int, int>();
-
-                var query = "SELECT count(0) Total," +
-                    " Nome, DataNascimento, AcrescimoMensal, Grau" +
-                    " FROM Afiliado_Dependente D" +
-                    " WHERE idAfiliado=" + idAfiliado + "" +
-                    " GROUP BY Nome, DataNascimento, AcrescimoMensal";
-
-                var dataTable = _contexto.Consultar(query);
-
-                foreach (DataRow linha in dataTable.Rows)
-                {
-                    if (lista.ContainsKey(Convert.ToInt32(linha["Grau"])))
-                        lista.Add(Convert.ToInt32(linha["Grau"]), Convert.ToInt32(linha["Total"]));
-                }
-
-                return lista;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
     }
 }

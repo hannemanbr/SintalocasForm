@@ -23,8 +23,7 @@ namespace SINTALOCAS.Modelo
         public Endereco Endereco { get; set; }
         public int PagamentoID { get; set; }
         public string PagamentoTx { get; set; }
-        public int ContribuicaoID { get; set; }
-        public string ContribuicaoTx { get; set; }
+        public List<Contribuicao> Contribuicoes { get; set; }
         public int Concordar { get; set; }
         public List<Dependentes> dependentes { get; set; }
     }

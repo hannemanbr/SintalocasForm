@@ -64,6 +64,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DB\ConfigDAL.cs" />
+    <Compile Include="DB\ContribuicaoDAL.cs" />
+    <Compile Include="DB\DependenteDAL.cs" />
     <Compile Include="DB\PagamentoDAL.cs" />
     <Compile Include="DB\UsuarioDAL.cs" />
     <Compile Include="DB\RelatorioDAL.cs" />

@@ -234,7 +234,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
         private void GeraViewBagDetalhe()
         {
             ViewBag.Pagamento = PagamentoServico.ConsultarPorCategoria(OpcaoPagamentoEnum.PAGTO.ToString());
-            ViewBag.Contribuicao = PagamentoServico.ConsultarPorCategoria(OpcaoPagamentoEnum.CONTRIB.ToString());
+            ViewBag.Contribuicao = PagamentoServico.ConsultarPorCategoria(OpcaoPagamentoEnum.CONTRIBuICAO.ToString());
             ViewBag.GrauParentesco = DependenteServico.ListaGrausParentesco();
         }
 
