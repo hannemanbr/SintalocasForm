@@ -32,7 +32,31 @@ namespace SINTALOCAS.DAL.DB
                 }
 
                 if(query.Trim()!="")
+                {
+                    ExcluirPorAfiliado(afiliado); // REMOVE OS ANTERIORES
                     result = Transacao(query);
+                }                    
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+            return result;
+
+        }
+
+        public int ExcluirPorAfiliado(Afiliado afiliado)
+        {
+            var result = 0;
+
+            try
+            {
+                var query = " UPDATE Afiliado_Contribuicao SET " +
+                        " D_E_L_E_T_ = 1" +
+                        " WHERE idAfiliado ='" + afiliado.ID + "';";
+
+                result = Transacao(query);
             }
             catch (Exception)
             {

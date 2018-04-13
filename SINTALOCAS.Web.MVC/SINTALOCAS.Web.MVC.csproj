@@ -213,6 +213,10 @@
     <Content Include="Views\Dependentes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SINTALOCAS.DAL\SINTALOCAS.DAL.csproj">
+      <Project>{24F26D96-C5C0-4976-B823-1DB6865FDF3C}</Project>
+      <Name>SINTALOCAS.DAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SINTALOCAS.Modelo\SINTALOCAS.Modelo.csproj">
       <Project>{C560D1D0-C39E-4E49-8B43-41211C29E44A}</Project>
       <Name>SINTALOCAS.Modelo</Name>

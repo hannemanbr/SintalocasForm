@@ -34,6 +34,7 @@ namespace SINTALOCAS.Dominio.Servico
             try
             {
                 int result = _afiliacaoDAL.EditarAfiliado(afiliado);
+                _contribuicao.Inserir(afiliado);
 
                 return result;
             }
@@ -56,7 +57,7 @@ namespace SINTALOCAS.Dominio.Servico
             }
         }
 
-        private static List<Contribuicao> GerarListaContribuicao(string contribuicao)
+        public static List<Contribuicao> GerarListaContribuicao(string contribuicao)
         {
             try
             {
