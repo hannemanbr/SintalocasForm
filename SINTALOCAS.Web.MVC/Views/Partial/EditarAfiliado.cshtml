@@ -1,0 +1,251 @@
+﻿<form action="" id="formAfilia" method="post">
+    @if (ViewBag.Lista != null)
+    {
+        <div class="row">
+            <h5>Cadastrado de Afiliado</h5>
+        </div>
+        <div class="row">
+            <div style="font-size: 16px; color:@ViewBag.ColorAlerta ; font-weight:bold">
+                @ViewBag.MensagemRetorno
+            </div>
+        </div>
+        foreach (var item in ViewBag.Lista)
+        {
+            <div class="row">
+                <input type="hidden" data-mini="true" name="idAfiliado" id="idAfiliado" value="@item.ID" />
+                <strong>Nome:</strong>
+                <input type="text" data-mini="true" name="nome" id="nome" value="@item.Nome" maxlength="100" />
+            </div>
+            <div class="row">
+                <strong>E-mail:</strong>
+                <input type="text" data-mini="true" name="email" id="email" value="@item.Email" maxlength="100" />
+            </div>
+            <div class="row">
+                <strong>Telefone Residencial:</strong>
+            </div>
+            <div class="row">
+                <div class="col-15">
+                    DDD
+                    <input type="text" data-mini="true" name="TELRESDDD" id="TELRESDDD" value="@ViewBag.Telefone.DDD" maxlength="2" width="20px;" />
+                </div>
+                <div class="col-35">
+                    Número
+                    <input type="text" data-mini="true" name="TELRESNUM" id="TELRESNUM" value="@ViewBag.Telefone.Numero" maxlength="10" />
+                </div>
+            </div>
+            <div class="row">
+                <strong>Celular:</strong>
+            </div>
+            <div class="row">
+                <div class="col-15">
+                    DDD
+                    <input type="text" data-mini="true" name="TELCELDDD" id="TELCELDDD" value="@ViewBag.Celular.DDD" maxlength="2" />
+                </div>
+                <div class="col-35">
+                    Número
+                    <input type="text" data-mini="true" name="TELCELNUM" id="TELCELNUM" value="@ViewBag.Celular.Numero" maxlength="10" />
+                </div>
+            </div>
+            <div class="row">
+                <strong>Nome do Pai:</strong>
+                <input type="text" name="nomepai" data-mini="true" id="nomepai" value="@item.NomePai" maxlength="100" />
+            </div>
+            <div class="row">
+                <strong>CPF:</strong>
+                <input type="text" name="cpf" data-mini="true" id="cpf" value="@item.CPF" maxlength="20" />
+            </div>
+            <div class="row">
+                <strong>PIS:</strong>
+                <input type="text" name="PIS" data-mini="true" id="PIS" value="@item.CTPS.PIS" maxlength="20" />
+            </div>
+
+            <div class="row">
+                <strong>CTPS Número:</strong>
+                <input type="text" name="CTPSNUM" data-mini="true" id="CTPSNUM" value="@item.CTPS.Numero" maxlength="20" />
+            </div>
+            <div class="row">
+                <strong>CTPS Serie:</strong>
+                <input type="text" name="CTPSSERIE" data-mini="true" id="CTPSSERIE" value="@item.CTPS." max="20" />
+            </div>
+            <div class="row">
+                <strong>RG:</strong>
+                <input type="text" name="rg" id="rg" data-mini="true" value="@item.RG" maxlength="20" />
+            </div>
+            <div class="row">
+                <strong>Dt. Nasc.:</strong>
+                <input type="text" name="dtnasc" maxlength="10" data-mini="true" id="dtnasc" value="@ViewBag.DtNasc" placeholder="dd/mm/aaaa" class="simple-field-data-mask" data-mask="00/00/0000" />
+            </div>
+            <div class="row">
+                <strong>Cargo:</strong>
+                <input type="text" name="cargo" data-mini="true" id="cargo" value="@item.Cargo" maxlength="100" />
+            </div>
+            <div class="row">
+                <strong>Empresa:</strong>
+                <br />
+                <input type="text" name="empresa" data-mini="true" id="empresa" value="@item.Empresa" maxlength="100" />
+            </div>
+            <div class="row">
+                <strong>CNPJ:</strong>
+                <input type="text" name="cnpj" data-mini="true" id="cnpj" value="@item.CNPJ" maxlength="20" />
+            </div>
+            <div class="row">
+                <strong>Nome do Pai:</strong>
+                <input type="text" name="nomepai" data-mini="true" id="nomepai" value="@item.NomePai" maxlength="100" />
+            </div>
+            <div class="row">
+                <strong>Nome da Mãe:</strong>
+                <input type="text" name="nomemae" data-mini="true" id="nomemae" value="@item.NomeMae" maxlength="100" />
+            </div>
+            <div class="row">
+                <strong>Opção de Pagamento:</strong>
+            </div>
+            foreach (var itemRadio in ViewBag.Pagamento)
+            {
+                <div class="row">
+                    <input type="radio" id="pagamento" data-mini="true" name="pagamento" value="@itemRadio.ID" @(itemRadio.ID == item.PagamentoID ? "checked" : "") />
+                    <span id="pagamentoTx" name="pagamentoTx">@itemRadio.Texto</span>
+                </div>
+            }
+
+            <div class="row">
+                <strong>Opção de Contribuição:</strong>
+            </div>
+            foreach (var itemRadio in ViewBag.Contribuicao)
+            {
+                var checar = "";
+
+                foreach (var contribuicao in item.Contribuicoes)
+                {
+                    checar = contribuicao.ID == itemRadio.ID ? "checked" : "";
+                }
+
+                <div class="row">
+                    <input type="checkbox" data-mini="true" id="contribuicao" name="contribuicao" value="@itemRadio.ID" @checar />
+                    <span id="contribuicaoTx" name="contribuicaoTx">@itemRadio.Texto</span>
+                </div>
+            }
+        }
+    }
+    else
+    {
+        <br />
+        <br />
+        <div style="color:#ff0000; font-weight:bold">Nenhum registro encontrado</div>
+    }
+    <br />
+    <br />
+    @if (@ViewBag.Enderecos != null)
+    {
+
+        <div class="row">
+            <h5>Endereço</h5>
+        </div>
+        <div class="row">
+            <strong>Logradouro:</strong>
+            <input type="text" name="rua" data-mini="true" id="rua" value="@ViewBag.Enderecos.Logradouro" />
+        </div>
+        <div class="row">
+            <strong>Número:</strong>
+            <input type="text" name="numero" data-mini="true" id="numero" value="@ViewBag.Enderecos.Numero" />
+            <strong>Complemento:</strong>
+            <input type="text" name="complemento" data-mini="true" id="complemento" value="@ViewBag.Enderecos.Complemento" />
+        </div>
+        <div class="row">
+            <strong>Bairro:</strong>
+            <input type="text" name="bairro" data-mini="true" id="bairro" value="@ViewBag.Enderecos.Bairro" />
+        </div>
+        <div class="row">
+            <strong>Cidade:</strong>
+            <input type="text" name="cidade" data-mini="true" id="cidade" value="@ViewBag.Enderecos.Cidade" />
+            <strong>UF:</strong>
+            <input type="text" name="uf" data-mini="true" id="uf" value="@ViewBag.Enderecos.UF" />
+        </div>
+        <div class="row">
+            <strong>CEP:</strong>
+            <input type="text" name="CEP" data-mini="true" id="CEP" value="@ViewBag.Enderecos.CEP" maxlength="10" />
+        </div>
+        <input type="hidden" name="idEndereco" id="idEndereco" value="@ViewBag.Enderecos.ID" />
+    }
+    <br />
+    <br />
+    <table>
+        <tr>
+            <td colspan="4">
+                <h5>Dependentes</h5>
+            </td>
+        </tr>
+        <tr style="background-color: #000000; color:#ffffff;">
+            <td>
+                Nome
+            </td>
+            <td>
+                Grau
+            </td>
+            <td>
+                Acrescimo
+            </td>
+            <td>
+                Ação
+            </td>
+        </tr>
+        @foreach (var itemDep in ViewBag.Dependentes)
+        {
+            <tr>
+                <td>
+                    <input type="text" name="uf" id="uf" value="@itemDep.Nome" />
+                </td>
+                <td>
+                    <select name="grau" id="grau">
+                        @foreach (var item in ViewBag.GrauParentesco)
+                        {
+                            <option value="item.ID" @(item.ID == itemDep.GrauParentescoID ? "selected" : "")>@item.Descricao</option>
+                        }
+                    </select>
+                </td>
+                <td style="text-align:center">
+                    <select name="acrescimo">
+                        <option value="1" @(itemDep.AcrescimoMensal == 1 ? "selected" : "")>Sim</option>
+                        <option value="1" @(itemDep.AcrescimoMensal == 0 ? "selected" : "")>Não</option>
+                    </select>
+                </td>
+                <td style="text-align:center">
+                    <a href="../Delete/@itemDep.ID"
+                       onclick="return ConfirmaAcao('excluir este registro?')">
+                        <img src="~/Image/excluir.png" style="width:20px;" alt="Excluir" />
+                    </a>
+                </td>
+            </tr>
+        }
+        @if (ViewBag.Dependentes.Count == 0)
+        {
+            <tr>
+                <td style="color:#ff0000">
+                    <strong>Nenhum dependente cadastrado</strong>
+                </td>
+            </tr>
+        }
+    </table>
+    <div class="row">
+        <br />
+        <br />
+        <div style="font-size: 16px; color:@ViewBag.ColorAlerta ; font-weight:bold">
+            @ViewBag.MensagemRetorno
+        </div>
+        <br />
+        <br />
+    </div>
+    <div class="row">
+        <div class="col-50">
+            <input type="submit" data-mini="true" id="btnSalvar" value="Salvar" />
+        </div>
+    </div>
+    <br /><br />
+    <div class="row">
+        <div class="col-50">
+            <input type="button" data-mini="true" id="btnRel" value="Gerar relatorio" onclick="window.open('../PDFPadrao/3')" />
+        </div>
+        <div class="col-50">
+            <input type="button" data-mini="true" id="btnVoltar" value="Voltar" onclick="window.location.href='../RelAfiliados'" />
+        </div>
+    </div>
+</form>

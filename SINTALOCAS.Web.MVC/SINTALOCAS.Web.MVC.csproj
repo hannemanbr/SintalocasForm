@@ -134,9 +134,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Rotativa\" />
+    <Folder Include="Views\CentralAtendimento\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\CentralAtendimentoController.cs" />
     <Compile Include="Controllers\EmailController.cs" />
     <Compile Include="Controllers\FinalizarController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -269,6 +271,7 @@
     <Content Include="Views\Finalizar\Realizado.cshtml" />
     <Content Include="Views\Usuario\Senha.cshtml" />
     <Content Include="Views\Usuario\Editar.cshtml" />
+    <Content Include="Views\Partial\EditarAfiliado.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
