@@ -34,6 +34,7 @@ namespace SINTALOCAS.Dominio.Servico
             try
             {
                 int result = _afiliacaoDAL.EditarAfiliado(afiliado);
+                _contribuicao.Inserir(afiliado);
 
                 return result;
             }
@@ -42,6 +43,8 @@ namespace SINTALOCAS.Dominio.Servico
                 throw;
             }
         }
+
+        
 
         public static int Delete(int id)
         {
@@ -56,7 +59,7 @@ namespace SINTALOCAS.Dominio.Servico
             }
         }
 
-        private static List<Contribuicao> GerarListaContribuicao(string contribuicao)
+        public static List<Contribuicao> GerarListaContribuicao(string contribuicao)
         {
             try
             {
@@ -87,7 +90,7 @@ namespace SINTALOCAS.Dominio.Servico
 
             try
             {
-                var registros = _afiliacaoDAL.Concordar(id, opcaoPagamento, opcaoContribuicao);
+                var registros = _afiliacaoDAL.ConcordaOpcaoPagamento(id, opcaoPagamento);
                 var dependente = new List<Dependentes>();
                 var afiliado = GetByID(id);
 
@@ -165,13 +168,42 @@ namespace SINTALOCAS.Dominio.Servico
             return result;
         }
 
+        public static Afiliado GetByCpfEmailDataNascimento(string cpf, string email, DateTime dataNascimento)
+        {
+            var result = new Afiliado() { ID=0 };
+
+            try
+            {
+                var lista = _afiliacaoDAL.ListaAfiliado(cpf, email, dataNascimento);
+                if (lista.Count > 0)
+                    result = lista[0];
+
+                var pagamento = PagamentoServico.ConsultarTodos();
+
+                if (result.PagamentoID > 0)
+                    result.PagamentoTx = pagamento.Where(p => p.ID == result.PagamentoID).First().Texto;
+
+                result.Contribuicoes = _contribuicao.ConsultarPorAfiliado(result.ID);
+
+                // CONSULTAR DEPENDENTE
+                result.dependentes = DependenteServico.ListaDependentes(result.ID);
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+            return result;
+        }
+
         public static Afiliado GetByID(int id)
         {
             var result = new Afiliado();
 
             try
             {
-                var lista = _afiliacaoDAL.ListaAfiliado("", id);
+                var lista = _afiliacaoDAL.ListaAfiliado(id);
                 if (lista.Count > 0)
                     result = lista[0];
 

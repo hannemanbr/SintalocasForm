@@ -221,7 +221,7 @@ namespace SINTALOCAS.DAL.DB
 
         }
         
-        public int Concordar(int Id, int opcaoPagamento, string opcaoContribuicao)
+        public int ConcordaOpcaoPagamento(int Id, int opcaoPagamento)
         {
             var result = 0;
 
@@ -304,7 +304,48 @@ namespace SINTALOCAS.DAL.DB
             }
         }
 
-        public List<Afiliado> ListaAfiliado(string cpf, int id = 0)
+        public List<Afiliado> ListaAfiliado(int id)
+        {
+            try
+            {
+                return ConsultarPorFiltro("", id);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public List<Afiliado> ListaAfiliado(string cpf)
+        {
+            try
+            {
+                return ConsultarPorFiltro(cpf);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public List<Afiliado> ListaAfiliado(string Cpf, string Email, DateTime dataNascimento)
+        {
+            try
+            {
+                var dataNascTx = dataNascimento.Year + "-" + 
+                    dataNascimento.Month + "-" + 
+                    dataNascimento.Day;
+
+               return ConsultarPorFiltro(Cpf, 0, Email, dataNascTx);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+
+        public List<Afiliado> ConsultarPorFiltro(string cpf = "", int id = 0, string Email = "", string DataNascimento = "")
         {
             try
             {
@@ -351,6 +392,8 @@ namespace SINTALOCAS.DAL.DB
                              " WHERE A.D_E_L_E_T_=0          ";
 
                 if (cpf.Trim() != "") query += " AND A.CPF='" + cpf + "'";
+                if (Email.Trim() != "") query += " AND A.Email='" + Email + "'";
+                if (DataNascimento.Trim() != "") query += " AND A.DataNascimento='" + DataNascimento + "'";
                 if (id > 0) query += " AND A.ID='" + id + "'";
 
                 var dataTable = Consultar(query);

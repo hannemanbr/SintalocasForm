@@ -71,7 +71,7 @@
       <HintPath>..\packages\Remotion.Linq.2.1.1\lib\net45\Remotion.Linq.dll</HintPath>
     </Reference>
     <Reference Include="Rotativa, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Rotativa.1.6.4\lib\net40\Rotativa.dll</HintPath>
+      <HintPath>..\packages\Rotativa.1.7.3\lib\net461\Rotativa.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Collections.Immutable, Version=1.2.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -125,18 +125,14 @@
     </Reference>
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
-    <Reference Include="AWSSDK.Core">
-      <HintPath>..\packages\AWSSDK.Core.3.3.21.9\lib\net45\AWSSDK.Core.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Rotativa\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\CentralAtendimentoController.cs" />
     <Compile Include="Controllers\EmailController.cs" />
     <Compile Include="Controllers\FinalizarController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -169,6 +165,13 @@
     <Content Include="Content\js\jquery.min.js" />
     <Content Include="Image\check.png" />
     <Content Include="Image\excluir.png" />
+    <Content Include="Rotativa\help-wkhtmltoimage.txt" />
+    <Content Include="Rotativa\help-wkhtmltopdf.txt" />
+    <Content Include="Rotativa\msvcp120.dll" />
+    <Content Include="Rotativa\msvcr120.dll" />
+    <Content Include="Rotativa\vccorlib120.dll" />
+    <Content Include="Rotativa\wkhtmltoimage.exe" />
+    <Content Include="Rotativa\wkhtmltopdf.exe" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -211,6 +214,10 @@
     <Content Include="Views\Dependentes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SINTALOCAS.DAL\SINTALOCAS.DAL.csproj">
+      <Project>{24F26D96-C5C0-4976-B823-1DB6865FDF3C}</Project>
+      <Name>SINTALOCAS.DAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SINTALOCAS.Modelo\SINTALOCAS.Modelo.csproj">
       <Project>{C560D1D0-C39E-4E49-8B43-41211C29E44A}</Project>
       <Name>SINTALOCAS.Modelo</Name>
@@ -221,7 +228,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Browsers\qt.browser" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-reboot.min.css.map" />
@@ -236,6 +242,7 @@
     <Content Include="Scripts\bootstrap.js.map" />
     <Content Include="Scripts\bootstrap.bundle.min.js.map" />
     <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="App_Browsers\qt.browser" />
     <None Include="CustomProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.slim.min.map" />
     <None Include="Scripts\jquery-3.3.1.min.map" />
@@ -269,6 +276,8 @@
     <Content Include="Views\Finalizar\Realizado.cshtml" />
     <Content Include="Views\Usuario\Senha.cshtml" />
     <Content Include="Views\Usuario\Editar.cshtml" />
+    <Content Include="Views\Partial\EditarAfiliado.cshtml" />
+    <Content Include="Views\CentralAtendimento\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />

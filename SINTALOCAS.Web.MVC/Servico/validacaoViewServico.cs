@@ -7,12 +7,12 @@ using SINTALOCAS.Modelo.Enumerator;
 using SINTALOCAS.Dominio.Util;
 using System.Web.Mvc;
 using SINTALOCAS.Web.MVC.Models;
+using SINTALOCAS.DAL.DB;
 
 namespace SINTALOCAS.Web.MVC.Servico
 {
     public static class validacaoViewServico
     {
-
         public static AfiliacaoModelView GeraAfiliacaoModelView(Dictionary<string, string> lista){
 
             // criando objeto de afiliado
@@ -97,6 +97,9 @@ namespace SINTALOCAS.Web.MVC.Servico
                     PIS = lista["PIS"]
                 };
 
+                if (lista.ContainsKey("CONTRIBUICAO"))
+                    afiliado.Contribuicoes = AfiliacaoServico.GerarListaContribuicao(lista["CONTRIBUICAO"]);
+                
                 //TELEFONES
                 var telefones = new List<Telefone>();
 
@@ -140,7 +143,7 @@ namespace SINTALOCAS.Web.MVC.Servico
 
                 if (editar)
                 {
-                    result = AfiliacaoServico.Editar(afiliado);
+                    result = AfiliacaoServico.Editar(afiliado);                    
                 }
                 else
                 {
