@@ -45,8 +45,6 @@ namespace SINTALOCAS.Web.MVC.Controllers
                 }
                 else
                 {
-                    //FormsAuthentication.SetAuthCookie(validar[0].Email, false);
-                    //FormsAuthentication.SetAuthCookie(validar[0].Nome, false);
                     FormsAuthentication.SetAuthCookie(validar[0].ID.ToString(), false);
                     TempData["LogAtivo"] = validar[0];
                     return Redirect("~/Relatorio");
