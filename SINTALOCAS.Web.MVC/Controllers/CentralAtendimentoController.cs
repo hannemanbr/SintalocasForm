@@ -1,5 +1,6 @@
 ﻿using SINTALOCAS.Dominio.Servico;
 using SINTALOCAS.Dominio.Util;
+using SINTALOCAS.Modelo;
 using SINTALOCAS.Modelo.Enumerator;
 using SINTALOCAS.Web.MVC.Servico;
 using System;
@@ -18,6 +19,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
         public ActionResult Index()
         {
             ConsultarPorCPF();
+            GeraViewBagDetalhe();
             return View();
         }
 
@@ -30,19 +32,20 @@ namespace SINTALOCAS.Web.MVC.Controllers
         private void ConsultarPorCPF()
         {
             var id = Convert.ToInt32(Server.HtmlEncode(User.Identity.Name));
+            var listaAfiliado = new List<Afiliado>();
+            listaAfiliado.Add(AfiliacaoServico.GetByID(id));
 
-            var listaAfiliado = AfiliacaoServico.GetByID(id);
             TempData["cpfAfiliado"] = id;
             ViewBag.Lista = listaAfiliado;
 
-            if (listaAfiliado.ID > 0)
+            if (listaAfiliado.Count > 0)
             {
-                var idAfiliado = listaAfiliado.ID;
-                ViewBag.DtNasc = listaAfiliado.DataNascimento.ToString("dd/MM/yyyy");
+                var idAfiliado = listaAfiliado[0].ID;
+                ViewBag.DtNasc = listaAfiliado[0].DataNascimento.ToString("dd/MM/yyyy");
                 ViewBag.Dependentes = DependenteServico.ListaDependentes(idAfiliado);
-                ViewBag.Enderecos = listaAfiliado.Endereco;
-                ViewBag.Telefone = listaAfiliado.Telefones.Where(x => x.TipoTelefone == TelefoneEnum.Residencia).First();
-                ViewBag.Celular = listaAfiliado.Telefones.Where(x => x.TipoTelefone == TelefoneEnum.Celular01).First();
+                ViewBag.Enderecos = listaAfiliado[0].Endereco;
+                ViewBag.Telefone = listaAfiliado[0].Telefones.Where(x => x.TipoTelefone == TelefoneEnum.Residencia).First();
+                ViewBag.Celular = listaAfiliado[0].Telefones.Where(x => x.TipoTelefone == TelefoneEnum.Celular01).First();
 
             }
         }
