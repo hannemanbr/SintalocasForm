@@ -11,17 +11,13 @@ using System.Web.Security;
 
 namespace SINTALOCAS.Web.MVC.Controllers
 {    
+    [Authorize]
     public class CentralAtendimentoController : Controller
     {
-        [HttpPost]
         // GET: CentralAtendimento
-        public ActionResult Index(FormCollection collection)
+        public ActionResult Index()
         {
-            Login(collection);
-
             ConsultarPorCPF();
-            GeraViewBagDetalhe();
-
             return View();
         }
 
@@ -30,59 +26,23 @@ namespace SINTALOCAS.Web.MVC.Controllers
             FormsAuthentication.SignOut();
             return RedirectToAction("../Home/");
         }
-
-        private bool Login(FormCollection collection)
-        {
-            var result = false;
-            //Convertendo informaçoes dos campos em uma lista
-            var lista = validacaoViewServico.GeraListaCampos(collection);
-
-            if (lista.Count > 0)
-            {
-                var cpf = lista["CPF"];
-                var email = lista["EMAIL"];
-                var dtnascTx = lista["DTNASC"];
-                var dtnasc = DataUtil.ConverterString(dtnascTx);
-
-                var usuario = AfiliacaoServico.GetByCpfEmailDataNascimento(cpf, email, dtnasc);
-
-                if (usuario.ID <= 0)
-                {
-                    ViewBag.MensagemRetorno = "E-mail, CPF ou Data de Nascimento inválida";
-                    result = false;
-                }
-                else
-                {
-                    FormsAuthentication.SetAuthCookie(usuario.ID.ToString(), false);
-                    TempData["LogAtivo"] = usuario;
-                    result = true;
-                }
-            }
-            else
-            {
-                ViewBag.MensagemRetorno = "Usuário inválido";
-            }
-            
-
-            return result;
-        }
-
+                
         private void ConsultarPorCPF()
         {
             var id = Convert.ToInt32(Server.HtmlEncode(User.Identity.Name));
 
-            var listaAfiliado = AfiliacaoServico.Listar(id.ToString());
+            var listaAfiliado = AfiliacaoServico.GetByID(id);
             TempData["cpfAfiliado"] = id;
             ViewBag.Lista = listaAfiliado;
 
-            if (listaAfiliado.Count > 0)
+            if (listaAfiliado.ID > 0)
             {
-                var idAfiliado = listaAfiliado[0].ID;
-                ViewBag.DtNasc = listaAfiliado[0].DataNascimento.ToString("dd/MM/yyyy");
+                var idAfiliado = listaAfiliado.ID;
+                ViewBag.DtNasc = listaAfiliado.DataNascimento.ToString("dd/MM/yyyy");
                 ViewBag.Dependentes = DependenteServico.ListaDependentes(idAfiliado);
-                ViewBag.Enderecos = listaAfiliado[0].Endereco;
-                ViewBag.Telefone = listaAfiliado[0].Telefones.Where(x => x.TipoTelefone == TelefoneEnum.Residencia).First();
-                ViewBag.Celular = listaAfiliado[0].Telefones.Where(x => x.TipoTelefone == TelefoneEnum.Celular01).First();
+                ViewBag.Enderecos = listaAfiliado.Endereco;
+                ViewBag.Telefone = listaAfiliado.Telefones.Where(x => x.TipoTelefone == TelefoneEnum.Residencia).First();
+                ViewBag.Celular = listaAfiliado.Telefones.Where(x => x.TipoTelefone == TelefoneEnum.Celular01).First();
 
             }
         }

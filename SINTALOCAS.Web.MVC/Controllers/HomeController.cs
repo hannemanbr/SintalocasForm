@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Mvc.Ajax;
+using System.Web.Security;
 using SINTALOCAS.Dominio.Servico;
 using SINTALOCAS.Dominio.Util;
 using SINTALOCAS.Modelo;
@@ -17,6 +18,11 @@ namespace SINTALOCAS.Web.MVC.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+
+        private void ConsultarLogin()
+        {
+
         }
 
         [HttpPost]
@@ -45,9 +51,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
 
                 if (DateTime.TryParse(lista["DTNASC"], out data))
                 {
-                    var reg = AfiliacaoServico.GetByCpfEmailDataNascimento(Cpf, Email, data);
-
-                    if (reg.ID > 0)
+                    if (Login(collection))
                     {
                         return RedirectToAction("../CentralAtendimento");
                     }
@@ -98,6 +102,41 @@ namespace SINTALOCAS.Web.MVC.Controllers
             }
 
             return validar;
+        }
+
+        private bool Login(FormCollection collection)
+        {
+            var result = false;
+            //Convertendo informaçoes dos campos em uma lista
+            var lista = validacaoViewServico.GeraListaCampos(collection);
+
+            if (lista.Count > 0)
+            {
+                var cpf = lista["CPF"];
+                var email = lista["EMAIL"];
+                var dtnascTx = lista["DTNASC"];
+                var dtnasc = DataUtil.ConverterString(dtnascTx);
+
+                var usuario = AfiliacaoServico.GetByCpfEmailDataNascimento(cpf, email, dtnasc);
+
+                if (usuario.ID <= 0)
+                {
+                    ViewBag.MensagemRetorno = "E-mail, CPF ou Data de Nascimento inválida";
+                    result = false;
+                }
+                else
+                {
+                    FormsAuthentication.SetAuthCookie(usuario.ID.ToString(), false);
+                    TempData["LogAtivo"] = usuario;
+                    result = true;
+                }
+            }
+            else
+            {
+                ViewBag.MensagemRetorno = "Usuário inválido";
+            }
+
+            return result;
         }
 
     }
