@@ -82,7 +82,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/19/2018 23:47:46</publishTime>
     </File>
     <File Include="bin/SINTALOCAS.Web.MVC.dll">
-      <publishTime>04/19/2018 23:47:52</publishTime>
+      <publishTime>04/20/2018 00:45:19</publishTime>
     </File>
     <File Include="bin/System.AppContext.dll">
       <publishTime>04/04/2018 23:26:26</publishTime>
@@ -622,7 +622,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/28/2018 22:36:23</publishTime>
     </File>
     <File Include="Style/estiloAdmin.css">
-      <publishTime>04/19/2018 23:45:41</publishTime>
+      <publishTime>04/20/2018 00:13:01</publishTime>
     </File>
     <File Include="Views/Admin/Index.cshtml">
       <publishTime>03/02/2018 13:51:53</publishTime>
@@ -688,10 +688,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/20/2018 23:38:28</publishTime>
     </File>
     <File Include="Views/Shared/_LayoutAdmin.cshtml">
-      <publishTime>04/19/2018 23:46:24</publishTime>
+      <publishTime>04/20/2018 00:43:51</publishTime>
     </File>
     <File Include="Views/Shared/_LayoutCentralAtendimento.cshtml">
-      <publishTime>04/19/2018 22:48:15</publishTime>
+      <publishTime>04/20/2018 00:15:35</publishTime>
     </File>
     <File Include="Views/Shared/_LayoutLoginAdmin.cshtml">
       <publishTime>03/02/2018 13:53:05</publishTime>
