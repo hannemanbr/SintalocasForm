@@ -22,18 +22,14 @@
 </head>
 <body>
     <div class="container">
-        <div class="row">
-            <img src="~/image/logo_fundo.png" style="width:50px; height: 40px">
-            <label class="label">
-                <strong>PAINEL DE CONTROLE</strong>
-            </label>
-        </div>
-        <div class="row" style="background-color:#000000; padding-bottom: 3px;">
-            <a href="~/Relatorio/RelLog" style="color:#ffffff">[ Log de Acesso ]</a>
-            <a href="~/Relatorio/RelAfiliados" style="color:#ffffff">[ Afiliados ]</a>
-            <a href="~/Textos/" style="color:#ffffff">[ Textos do Sistema ]</a>
-            <a href="~/Usuario" style="color:#ffffff">[ Usuários ]</a> |
-            <a href="~/Admin/Sair" style="color:#ff0000" onclick="return confirm('Deseja finalizar a sessão?');">[ |X|Sair ]</a>
+        <div class="topnav" id="myTopnav">
+            <img src="~/image/logo_fundo.png" width="40" alt="">
+            <a href="~/Relatorio/RelAfiliados">Cadastro de afiliados</a>
+            <a href="~/Textos/">Texto do sistema</a>
+            <a href="~/Usuario/">Usuários</a>
+            <a href="~/Admin/Sair/" onclick="return confirm('Deseja finalizar a sessão?');">Sair</a>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+
         </div>
         @Html.Action("AcessoAdmin", "Log")
         @RenderBody()

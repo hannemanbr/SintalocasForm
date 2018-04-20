@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    @*<title>@ViewBag.Title</title>*@
+    <title>@ViewBag.Title</title>
     <title>SINTALOCAS - PAINEL DE CONTROLE</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width">
@@ -26,35 +26,43 @@
             <nav class="navbar navbar-light bg-light">
                 <a class="navbar-brand" href="#">
                     <img src="~/image/logo_fundo.png" width="60" alt="">
-                    Painel de Controle
+                    Central de atendimento
                 </a>
             </nav>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="~/Relatorio/RelLog">Log de acessos<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="~/CentralAtendimento/">Cadastro<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="~/Relatorio/RelAfiliados">Cadastro de afiliados</a>
+                        <a class="nav-link" href="~/CentralAtendimento/Dependente">Cadastro de dependentes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="~/Textos/">Textos do Sistema</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="~/Usuario/">Usuários</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="~/Admin/Sair/" onclick="return confirm('Deseja finalizar a sessão?');">Sair</a>
+                        <a class="nav-link" href="~/CentralAtendimento/Sair/" onclick="return confirm('Deseja finalizar a sessão?');">Sair</a>
                     </li>
                 </ul>
-                <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form>
             </div>
         </nav>
-        @Html.Action("AcessoAdmin", "Log")
+        <br />
+        @Html.Action("AcessoFormAfilia", "Log")
         @RenderBody()
+        <br />
+        <br />
+        <div class="row">
+            <div class="col-2-banner" style="font-size: 10px; font-family: Arial, Helvetica, sans-serif">
+                <label class="label">
+                    <strong>
+                        SINDICATO INTERESTADUAL DOS TRABALHADORES EM EMPRESAS DE LOCAÇÃO DE BENS MÓVEIS E ASSISTÊNCIA TÉCNICA DOS ESTADOS DO RIO DE JANEIRO, SÃO PAULO E
+                        ESPÍRITO SANTO – SINTALOCAS
+                    </strong>
+                    <br />Rua Senador Dantas 117 Sala 721 e 725 – Centro Rio de Janeiro / RJ - CEP 20031-911
+                    <br />CNPJ No 72.343.569/0001-60 – Cód. Sindical 000.000.89447-8
+                    <br />(21) 2510-3351 / 2510-3150 / 2262-0385
+                    <br /><strong>E-mail:</strong> sintalocas@sintalocas.org.br / homologacoes@sintalocas.org.br
+                    <br /><strong>Site:</strong> www.sintalocas.org.br
+                </label>
+            </div>
+        </div>
     </div>
 </body>
 </html>

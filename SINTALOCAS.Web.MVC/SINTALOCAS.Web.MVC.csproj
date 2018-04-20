@@ -280,6 +280,7 @@
     <Content Include="Views\CentralAtendimento\Index.cshtml" />
     <Content Include="Views\CentralAtendimento\Dependente.cshtml" />
     <Content Include="Views\Partial\DepententeCadastro.cshtml" />
+    <Content Include="Views\Shared\_LayoutCentralAtendimento.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
