@@ -278,6 +278,8 @@
     <Content Include="Views\Usuario\Editar.cshtml" />
     <Content Include="Views\Partial\EditarAfiliado.cshtml" />
     <Content Include="Views\CentralAtendimento\Index.cshtml" />
+    <Content Include="Views\CentralAtendimento\Dependente.cshtml" />
+    <Content Include="Views\Partial\DepententeCadastro.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />

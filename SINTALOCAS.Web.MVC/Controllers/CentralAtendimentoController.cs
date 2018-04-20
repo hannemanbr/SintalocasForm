@@ -23,6 +23,11 @@ namespace SINTALOCAS.Web.MVC.Controllers
             return View();
         }
 
+        public ActionResult Dependente()
+        {
+            return View();
+        }
+
         public ActionResult Sair()
         {
             FormsAuthentication.SignOut();
