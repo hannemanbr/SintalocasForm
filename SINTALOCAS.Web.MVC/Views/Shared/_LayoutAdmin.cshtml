@@ -21,16 +21,15 @@
     <script src="~/Scripts/jquery.mask.js"></script>
 </head>
 <body>
+    <div class="topnav" id="myTopnav">
+        <img src="~/image/logo_fundo.png" width="40" alt="">
+        <a href="~/Relatorio/RelAfiliados">Cadastro de afiliados</a>
+        <a href="~/Textos/">Texto do sistema</a>
+        <a href="~/Usuario/">Usuários</a>
+        <a href="~/Admin/Sair/" onclick="return confirm('Deseja finalizar a sessão?');">Sair</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+    </div>
     <div class="container">
-        <div class="topnav" id="myTopnav">
-            <img src="~/image/logo_fundo.png" width="40" alt="">
-            <a href="~/Relatorio/RelAfiliados">Cadastro de afiliados</a>
-            <a href="~/Textos/">Texto do sistema</a>
-            <a href="~/Usuario/">Usuários</a>
-            <a href="~/Admin/Sair/" onclick="return confirm('Deseja finalizar a sessão?');">Sair</a>
-            <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
-
-        </div>
         @Html.Action("AcessoAdmin", "Log")
         @RenderBody()
     </div>
