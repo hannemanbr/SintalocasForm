@@ -71,7 +71,7 @@
       <HintPath>..\packages\Remotion.Linq.2.1.1\lib\net45\Remotion.Linq.dll</HintPath>
     </Reference>
     <Reference Include="Rotativa, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Rotativa.1.7.3\lib\net461\Rotativa.dll</HintPath>
+      <HintPath>..\packages\Rotativa.1.7.2\lib\net461\Rotativa.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Collections.Immutable, Version=1.2.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -147,6 +147,7 @@
     <Compile Include="Models\AfiliacaoModelView.cs" />
     <Compile Include="Models\DependenteModelView.cs" />
     <Compile Include="Controllers\AfiliacaoController.cs" />
+    <Compile Include="Servico\RelatorioServico.cs" />
     <Compile Include="Servico\validacaoViewServico.cs" />
     <Compile Include="Models\EnderecoModelView.cs" />
     <Compile Include="Controllers\DependentesController.cs" />
