@@ -197,6 +197,36 @@ namespace SINTALOCAS.Dominio.Servico
             return result;
         }
 
+        public static Afiliado GetByCpf(string cpf)
+        {
+            var result = new Afiliado() { ID = 0 };
+
+            try
+            {
+                var lista = _afiliacaoDAL.ConsultarPorFiltro(cpf);
+
+                if (lista.Count > 0)
+                    result = lista[0];
+
+                var pagamento = PagamentoServico.ConsultarTodos();
+
+                if (result.PagamentoID > 0)
+                    result.PagamentoTx = pagamento.Where(p => p.ID == result.PagamentoID).First().Texto;
+
+                result.Contribuicoes = _contribuicao.ConsultarPorAfiliado(result.ID);
+
+                // CONSULTAR DEPENDENTE
+                result.dependentes = DependenteServico.ListaDependentes(result.ID);
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+            return result;
+        }
+
         public static Afiliado GetByID(int id)
         {
             var result = new Afiliado();

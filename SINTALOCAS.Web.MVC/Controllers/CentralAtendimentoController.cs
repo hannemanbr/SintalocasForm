@@ -25,6 +25,9 @@ namespace SINTALOCAS.Web.MVC.Controllers
 
         public ActionResult Dependente()
         {
+            GeraViewBag();
+            CombosForm();
+
             return View();
         }
 
@@ -40,25 +43,22 @@ namespace SINTALOCAS.Web.MVC.Controllers
             return RedirectToAction("../Home/");
         }
                 
-        private void ConsultarPorCPF()
+        private Afiliado ConsultarPorCPF()
         {
-            var id = Convert.ToInt32(Server.HtmlEncode(User.Identity.Name));
-            var listaAfiliado = new List<Afiliado>();
-            listaAfiliado.Add(AfiliacaoServico.GetByID(id));
+            var idAfiliado = Convert.ToInt32(Server.HtmlEncode(User.Identity.Name));
+            var afiliado = AfiliacaoServico.GetByID(idAfiliado);
 
-            TempData["cpfAfiliado"] = id;
-            ViewBag.Lista = listaAfiliado;
+            TempData["idAfiliado"] = afiliado.ID;
 
-            if (listaAfiliado.Count > 0)
-            {
-                var idAfiliado = listaAfiliado[0].ID;
-                ViewBag.DtNasc = listaAfiliado[0].DataNascimento.ToString("dd/MM/yyyy");
-                ViewBag.Dependentes = DependenteServico.ListaDependentes(idAfiliado);
-                ViewBag.Enderecos = listaAfiliado[0].Endereco;
-                ViewBag.Telefone = listaAfiliado[0].Telefones.Where(x => x.TipoTelefone == TelefoneEnum.Residencia).First();
-                ViewBag.Celular = listaAfiliado[0].Telefones.Where(x => x.TipoTelefone == TelefoneEnum.Celular01).First();
+            ViewBag.DtNasc = afiliado.DataNascimento.ToString("dd/MM/yyyy");
+            ViewBag.Dependentes = DependenteServico.ListaDependentes(idAfiliado);
+            ViewBag.Enderecos = afiliado.Endereco;
+            ViewBag.Telefone = afiliado.Telefones.Where(x => x.TipoTelefone == TelefoneEnum.Residencia).First();
+            ViewBag.Celular = afiliado.Telefones.Where(x => x.TipoTelefone == TelefoneEnum.Celular01).First();
 
-            }
+            ViewBag.Lista = new List<Afiliado>() { afiliado };
+
+            return afiliado;
         }
 
         private void GeraViewBagDetalhe()
@@ -66,6 +66,48 @@ namespace SINTALOCAS.Web.MVC.Controllers
             ViewBag.Pagamento = PagamentoServico.ConsultarPorCategoria(OpcaoPagamentoEnum.PAGTO.ToString());
             ViewBag.Contribuicao = PagamentoServico.ConsultarPorCategoria(OpcaoPagamentoEnum.CONTRIBuICAO.ToString());
             ViewBag.GrauParentesco = DependenteServico.ListaGrausParentesco();
+        }
+
+        private void GeraViewBag()
+        {
+            var afiliado = ConsultarPorCPF();
+            ViewBag.RootView = Validacao.AnalisaLink(@Request.RawUrl.ToString());
+            ViewBag.LinkSubmitAfilia = Validacao.AnalisaLink(@Request.RawUrl.ToString() + "/ValidarFormJSON");
+            ViewBag.GrauParentesco = DependenteServico.DictionaryGrausParentesco();
+            ViewBag.ListaDependentes = DependenteServico.ListaDependentes(afiliado.ID);
+        }
+
+        private void CombosForm()
+        {
+
+            try
+            {
+                ViewBag.GrauParentesco = DependenteServico.ListaGrauParentescoDisponivel(ConsultaIdAfiliado());
+            }
+            catch (Exception ex)
+            {
+                ViewBag.MensagemRetorno = ex.Message;
+            }
+
+        }
+
+        private int ConsultaIdAfiliado()
+        {
+            var idAfiliado = 0;
+
+            if (TempData["idAfiliado"] != null)
+            {
+                if (!Int32.TryParse(TempData["idAfiliado"].ToString(), out idAfiliado))
+                    ViewBag.MensagemRetorno = MensagemUtil.ErroIDForm();
+                TempData["idAfiliadoForm"] = idAfiliado; // renovando sessao                
+            }
+            else
+            {
+                ViewBag.MensagemRetorno = MensagemUtil.ErroGeneralizado();
+            }
+
+            return idAfiliado;
+
         }
 
     }

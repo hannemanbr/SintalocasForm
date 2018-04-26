@@ -120,22 +120,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
 
             try
             {
-                //int cont = 0;
-                //var listaGrauParentesco = DependenteServico.ListaGrausParentesco().OrderBy(x=>x.Descricao);
-                //var listaDependentesCadastrado = DependenteServico.ListaDependentes(ConsultaIdAfiliado());
-                ////var listaGrauParentesco = DependenteServico.DictionaryGrausParentesco();
-
-                //var listaCombo = new Dictionary<int, string>();
-
-                //foreach(var item in listaGrauParentesco)
-                //{
-                //    cont = listaDependentesCadastrado.Where(x=>x.GrauParentescoID==item.ID).Count();
-
-                //    if (cont < item.LimiteQuantidade) listaCombo.Add(item.ID, item.Descricao);
-                //}
-
                 ViewBag.GrauParentesco = DependenteServico.ListaGrauParentescoDisponivel(ConsultaIdAfiliado());
-
             }
             catch (Exception ex)
             {
