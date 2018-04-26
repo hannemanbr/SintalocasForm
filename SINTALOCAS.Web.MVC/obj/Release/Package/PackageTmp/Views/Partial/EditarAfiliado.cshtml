@@ -187,9 +187,6 @@
             <td>
                 Acrescimo
             </td>
-            <td>
-                Ação
-            </td>
         </tr>
         @foreach (var itemDep in ViewBag.Dependentes)
         {
@@ -210,12 +207,6 @@
                         <option value="1" @(itemDep.AcrescimoMensal == 1 ? "selected" : "")>Sim</option>
                         <option value="1" @(itemDep.AcrescimoMensal == 0 ? "selected" : "")>Não</option>
                     </select>
-                </td>
-                <td style="text-align:center">
-                    <a href="../Delete/@itemDep.ID"
-                       onclick="return ConfirmaAcao('excluir este registro?')">
-                        <img src="~/Image/excluir.png" style="width:20px;" alt="Excluir" />
-                    </a>
                 </td>
             </tr>
         }

@@ -10,33 +10,37 @@
     <h4>
         Se você não é um afiliado, clique no botão para acessar o formulário digital
     </h4>
-    <input type="button" id="btnGravar" data-mini="true" value="Associe-se" onclick="window.location.href='Afiliacao'" />
-</div>
-<div class="col-50" style="background-color:#edecec; padding:5px; border-color:#; border-width: 1px; border-style:solid;">
     <div class="row">
-        <h3>Eu já tenho cadastro</h3>
-    </div>
-    <form action="" id="formAfilia" method="post">
-        <label class="col-form-label">
-            Informe seu e-mail de cadastro
-        </label>
-        <div class="row">
-            <input type="text" data-mini="true" id="Email" name="Email" placeholder="digite seu e-mail" />
+        <input type="button" id="btnGravar" data-mini="true" value="Associe-se" onclick="window.location.href='../Afiliacao'" />
         </div>
-        <label class="col-form-label">
-            Digite seu CPF
-        </label>
-        <div class="row">
-            <input type="text" data-mini="true" id="cpf" name="cpf" placeholder="99999999999" />
-        </div>
-        <label class="col-form-label">
-            Data de Nascimento
-        </label>
-        <div class="row">
-            <input type="text" data-mini="true" id="dtnasc" name="dtnasc" style="width:130px;" placeholder="dd/mm/aaaa" />
-        </div>
-        <span id="rFormRetorno" style="color:#FF0000">@Html.Raw(ViewBag.MensagemRetorno)</span>
         <br />
-        <input type="submit" id="btnGravar" value="Acessar" />
-    </form>
-</div>
+        <br />
+    </div>
+    <div class="col-50" style="background-color:#edecec; padding:5px; border-color:#; border-width: 1px; border-style:solid;">
+        <div class="row">
+            <h3>Eu já tenho cadastro</h3>
+        </div>
+        <form action="" id="formAfilia" method="post">
+            <label class="col-form-label">
+                Informe seu e-mail de cadastro
+            </label>
+            <div class="row">
+                <input type="text" data-mini="true" id="Email" name="Email" placeholder="digite seu e-mail" />
+            </div>
+            <label class="col-form-label">
+                Digite seu CPF
+            </label>
+            <div class="row">
+                <input type="text" data-mini="true" id="cpf" name="cpf" placeholder="99999999999" />
+            </div>
+            <label class="col-form-label">
+                Data de Nascimento
+            </label>
+            <div class="row">
+                <input type="text" data-mini="true" id="DtNasc" name="DtNasc" style="width:120px;" placeholder="dd/mm/aaaa" onblur="validarDtNasc(this, '@ViewBag.RootView')" class="simple-field-data-mask" data-mask="00/00/0000" />
+            </div>
+            <span id="rFormRetorno" style="color:#FF0000">@Html.Raw(ViewBag.MensagemRetorno)</span>
+            <br />
+            <input type="submit" id="btnGravar" value="Acessar" />
+        </form>
+    </div>
