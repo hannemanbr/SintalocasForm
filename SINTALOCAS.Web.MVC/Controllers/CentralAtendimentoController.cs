@@ -110,5 +110,62 @@ namespace SINTALOCAS.Web.MVC.Controllers
 
         }
 
+        [HttpPost]
+        public JsonResult ValidarFormJSON(FormCollection Collection)
+        {
+            var retorno = false;
+            var mensagem = ValidarForm(Collection);
+
+            if (mensagem.Trim() == "") retorno = true;
+
+            return Json(new { success = retorno, msg = mensagem }, JsonRequestBehavior.AllowGet); ;
+
+        }
+
+        public string ValidarForm(FormCollection Collection)
+        {
+            var result = "";
+
+            //Convertendo informaçoes dos campos em uma lista
+            var lista = validacaoViewServico.GeraListaCampos(Collection);
+
+            //validar campos opcionais
+            result = Validacao.FormAfiliacaoValidarPreenchimento(lista);
+
+            //validação específica cpf, cpn, pis, etc.
+            result = Validacao.ValidarCodigos(lista);
+
+            int idAfiliado = ConsultaIdAfiliado();
+            if (idAfiliado == 0) result += MensagemUtil.ErroGeneralizado(); ;
+
+            result = DependenteServico.ValidarCadastroDependente(idAfiliado);
+
+            ViewBag.MensagemRetorno = result;
+
+            if (result.Trim() == "")
+            {
+                InserirDados(lista, idAfiliado); //gravando informaçoes
+                GeraViewBag();
+                //CombosForm();
+            }
+
+            return result;
+
+        }
+
+        private void InserirDados(Dictionary<string, string> lista, int idAfiliado)
+        {
+
+            try
+            {
+                validacaoViewServico.InsereDependente(lista, idAfiliado);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
     }
 }
