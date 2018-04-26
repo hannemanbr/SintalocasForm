@@ -30,13 +30,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
 
             return View();
         }
-
-        [HttpPost]
-        public ActionResult Dependente(FormCollection collection)
-        {
-            return View();
-        }
-
+               
         public ActionResult Sair()
         {
             FormsAuthentication.SignOut();
