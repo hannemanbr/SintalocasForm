@@ -187,12 +187,14 @@ namespace SINTALOCAS.Web.MVC.Controllers
 
             if (viewRelatorio.Trim() != "")
             {
-                var pdf = new ViewAsPdf
-                {
-                    ViewName = viewRelatorio
-                };
+                //var pdf = new ViewAsPdf
+                //{
+                //    ViewName = viewRelatorio
+                //};
 
-                return pdf;
+                //return pdf;
+
+                return View(viewRelatorio);
             }
             else
             {

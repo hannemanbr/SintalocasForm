@@ -30,7 +30,23 @@ namespace SINTALOCAS.Web.MVC.Controllers
 
             return View();
         }
-               
+
+        [HttpPost]
+        public ActionResult Dependente(FormCollection collection)
+        {
+            var result = ValidarForm(collection);
+
+            ViewBag.MensagemRetorno = MensagemUtil.OperacaoRealizada();
+
+            if (result.Trim() != "")
+                ViewBag.MensagemRetorno = MensagemUtil.ErroCamposNaoPreenchidos();
+
+            GeraViewBag();
+            CombosForm();
+
+            return View();
+        }
+
         public ActionResult Sair()
         {
             FormsAuthentication.SignOut();
@@ -93,7 +109,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
             {
                 if (!Int32.TryParse(TempData["idAfiliado"].ToString(), out idAfiliado))
                     ViewBag.MensagemRetorno = MensagemUtil.ErroIDForm();
-                TempData["idAfiliadoForm"] = idAfiliado; // renovando sessao                
+                TempData["idAfiliado"] = idAfiliado; // renovando sessao                
             }
             else
             {
@@ -103,19 +119,7 @@ namespace SINTALOCAS.Web.MVC.Controllers
             return idAfiliado;
 
         }
-
-        [HttpPost]
-        public JsonResult ValidarFormJSON(FormCollection Collection)
-        {
-            var retorno = false;
-            var mensagem = ValidarForm(Collection);
-
-            if (mensagem.Trim() == "") retorno = true;
-
-            return Json(new { success = retorno, msg = mensagem }, JsonRequestBehavior.AllowGet); ;
-
-        }
-
+        
         public string ValidarForm(FormCollection Collection)
         {
             var result = "";
@@ -139,12 +143,24 @@ namespace SINTALOCAS.Web.MVC.Controllers
             if (result.Trim() == "")
             {
                 InserirDados(lista, idAfiliado); //gravando informaçoes
-                GeraViewBag();
-                //CombosForm();
             }
 
             return result;
 
+        }
+
+        public ActionResult Delete(int id)
+        {
+            var result = DependenteServico.Remove(id);
+
+            int idAfiliado = ConsultaIdAfiliado();
+            if (idAfiliado == 0)
+                return View("Afiliacao");
+
+            GeraViewBag();
+            CombosForm();
+
+            return RedirectToAction("Dependente");
         }
 
         private void InserirDados(Dictionary<string, string> lista, int idAfiliado)
